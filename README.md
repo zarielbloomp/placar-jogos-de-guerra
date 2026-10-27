@@ -51,3 +51,14 @@ Créditos em destaque: Miguel Conholato Nicoli (IMI4) e Murilo Carreiro (EMI4), 
 O acesso ao painel exige Firebase Auth e conta correspondente ao assento. Cada conselheiro registra seu voto próprio. Mesa/Professor compartilham a partida e os dados operacionais autorizados; o Público usa uma conta compartilhada. A projeção `jg/estado` é pública por desenho; o segredo exige conta autorizada. As preferências não são uma barreira de autenticação.
 
 Para repetir toda a cobertura automatizada pelo menos cinco vezes: `node tests/simular-cenarios.cjs 5`. O resultado fica em `output/simulacoes/resultado-cenarios.json`; logs de ensaio em `tmp/simulacoes/`. O comando usa apenas dados fictícios. A simulação oficial cobre Preto/Amarelo e Conselho; a simulação legada verifica compatibilidade. Consulte [o relatório de simulações](docs/relatorio-simulacoes.md).
+
+
+### Computador e telão
+
+Os links `?telao=1`, `?controle=1` e `?professor=1` selecionam o formulário correto; todos continuam exigindo a senha da conta correspondente. O Professor também tem botão próprio na entrada. O caminho anterior pela Mesa/assento7 continua disponível.
+
+No computador, a visão pública organiza classificação/cronômetro à esquerda, pergunta/Conselho no centro e acontecimentos à direita. Recursos ficam abaixo; combatentes podem ser consultados. O cabeçalho preserva os créditos e o Professor principal. O histórico aceita teclado e mantém foco/rolagem em atualizações. Texto ampliado e telas estreitas reorganizam a composição sem esconder enunciados.
+
+O botão **Tela cheia** usa a função do navegador apenas neste aparelho. Se o navegador recusar, o site orienta usar **F11** no computador. Isso não altera jogo, permissões ou preferências de outros dispositivos.
+
+A suíte `node tests/ux-telao.cjs` cobre entrada direta sem autenticação automática, Professor, fluxo público, transição para pelotão, cronômetro ocioso, sigilo e tela cheia/falha. Integra o CI e o comando de cinco rodadas. A nova organização foi conferida em ensaio com ataque, seis votos, empate, desempate do Professor, anúncio e histórico por teclado. Conferências de largura: `output/simulacoes/ux-telao-reflow.json` e `ux-login-reflow.json`.

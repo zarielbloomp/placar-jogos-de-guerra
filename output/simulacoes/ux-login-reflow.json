@@ -1,0 +1,468 @@
+{
+  "checks": [
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryMesa",
+      "width": 320,
+      "client": 301,
+      "scroll": 301
+    },
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryMesa",
+      "width": 390,
+      "client": 371,
+      "scroll": 371
+    },
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryMesa",
+      "width": 768,
+      "client": 748,
+      "scroll": 748
+    },
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryMesa",
+      "width": 1280,
+      "client": 1261,
+      "scroll": 1261
+    },
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryMesa",
+      "width": 1366,
+      "client": 1347,
+      "scroll": 1347
+    },
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryMesa",
+      "width": 1600,
+      "client": 1581,
+      "scroll": 1581
+    },
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryMesa",
+      "width": 1920,
+      "client": 1901,
+      "scroll": 1901
+    },
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryProfessor",
+      "width": 320,
+      "client": 301,
+      "scroll": 301
+    },
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryProfessor",
+      "width": 390,
+      "client": 371,
+      "scroll": 371
+    },
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryProfessor",
+      "width": 768,
+      "client": 748,
+      "scroll": 748
+    },
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryProfessor",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280
+    },
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryProfessor",
+      "width": 1366,
+      "client": 1366,
+      "scroll": 1366
+    },
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryProfessor",
+      "width": 1600,
+      "client": 1600,
+      "scroll": 1600
+    },
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryProfessor",
+      "width": 1920,
+      "client": 1920,
+      "scroll": 1920
+    },
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryPublic",
+      "width": 320,
+      "client": 301,
+      "scroll": 301
+    },
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryPublic",
+      "width": 390,
+      "client": 371,
+      "scroll": 371
+    },
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryPublic",
+      "width": 768,
+      "client": 748,
+      "scroll": 748
+    },
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryPublic",
+      "width": 1280,
+      "client": 1280,
+      "scroll": 1280
+    },
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryPublic",
+      "width": 1366,
+      "client": 1366,
+      "scroll": 1366
+    },
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryPublic",
+      "width": 1600,
+      "client": 1600,
+      "scroll": 1600
+    },
+    {
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "entry": "entryPublic",
+      "width": 1920,
+      "client": 1920,
+      "scroll": 1920
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryMesa",
+      "width": 320,
+      "client": 301,
+      "scroll": 301
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryMesa",
+      "width": 390,
+      "client": 371,
+      "scroll": 371
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryMesa",
+      "width": 768,
+      "client": 748,
+      "scroll": 748
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryMesa",
+      "width": 1280,
+      "client": 1261,
+      "scroll": 1261
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryMesa",
+      "width": 1366,
+      "client": 1347,
+      "scroll": 1347
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryMesa",
+      "width": 1600,
+      "client": 1581,
+      "scroll": 1581
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryMesa",
+      "width": 1920,
+      "client": 1901,
+      "scroll": 1901
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryProfessor",
+      "width": 320,
+      "client": 301,
+      "scroll": 301
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryProfessor",
+      "width": 390,
+      "client": 371,
+      "scroll": 371
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryProfessor",
+      "width": 768,
+      "client": 748,
+      "scroll": 748
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryProfessor",
+      "width": 1280,
+      "client": 1261,
+      "scroll": 1261
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryProfessor",
+      "width": 1366,
+      "client": 1347,
+      "scroll": 1347
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryProfessor",
+      "width": 1600,
+      "client": 1581,
+      "scroll": 1581
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryProfessor",
+      "width": 1920,
+      "client": 1901,
+      "scroll": 1901
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryPublic",
+      "width": 320,
+      "client": 301,
+      "scroll": 301
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryPublic",
+      "width": 390,
+      "client": 371,
+      "scroll": 371
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryPublic",
+      "width": 768,
+      "client": 748,
+      "scroll": 748
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryPublic",
+      "width": 1280,
+      "client": 1261,
+      "scroll": 1261
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryPublic",
+      "width": 1366,
+      "client": 1347,
+      "scroll": 1347
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryPublic",
+      "width": 1600,
+      "client": 1581,
+      "scroll": 1581
+    },
+    {
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "entry": "entryPublic",
+      "width": 1920,
+      "client": 1901,
+      "scroll": 1901
+    }
+  ],
+  "failures": 0,
+  "note": "Somente layout; encaminhamento de contas conferido nos testes e no fluxo de login do ensaio."
+}
