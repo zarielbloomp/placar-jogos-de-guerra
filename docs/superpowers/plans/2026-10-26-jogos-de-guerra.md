@@ -18,17 +18,21 @@ Interface em português; nenhuma identidade/patente pública sem ação de revel
 - Pelotão com menos de três elegíveis, até dois alvos distintos, em sequência.
 
 ### Task 1: Regras e sigilo
-- [ ] Criar testes Node com DOM e Firebase simulados, reproduzindo vazamento e baixas duplicadas.
-- [ ] Implementar normalização, transições válidas, novos tipos, classificação única e publicação explícita das patentes no fechamento.
-- [ ] Verificar ataque, prisão, libertação, cartas, empate e legado.
+- [x] Criar testes Node com DOM e Firebase simulados, reproduzindo vazamento e baixas duplicadas.
+- [x] Implementar normalização, transições válidas, novos tipos, classificação única e publicação explícita das patentes no fechamento.
+- [x] Verificar ataque, prisão, libertação, cartas, empate e legado.
 
 ### Task 2: Operação e sincronização
-- [ ] Implementar revisão transacional com rejeição de conflito e atualização de todos os clientes.
-- [ ] Atualizar segredo por campo, exigir leitura autorizada antes de habilitar edição.
-- [ ] Criar controle móvel, telão, demonstração isolada, cronômetros, pelotão e exportação pública.
-- [ ] Testar no navegador com registros de demonstração; nunca gravar no banco real.
+- [x] Implementar revisão transacional com rejeição de conflito e atualização de todos os clientes.
+- [x] Atualizar segredo por campo, exigir leitura autorizada antes de habilitar edição.
+- [x] Criar controle móvel, telão, demonstração isolada, cronômetros, pelotão e exportação pública.
+- [x] Testar no navegador com registros de demonstração; nunca gravar no banco real.
 
 ### Task 3: Documentação, revisão e publicação
-- [ ] Produzir PDF completo, renderizar e conferir páginas.
-- [ ] Atualizar README e regras de exemplo, revisar código e testes.
-- [ ] Criar GitHub, enviar apenas arquivos do projeto e ativar Pages. Conferir URL pública e links de controle/telão.
+- [x] Produzir PDF completo, renderizar e conferir páginas.
+- [x] Atualizar README e regras de exemplo, revisar código e testes.
+- [x] Criar GitHub, enviar apenas arquivos do projeto e ativar Pages. Conferir URL pública e links de controle/telão.
+
+## Verificação final
+
+25 testes Node passaram. Navegador: captura, libertação, morte, vida extra, pelotão com dois alvos sequenciais e Ás de Espadas. Controle em viewport de 390 pixels sem transbordamento horizontal. PDF de 10 páginas renderizado e conferido. GitHub criado, código enviado e Pages ativado; leitura pública do Firebase conectada. A edição com conta do professor e o ensaio entre aparelhos reais permanecem dependentes de login e permissões efetivos do Firebase e não foram alegados como testados.

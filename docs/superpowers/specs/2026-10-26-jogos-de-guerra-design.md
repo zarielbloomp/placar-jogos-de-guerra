@@ -1,6 +1,6 @@
 # Projeto de melhoria - Jogos de Guerra 2026
 
-Data: 26/10/2026. Situação: proposta para aprovação antes de alterar o produto.
+Data: 26/10/2026. Situação: aplicação imediata autorizada pelo usuário em 26/10/2026, com participação individual, controle móvel e telão.
 
 ## Objetivo
 Ajudar o professor e os dois pontuadores a conduzir as partidas, com placar público confiável, operações rápidas e elenco secreto protegido.
@@ -26,3 +26,9 @@ Não automatizar decisões pedagógicas, tribunal militar, correção de respost
 
 ## Validação
 Cobrir fluxo de ataque, prisão, libertação, morte e vida extra; privacidade no Memorial e histórico; cartas e pelotão; final sem premiar eliminados; empate; arquivos antigos sem novos campos; falha de rede e permissões. Revisar diff e verificar PDF renderizado antes de concluir.
+
+## Decisões de implementação e limites finais
+
+O fechamento solicita publicação explícita somente das patentes CO dos presos, sem nome real, em vez de publicar diferenças secretas automaticamente. O modo literal é padrão para jogo novo; ausência de pc em partida antiga conserva a interpretação alternativa. Ajustes não mudam valores de eventos já registrados. Rodízio, origem das cartas, tribunal e mudança de filiação continuam sob decisão da mesa, conforme o relatório.
+
+A revisão independente identificou e os testes reproduziram falhas de arrays vazios internos do Firebase, divulgação ao editar segredo após revelação só de patente, mutação offline e desfazer de pelotão. Todos foram corrigidos. Testes adicionais cobrem conflito de revisão, escrita negada e cadastro parcial.
