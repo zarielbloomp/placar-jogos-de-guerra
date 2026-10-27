@@ -25,3 +25,11 @@ Cinco testes automatizados de comportamento cobrem confinamento de foco, diálog
 Foram conferidos DOM acessível, teclado, layout e lógica de avisos. Não foi executado ensaio com NVDA, VoiceOver, dispositivos físicos ou zoom nativo do navegador. Não se declara certificação de conformidade integral. O suporte por tecnologias assistivas reais deve fazer parte da validação em sala.
 
 Sem mudança de regras, permissões ou dados Firebase. A preferência por responsividade e acessibilidade foi registrada no AGENTS.md para as próximas alterações.
+
+## Engrenagem de preferências pessoais
+
+Disponível no login e cabeçalho, com identificação acessível. O painel aceita texto de100a200%, alto contraste claro/escuro, espaçamento de leitura, redução de animações e botões maiores. Cada configuração é validada e salva apenas no localStorage deste navegador, separada por perfil e pelo modo ensaio. Não há gravação de preferências no Firebase. Ao entrar em outro aparelho, os ajustes não são sincronizados.
+
+No primeiro acesso de perfil sem preferência própria, herdar o ajuste usado antes do login permite manter a tela legível. Preferências de outro assento não são herdadas. Se o armazenamento for bloqueado, o ajuste funciona na aba e um aviso explica que não será guardado para a próxima visita. Restaurar padrão é local ao perfil. A redução de movimento do sistema nunca é desativada pelo painel.
+
+O teste de isolamento usou Mesa1com150%/contraste claro e Mesa2com200%/contraste escuro no mesmo navegador. Uma segunda aba do Público manteve seus ajustes quando a Mesa mudou. O reflow com200%/contraste escuro/espaçamento/alvos maiores foi repetido5x em320,390,768,1280e1920px. Campos agora possuem labels explicitamente associados por ID. O cronômetro permanece inteiro, reorganizando a área e limitando a escala visual onde o espaço é pequeno.

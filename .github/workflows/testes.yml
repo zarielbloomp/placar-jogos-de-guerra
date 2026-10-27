@@ -45,3 +45,10 @@ jobs:
 
       - name: Teclado, foco e avisos acessíveis
         run: node tests/acessibilidade.cjs
+
+      - name: Preferências pessoais e créditos
+        run: node tests/preferencias.cjs
+      - name: Autenticação e autorização dos perfis
+        run: node tests/autenticacao.cjs
+      - name: Partidas oficiais e combinações do Conselho
+        run: node tests/simulacao-v3.cjs
