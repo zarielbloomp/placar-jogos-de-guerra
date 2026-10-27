@@ -35,3 +35,7 @@ jobs:
         run: node tests/mecanismo.cjs
       - name: Integração, conflitos e votos individuais
         run: node tests/controller.cjs
+      - name: Fases, visibilidade e anúncios
+        run: node tests/fases-placar.cjs
+      - name: Controles de fase e pontuação
+        run: node tests/fases-controller.cjs

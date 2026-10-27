@@ -2,7 +2,7 @@
 
 Guia da versão autorizada em 27/10/2026. O manual original continua sendo a base das regras; as alterações abaixo foram solicitadas para esta partida. Em dúvidas de interpretação, o Professor decide e registra o motivo.
 
-Ativação autorizada em 27/10/2026. Permissões Firebase publicadas e oito autenticações confirmadas. Partida reiniciada com backup integral privado, elenco e arsenal vazios. Nova versão preparada para publicação no PR #1; o resultado do deploy será registrado no PR, sem alegação de deploy concluído neste guia.
+Atualização autorizada em 27/10/2026: seleção de fases, placar completo da Mesa e anúncios controlados. Esta entrega preserva partida e permissões Firebase. Atualização preparada para revisão no próximo PR; publicação será confirmada após o deploy. Esta entrega não altera permissões, migra dados ou reinicia a partida.
 
 ## Alterações autorizadas
 
@@ -13,7 +13,9 @@ Ativação autorizada em 27/10/2026. Permissões Firebase publicadas e oito aute
 - Cada exército dispõe de duas revisões no jogo inteiro. Recorrer de uma revisão consome a mesma cota. O fluxo permite revisar somente a última batalha, na fase atual. Uma reapuração substitui o resultado anterior; não soma uma segunda batalha nem duplica recursos.
 - No pelotão, a seleção continua física, nas cartas. A Mesa informa três nomes de guerra elegíveis; com menos de três disponíveis, informa todos. O atacante escolhe até dois, um de cada vez. O sistema não substitui as cartas por sorteio digital.
 - No Ás de Espadas, o jogador escolhe um companheiro elegível.
-- A classificação permanece no telão durante a fase, sem números de pontos. A pontuação geral acumulada com saldos é publicada no fechamento da fase. Não confundir posição na classificação com divulgação de pontuação.
+- A Mesa vê sempre o placar completo, com pontos de respostas, saldos e total. O telão mantém a classificação, mas só mostra os números gerais por ação explícita Mostrar pontuação. Ocultar pontuação remove os números mesmo após fechar a fase. Fechar fase preserva a visibilidade escolhida; selecionar outra fase oculta os números públicos.
+- Publicar resultado divulga somente o ganho calculado da resposta confirmada, independentemente dos totais gerais. Não há valor livre de pontos. Retirar anúncio remove a apresentação sem desfazer o lance. Nova pergunta, revisão ou desfazer invalidam o anúncio anterior.
+- A fase pode ser selecionada. Pergunta, Conselho ou revisão em andamento bloqueiam a troca; sair de fase incompleta exige confirmação e justificativa do Professor. A configuração inicial permite escolha livre. Contagens e rodízio são preservados ao retornar.
 - Respostas esperadas permanecem privadas. Nome real e patente não são publicados automaticamente: exigem ação explícita de revelação.
 
 ## O que permanece do manual
@@ -42,11 +44,18 @@ Use a conta individual recebida no documento privado de acessos. Professor, a Me
 
 No computador do telão, abra a visão pública. No celular ou computador de operação, abra a entrada da Mesa, selecione Mesa 1 a Mesa 6 ou Professor (assento 7) e informe sua senha. Público também informa a senha para abrir o telão. Não compartilhe a conta de um assento entre conselheiros. Saia da sessão antes de entregar o aparelho.
 
-Antes da aula, confira a conexão, os dois exércitos, nomes de guerra e recursos. Professor cadastra elenco e arsenal. No arsenal, escolha categoria Normal (cota de quatro por fase) ou Especial (situações especiais, sob conferência do Professor). Faça um ensaio separado da partida oficial; nunca use nomes reais ou senhas em capturas de divulgação. Durante a aula, acompanhe pergunta, relógio, votos, recursos, Memorial e histórico; publique a pontuação ao encerrar a fase.
+Antes da aula, confira a conexão, os dois exércitos, nomes de guerra e recursos. Professor cadastra elenco e arsenal. No arsenal, escolha categoria Pergunta-míssil (normal, quatro por fase) ou Especial (situações especiais, sob conferência do Professor). Selecione fase e exército; confira o filtro da modalidade antes de escolher a pergunta. Blitzkrieg permite qualquer fase pelo manual; o pelotão não tem essa exceção expressa. Faça um ensaio separado da partida oficial; nunca use nomes reais ou senhas em capturas de divulgação. Durante a aula, acompanhe pergunta, relógio, votos, recursos, Memorial e histórico; use Mostrar/Ocultar pontuação e Publicar resultado/Retirar anúncio conforme a divulgação desejada; fechar a fase é uma ação separada.
+
+## Fases e divulgação
+
+Consulte `docs/fases-pontuacao-anuncios.md` para as quatro tarefas: selecionar a fase, cadastrar/escolher perguntas, mostrar/ocultar totais e publicar/retirar o resultado atual. As transições preservam os cinco títulos históricos do manual. O desempate mantém Berlim, Hiroshima e Nagasaki; não cria uma sexta fase normal.
+
+Dados antigos sem o novo campo de visibilidade preservam o comportamento anterior de fechamento de fase até uma ação explícita Mostrar/Ocultar. Os índices de lances e categorias salvos são preservados.
 
 ## Fontes
 
 - Manual original: JG_MANUAL_DE_REGRAS.pdf, pp. 2-7 (documento entregue pelo responsável).
+- Fases e divulgação: docs/superpowers/plans/2026-10-27-fases-placar-anuncios.md.
 - Alterações autorizadas e arquitetura: docs/superpowers/plans/2026-10-27-mecanismo-da-guerra.md.
 
-Este guia registra regras e limites. O tutorial em PDF deve ser conferido com os rótulos e fluxos da interface efetivamente entregue.
+Este guia registra regras e limites. Os rótulos e fluxos do tutorial foram conferidos com a interface desta atualização.

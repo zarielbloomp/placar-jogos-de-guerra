@@ -30,3 +30,7 @@ As revisões de gravação precisam continuar coerentes com as regras em uso. N�
 ## Próximas alterações
 
 Descreva em cada PR o problema, o comportamento final, os testes executados e qualquer mudança de dados ou permissões. Inclua como desfazer a alteração e evite misturar uma mudança de regra com simples correção visual sem explicar ambas.
+
+## Atualização de fases, placar e anúncios
+
+A entrega seguinte preserva dados e permissões. O código anterior é `8dfeadd51ad3e06a21487d56e183b06eb3ba6324`. Sete suítes passam, incluindo fases/visibilidade/anúncios e integração com desfazer/reabertura. O novo PR registra CI e deploy. Sua reversão afeta somente o código; não reinicie nem restaure o Firebase para desfazer esta atualização visual e operacional.
