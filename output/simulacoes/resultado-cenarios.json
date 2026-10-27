@@ -1,10 +1,10 @@
 {
-  "started": "2026-10-27T19:43:38.417Z",
-  "finished": "2026-10-27T19:50:25.976Z",
-  "htmlSha256": "6da9009080875b2568c363d0f2aa280a295c0ee078e420f3d4baf6d94eda65aa",
+  "started": "2026-10-27T20:56:36.722Z",
+  "finished": "2026-10-27T21:05:41.711Z",
+  "htmlSha256": "86371bad4edf24139ce95713219f3cf4b3213206bcaa742b77412ffeebc6547a",
   "repetitions": 5,
-  "suites": 14,
-  "executions": 70,
+  "suites": 17,
+  "executions": 85,
   "failures": 0,
   "totals": {
     "partidas": 250,
@@ -25,7 +25,7 @@
       "suite": "regras",
       "success": true,
       "exitCode": 0,
-      "durationMs": 203,
+      "durationMs": 206,
       "scenarioLines": [
         "PASS 26 índices originais preservados",
         "PASS não publica identidade ao registrar baixa",
@@ -90,7 +90,7 @@
       "suite": "apresentacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 180,
+      "durationMs": 167,
       "scenarioLines": [
         "PASS publicação recusada mantém aviso de falha",
         "PASS conclusão recusada mantém pergunta pendente",
@@ -108,7 +108,7 @@
       "suite": "partida-completa",
       "success": true,
       "exitCode": 0,
-      "durationMs": 75059,
+      "durationMs": 71711,
       "scenarioLines": [
         "PASS partidas completas: {\"sementeInicial\":1,\"sementeFinal\":40,\"partidas\":40,\"fases\":200,\"batalhas\":4800,\"conferencias\":5693,\"desfazerRefazer\":561,\"vidasExtras\":292}"
       ],
@@ -130,7 +130,7 @@
       "suite": "mecanismo",
       "success": true,
       "exitCode": 0,
-      "durationMs": 230,
+      "durationMs": 223,
       "scenarioLines": [
         "PASS início vazio mantém índices históricos",
         "PASS seis votos imutáveis, empate e professor restrito",
@@ -160,7 +160,7 @@
       "suite": "controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 358,
+      "durationMs": 189,
       "scenarioLines": [
         "PASS hidratação não modifica snapshot da fonte",
         "PASS sexto voto resolve e publica sem clique extra",
@@ -175,700 +175,52 @@
     {
       "round": 1,
       "suite": "fases-placar",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 233,
-      "scenarioLines": [
-        "PASS visibilidade explícita sobrepõe fechamento e fallback preserva partida anterior",
-        "PASS mostrar placar não revela gabarito, identidade ou detalhes de recursos privados",
-        "PASS catálogo respeita períodos do manual e setup permite escolher fase",
-        "PASS desempate exige Professor, quinta fase fechada e empate dos exércitos elegíveis",
-        "PASS salto de fase sem justificativa preserva histórico e cotas",
-        "PASS próxima fase fechada dispensa exceção e reentrada mantém mísseis e rodízio",
-        "PASS pergunta, revisão e pelotão ativo bloqueiam mudança de fase",
-        "PASS transição vence pelo relógio do servidor e repetir apresentação preserva dados",
-        "PASS anúncio publica somente da0/db0 confirmado e não saldo, inclusive zero",
-        "PASS anúncio falhou divulga zero e parcial10/10 vem do evento sem aceitar números livres",
-        "PASS anúncio expira, desfazer ou evento substituído impede publicação antiga",
-        "PASS início, revisão, resolução e troca de fase invalidam anúncio anterior",
-        "PASS reabrir fase invalida fechamento histórico e reentrada exige novo encerramento"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 1,
-      "suite": "fases-controller",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 237,
-      "scenarioLines": [
-        "PASS view vazio e placar privado completo funcionam sem batalha",
-        "PASS Mesa seleciona fase3 no setup pelo handler real da interface",
-        "PASS ações de visibilidade preservam tipos, sigilo e permitem pergunta em andamento",
-        "PASS anúncio separado do placar é calculado, expira e pode ser retirado",
-        "PASS seleção de fase projeta transição com relógio local e oculta o placar",
-        "PASS fechar e avançar mantém escolha explícita de esconder pontos e histórico",
-        "PASS desfazer resultado abre roundnovo e não reaplica os votos antigos",
-        "PASS desfazer resultado revisado é recusado sem perder origem ou cota",
-        "PASS lance novo remove fechamento antigo e reentrada não contorna quatro mísseis"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 1,
-      "suite": "exclusao",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 167,
-      "scenarioLines": [
-        "PASS exclui soldado intermediário antes do jogo e alinha dados privados e revelados",
-        "PASS exclusão do primeiro soldado cancela apenas ataque ainda não respondido",
-        "PASS votação ou resposta iniciada impede exclusão e preserva tudo",
-        "PASS pergunta em preparação pode ser excluída com cancelamento sincronizado",
-        "PASS pergunta utilizada e elenco com resultados permanecem protegidos",
-        "PASS excluir pergunta offline não muda o cadastro nem anuncia sucesso",
-        "PASS fase normal muda sem justificativa após resultado e mantém histórico"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 1,
-      "suite": "acessibilidade",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 109,
-      "scenarioLines": [
-        "PASS Tab e Shift+Tab permanecem na confirmação e recuperam foco externo",
-        "PASS confirmação sem controles recebe foco no próprio diálogo",
-        "PASS restauração encontra o botão correto após recriar a interface, inclusive exército e índice",
-        "PASS leitor de tela recebe avisos e contagem de votos uma vez por mudança, sem gabarito",
-        "PASS confirmação tem título e descrição associados para leitor de tela",
-        "PASS histórico com identificação estável preserva foco após recriar o painel"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 1,
-      "suite": "preferencias",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 149,
-      "scenarioLines": [
-        "PASS somente opções permitidas e texto100-200% entram nas preferências",
-        "PASS cada assento, professor, público, visitante e ensaio tem chave própria",
-        "PASS preferências persistem por perfil sem mudar partida ou chamar Firebase",
-        "PASS cadastro novo herda só visitante e não outro assento; restaurar padrão é local",
-        "PASS primeiro acesso fixa a herança e mudanças posteriores do visitante não afetam o perfil",
-        "PASS JSON inválido e armazenamento bloqueado não impedem abrir ou usar o site",
-        "PASS créditos exibem autores, turmas e apoio informados e painel é nomeado",
-        "PASS matriz de preferências: {\"combinacoesPreferencias\":1200}",
-        "PASS 1200 combinações de preferências preservam isolamento e valores em dez perfis"
-      ],
-      "metrics": [
-        {
-          "combinacoesPreferencias": 1200
-        }
-      ]
-    },
-    {
-      "round": 1,
-      "suite": "autenticacao",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 116,
-      "scenarioLines": [
-        "PASS oito contas entram somente quando UID corresponde ao perfil escolhido",
-        "PASS senha incorreta não libera perfil nem inicia leitura privada",
-        "PASS conta de outro assento é desconectada e não libera o painel",
-        "PASS Público não aciona exclusão, pontuação ou mudança de fase",
-        "PASS permissões reais declaradas recusam voto de outra conta, repetido ou fora da rodada",
-        "PASS inicialização não restaura login automático e usa persistência NONE"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 1,
-      "suite": "simulacao-v3",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 5088,
-      "scenarioLines": [
-        "PASS simulação oficial: {\"combinacoesVotos\":729,\"empates\":150,\"partidas\":10,\"batalhas\":400,\"revisoes\":40,\"projecoesConferidas\":1200,\"sementeInicial\":1,\"sementeFinal\":10}"
-      ],
-      "metrics": [
-        {
-          "combinacoesVotos": 729,
-          "empates": 150,
-          "partidas": 10,
-          "batalhas": 400,
-          "revisoes": 40,
-          "projecoesConferidas": 1200,
-          "sementeInicial": 1,
-          "sementeFinal": 10
-        }
-      ]
-    },
-    {
-      "round": 1,
-      "suite": "ux-telao",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 117,
-      "scenarioLines": [
-        "PASS links abrem apenas formulário correspondente e não autenticam",
-        "PASS Professor tem entrada explícita com assento7; demais perfis preservam credenciais próprias",
-        "PASS fluxo público distingue espera, resposta, votação, empate, resultado e pelotão",
-        "PASS pelotão novo prevalece sobre Conselho anterior e atividade retirada volta à espera",
-        "PASS cronômetro sem ataque mostra espera e não prazo expirado",
-        "PASS apresentação mantém classificação, conselho, recursos e histórico sem gabarito ou identidade secreta",
-        "PASS tela cheia abre e fecha localmente; falha é tratada sem modificar partida"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 1,
-      "suite": "cronometro-votacao",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 174,
-      "scenarioLines": [
-        "PASS relógio chega à projeção mesmo sem pergunta e aceita tempo personalizado",
-        "PASS trocar preset aplica novo tempo em vez de retomar saldo antigo",
-        "PASS tempo inválido é rejeitado sem mudar fonte",
-        "PASS seis escolhas são publicadas durante votação, sem categoria do Professor antes ou depois",
-        "PASS view pública mostra cada voto dos seis na hora e nunca o sétimo",
-        "PASS telão tem relógio utilizável sem ataque e segundos diminuem",
-        "PASS cronômetro avulso continua visível ao pausar em zero",
-        "PASS Mesa recebe aviso de empate e Público vê votos ao vivo com Professor reservado",
-        "PASS equipe de produção inclui o único Professor sem principal ou apoio"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 2,
-      "suite": "regras",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 207,
-      "scenarioLines": [
-        "PASS 26 índices originais preservados",
-        "PASS não publica identidade ao registrar baixa",
-        "PASS baixa atualiza placar e Memorial de forma consistente",
-        "PASS recusa segunda morte do mesmo aluno",
-        "PASS prisão e libertação conservam os totais",
-        "PASS recusa libertação pelo captor errado",
-        "PASS vida extra exige morto e restaura o aluno",
-        "PASS saneia nomes e patentes de lances legados sem renomear campos",
-        "PASS saldo comum literal e CO explicitamente revelado",
-        "PASS normaliza arrays ausentes do Firebase e mantém legado",
-        "PASS pelotão sorteia até três distintos e aceita no máximo dois alvos",
-        "PASS empate não produz vencedor arbitrário",
-        "PASS defesa total identifica o aluno sem mudar sua situação",
-        "PASS cadastro individual aceita tamanho próprio por exército",
-        "PASS normalização mantém seis cores mesmo com cadastro parcial",
-        "PASS segredo carregado antes do cadastro preserva alunos adicionais",
-        "PASS Firebase omite listas vazias internas do pelotão",
-        "PASS desfazer baixa com vida extra dependente é recusado",
-        "PASS desfazer alvo do pelotão libera nova escolha",
-        "PASS desfazer recurso devolve sua utilização",
-        "PASS quinto míssil normal é recusado pela regra central",
-        "PASS defesa total respeita rodízio individual",
-        "PASS duas coletivas não permitem terceira e consomem munição",
-        "PASS Blitzkrieg não consome cota de defesa coletiva nem mísseis normais",
-        "PASS cronômetro usa prazo absoluto e preserva restante ao pausar",
-        "PASS backup inválido não é aceito nem copia rn/rf",
-        "PASS conciliação preserva pontos e reconstrói contagem e Memorial",
-        "PASS pergunta exige título e resposta esperada",
-        "PASS arsenal limita quatro perguntas normais por fase",
-        "PASS gabarito não aparece no estado público antes de revelar",
-        "PASS batalha guiada respeita atacante, alvo, fase e julgamento parcial",
-        "PASS laboratório recusa pergunta de outra fase",
-        "PASS sorteio mantém todos os exércitos sem repetição",
-        "PASS Mesa não é administradora",
-        "PASS desfazer julgamento reabre a batalha e devolve a vez",
-        "PASS backup completo local pode ser validado para recuperação",
-        "PASS reinício limpa pergunta, resposta, batalha, turno e cronômetro",
-        "PASS escrita da Mesa não inclui configuração nem elenco",
-        "PASS desfazer batalha preserva sorteio com um único lado",
-        "PASS sessão lembrada não abre painel sem entrada explícita",
-        "PASS Professor só entra após carregar autorização reservada",
-        "PASS Público entra com sua conta e recebe apenas navegação pública",
-        "PASS Mesa tem partida e perguntas mas não elenco administrativo",
-        "PASS Telão público abre diretamente sem simular login",
-        "PASS Ensaio precisa de entrada explícita e não exige conta real",
-        "PASS categorias mantêm todos os tipos atuais sem mudar seus índices",
-        "PASS operação offline não altera placar",
-        "PASS editar segredo não amplia revelação da patente",
-        "PASS conflito de revisão não apaga lance remoto",
-        "PASS gravação transacional confirma nova revisão",
-        "PASS escrita negada restaura placar confirmado",
-        "PASS Mesa salva apenas campos operacionais com revisão",
-        "PASS Mesa rejeita revisão concorrente e recarrega",
-        "PASS atalho de coletiva seleciona categoria e lance corretos",
-        "PASS atalho de homem-bomba seleciona categoria e lance corretos"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 2,
-      "suite": "apresentacao",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 175,
-      "scenarioLines": [
-        "PASS publicação recusada mantém aviso de falha",
-        "PASS conclusão recusada mantém pergunta pendente",
-        "PASS revelação recusada não anuncia gabarito publicado",
-        "PASS sorteio recusado não anuncia ordem registrada",
-        "PASS batalha recusada não anuncia pergunta no telão",
-        "PASS avanço recusado preserva fase e aviso",
-        "PASS exemplo recusado preserva arsenal anterior",
-        "PASS pergunta → conclusão → revelação explícita → retirada"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 2,
-      "suite": "partida-completa",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 82353,
-      "scenarioLines": [
-        "PASS partidas completas: {\"sementeInicial\":41,\"sementeFinal\":80,\"partidas\":40,\"fases\":200,\"batalhas\":4800,\"conferencias\":5742,\"desfazerRefazer\":580,\"vidasExtras\":322}"
-      ],
-      "metrics": [
-        {
-          "sementeInicial": 41,
-          "sementeFinal": 80,
-          "partidas": 40,
-          "fases": 200,
-          "batalhas": 4800,
-          "conferencias": 5742,
-          "desfazerRefazer": 580,
-          "vidasExtras": 322
-        }
-      ]
-    },
-    {
-      "round": 2,
-      "suite": "mecanismo",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 210,
-      "scenarioLines": [
-        "PASS início vazio mantém índices históricos",
-        "PASS seis votos imutáveis, empate e professor restrito",
-        "PASS revisão da revisão usa duas cotas no jogo inteiro e substitui",
-        "PASS revisão recusa lances posteriores que podem depender do resultado",
-        "PASS projeção pública usa allowlist profunda e só publica pontuação ao fechar fase",
-        "PASS pelotão físico: três nomes distintos, até dois alvos sequenciais",
-        "PASS reapuração coletiva não duplica munição, pontos ou cotas",
-        "PASS falha na reapuração preserva integralmente o estado anterior",
-        "PASS motor não troca S ou CP do chamador mesmo quando validação falha",
-        "PASS empate triplo exige professor e publica só os seis votos dos mesários",
-        "PASS pelotão rejeita parcial ambíguo sem converter em execução",
-        "PASS resposta precede abertura explícita do Conselho",
-        "PASS pergunta do pelotão passa por seis votos e parcial exige decisão justificada",
-        "PASS CO capturado pontua privadamente antes e depois de revelação sem expor identidade",
-        "PASS reapuração parcial do pelotão é imutável e exige nova decisão do Professor",
-        "PASS quatro sequências alternadas completam oito ataques normais e recusam quinto míssil",
-        "PASS Blitzkrieg parcial aguarda interpretação expressa do Professor",
-        "PASS empate de pontos publica posições iguais sem publicar números de pontos",
-        "PASS pelotão físico exige todos os elegíveis quando restam menos de três",
-        "PASS cronômetro compensa diferença do relógio do aparelho"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 2,
-      "suite": "controller",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 181,
-      "scenarioLines": [
-        "PASS hidratação não modifica snapshot da fonte",
-        "PASS sexto voto resolve e publica sem clique extra",
-        "PASS snapshot de Firebase sem listas vazias mantém cadastro vazio",
-        "PASS segunda sequência permite continuar os quatro mísseis por exército",
-        "PASS lance manual não contorna julgamento obrigatório do Conselho",
-        "PASS expressão do sétimo voto aceita somente categorias empatadas em todas as combinações",
-        "PASS conflito durante apuração reaplica os seis votos sem exigir interação"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 2,
-      "suite": "fases-placar",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 219,
-      "scenarioLines": [
-        "PASS visibilidade explícita sobrepõe fechamento e fallback preserva partida anterior",
-        "PASS mostrar placar não revela gabarito, identidade ou detalhes de recursos privados",
-        "PASS catálogo respeita períodos do manual e setup permite escolher fase",
-        "PASS desempate exige Professor, quinta fase fechada e empate dos exércitos elegíveis",
-        "PASS salto de fase sem justificativa preserva histórico e cotas",
-        "PASS próxima fase fechada dispensa exceção e reentrada mantém mísseis e rodízio",
-        "PASS pergunta, revisão e pelotão ativo bloqueiam mudança de fase",
-        "PASS transição vence pelo relógio do servidor e repetir apresentação preserva dados",
-        "PASS anúncio publica somente da0/db0 confirmado e não saldo, inclusive zero",
-        "PASS anúncio falhou divulga zero e parcial10/10 vem do evento sem aceitar números livres",
-        "PASS anúncio expira, desfazer ou evento substituído impede publicação antiga",
-        "PASS início, revisão, resolução e troca de fase invalidam anúncio anterior",
-        "PASS reabrir fase invalida fechamento histórico e reentrada exige novo encerramento"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 2,
-      "suite": "fases-controller",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 217,
-      "scenarioLines": [
-        "PASS view vazio e placar privado completo funcionam sem batalha",
-        "PASS Mesa seleciona fase3 no setup pelo handler real da interface",
-        "PASS ações de visibilidade preservam tipos, sigilo e permitem pergunta em andamento",
-        "PASS anúncio separado do placar é calculado, expira e pode ser retirado",
-        "PASS seleção de fase projeta transição com relógio local e oculta o placar",
-        "PASS fechar e avançar mantém escolha explícita de esconder pontos e histórico",
-        "PASS desfazer resultado abre roundnovo e não reaplica os votos antigos",
-        "PASS desfazer resultado revisado é recusado sem perder origem ou cota",
-        "PASS lance novo remove fechamento antigo e reentrada não contorna quatro mísseis"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 2,
-      "suite": "exclusao",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 159,
-      "scenarioLines": [
-        "PASS exclui soldado intermediário antes do jogo e alinha dados privados e revelados",
-        "PASS exclusão do primeiro soldado cancela apenas ataque ainda não respondido",
-        "PASS votação ou resposta iniciada impede exclusão e preserva tudo",
-        "PASS pergunta em preparação pode ser excluída com cancelamento sincronizado",
-        "PASS pergunta utilizada e elenco com resultados permanecem protegidos",
-        "PASS excluir pergunta offline não muda o cadastro nem anuncia sucesso",
-        "PASS fase normal muda sem justificativa após resultado e mantém histórico"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 2,
-      "suite": "acessibilidade",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 109,
-      "scenarioLines": [
-        "PASS Tab e Shift+Tab permanecem na confirmação e recuperam foco externo",
-        "PASS confirmação sem controles recebe foco no próprio diálogo",
-        "PASS restauração encontra o botão correto após recriar a interface, inclusive exército e índice",
-        "PASS leitor de tela recebe avisos e contagem de votos uma vez por mudança, sem gabarito",
-        "PASS confirmação tem título e descrição associados para leitor de tela",
-        "PASS histórico com identificação estável preserva foco após recriar o painel"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 2,
-      "suite": "preferencias",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 139,
-      "scenarioLines": [
-        "PASS somente opções permitidas e texto100-200% entram nas preferências",
-        "PASS cada assento, professor, público, visitante e ensaio tem chave própria",
-        "PASS preferências persistem por perfil sem mudar partida ou chamar Firebase",
-        "PASS cadastro novo herda só visitante e não outro assento; restaurar padrão é local",
-        "PASS primeiro acesso fixa a herança e mudanças posteriores do visitante não afetam o perfil",
-        "PASS JSON inválido e armazenamento bloqueado não impedem abrir ou usar o site",
-        "PASS créditos exibem autores, turmas e apoio informados e painel é nomeado",
-        "PASS matriz de preferências: {\"combinacoesPreferencias\":1200}",
-        "PASS 1200 combinações de preferências preservam isolamento e valores em dez perfis"
-      ],
-      "metrics": [
-        {
-          "combinacoesPreferencias": 1200
-        }
-      ]
-    },
-    {
-      "round": 2,
-      "suite": "autenticacao",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 116,
-      "scenarioLines": [
-        "PASS oito contas entram somente quando UID corresponde ao perfil escolhido",
-        "PASS senha incorreta não libera perfil nem inicia leitura privada",
-        "PASS conta de outro assento é desconectada e não libera o painel",
-        "PASS Público não aciona exclusão, pontuação ou mudança de fase",
-        "PASS permissões reais declaradas recusam voto de outra conta, repetido ou fora da rodada",
-        "PASS inicialização não restaura login automático e usa persistência NONE"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 2,
-      "suite": "simulacao-v3",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 5047,
-      "scenarioLines": [
-        "PASS simulação oficial: {\"combinacoesVotos\":729,\"empates\":150,\"partidas\":10,\"batalhas\":400,\"revisoes\":40,\"projecoesConferidas\":1200,\"sementeInicial\":41,\"sementeFinal\":50}"
-      ],
-      "metrics": [
-        {
-          "combinacoesVotos": 729,
-          "empates": 150,
-          "partidas": 10,
-          "batalhas": 400,
-          "revisoes": 40,
-          "projecoesConferidas": 1200,
-          "sementeInicial": 41,
-          "sementeFinal": 50
-        }
-      ]
-    },
-    {
-      "round": 2,
-      "suite": "ux-telao",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 111,
-      "scenarioLines": [
-        "PASS links abrem apenas formulário correspondente e não autenticam",
-        "PASS Professor tem entrada explícita com assento7; demais perfis preservam credenciais próprias",
-        "PASS fluxo público distingue espera, resposta, votação, empate, resultado e pelotão",
-        "PASS pelotão novo prevalece sobre Conselho anterior e atividade retirada volta à espera",
-        "PASS cronômetro sem ataque mostra espera e não prazo expirado",
-        "PASS apresentação mantém classificação, conselho, recursos e histórico sem gabarito ou identidade secreta",
-        "PASS tela cheia abre e fecha localmente; falha é tratada sem modificar partida"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 2,
-      "suite": "cronometro-votacao",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 170,
-      "scenarioLines": [
-        "PASS relógio chega à projeção mesmo sem pergunta e aceita tempo personalizado",
-        "PASS trocar preset aplica novo tempo em vez de retomar saldo antigo",
-        "PASS tempo inválido é rejeitado sem mudar fonte",
-        "PASS seis escolhas são publicadas durante votação, sem categoria do Professor antes ou depois",
-        "PASS view pública mostra cada voto dos seis na hora e nunca o sétimo",
-        "PASS telão tem relógio utilizável sem ataque e segundos diminuem",
-        "PASS cronômetro avulso continua visível ao pausar em zero",
-        "PASS Mesa recebe aviso de empate e Público vê votos ao vivo com Professor reservado",
-        "PASS equipe de produção inclui o único Professor sem principal ou apoio"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 3,
-      "suite": "regras",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 334,
-      "scenarioLines": [
-        "PASS 26 índices originais preservados",
-        "PASS não publica identidade ao registrar baixa",
-        "PASS baixa atualiza placar e Memorial de forma consistente",
-        "PASS recusa segunda morte do mesmo aluno",
-        "PASS prisão e libertação conservam os totais",
-        "PASS recusa libertação pelo captor errado",
-        "PASS vida extra exige morto e restaura o aluno",
-        "PASS saneia nomes e patentes de lances legados sem renomear campos",
-        "PASS saldo comum literal e CO explicitamente revelado",
-        "PASS normaliza arrays ausentes do Firebase e mantém legado",
-        "PASS pelotão sorteia até três distintos e aceita no máximo dois alvos",
-        "PASS empate não produz vencedor arbitrário",
-        "PASS defesa total identifica o aluno sem mudar sua situação",
-        "PASS cadastro individual aceita tamanho próprio por exército",
-        "PASS normalização mantém seis cores mesmo com cadastro parcial",
-        "PASS segredo carregado antes do cadastro preserva alunos adicionais",
-        "PASS Firebase omite listas vazias internas do pelotão",
-        "PASS desfazer baixa com vida extra dependente é recusado",
-        "PASS desfazer alvo do pelotão libera nova escolha",
-        "PASS desfazer recurso devolve sua utilização",
-        "PASS quinto míssil normal é recusado pela regra central",
-        "PASS defesa total respeita rodízio individual",
-        "PASS duas coletivas não permitem terceira e consomem munição",
-        "PASS Blitzkrieg não consome cota de defesa coletiva nem mísseis normais",
-        "PASS cronômetro usa prazo absoluto e preserva restante ao pausar",
-        "PASS backup inválido não é aceito nem copia rn/rf",
-        "PASS conciliação preserva pontos e reconstrói contagem e Memorial",
-        "PASS pergunta exige título e resposta esperada",
-        "PASS arsenal limita quatro perguntas normais por fase",
-        "PASS gabarito não aparece no estado público antes de revelar",
-        "PASS batalha guiada respeita atacante, alvo, fase e julgamento parcial",
-        "PASS laboratório recusa pergunta de outra fase",
-        "PASS sorteio mantém todos os exércitos sem repetição",
-        "PASS Mesa não é administradora",
-        "PASS desfazer julgamento reabre a batalha e devolve a vez",
-        "PASS backup completo local pode ser validado para recuperação",
-        "PASS reinício limpa pergunta, resposta, batalha, turno e cronômetro",
-        "PASS escrita da Mesa não inclui configuração nem elenco",
-        "PASS desfazer batalha preserva sorteio com um único lado",
-        "PASS sessão lembrada não abre painel sem entrada explícita",
-        "PASS Professor só entra após carregar autorização reservada",
-        "PASS Público entra com sua conta e recebe apenas navegação pública",
-        "PASS Mesa tem partida e perguntas mas não elenco administrativo",
-        "PASS Telão público abre diretamente sem simular login",
-        "PASS Ensaio precisa de entrada explícita e não exige conta real",
-        "PASS categorias mantêm todos os tipos atuais sem mudar seus índices",
-        "PASS operação offline não altera placar",
-        "PASS editar segredo não amplia revelação da patente",
-        "PASS conflito de revisão não apaga lance remoto",
-        "PASS gravação transacional confirma nova revisão",
-        "PASS escrita negada restaura placar confirmado",
-        "PASS Mesa salva apenas campos operacionais com revisão",
-        "PASS Mesa rejeita revisão concorrente e recarrega",
-        "PASS atalho de coletiva seleciona categoria e lance corretos",
-        "PASS atalho de homem-bomba seleciona categoria e lance corretos"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 3,
-      "suite": "apresentacao",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 205,
-      "scenarioLines": [
-        "PASS publicação recusada mantém aviso de falha",
-        "PASS conclusão recusada mantém pergunta pendente",
-        "PASS revelação recusada não anuncia gabarito publicado",
-        "PASS sorteio recusado não anuncia ordem registrada",
-        "PASS batalha recusada não anuncia pergunta no telão",
-        "PASS avanço recusado preserva fase e aviso",
-        "PASS exemplo recusado preserva arsenal anterior",
-        "PASS pergunta → conclusão → revelação explícita → retirada"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 3,
-      "suite": "partida-completa",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 72480,
-      "scenarioLines": [
-        "PASS partidas completas: {\"sementeInicial\":81,\"sementeFinal\":120,\"partidas\":40,\"fases\":200,\"batalhas\":4800,\"conferencias\":5660,\"desfazerRefazer\":514,\"vidasExtras\":306}"
-      ],
-      "metrics": [
-        {
-          "sementeInicial": 81,
-          "sementeFinal": 120,
-          "partidas": 40,
-          "fases": 200,
-          "batalhas": 4800,
-          "conferencias": 5660,
-          "desfazerRefazer": 514,
-          "vidasExtras": 306
-        }
-      ]
-    },
-    {
-      "round": 3,
-      "suite": "mecanismo",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 200,
-      "scenarioLines": [
-        "PASS início vazio mantém índices históricos",
-        "PASS seis votos imutáveis, empate e professor restrito",
-        "PASS revisão da revisão usa duas cotas no jogo inteiro e substitui",
-        "PASS revisão recusa lances posteriores que podem depender do resultado",
-        "PASS projeção pública usa allowlist profunda e só publica pontuação ao fechar fase",
-        "PASS pelotão físico: três nomes distintos, até dois alvos sequenciais",
-        "PASS reapuração coletiva não duplica munição, pontos ou cotas",
-        "PASS falha na reapuração preserva integralmente o estado anterior",
-        "PASS motor não troca S ou CP do chamador mesmo quando validação falha",
-        "PASS empate triplo exige professor e publica só os seis votos dos mesários",
-        "PASS pelotão rejeita parcial ambíguo sem converter em execução",
-        "PASS resposta precede abertura explícita do Conselho",
-        "PASS pergunta do pelotão passa por seis votos e parcial exige decisão justificada",
-        "PASS CO capturado pontua privadamente antes e depois de revelação sem expor identidade",
-        "PASS reapuração parcial do pelotão é imutável e exige nova decisão do Professor",
-        "PASS quatro sequências alternadas completam oito ataques normais e recusam quinto míssil",
-        "PASS Blitzkrieg parcial aguarda interpretação expressa do Professor",
-        "PASS empate de pontos publica posições iguais sem publicar números de pontos",
-        "PASS pelotão físico exige todos os elegíveis quando restam menos de três",
-        "PASS cronômetro compensa diferença do relógio do aparelho"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 3,
-      "suite": "controller",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 177,
-      "scenarioLines": [
-        "PASS hidratação não modifica snapshot da fonte",
-        "PASS sexto voto resolve e publica sem clique extra",
-        "PASS snapshot de Firebase sem listas vazias mantém cadastro vazio",
-        "PASS segunda sequência permite continuar os quatro mísseis por exército",
-        "PASS lance manual não contorna julgamento obrigatório do Conselho",
-        "PASS expressão do sétimo voto aceita somente categorias empatadas em todas as combinações",
-        "PASS conflito durante apuração reaplica os seis votos sem exigir interação"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 3,
-      "suite": "fases-placar",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 185,
-      "scenarioLines": [
-        "PASS visibilidade explícita sobrepõe fechamento e fallback preserva partida anterior",
-        "PASS mostrar placar não revela gabarito, identidade ou detalhes de recursos privados",
-        "PASS catálogo respeita períodos do manual e setup permite escolher fase",
-        "PASS desempate exige Professor, quinta fase fechada e empate dos exércitos elegíveis",
-        "PASS salto de fase sem justificativa preserva histórico e cotas",
-        "PASS próxima fase fechada dispensa exceção e reentrada mantém mísseis e rodízio",
-        "PASS pergunta, revisão e pelotão ativo bloqueiam mudança de fase",
-        "PASS transição vence pelo relógio do servidor e repetir apresentação preserva dados",
-        "PASS anúncio publica somente da0/db0 confirmado e não saldo, inclusive zero",
-        "PASS anúncio falhou divulga zero e parcial10/10 vem do evento sem aceitar números livres",
-        "PASS anúncio expira, desfazer ou evento substituído impede publicação antiga",
-        "PASS início, revisão, resolução e troca de fase invalidam anúncio anterior",
-        "PASS reabrir fase invalida fechamento histórico e reentrada exige novo encerramento"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 3,
-      "suite": "fases-controller",
-      "success": true,
-      "exitCode": 0,
-      "durationMs": 245,
-      "scenarioLines": [
-        "PASS view vazio e placar privado completo funcionam sem batalha",
-        "PASS Mesa seleciona fase3 no setup pelo handler real da interface",
-        "PASS ações de visibilidade preservam tipos, sigilo e permitem pergunta em andamento",
-        "PASS anúncio separado do placar é calculado, expira e pode ser retirado",
-        "PASS seleção de fase projeta transição com relógio local e oculta o placar",
-        "PASS fechar e avançar mantém escolha explícita de esconder pontos e histórico",
-        "PASS desfazer resultado abre roundnovo e não reaplica os votos antigos",
-        "PASS desfazer resultado revisado é recusado sem perder origem ou cota",
-        "PASS lance novo remove fechamento antigo e reentrada não contorna quatro mísseis"
-      ],
-      "metrics": []
-    },
-    {
-      "round": 3,
-      "suite": "exclusao",
       "success": true,
       "exitCode": 0,
       "durationMs": 179,
       "scenarioLines": [
+        "PASS visibilidade explícita sobrepõe fechamento e fallback preserva partida anterior",
+        "PASS mostrar placar não revela gabarito, identidade ou detalhes de recursos privados",
+        "PASS catálogo respeita períodos do manual e setup permite escolher fase",
+        "PASS desempate exige Professor, quinta fase fechada e empate dos exércitos elegíveis",
+        "PASS salto de fase sem justificativa preserva histórico e cotas",
+        "PASS próxima fase fechada dispensa exceção e reentrada mantém mísseis e rodízio",
+        "PASS pergunta, revisão e pelotão ativo bloqueiam mudança de fase",
+        "PASS transição vence pelo relógio do servidor e repetir apresentação preserva dados",
+        "PASS anúncio publica somente da0/db0 confirmado e não saldo, inclusive zero",
+        "PASS anúncio falhou divulga zero e parcial10/10 vem do evento sem aceitar números livres",
+        "PASS anúncio expira, desfazer ou evento substituído impede publicação antiga",
+        "PASS início, revisão, resolução e troca de fase invalidam anúncio anterior",
+        "PASS reabrir fase invalida fechamento histórico e reentrada exige novo encerramento"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 1,
+      "suite": "fases-controller",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 202,
+      "scenarioLines": [
+        "PASS view vazio e placar privado completo funcionam sem batalha",
+        "PASS Mesa seleciona fase3 no setup pelo handler real da interface",
+        "PASS ações de visibilidade preservam tipos, sigilo e permitem pergunta em andamento",
+        "PASS anúncio separado do placar é calculado, expira e pode ser retirado",
+        "PASS seleção de fase projeta transição com relógio local e oculta o placar",
+        "PASS fechar e avançar mantém escolha explícita de esconder pontos e histórico",
+        "PASS desfazer resultado abre roundnovo e não reaplica os votos antigos",
+        "PASS desfazer resultado revisado é recusado sem perder origem ou cota",
+        "PASS lance novo remove fechamento antigo e reentrada não contorna quatro mísseis"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 1,
+      "suite": "exclusao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 158,
+      "scenarioLines": [
         "PASS exclui soldado intermediário antes do jogo e alinha dados privados e revelados",
         "PASS exclusão do primeiro soldado cancela apenas ataque ainda não respondido",
         "PASS votação ou resposta iniciada impede exclusão e preserva tudo",
@@ -880,11 +232,11 @@
       "metrics": []
     },
     {
-      "round": 3,
+      "round": 1,
       "suite": "acessibilidade",
       "success": true,
       "exitCode": 0,
-      "durationMs": 105,
+      "durationMs": 106,
       "scenarioLines": [
         "PASS Tab e Shift+Tab permanecem na confirmação e recuperam foco externo",
         "PASS confirmação sem controles recebe foco no próprio diálogo",
@@ -896,7 +248,7 @@
       "metrics": []
     },
     {
-      "round": 3,
+      "round": 1,
       "suite": "preferencias",
       "success": true,
       "exitCode": 0,
@@ -919,11 +271,765 @@
       ]
     },
     {
+      "round": 1,
+      "suite": "autenticacao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 130,
+      "scenarioLines": [
+        "PASS oito contas entram somente quando UID corresponde ao perfil escolhido",
+        "PASS senha incorreta não libera perfil nem inicia leitura privada",
+        "PASS conta de outro assento é desconectada e não libera o painel",
+        "PASS Público não aciona exclusão, pontuação ou mudança de fase",
+        "PASS permissões reais declaradas recusam voto de outra conta, repetido ou fora da rodada",
+        "PASS inicialização não restaura login automático e usa persistência NONE"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 1,
+      "suite": "simulacao-v3",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 5275,
+      "scenarioLines": [
+        "PASS simulação oficial: {\"combinacoesVotos\":729,\"empates\":150,\"partidas\":10,\"batalhas\":400,\"revisoes\":40,\"projecoesConferidas\":1200,\"sementeInicial\":1,\"sementeFinal\":10}"
+      ],
+      "metrics": [
+        {
+          "combinacoesVotos": 729,
+          "empates": 150,
+          "partidas": 10,
+          "batalhas": 400,
+          "revisoes": 40,
+          "projecoesConferidas": 1200,
+          "sementeInicial": 1,
+          "sementeFinal": 10
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "suite": "ux-telao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 107,
+      "scenarioLines": [
+        "PASS links abrem apenas formulário correspondente e não autenticam",
+        "PASS Professor tem entrada explícita com assento7; demais perfis preservam credenciais próprias",
+        "PASS fluxo público distingue espera, resposta, votação, empate, resultado e pelotão",
+        "PASS pelotão novo prevalece sobre Conselho anterior e atividade retirada volta à espera",
+        "PASS cronômetro sem ataque mostra espera e não prazo expirado",
+        "PASS apresentação mantém classificação, conselho, recursos e histórico sem gabarito ou identidade secreta",
+        "PASS tela cheia abre e fecha localmente; falha é tratada sem modificar partida"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 1,
+      "suite": "cronometro-votacao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 166,
+      "scenarioLines": [
+        "PASS relógio chega à projeção mesmo sem pergunta e aceita tempo personalizado",
+        "PASS trocar preset aplica novo tempo em vez de retomar saldo antigo",
+        "PASS tempo inválido é rejeitado sem mudar fonte",
+        "PASS seis escolhas são publicadas durante votação, sem categoria do Professor antes ou depois",
+        "PASS view pública mostra cada voto dos seis na hora e nunca o sétimo",
+        "PASS telão tem relógio utilizável sem ataque e segundos diminuem",
+        "PASS cronômetro avulso continua visível ao pausar em zero",
+        "PASS Mesa recebe aviso de empate e Público vê votos ao vivo com Professor reservado",
+        "PASS equipe de produção inclui o único Professor sem principal ou apoio"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 1,
+      "suite": "conselho-multicelular",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 3932,
+      "scenarioLines": [
+        "PASS voto recebido aparece no próprio painel sem esperar gravar a partida",
+        "PASS seis telefones votam juntos; cada voto é imutável e apura uma vez",
+        "PASS empate entre seis sessões chama Professor; sétimo voto permanece reservado",
+        "PASS duas revisões nas seis sessões reabrem votos sem duplicar resultado nem reiniciar relógio",
+        "PASS votos parciais atualizam o telão sem escrever a partida inteira",
+        "PASS gravação antiga não substitui estado de uma sessão que entrou depois",
+        "PASS falha tardia de rede da sessão anterior não vira erro na conta seguinte",
+        "PASS cadastro privado pendente não repõe gabarito no cache após logout",
+        "PASS erro enfileirado da inscrição anterior não altera sessão nova",
+        "PASS revisão abre outra votação imediatamente e conserva o relógio",
+        "PASS revisão antiga fechada é reaberta sem consumir outra cota ou mexer no relógio",
+        "PASS quem pergunta é combatente vivo do atacante e só nome de guerra é público"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 1,
+      "suite": "presenca-assentos",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 141,
+      "scenarioLines": [
+        "PASS reserva simultânea do mesmo assento admite só uma sessão",
+        "PASS seis assentos independentes e saída liberam imediatamente",
+        "PASS reserva expirada é recuperável e sessão anterior não apaga a nova",
+        "PASS heartbeat renova somente sua reserva e público compartilhado não ocupa assento",
+        "PASS logout limpa sessão e dados mesmo se a liberação remota falhar",
+        "PASS aparelho com reserva substituída não envia voto",
+        "PASS regras de presença permitem só a conta do assento e não expõem segredo"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 1,
+      "suite": "legibilidade-conselho",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 112,
+      "scenarioLines": [
+        "PASS cores dos votos e botões conservam os textos e o sétimo fica neutro",
+        "PASS resultado grande e revisão ficam antes da pergunta no telão",
+        "PASS cronômetro muda de faixa com o prazo e mantém texto explícito",
+        "PASS assentos em uso são desabilitados e identificados no formulário"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 2,
+      "suite": "regras",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 214,
+      "scenarioLines": [
+        "PASS 26 índices originais preservados",
+        "PASS não publica identidade ao registrar baixa",
+        "PASS baixa atualiza placar e Memorial de forma consistente",
+        "PASS recusa segunda morte do mesmo aluno",
+        "PASS prisão e libertação conservam os totais",
+        "PASS recusa libertação pelo captor errado",
+        "PASS vida extra exige morto e restaura o aluno",
+        "PASS saneia nomes e patentes de lances legados sem renomear campos",
+        "PASS saldo comum literal e CO explicitamente revelado",
+        "PASS normaliza arrays ausentes do Firebase e mantém legado",
+        "PASS pelotão sorteia até três distintos e aceita no máximo dois alvos",
+        "PASS empate não produz vencedor arbitrário",
+        "PASS defesa total identifica o aluno sem mudar sua situação",
+        "PASS cadastro individual aceita tamanho próprio por exército",
+        "PASS normalização mantém seis cores mesmo com cadastro parcial",
+        "PASS segredo carregado antes do cadastro preserva alunos adicionais",
+        "PASS Firebase omite listas vazias internas do pelotão",
+        "PASS desfazer baixa com vida extra dependente é recusado",
+        "PASS desfazer alvo do pelotão libera nova escolha",
+        "PASS desfazer recurso devolve sua utilização",
+        "PASS quinto míssil normal é recusado pela regra central",
+        "PASS defesa total respeita rodízio individual",
+        "PASS duas coletivas não permitem terceira e consomem munição",
+        "PASS Blitzkrieg não consome cota de defesa coletiva nem mísseis normais",
+        "PASS cronômetro usa prazo absoluto e preserva restante ao pausar",
+        "PASS backup inválido não é aceito nem copia rn/rf",
+        "PASS conciliação preserva pontos e reconstrói contagem e Memorial",
+        "PASS pergunta exige título e resposta esperada",
+        "PASS arsenal limita quatro perguntas normais por fase",
+        "PASS gabarito não aparece no estado público antes de revelar",
+        "PASS batalha guiada respeita atacante, alvo, fase e julgamento parcial",
+        "PASS laboratório recusa pergunta de outra fase",
+        "PASS sorteio mantém todos os exércitos sem repetição",
+        "PASS Mesa não é administradora",
+        "PASS desfazer julgamento reabre a batalha e devolve a vez",
+        "PASS backup completo local pode ser validado para recuperação",
+        "PASS reinício limpa pergunta, resposta, batalha, turno e cronômetro",
+        "PASS escrita da Mesa não inclui configuração nem elenco",
+        "PASS desfazer batalha preserva sorteio com um único lado",
+        "PASS sessão lembrada não abre painel sem entrada explícita",
+        "PASS Professor só entra após carregar autorização reservada",
+        "PASS Público entra com sua conta e recebe apenas navegação pública",
+        "PASS Mesa tem partida e perguntas mas não elenco administrativo",
+        "PASS Telão público abre diretamente sem simular login",
+        "PASS Ensaio precisa de entrada explícita e não exige conta real",
+        "PASS categorias mantêm todos os tipos atuais sem mudar seus índices",
+        "PASS operação offline não altera placar",
+        "PASS editar segredo não amplia revelação da patente",
+        "PASS conflito de revisão não apaga lance remoto",
+        "PASS gravação transacional confirma nova revisão",
+        "PASS escrita negada restaura placar confirmado",
+        "PASS Mesa salva apenas campos operacionais com revisão",
+        "PASS Mesa rejeita revisão concorrente e recarrega",
+        "PASS atalho de coletiva seleciona categoria e lance corretos",
+        "PASS atalho de homem-bomba seleciona categoria e lance corretos"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 2,
+      "suite": "apresentacao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 171,
+      "scenarioLines": [
+        "PASS publicação recusada mantém aviso de falha",
+        "PASS conclusão recusada mantém pergunta pendente",
+        "PASS revelação recusada não anuncia gabarito publicado",
+        "PASS sorteio recusado não anuncia ordem registrada",
+        "PASS batalha recusada não anuncia pergunta no telão",
+        "PASS avanço recusado preserva fase e aviso",
+        "PASS exemplo recusado preserva arsenal anterior",
+        "PASS pergunta → conclusão → revelação explícita → retirada"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 2,
+      "suite": "partida-completa",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 78443,
+      "scenarioLines": [
+        "PASS partidas completas: {\"sementeInicial\":41,\"sementeFinal\":80,\"partidas\":40,\"fases\":200,\"batalhas\":4800,\"conferencias\":5742,\"desfazerRefazer\":580,\"vidasExtras\":322}"
+      ],
+      "metrics": [
+        {
+          "sementeInicial": 41,
+          "sementeFinal": 80,
+          "partidas": 40,
+          "fases": 200,
+          "batalhas": 4800,
+          "conferencias": 5742,
+          "desfazerRefazer": 580,
+          "vidasExtras": 322
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "suite": "mecanismo",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 204,
+      "scenarioLines": [
+        "PASS início vazio mantém índices históricos",
+        "PASS seis votos imutáveis, empate e professor restrito",
+        "PASS revisão da revisão usa duas cotas no jogo inteiro e substitui",
+        "PASS revisão recusa lances posteriores que podem depender do resultado",
+        "PASS projeção pública usa allowlist profunda e só publica pontuação ao fechar fase",
+        "PASS pelotão físico: três nomes distintos, até dois alvos sequenciais",
+        "PASS reapuração coletiva não duplica munição, pontos ou cotas",
+        "PASS falha na reapuração preserva integralmente o estado anterior",
+        "PASS motor não troca S ou CP do chamador mesmo quando validação falha",
+        "PASS empate triplo exige professor e publica só os seis votos dos mesários",
+        "PASS pelotão rejeita parcial ambíguo sem converter em execução",
+        "PASS resposta precede abertura explícita do Conselho",
+        "PASS pergunta do pelotão passa por seis votos e parcial exige decisão justificada",
+        "PASS CO capturado pontua privadamente antes e depois de revelação sem expor identidade",
+        "PASS reapuração parcial do pelotão é imutável e exige nova decisão do Professor",
+        "PASS quatro sequências alternadas completam oito ataques normais e recusam quinto míssil",
+        "PASS Blitzkrieg parcial aguarda interpretação expressa do Professor",
+        "PASS empate de pontos publica posições iguais sem publicar números de pontos",
+        "PASS pelotão físico exige todos os elegíveis quando restam menos de três",
+        "PASS cronômetro compensa diferença do relógio do aparelho"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 2,
+      "suite": "controller",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 200,
+      "scenarioLines": [
+        "PASS hidratação não modifica snapshot da fonte",
+        "PASS sexto voto resolve e publica sem clique extra",
+        "PASS snapshot de Firebase sem listas vazias mantém cadastro vazio",
+        "PASS segunda sequência permite continuar os quatro mísseis por exército",
+        "PASS lance manual não contorna julgamento obrigatório do Conselho",
+        "PASS expressão do sétimo voto aceita somente categorias empatadas em todas as combinações",
+        "PASS conflito durante apuração reaplica os seis votos sem exigir interação"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 2,
+      "suite": "fases-placar",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 183,
+      "scenarioLines": [
+        "PASS visibilidade explícita sobrepõe fechamento e fallback preserva partida anterior",
+        "PASS mostrar placar não revela gabarito, identidade ou detalhes de recursos privados",
+        "PASS catálogo respeita períodos do manual e setup permite escolher fase",
+        "PASS desempate exige Professor, quinta fase fechada e empate dos exércitos elegíveis",
+        "PASS salto de fase sem justificativa preserva histórico e cotas",
+        "PASS próxima fase fechada dispensa exceção e reentrada mantém mísseis e rodízio",
+        "PASS pergunta, revisão e pelotão ativo bloqueiam mudança de fase",
+        "PASS transição vence pelo relógio do servidor e repetir apresentação preserva dados",
+        "PASS anúncio publica somente da0/db0 confirmado e não saldo, inclusive zero",
+        "PASS anúncio falhou divulga zero e parcial10/10 vem do evento sem aceitar números livres",
+        "PASS anúncio expira, desfazer ou evento substituído impede publicação antiga",
+        "PASS início, revisão, resolução e troca de fase invalidam anúncio anterior",
+        "PASS reabrir fase invalida fechamento histórico e reentrada exige novo encerramento"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 2,
+      "suite": "fases-controller",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 206,
+      "scenarioLines": [
+        "PASS view vazio e placar privado completo funcionam sem batalha",
+        "PASS Mesa seleciona fase3 no setup pelo handler real da interface",
+        "PASS ações de visibilidade preservam tipos, sigilo e permitem pergunta em andamento",
+        "PASS anúncio separado do placar é calculado, expira e pode ser retirado",
+        "PASS seleção de fase projeta transição com relógio local e oculta o placar",
+        "PASS fechar e avançar mantém escolha explícita de esconder pontos e histórico",
+        "PASS desfazer resultado abre roundnovo e não reaplica os votos antigos",
+        "PASS desfazer resultado revisado é recusado sem perder origem ou cota",
+        "PASS lance novo remove fechamento antigo e reentrada não contorna quatro mísseis"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 2,
+      "suite": "exclusao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 154,
+      "scenarioLines": [
+        "PASS exclui soldado intermediário antes do jogo e alinha dados privados e revelados",
+        "PASS exclusão do primeiro soldado cancela apenas ataque ainda não respondido",
+        "PASS votação ou resposta iniciada impede exclusão e preserva tudo",
+        "PASS pergunta em preparação pode ser excluída com cancelamento sincronizado",
+        "PASS pergunta utilizada e elenco com resultados permanecem protegidos",
+        "PASS excluir pergunta offline não muda o cadastro nem anuncia sucesso",
+        "PASS fase normal muda sem justificativa após resultado e mantém histórico"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 2,
+      "suite": "acessibilidade",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 107,
+      "scenarioLines": [
+        "PASS Tab e Shift+Tab permanecem na confirmação e recuperam foco externo",
+        "PASS confirmação sem controles recebe foco no próprio diálogo",
+        "PASS restauração encontra o botão correto após recriar a interface, inclusive exército e índice",
+        "PASS leitor de tela recebe avisos e contagem de votos uma vez por mudança, sem gabarito",
+        "PASS confirmação tem título e descrição associados para leitor de tela",
+        "PASS histórico com identificação estável preserva foco após recriar o painel"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 2,
+      "suite": "preferencias",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 137,
+      "scenarioLines": [
+        "PASS somente opções permitidas e texto100-200% entram nas preferências",
+        "PASS cada assento, professor, público, visitante e ensaio tem chave própria",
+        "PASS preferências persistem por perfil sem mudar partida ou chamar Firebase",
+        "PASS cadastro novo herda só visitante e não outro assento; restaurar padrão é local",
+        "PASS primeiro acesso fixa a herança e mudanças posteriores do visitante não afetam o perfil",
+        "PASS JSON inválido e armazenamento bloqueado não impedem abrir ou usar o site",
+        "PASS créditos exibem autores, turmas e apoio informados e painel é nomeado",
+        "PASS matriz de preferências: {\"combinacoesPreferencias\":1200}",
+        "PASS 1200 combinações de preferências preservam isolamento e valores em dez perfis"
+      ],
+      "metrics": [
+        {
+          "combinacoesPreferencias": 1200
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "suite": "autenticacao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 114,
+      "scenarioLines": [
+        "PASS oito contas entram somente quando UID corresponde ao perfil escolhido",
+        "PASS senha incorreta não libera perfil nem inicia leitura privada",
+        "PASS conta de outro assento é desconectada e não libera o painel",
+        "PASS Público não aciona exclusão, pontuação ou mudança de fase",
+        "PASS permissões reais declaradas recusam voto de outra conta, repetido ou fora da rodada",
+        "PASS inicialização não restaura login automático e usa persistência NONE"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 2,
+      "suite": "simulacao-v3",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 5423,
+      "scenarioLines": [
+        "PASS simulação oficial: {\"combinacoesVotos\":729,\"empates\":150,\"partidas\":10,\"batalhas\":400,\"revisoes\":40,\"projecoesConferidas\":1200,\"sementeInicial\":41,\"sementeFinal\":50}"
+      ],
+      "metrics": [
+        {
+          "combinacoesVotos": 729,
+          "empates": 150,
+          "partidas": 10,
+          "batalhas": 400,
+          "revisoes": 40,
+          "projecoesConferidas": 1200,
+          "sementeInicial": 41,
+          "sementeFinal": 50
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "suite": "ux-telao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 105,
+      "scenarioLines": [
+        "PASS links abrem apenas formulário correspondente e não autenticam",
+        "PASS Professor tem entrada explícita com assento7; demais perfis preservam credenciais próprias",
+        "PASS fluxo público distingue espera, resposta, votação, empate, resultado e pelotão",
+        "PASS pelotão novo prevalece sobre Conselho anterior e atividade retirada volta à espera",
+        "PASS cronômetro sem ataque mostra espera e não prazo expirado",
+        "PASS apresentação mantém classificação, conselho, recursos e histórico sem gabarito ou identidade secreta",
+        "PASS tela cheia abre e fecha localmente; falha é tratada sem modificar partida"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 2,
+      "suite": "cronometro-votacao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 166,
+      "scenarioLines": [
+        "PASS relógio chega à projeção mesmo sem pergunta e aceita tempo personalizado",
+        "PASS trocar preset aplica novo tempo em vez de retomar saldo antigo",
+        "PASS tempo inválido é rejeitado sem mudar fonte",
+        "PASS seis escolhas são publicadas durante votação, sem categoria do Professor antes ou depois",
+        "PASS view pública mostra cada voto dos seis na hora e nunca o sétimo",
+        "PASS telão tem relógio utilizável sem ataque e segundos diminuem",
+        "PASS cronômetro avulso continua visível ao pausar em zero",
+        "PASS Mesa recebe aviso de empate e Público vê votos ao vivo com Professor reservado",
+        "PASS equipe de produção inclui o único Professor sem principal ou apoio"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 2,
+      "suite": "conselho-multicelular",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 3977,
+      "scenarioLines": [
+        "PASS voto recebido aparece no próprio painel sem esperar gravar a partida",
+        "PASS seis telefones votam juntos; cada voto é imutável e apura uma vez",
+        "PASS empate entre seis sessões chama Professor; sétimo voto permanece reservado",
+        "PASS duas revisões nas seis sessões reabrem votos sem duplicar resultado nem reiniciar relógio",
+        "PASS votos parciais atualizam o telão sem escrever a partida inteira",
+        "PASS gravação antiga não substitui estado de uma sessão que entrou depois",
+        "PASS falha tardia de rede da sessão anterior não vira erro na conta seguinte",
+        "PASS cadastro privado pendente não repõe gabarito no cache após logout",
+        "PASS erro enfileirado da inscrição anterior não altera sessão nova",
+        "PASS revisão abre outra votação imediatamente e conserva o relógio",
+        "PASS revisão antiga fechada é reaberta sem consumir outra cota ou mexer no relógio",
+        "PASS quem pergunta é combatente vivo do atacante e só nome de guerra é público"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 2,
+      "suite": "presenca-assentos",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 159,
+      "scenarioLines": [
+        "PASS reserva simultânea do mesmo assento admite só uma sessão",
+        "PASS seis assentos independentes e saída liberam imediatamente",
+        "PASS reserva expirada é recuperável e sessão anterior não apaga a nova",
+        "PASS heartbeat renova somente sua reserva e público compartilhado não ocupa assento",
+        "PASS logout limpa sessão e dados mesmo se a liberação remota falhar",
+        "PASS aparelho com reserva substituída não envia voto",
+        "PASS regras de presença permitem só a conta do assento e não expõem segredo"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 2,
+      "suite": "legibilidade-conselho",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 123,
+      "scenarioLines": [
+        "PASS cores dos votos e botões conservam os textos e o sétimo fica neutro",
+        "PASS resultado grande e revisão ficam antes da pergunta no telão",
+        "PASS cronômetro muda de faixa com o prazo e mantém texto explícito",
+        "PASS assentos em uso são desabilitados e identificados no formulário"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 3,
+      "suite": "regras",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 224,
+      "scenarioLines": [
+        "PASS 26 índices originais preservados",
+        "PASS não publica identidade ao registrar baixa",
+        "PASS baixa atualiza placar e Memorial de forma consistente",
+        "PASS recusa segunda morte do mesmo aluno",
+        "PASS prisão e libertação conservam os totais",
+        "PASS recusa libertação pelo captor errado",
+        "PASS vida extra exige morto e restaura o aluno",
+        "PASS saneia nomes e patentes de lances legados sem renomear campos",
+        "PASS saldo comum literal e CO explicitamente revelado",
+        "PASS normaliza arrays ausentes do Firebase e mantém legado",
+        "PASS pelotão sorteia até três distintos e aceita no máximo dois alvos",
+        "PASS empate não produz vencedor arbitrário",
+        "PASS defesa total identifica o aluno sem mudar sua situação",
+        "PASS cadastro individual aceita tamanho próprio por exército",
+        "PASS normalização mantém seis cores mesmo com cadastro parcial",
+        "PASS segredo carregado antes do cadastro preserva alunos adicionais",
+        "PASS Firebase omite listas vazias internas do pelotão",
+        "PASS desfazer baixa com vida extra dependente é recusado",
+        "PASS desfazer alvo do pelotão libera nova escolha",
+        "PASS desfazer recurso devolve sua utilização",
+        "PASS quinto míssil normal é recusado pela regra central",
+        "PASS defesa total respeita rodízio individual",
+        "PASS duas coletivas não permitem terceira e consomem munição",
+        "PASS Blitzkrieg não consome cota de defesa coletiva nem mísseis normais",
+        "PASS cronômetro usa prazo absoluto e preserva restante ao pausar",
+        "PASS backup inválido não é aceito nem copia rn/rf",
+        "PASS conciliação preserva pontos e reconstrói contagem e Memorial",
+        "PASS pergunta exige título e resposta esperada",
+        "PASS arsenal limita quatro perguntas normais por fase",
+        "PASS gabarito não aparece no estado público antes de revelar",
+        "PASS batalha guiada respeita atacante, alvo, fase e julgamento parcial",
+        "PASS laboratório recusa pergunta de outra fase",
+        "PASS sorteio mantém todos os exércitos sem repetição",
+        "PASS Mesa não é administradora",
+        "PASS desfazer julgamento reabre a batalha e devolve a vez",
+        "PASS backup completo local pode ser validado para recuperação",
+        "PASS reinício limpa pergunta, resposta, batalha, turno e cronômetro",
+        "PASS escrita da Mesa não inclui configuração nem elenco",
+        "PASS desfazer batalha preserva sorteio com um único lado",
+        "PASS sessão lembrada não abre painel sem entrada explícita",
+        "PASS Professor só entra após carregar autorização reservada",
+        "PASS Público entra com sua conta e recebe apenas navegação pública",
+        "PASS Mesa tem partida e perguntas mas não elenco administrativo",
+        "PASS Telão público abre diretamente sem simular login",
+        "PASS Ensaio precisa de entrada explícita e não exige conta real",
+        "PASS categorias mantêm todos os tipos atuais sem mudar seus índices",
+        "PASS operação offline não altera placar",
+        "PASS editar segredo não amplia revelação da patente",
+        "PASS conflito de revisão não apaga lance remoto",
+        "PASS gravação transacional confirma nova revisão",
+        "PASS escrita negada restaura placar confirmado",
+        "PASS Mesa salva apenas campos operacionais com revisão",
+        "PASS Mesa rejeita revisão concorrente e recarrega",
+        "PASS atalho de coletiva seleciona categoria e lance corretos",
+        "PASS atalho de homem-bomba seleciona categoria e lance corretos"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 3,
+      "suite": "apresentacao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 192,
+      "scenarioLines": [
+        "PASS publicação recusada mantém aviso de falha",
+        "PASS conclusão recusada mantém pergunta pendente",
+        "PASS revelação recusada não anuncia gabarito publicado",
+        "PASS sorteio recusado não anuncia ordem registrada",
+        "PASS batalha recusada não anuncia pergunta no telão",
+        "PASS avanço recusado preserva fase e aviso",
+        "PASS exemplo recusado preserva arsenal anterior",
+        "PASS pergunta → conclusão → revelação explícita → retirada"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 3,
+      "suite": "partida-completa",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 94289,
+      "scenarioLines": [
+        "PASS partidas completas: {\"sementeInicial\":81,\"sementeFinal\":120,\"partidas\":40,\"fases\":200,\"batalhas\":4800,\"conferencias\":5660,\"desfazerRefazer\":514,\"vidasExtras\":306}"
+      ],
+      "metrics": [
+        {
+          "sementeInicial": 81,
+          "sementeFinal": 120,
+          "partidas": 40,
+          "fases": 200,
+          "batalhas": 4800,
+          "conferencias": 5660,
+          "desfazerRefazer": 514,
+          "vidasExtras": 306
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "suite": "mecanismo",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 361,
+      "scenarioLines": [
+        "PASS início vazio mantém índices históricos",
+        "PASS seis votos imutáveis, empate e professor restrito",
+        "PASS revisão da revisão usa duas cotas no jogo inteiro e substitui",
+        "PASS revisão recusa lances posteriores que podem depender do resultado",
+        "PASS projeção pública usa allowlist profunda e só publica pontuação ao fechar fase",
+        "PASS pelotão físico: três nomes distintos, até dois alvos sequenciais",
+        "PASS reapuração coletiva não duplica munição, pontos ou cotas",
+        "PASS falha na reapuração preserva integralmente o estado anterior",
+        "PASS motor não troca S ou CP do chamador mesmo quando validação falha",
+        "PASS empate triplo exige professor e publica só os seis votos dos mesários",
+        "PASS pelotão rejeita parcial ambíguo sem converter em execução",
+        "PASS resposta precede abertura explícita do Conselho",
+        "PASS pergunta do pelotão passa por seis votos e parcial exige decisão justificada",
+        "PASS CO capturado pontua privadamente antes e depois de revelação sem expor identidade",
+        "PASS reapuração parcial do pelotão é imutável e exige nova decisão do Professor",
+        "PASS quatro sequências alternadas completam oito ataques normais e recusam quinto míssil",
+        "PASS Blitzkrieg parcial aguarda interpretação expressa do Professor",
+        "PASS empate de pontos publica posições iguais sem publicar números de pontos",
+        "PASS pelotão físico exige todos os elegíveis quando restam menos de três",
+        "PASS cronômetro compensa diferença do relógio do aparelho"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 3,
+      "suite": "controller",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 288,
+      "scenarioLines": [
+        "PASS hidratação não modifica snapshot da fonte",
+        "PASS sexto voto resolve e publica sem clique extra",
+        "PASS snapshot de Firebase sem listas vazias mantém cadastro vazio",
+        "PASS segunda sequência permite continuar os quatro mísseis por exército",
+        "PASS lance manual não contorna julgamento obrigatório do Conselho",
+        "PASS expressão do sétimo voto aceita somente categorias empatadas em todas as combinações",
+        "PASS conflito durante apuração reaplica os seis votos sem exigir interação"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 3,
+      "suite": "fases-placar",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 295,
+      "scenarioLines": [
+        "PASS visibilidade explícita sobrepõe fechamento e fallback preserva partida anterior",
+        "PASS mostrar placar não revela gabarito, identidade ou detalhes de recursos privados",
+        "PASS catálogo respeita períodos do manual e setup permite escolher fase",
+        "PASS desempate exige Professor, quinta fase fechada e empate dos exércitos elegíveis",
+        "PASS salto de fase sem justificativa preserva histórico e cotas",
+        "PASS próxima fase fechada dispensa exceção e reentrada mantém mísseis e rodízio",
+        "PASS pergunta, revisão e pelotão ativo bloqueiam mudança de fase",
+        "PASS transição vence pelo relógio do servidor e repetir apresentação preserva dados",
+        "PASS anúncio publica somente da0/db0 confirmado e não saldo, inclusive zero",
+        "PASS anúncio falhou divulga zero e parcial10/10 vem do evento sem aceitar números livres",
+        "PASS anúncio expira, desfazer ou evento substituído impede publicação antiga",
+        "PASS início, revisão, resolução e troca de fase invalidam anúncio anterior",
+        "PASS reabrir fase invalida fechamento histórico e reentrada exige novo encerramento"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 3,
+      "suite": "fases-controller",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 346,
+      "scenarioLines": [
+        "PASS view vazio e placar privado completo funcionam sem batalha",
+        "PASS Mesa seleciona fase3 no setup pelo handler real da interface",
+        "PASS ações de visibilidade preservam tipos, sigilo e permitem pergunta em andamento",
+        "PASS anúncio separado do placar é calculado, expira e pode ser retirado",
+        "PASS seleção de fase projeta transição com relógio local e oculta o placar",
+        "PASS fechar e avançar mantém escolha explícita de esconder pontos e histórico",
+        "PASS desfazer resultado abre roundnovo e não reaplica os votos antigos",
+        "PASS desfazer resultado revisado é recusado sem perder origem ou cota",
+        "PASS lance novo remove fechamento antigo e reentrada não contorna quatro mísseis"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 3,
+      "suite": "exclusao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 255,
+      "scenarioLines": [
+        "PASS exclui soldado intermediário antes do jogo e alinha dados privados e revelados",
+        "PASS exclusão do primeiro soldado cancela apenas ataque ainda não respondido",
+        "PASS votação ou resposta iniciada impede exclusão e preserva tudo",
+        "PASS pergunta em preparação pode ser excluída com cancelamento sincronizado",
+        "PASS pergunta utilizada e elenco com resultados permanecem protegidos",
+        "PASS excluir pergunta offline não muda o cadastro nem anuncia sucesso",
+        "PASS fase normal muda sem justificativa após resultado e mantém histórico"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 3,
+      "suite": "acessibilidade",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 171,
+      "scenarioLines": [
+        "PASS Tab e Shift+Tab permanecem na confirmação e recuperam foco externo",
+        "PASS confirmação sem controles recebe foco no próprio diálogo",
+        "PASS restauração encontra o botão correto após recriar a interface, inclusive exército e índice",
+        "PASS leitor de tela recebe avisos e contagem de votos uma vez por mudança, sem gabarito",
+        "PASS confirmação tem título e descrição associados para leitor de tela",
+        "PASS histórico com identificação estável preserva foco após recriar o painel"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 3,
+      "suite": "preferencias",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 221,
+      "scenarioLines": [
+        "PASS somente opções permitidas e texto100-200% entram nas preferências",
+        "PASS cada assento, professor, público, visitante e ensaio tem chave própria",
+        "PASS preferências persistem por perfil sem mudar partida ou chamar Firebase",
+        "PASS cadastro novo herda só visitante e não outro assento; restaurar padrão é local",
+        "PASS primeiro acesso fixa a herança e mudanças posteriores do visitante não afetam o perfil",
+        "PASS JSON inválido e armazenamento bloqueado não impedem abrir ou usar o site",
+        "PASS créditos exibem autores, turmas e apoio informados e painel é nomeado",
+        "PASS matriz de preferências: {\"combinacoesPreferencias\":1200}",
+        "PASS 1200 combinações de preferências preservam isolamento e valores em dez perfis"
+      ],
+      "metrics": [
+        {
+          "combinacoesPreferencias": 1200
+        }
+      ]
+    },
+    {
       "round": 3,
       "suite": "autenticacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 116,
+      "durationMs": 188,
       "scenarioLines": [
         "PASS oito contas entram somente quando UID corresponde ao perfil escolhido",
         "PASS senha incorreta não libera perfil nem inicia leitura privada",
@@ -939,7 +1045,7 @@
       "suite": "simulacao-v3",
       "success": true,
       "exitCode": 0,
-      "durationMs": 5137,
+      "durationMs": 7745,
       "scenarioLines": [
         "PASS simulação oficial: {\"combinacoesVotos\":729,\"empates\":150,\"partidas\":10,\"batalhas\":400,\"revisoes\":40,\"projecoesConferidas\":1200,\"sementeInicial\":81,\"sementeFinal\":90}"
       ],
@@ -961,7 +1067,7 @@
       "suite": "ux-telao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 179,
+      "durationMs": 193,
       "scenarioLines": [
         "PASS links abrem apenas formulário correspondente e não autenticam",
         "PASS Professor tem entrada explícita com assento7; demais perfis preservam credenciais próprias",
@@ -978,7 +1084,7 @@
       "suite": "cronometro-votacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 364,
+      "durationMs": 286,
       "scenarioLines": [
         "PASS relógio chega à projeção mesmo sem pergunta e aceita tempo personalizado",
         "PASS trocar preset aplica novo tempo em vez de retomar saldo antigo",
@@ -993,11 +1099,64 @@
       "metrics": []
     },
     {
+      "round": 3,
+      "suite": "conselho-multicelular",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 4792,
+      "scenarioLines": [
+        "PASS voto recebido aparece no próprio painel sem esperar gravar a partida",
+        "PASS seis telefones votam juntos; cada voto é imutável e apura uma vez",
+        "PASS empate entre seis sessões chama Professor; sétimo voto permanece reservado",
+        "PASS duas revisões nas seis sessões reabrem votos sem duplicar resultado nem reiniciar relógio",
+        "PASS votos parciais atualizam o telão sem escrever a partida inteira",
+        "PASS gravação antiga não substitui estado de uma sessão que entrou depois",
+        "PASS falha tardia de rede da sessão anterior não vira erro na conta seguinte",
+        "PASS cadastro privado pendente não repõe gabarito no cache após logout",
+        "PASS erro enfileirado da inscrição anterior não altera sessão nova",
+        "PASS revisão abre outra votação imediatamente e conserva o relógio",
+        "PASS revisão antiga fechada é reaberta sem consumir outra cota ou mexer no relógio",
+        "PASS quem pergunta é combatente vivo do atacante e só nome de guerra é público"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 3,
+      "suite": "presenca-assentos",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 236,
+      "scenarioLines": [
+        "PASS reserva simultânea do mesmo assento admite só uma sessão",
+        "PASS seis assentos independentes e saída liberam imediatamente",
+        "PASS reserva expirada é recuperável e sessão anterior não apaga a nova",
+        "PASS heartbeat renova somente sua reserva e público compartilhado não ocupa assento",
+        "PASS logout limpa sessão e dados mesmo se a liberação remota falhar",
+        "PASS aparelho com reserva substituída não envia voto",
+        "PASS regras de presença permitem só a conta do assento e não expõem segredo"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 3,
+      "suite": "legibilidade-conselho",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 175,
+      "scenarioLines": [
+        "PASS cores dos votos e botões conservam os textos e o sétimo fica neutro",
+        "PASS resultado grande e revisão ficam antes da pergunta no telão",
+        "PASS cronômetro muda de faixa com o prazo e mantém texto explícito",
+        "PASS assentos em uso são desabilitados e identificados no formulário"
+      ],
+      "metrics": []
+    },
+    {
       "round": 4,
       "suite": "regras",
       "success": true,
       "exitCode": 0,
-      "durationMs": 214,
+      "durationMs": 328,
       "scenarioLines": [
         "PASS 26 índices originais preservados",
         "PASS não publica identidade ao registrar baixa",
@@ -1062,7 +1221,7 @@
       "suite": "apresentacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 175,
+      "durationMs": 274,
       "scenarioLines": [
         "PASS publicação recusada mantém aviso de falha",
         "PASS conclusão recusada mantém pergunta pendente",
@@ -1080,7 +1239,7 @@
       "suite": "partida-completa",
       "success": true,
       "exitCode": 0,
-      "durationMs": 71848,
+      "durationMs": 114157,
       "scenarioLines": [
         "PASS partidas completas: {\"sementeInicial\":121,\"sementeFinal\":160,\"partidas\":40,\"fases\":200,\"batalhas\":4800,\"conferencias\":5659,\"desfazerRefazer\":529,\"vidasExtras\":290}"
       ],
@@ -1102,7 +1261,7 @@
       "suite": "mecanismo",
       "success": true,
       "exitCode": 0,
-      "durationMs": 251,
+      "durationMs": 371,
       "scenarioLines": [
         "PASS início vazio mantém índices históricos",
         "PASS seis votos imutáveis, empate e professor restrito",
@@ -1132,7 +1291,7 @@
       "suite": "controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 187,
+      "durationMs": 293,
       "scenarioLines": [
         "PASS hidratação não modifica snapshot da fonte",
         "PASS sexto voto resolve e publica sem clique extra",
@@ -1149,7 +1308,7 @@
       "suite": "fases-placar",
       "success": true,
       "exitCode": 0,
-      "durationMs": 185,
+      "durationMs": 297,
       "scenarioLines": [
         "PASS visibilidade explícita sobrepõe fechamento e fallback preserva partida anterior",
         "PASS mostrar placar não revela gabarito, identidade ou detalhes de recursos privados",
@@ -1172,7 +1331,7 @@
       "suite": "fases-controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 205,
+      "durationMs": 337,
       "scenarioLines": [
         "PASS view vazio e placar privado completo funcionam sem batalha",
         "PASS Mesa seleciona fase3 no setup pelo handler real da interface",
@@ -1191,7 +1350,7 @@
       "suite": "exclusao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 160,
+      "durationMs": 248,
       "scenarioLines": [
         "PASS exclui soldado intermediário antes do jogo e alinha dados privados e revelados",
         "PASS exclusão do primeiro soldado cancela apenas ataque ainda não respondido",
@@ -1208,7 +1367,7 @@
       "suite": "acessibilidade",
       "success": true,
       "exitCode": 0,
-      "durationMs": 105,
+      "durationMs": 170,
       "scenarioLines": [
         "PASS Tab e Shift+Tab permanecem na confirmação e recuperam foco externo",
         "PASS confirmação sem controles recebe foco no próprio diálogo",
@@ -1224,7 +1383,7 @@
       "suite": "preferencias",
       "success": true,
       "exitCode": 0,
-      "durationMs": 145,
+      "durationMs": 217,
       "scenarioLines": [
         "PASS somente opções permitidas e texto100-200% entram nas preferências",
         "PASS cada assento, professor, público, visitante e ensaio tem chave própria",
@@ -1247,7 +1406,7 @@
       "suite": "autenticacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 116,
+      "durationMs": 176,
       "scenarioLines": [
         "PASS oito contas entram somente quando UID corresponde ao perfil escolhido",
         "PASS senha incorreta não libera perfil nem inicia leitura privada",
@@ -1263,7 +1422,7 @@
       "suite": "simulacao-v3",
       "success": true,
       "exitCode": 0,
-      "durationMs": 5037,
+      "durationMs": 8629,
       "scenarioLines": [
         "PASS simulação oficial: {\"combinacoesVotos\":729,\"empates\":150,\"partidas\":10,\"batalhas\":400,\"revisoes\":40,\"projecoesConferidas\":1200,\"sementeInicial\":121,\"sementeFinal\":130}"
       ],
@@ -1285,7 +1444,7 @@
       "suite": "ux-telao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 138,
+      "durationMs": 189,
       "scenarioLines": [
         "PASS links abrem apenas formulário correspondente e não autenticam",
         "PASS Professor tem entrada explícita com assento7; demais perfis preservam credenciais próprias",
@@ -1302,7 +1461,7 @@
       "suite": "cronometro-votacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 320,
+      "durationMs": 281,
       "scenarioLines": [
         "PASS relógio chega à projeção mesmo sem pergunta e aceita tempo personalizado",
         "PASS trocar preset aplica novo tempo em vez de retomar saldo antigo",
@@ -1317,11 +1476,64 @@
       "metrics": []
     },
     {
+      "round": 4,
+      "suite": "conselho-multicelular",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 4787,
+      "scenarioLines": [
+        "PASS voto recebido aparece no próprio painel sem esperar gravar a partida",
+        "PASS seis telefones votam juntos; cada voto é imutável e apura uma vez",
+        "PASS empate entre seis sessões chama Professor; sétimo voto permanece reservado",
+        "PASS duas revisões nas seis sessões reabrem votos sem duplicar resultado nem reiniciar relógio",
+        "PASS votos parciais atualizam o telão sem escrever a partida inteira",
+        "PASS gravação antiga não substitui estado de uma sessão que entrou depois",
+        "PASS falha tardia de rede da sessão anterior não vira erro na conta seguinte",
+        "PASS cadastro privado pendente não repõe gabarito no cache após logout",
+        "PASS erro enfileirado da inscrição anterior não altera sessão nova",
+        "PASS revisão abre outra votação imediatamente e conserva o relógio",
+        "PASS revisão antiga fechada é reaberta sem consumir outra cota ou mexer no relógio",
+        "PASS quem pergunta é combatente vivo do atacante e só nome de guerra é público"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 4,
+      "suite": "presenca-assentos",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 231,
+      "scenarioLines": [
+        "PASS reserva simultânea do mesmo assento admite só uma sessão",
+        "PASS seis assentos independentes e saída liberam imediatamente",
+        "PASS reserva expirada é recuperável e sessão anterior não apaga a nova",
+        "PASS heartbeat renova somente sua reserva e público compartilhado não ocupa assento",
+        "PASS logout limpa sessão e dados mesmo se a liberação remota falhar",
+        "PASS aparelho com reserva substituída não envia voto",
+        "PASS regras de presença permitem só a conta do assento e não expõem segredo"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 4,
+      "suite": "legibilidade-conselho",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 169,
+      "scenarioLines": [
+        "PASS cores dos votos e botões conservam os textos e o sétimo fica neutro",
+        "PASS resultado grande e revisão ficam antes da pergunta no telão",
+        "PASS cronômetro muda de faixa com o prazo e mantém texto explícito",
+        "PASS assentos em uso são desabilitados e identificados no formulário"
+      ],
+      "metrics": []
+    },
+    {
       "round": 5,
       "suite": "regras",
       "success": true,
       "exitCode": 0,
-      "durationMs": 259,
+      "durationMs": 319,
       "scenarioLines": [
         "PASS 26 índices originais preservados",
         "PASS não publica identidade ao registrar baixa",
@@ -1386,7 +1598,7 @@
       "suite": "apresentacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 176,
+      "durationMs": 258,
       "scenarioLines": [
         "PASS publicação recusada mantém aviso de falha",
         "PASS conclusão recusada mantém pergunta pendente",
@@ -1404,7 +1616,7 @@
       "suite": "partida-completa",
       "success": true,
       "exitCode": 0,
-      "durationMs": 68770,
+      "durationMs": 112569,
       "scenarioLines": [
         "PASS partidas completas: {\"sementeInicial\":161,\"sementeFinal\":200,\"partidas\":40,\"fases\":200,\"batalhas\":4800,\"conferencias\":5644,\"desfazerRefazer\":504,\"vidasExtras\":300}"
       ],
@@ -1426,7 +1638,7 @@
       "suite": "mecanismo",
       "success": true,
       "exitCode": 0,
-      "durationMs": 215,
+      "durationMs": 388,
       "scenarioLines": [
         "PASS início vazio mantém índices históricos",
         "PASS seis votos imutáveis, empate e professor restrito",
@@ -1456,7 +1668,7 @@
       "suite": "controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 195,
+      "durationMs": 300,
       "scenarioLines": [
         "PASS hidratação não modifica snapshot da fonte",
         "PASS sexto voto resolve e publica sem clique extra",
@@ -1473,7 +1685,7 @@
       "suite": "fases-placar",
       "success": true,
       "exitCode": 0,
-      "durationMs": 214,
+      "durationMs": 348,
       "scenarioLines": [
         "PASS visibilidade explícita sobrepõe fechamento e fallback preserva partida anterior",
         "PASS mostrar placar não revela gabarito, identidade ou detalhes de recursos privados",
@@ -1496,7 +1708,7 @@
       "suite": "fases-controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 211,
+      "durationMs": 390,
       "scenarioLines": [
         "PASS view vazio e placar privado completo funcionam sem batalha",
         "PASS Mesa seleciona fase3 no setup pelo handler real da interface",
@@ -1515,7 +1727,7 @@
       "suite": "exclusao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 161,
+      "durationMs": 310,
       "scenarioLines": [
         "PASS exclui soldado intermediário antes do jogo e alinha dados privados e revelados",
         "PASS exclusão do primeiro soldado cancela apenas ataque ainda não respondido",
@@ -1532,7 +1744,7 @@
       "suite": "acessibilidade",
       "success": true,
       "exitCode": 0,
-      "durationMs": 112,
+      "durationMs": 187,
       "scenarioLines": [
         "PASS Tab e Shift+Tab permanecem na confirmação e recuperam foco externo",
         "PASS confirmação sem controles recebe foco no próprio diálogo",
@@ -1548,7 +1760,7 @@
       "suite": "preferencias",
       "success": true,
       "exitCode": 0,
-      "durationMs": 370,
+      "durationMs": 245,
       "scenarioLines": [
         "PASS somente opções permitidas e texto100-200% entram nas preferências",
         "PASS cada assento, professor, público, visitante e ensaio tem chave própria",
@@ -1571,7 +1783,7 @@
       "suite": "autenticacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 126,
+      "durationMs": 210,
       "scenarioLines": [
         "PASS oito contas entram somente quando UID corresponde ao perfil escolhido",
         "PASS senha incorreta não libera perfil nem inicia leitura privada",
@@ -1587,7 +1799,7 @@
       "suite": "simulacao-v3",
       "success": true,
       "exitCode": 0,
-      "durationMs": 5467,
+      "durationMs": 9054,
       "scenarioLines": [
         "PASS simulação oficial: {\"combinacoesVotos\":729,\"empates\":150,\"partidas\":10,\"batalhas\":400,\"revisoes\":40,\"projecoesConferidas\":1200,\"sementeInicial\":161,\"sementeFinal\":170}"
       ],
@@ -1609,7 +1821,7 @@
       "suite": "ux-telao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 114,
+      "durationMs": 186,
       "scenarioLines": [
         "PASS links abrem apenas formulário correspondente e não autenticam",
         "PASS Professor tem entrada explícita com assento7; demais perfis preservam credenciais próprias",
@@ -1626,7 +1838,7 @@
       "suite": "cronometro-votacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 175,
+      "durationMs": 285,
       "scenarioLines": [
         "PASS relógio chega à projeção mesmo sem pergunta e aceita tempo personalizado",
         "PASS trocar preset aplica novo tempo em vez de retomar saldo antigo",
@@ -1637,6 +1849,59 @@
         "PASS cronômetro avulso continua visível ao pausar em zero",
         "PASS Mesa recebe aviso de empate e Público vê votos ao vivo com Professor reservado",
         "PASS equipe de produção inclui o único Professor sem principal ou apoio"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 5,
+      "suite": "conselho-multicelular",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 4822,
+      "scenarioLines": [
+        "PASS voto recebido aparece no próprio painel sem esperar gravar a partida",
+        "PASS seis telefones votam juntos; cada voto é imutável e apura uma vez",
+        "PASS empate entre seis sessões chama Professor; sétimo voto permanece reservado",
+        "PASS duas revisões nas seis sessões reabrem votos sem duplicar resultado nem reiniciar relógio",
+        "PASS votos parciais atualizam o telão sem escrever a partida inteira",
+        "PASS gravação antiga não substitui estado de uma sessão que entrou depois",
+        "PASS falha tardia de rede da sessão anterior não vira erro na conta seguinte",
+        "PASS cadastro privado pendente não repõe gabarito no cache após logout",
+        "PASS erro enfileirado da inscrição anterior não altera sessão nova",
+        "PASS revisão abre outra votação imediatamente e conserva o relógio",
+        "PASS revisão antiga fechada é reaberta sem consumir outra cota ou mexer no relógio",
+        "PASS quem pergunta é combatente vivo do atacante e só nome de guerra é público"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 5,
+      "suite": "presenca-assentos",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 260,
+      "scenarioLines": [
+        "PASS reserva simultânea do mesmo assento admite só uma sessão",
+        "PASS seis assentos independentes e saída liberam imediatamente",
+        "PASS reserva expirada é recuperável e sessão anterior não apaga a nova",
+        "PASS heartbeat renova somente sua reserva e público compartilhado não ocupa assento",
+        "PASS logout limpa sessão e dados mesmo se a liberação remota falhar",
+        "PASS aparelho com reserva substituída não envia voto",
+        "PASS regras de presença permitem só a conta do assento e não expõem segredo"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 5,
+      "suite": "legibilidade-conselho",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 190,
+      "scenarioLines": [
+        "PASS cores dos votos e botões conservam os textos e o sétimo fica neutro",
+        "PASS resultado grande e revisão ficam antes da pergunta no telão",
+        "PASS cronômetro muda de faixa com o prazo e mantém texto explícito",
+        "PASS assentos em uso são desabilitados e identificados no formulário"
       ],
       "metrics": []
     }

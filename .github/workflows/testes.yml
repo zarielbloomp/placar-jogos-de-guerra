@@ -58,3 +58,10 @@ jobs:
 
       - name: Cronômetro sincronizado e votação ao vivo
         run: node tests/cronometro-votacao.cjs
+
+      - name: Seis sessões simultâneas e revisão
+        run: node tests/conselho-multicelular.cjs
+      - name: Reserva e recuperação de assentos
+        run: node tests/presenca-assentos.cjs
+      - name: Legibilidade do Conselho e cronômetro
+        run: node tests/legibilidade-conselho.cjs

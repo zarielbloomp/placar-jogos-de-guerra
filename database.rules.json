@@ -73,6 +73,103 @@
         "5": {
           ".write": "auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')"
         }
+      },
+      "presencas": {
+        ".read": true,
+        "1": {
+          ".write": "auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2'",
+          ".validate": "newData.hasChildren(['session','expiresAt']) && newData.child('session').isString() && newData.child('session').val().length <= 80 && newData.child('expiresAt').isNumber() && newData.child('expiresAt').val() > now && newData.child('expiresAt').val() <= now + 60000 && (!data.exists() || data.child('expiresAt').val() <= now || newData.child('session').val() == data.child('session').val())",
+          "session": {
+            ".validate": "newData.isString()"
+          },
+          "expiresAt": {
+            ".validate": "newData.isNumber()"
+          },
+          "$other": {
+            ".validate": false
+          }
+        },
+        "2": {
+          ".write": "auth != null && auth.uid == 'CcPHhBUkWJgjXJmGGrhLPid3Zp13'",
+          ".validate": "newData.hasChildren(['session','expiresAt']) && newData.child('session').isString() && newData.child('session').val().length <= 80 && newData.child('expiresAt').isNumber() && newData.child('expiresAt').val() > now && newData.child('expiresAt').val() <= now + 60000 && (!data.exists() || data.child('expiresAt').val() <= now || newData.child('session').val() == data.child('session').val())",
+          "session": {
+            ".validate": "newData.isString()"
+          },
+          "expiresAt": {
+            ".validate": "newData.isNumber()"
+          },
+          "$other": {
+            ".validate": false
+          }
+        },
+        "3": {
+          ".write": "auth != null && auth.uid == 'pMV9ue8NNRfl4RD59VlrxO5UzOo2'",
+          ".validate": "newData.hasChildren(['session','expiresAt']) && newData.child('session').isString() && newData.child('session').val().length <= 80 && newData.child('expiresAt').isNumber() && newData.child('expiresAt').val() > now && newData.child('expiresAt').val() <= now + 60000 && (!data.exists() || data.child('expiresAt').val() <= now || newData.child('session').val() == data.child('session').val())",
+          "session": {
+            ".validate": "newData.isString()"
+          },
+          "expiresAt": {
+            ".validate": "newData.isNumber()"
+          },
+          "$other": {
+            ".validate": false
+          }
+        },
+        "4": {
+          ".write": "auth != null && auth.uid == 'PEVJqLGj4WcrsbWZmQwoRbUw9Et1'",
+          ".validate": "newData.hasChildren(['session','expiresAt']) && newData.child('session').isString() && newData.child('session').val().length <= 80 && newData.child('expiresAt').isNumber() && newData.child('expiresAt').val() > now && newData.child('expiresAt').val() <= now + 60000 && (!data.exists() || data.child('expiresAt').val() <= now || newData.child('session').val() == data.child('session').val())",
+          "session": {
+            ".validate": "newData.isString()"
+          },
+          "expiresAt": {
+            ".validate": "newData.isNumber()"
+          },
+          "$other": {
+            ".validate": false
+          }
+        },
+        "5": {
+          ".write": "auth != null && auth.uid == 'oKKPn9s1x6Z9HCCfRBIkb4K3FOE2'",
+          ".validate": "newData.hasChildren(['session','expiresAt']) && newData.child('session').isString() && newData.child('session').val().length <= 80 && newData.child('expiresAt').isNumber() && newData.child('expiresAt').val() > now && newData.child('expiresAt').val() <= now + 60000 && (!data.exists() || data.child('expiresAt').val() <= now || newData.child('session').val() == data.child('session').val())",
+          "session": {
+            ".validate": "newData.isString()"
+          },
+          "expiresAt": {
+            ".validate": "newData.isNumber()"
+          },
+          "$other": {
+            ".validate": false
+          }
+        },
+        "6": {
+          ".write": "auth != null && auth.uid == 'Z3LGUbT2Fcb5nlKKjSjeUrq5d5P2'",
+          ".validate": "newData.hasChildren(['session','expiresAt']) && newData.child('session').isString() && newData.child('session').val().length <= 80 && newData.child('expiresAt').isNumber() && newData.child('expiresAt').val() > now && newData.child('expiresAt').val() <= now + 60000 && (!data.exists() || data.child('expiresAt').val() <= now || newData.child('session').val() == data.child('session').val())",
+          "session": {
+            ".validate": "newData.isString()"
+          },
+          "expiresAt": {
+            ".validate": "newData.isNumber()"
+          },
+          "$other": {
+            ".validate": false
+          }
+        },
+        "7": {
+          ".write": "auth != null && auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62'",
+          ".validate": "newData.hasChildren(['session','expiresAt']) && newData.child('session').isString() && newData.child('session').val().length <= 80 && newData.child('expiresAt').isNumber() && newData.child('expiresAt').val() > now && newData.child('expiresAt').val() <= now + 60000 && (!data.exists() || data.child('expiresAt').val() <= now || newData.child('session').val() == data.child('session').val())",
+          "session": {
+            ".validate": "newData.isString()"
+          },
+          "expiresAt": {
+            ".validate": "newData.isNumber()"
+          },
+          "$other": {
+            ".validate": false
+          }
+        },
+        "$other": {
+          ".validate": false
+        }
       }
     }
   }

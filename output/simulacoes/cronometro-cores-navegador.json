@@ -1,0 +1,22 @@
+[
+  {
+    "text": "00:30",
+    "tone": "calm"
+  },
+  {
+    "text": "00:01",
+    "tone": "danger"
+  },
+  {
+    "text": "01:00",
+    "tone": "calm"
+  },
+  {
+    "text": "00:13",
+    "tone": "warning"
+  },
+  {
+    "text": "00:00",
+    "tone": "expired"
+  }
+]

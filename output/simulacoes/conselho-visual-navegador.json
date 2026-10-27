@@ -1,0 +1,46 @@
+{
+  "votes": [
+    {
+      "seat": 1,
+      "choice": "total",
+      "public": "01 ✓\nSentinela\nTotalmente certa"
+    },
+    {
+      "seat": 2,
+      "choice": "parcial",
+      "public": "02 ✓\nVanguarda\nMeio certa"
+    },
+    {
+      "seat": 3,
+      "choice": "falhou",
+      "public": "03 ✓\nBastião\nTotalmente errada"
+    },
+    {
+      "seat": 4,
+      "choice": "total",
+      "public": "04 ✓\nFalcão\nTotalmente certa"
+    },
+    {
+      "seat": 5,
+      "choice": "parcial",
+      "public": "05 ✓\nEscudo\nMeio certa"
+    },
+    {
+      "seat": 6,
+      "choice": "total",
+      "public": "06 ✓\nLanceiro\nTotalmente certa"
+    }
+  ],
+  "reviewClock": {
+    "before": "02:05",
+    "after": "02:05"
+  },
+  "professorPublic": "07 ✓\nGuardião\nVoto reservado",
+  "finalResult": "RESULTADO APURADO\n≈\nMeio certa\n\nJulgamento concluído pelo Conselho · Resposta de Sentinela do Horizonte.",
+  "publicPrivateVisible": false,
+  "keyboard": {
+    "tab": "total → parcial",
+    "focus": "solid",
+    "space": "confirmou um voto"
+  }
+}

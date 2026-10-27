@@ -1,0 +1,734 @@
+{
+  "rounds": 5,
+  "checks": 181,
+  "failures": 0,
+  "pathsWritten": [
+    "jg/presencas/1..6"
+  ],
+  "results": [
+    {
+      "name": "leitura assento2",
+      "passed": true
+    },
+    {
+      "name": "leitura assento6",
+      "passed": true
+    },
+    {
+      "name": "leitura assento5",
+      "passed": true
+    },
+    {
+      "name": "leitura assento1",
+      "passed": true
+    },
+    {
+      "name": "leitura assento3",
+      "passed": true
+    },
+    {
+      "name": "leitura assento4",
+      "passed": true
+    },
+    {
+      "name": "reserva propria5",
+      "passed": true
+    },
+    {
+      "name": "reserva propria2",
+      "passed": true
+    },
+    {
+      "name": "reserva propria1",
+      "passed": true
+    },
+    {
+      "name": "reserva propria3",
+      "passed": true
+    },
+    {
+      "name": "reserva propria4",
+      "passed": true
+    },
+    {
+      "name": "reserva propria6",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada6",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada4",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada3",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada5",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada2",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada1",
+      "passed": true
+    },
+    {
+      "name": "outra conta recusada",
+      "passed": true
+    },
+    {
+      "name": "escrita publico recusada",
+      "passed": true
+    },
+    {
+      "name": "segredo continua privado",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada1",
+      "passed": true
+    },
+    {
+      "name": "saida libera1",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada2",
+      "passed": true
+    },
+    {
+      "name": "saida libera2",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada3",
+      "passed": true
+    },
+    {
+      "name": "saida libera3",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada4",
+      "passed": true
+    },
+    {
+      "name": "saida libera4",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada5",
+      "passed": true
+    },
+    {
+      "name": "saida libera5",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada6",
+      "passed": true
+    },
+    {
+      "name": "saida libera6",
+      "passed": true
+    },
+    {
+      "name": "reserva curta aceita",
+      "passed": true
+    },
+    {
+      "name": "reserva expirada recuperavel",
+      "passed": true
+    },
+    {
+      "name": "limpeza propria",
+      "passed": true
+    },
+    {
+      "name": "leitura assento2",
+      "passed": true
+    },
+    {
+      "name": "leitura assento3",
+      "passed": true
+    },
+    {
+      "name": "leitura assento1",
+      "passed": true
+    },
+    {
+      "name": "leitura assento5",
+      "passed": true
+    },
+    {
+      "name": "leitura assento4",
+      "passed": true
+    },
+    {
+      "name": "leitura assento6",
+      "passed": true
+    },
+    {
+      "name": "reserva propria1",
+      "passed": true
+    },
+    {
+      "name": "reserva propria2",
+      "passed": true
+    },
+    {
+      "name": "reserva propria3",
+      "passed": true
+    },
+    {
+      "name": "reserva propria5",
+      "passed": true
+    },
+    {
+      "name": "reserva propria4",
+      "passed": true
+    },
+    {
+      "name": "reserva propria6",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada6",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada1",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada2",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada3",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada5",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada4",
+      "passed": true
+    },
+    {
+      "name": "outra conta recusada",
+      "passed": true
+    },
+    {
+      "name": "escrita publico recusada",
+      "passed": true
+    },
+    {
+      "name": "segredo continua privado",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada1",
+      "passed": true
+    },
+    {
+      "name": "saida libera1",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada2",
+      "passed": true
+    },
+    {
+      "name": "saida libera2",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada3",
+      "passed": true
+    },
+    {
+      "name": "saida libera3",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada4",
+      "passed": true
+    },
+    {
+      "name": "saida libera4",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada5",
+      "passed": true
+    },
+    {
+      "name": "saida libera5",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada6",
+      "passed": true
+    },
+    {
+      "name": "saida libera6",
+      "passed": true
+    },
+    {
+      "name": "reserva curta aceita",
+      "passed": true
+    },
+    {
+      "name": "reserva expirada recuperavel",
+      "passed": true
+    },
+    {
+      "name": "limpeza propria",
+      "passed": true
+    },
+    {
+      "name": "leitura assento6",
+      "passed": true
+    },
+    {
+      "name": "leitura assento1",
+      "passed": true
+    },
+    {
+      "name": "leitura assento2",
+      "passed": true
+    },
+    {
+      "name": "leitura assento3",
+      "passed": true
+    },
+    {
+      "name": "leitura assento4",
+      "passed": true
+    },
+    {
+      "name": "leitura assento5",
+      "passed": true
+    },
+    {
+      "name": "reserva propria4",
+      "passed": true
+    },
+    {
+      "name": "reserva propria1",
+      "passed": true
+    },
+    {
+      "name": "reserva propria5",
+      "passed": true
+    },
+    {
+      "name": "reserva propria2",
+      "passed": true
+    },
+    {
+      "name": "reserva propria3",
+      "passed": true
+    },
+    {
+      "name": "reserva propria6",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada1",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada2",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada5",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada3",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada6",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada4",
+      "passed": true
+    },
+    {
+      "name": "outra conta recusada",
+      "passed": true
+    },
+    {
+      "name": "escrita publico recusada",
+      "passed": true
+    },
+    {
+      "name": "segredo continua privado",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada1",
+      "passed": true
+    },
+    {
+      "name": "saida libera1",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada2",
+      "passed": true
+    },
+    {
+      "name": "saida libera2",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada3",
+      "passed": true
+    },
+    {
+      "name": "saida libera3",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada4",
+      "passed": true
+    },
+    {
+      "name": "saida libera4",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada5",
+      "passed": true
+    },
+    {
+      "name": "saida libera5",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada6",
+      "passed": true
+    },
+    {
+      "name": "saida libera6",
+      "passed": true
+    },
+    {
+      "name": "reserva curta aceita",
+      "passed": true
+    },
+    {
+      "name": "reserva expirada recuperavel",
+      "passed": true
+    },
+    {
+      "name": "limpeza propria",
+      "passed": true
+    },
+    {
+      "name": "leitura assento4",
+      "passed": true
+    },
+    {
+      "name": "leitura assento6",
+      "passed": true
+    },
+    {
+      "name": "leitura assento2",
+      "passed": true
+    },
+    {
+      "name": "leitura assento1",
+      "passed": true
+    },
+    {
+      "name": "leitura assento5",
+      "passed": true
+    },
+    {
+      "name": "leitura assento3",
+      "passed": true
+    },
+    {
+      "name": "reserva propria6",
+      "passed": true
+    },
+    {
+      "name": "reserva propria1",
+      "passed": true
+    },
+    {
+      "name": "reserva propria2",
+      "passed": true
+    },
+    {
+      "name": "reserva propria4",
+      "passed": true
+    },
+    {
+      "name": "reserva propria3",
+      "passed": true
+    },
+    {
+      "name": "reserva propria5",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada4",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada2",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada1",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada6",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada5",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada3",
+      "passed": true
+    },
+    {
+      "name": "outra conta recusada",
+      "passed": true
+    },
+    {
+      "name": "escrita publico recusada",
+      "passed": true
+    },
+    {
+      "name": "segredo continua privado",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada1",
+      "passed": true
+    },
+    {
+      "name": "saida libera1",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada2",
+      "passed": true
+    },
+    {
+      "name": "saida libera2",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada3",
+      "passed": true
+    },
+    {
+      "name": "saida libera3",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada4",
+      "passed": true
+    },
+    {
+      "name": "saida libera4",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada5",
+      "passed": true
+    },
+    {
+      "name": "saida libera5",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada6",
+      "passed": true
+    },
+    {
+      "name": "saida libera6",
+      "passed": true
+    },
+    {
+      "name": "reserva curta aceita",
+      "passed": true
+    },
+    {
+      "name": "reserva expirada recuperavel",
+      "passed": true
+    },
+    {
+      "name": "limpeza propria",
+      "passed": true
+    },
+    {
+      "name": "leitura assento3",
+      "passed": true
+    },
+    {
+      "name": "leitura assento2",
+      "passed": true
+    },
+    {
+      "name": "leitura assento1",
+      "passed": true
+    },
+    {
+      "name": "leitura assento5",
+      "passed": true
+    },
+    {
+      "name": "leitura assento4",
+      "passed": true
+    },
+    {
+      "name": "leitura assento6",
+      "passed": true
+    },
+    {
+      "name": "reserva propria1",
+      "passed": true
+    },
+    {
+      "name": "reserva propria4",
+      "passed": true
+    },
+    {
+      "name": "reserva propria5",
+      "passed": true
+    },
+    {
+      "name": "reserva propria2",
+      "passed": true
+    },
+    {
+      "name": "reserva propria6",
+      "passed": true
+    },
+    {
+      "name": "reserva propria3",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada6",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada2",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada4",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada3",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada1",
+      "passed": true
+    },
+    {
+      "name": "duplicidade recusada5",
+      "passed": true
+    },
+    {
+      "name": "outra conta recusada",
+      "passed": true
+    },
+    {
+      "name": "escrita publico recusada",
+      "passed": true
+    },
+    {
+      "name": "segredo continua privado",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada1",
+      "passed": true
+    },
+    {
+      "name": "saida libera1",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada2",
+      "passed": true
+    },
+    {
+      "name": "saida libera2",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada3",
+      "passed": true
+    },
+    {
+      "name": "saida libera3",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada4",
+      "passed": true
+    },
+    {
+      "name": "saida libera4",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada5",
+      "passed": true
+    },
+    {
+      "name": "saida libera5",
+      "passed": true
+    },
+    {
+      "name": "reserva original preservada6",
+      "passed": true
+    },
+    {
+      "name": "saida libera6",
+      "passed": true
+    },
+    {
+      "name": "reserva curta aceita",
+      "passed": true
+    },
+    {
+      "name": "reserva expirada recuperavel",
+      "passed": true
+    },
+    {
+      "name": "limpeza propria",
+      "passed": true
+    },
+    {
+      "name": "consulta publica para login",
+      "passed": true
+    }
+  ]
+}
