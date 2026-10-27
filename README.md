@@ -1,61 +1,73 @@
 # Jogos de Guerra 2026
 
-Placar escolar ao vivo com **controle do professor pelo celular** e **apresentação pública no telão**. Cada combatente representa um aluno; os seis exércitos continuam existindo. O projeto é um único `index.html`, sem build, npm ou dependências locais.
+Placar escolar ao vivo, controle pelo celular e telão. Cada combatente representa um aluno. Um único `index.html`, sem build ou dependências locais, com Firebase compat 10.12.2.
 
 ## Links
 
-- Placar: https://zarielbloomp.github.io/placar-jogos-de-guerra/
-- Controle do professor: https://zarielbloomp.github.io/placar-jogos-de-guerra/?controle=1
-- Telão: https://zarielbloomp.github.io/placar-jogos-de-guerra/?telao=1
-- Demonstração isolada: https://zarielbloomp.github.io/placar-jogos-de-guerra/?demo=1&controle=1
-- Análise das regras: [PDF](output/pdf/analise-jogos-de-guerra.pdf)
+- [Site oficial](https://zarielbloomp.github.io/placar-jogos-de-guerra/)
+- [Controle oficial](https://zarielbloomp.github.io/placar-jogos-de-guerra/?controle=1)
+- [Telão oficial](https://zarielbloomp.github.io/placar-jogos-de-guerra/?telao=1)
+- [Demonstração isolada](https://zarielbloomp.github.io/placar-jogos-de-guerra/?demo=1&controle=1)
+- [Laboratório guiado](https://zarielbloomp.github.io/placar-jogos-de-guerra/?experimental=1&controle=1)
+- [Telão do laboratório](https://zarielbloomp.github.io/placar-jogos-de-guerra/?experimental=1&telao=1)
+- [Relatório ao professor](output/pdf/relatorio-professor.pdf)
+- [Tutorial detalhado](output/pdf/tutorial-jogos-de-guerra.pdf)
+- [Análise original do manual](output/pdf/analise-jogos-de-guerra.pdf)
 
-A demonstração usa dados da sessão do navegador e não escreve no Firebase. Os links normais compartilham o mesmo jogo no Firebase: abrir o controle não cria uma partida nova. A demonstração não sincroniza entre aparelhos.
+## Oficial e experimental
 
-## Preparação do professor
+O oficial compartilha a mesma partida no Firebase entre celular e computador, com internet. Abrir outro link não cria outra partida. Placar, Memorial, classificação, pergunta apresentada, gabarito explicitamente revelado e cronômetro são sincronizados.
 
-1. No Firebase Authentication, confirme que o provedor e-mail/senha está habilitado e crie as contas dos pontuadores. As senhas nunca vão para o código ou GitHub.
-2. Em Realtime Database, revise as regras reais. O arquivo `database.rules.json` é um modelo: substitua os dois UIDs pelos UIDs das contas autorizadas e publique pelo console. Se houver só um editor, repita seu UID. Não publique o modelo com placeholders.
-3. Antes do primeiro lance, acesse o controle com uma conta autorizada. Em **Elenco individual e configuração**, ajuste quantidade, nomes de guerra e elenco secreto. Cada linha é um aluno. A configuração inicial mantém os 12 nomes legados por exército; pode variar de 1 a 50 antes do jogo.
-4. No telão, abra o link de apresentação, sem login. No celular, use o link de controle e faça login. Ambos precisam de internet. O aviso superior mostra conexão, salvamento e falhas.
-5. Se o jogo antigo contiver identidades em lances, use **Remover cópias antigas do estado público**, no aviso do editor. A correção do HTML não apaga sozinha dados já armazenados no Firebase.
-6. Faça um ensaio com contas e aparelhos reais antes da aula. A publicação do HTML não configura usuários, permissões ou regras do banco.
+O laboratório não chama o Firebase. Usa armazenamento local separado e sincroniza apenas entre abas da mesma origem e perfil do navegador. Não sincroniza entre celular e computador diferentes. Os perfis desse modo são simulações; use apenas material fictício. O exemplo carrega seis exércitos, três alunos por grupo e vinte perguntas ilustrativas por exército. O modo guiado permite sortear sequência, escolher rival/aluno, apresentar pergunta, julgar, avançar turno e conferir fases/munição. Ele não é um árbitro automático completo.
 
-## Regras incorporadas
+## Acessos reais
 
-- Defesa total 20; parcial 10/10 e captura; falha com baixa identificada.
-- Cair atirando, cartas, vida extra e resgate, preservando os índices antigos de lances.
-- Ás de Espadas: escolha do companheiro pelo jogador, conforme interpretação da sugestão autorizada.
-- Pelotão: sorteio de até três vivos distintos, até dois alvos escolhidos em sequência pelo rival. Se restarem menos de três, usar os disponíveis.
-- Cronômetro local de 30, 90, 45 e 60 segundos; histórico; backup público; recursos com limite; cálculo de saldos e desempate.
-- Morte, captura e libertação validam situação e captor. Lances antigos sem combatente identificado geram aviso de conciliação.
-- Placar de batalha e classificação com saldos são apresentados separadamente. Empates na premiação impedem pódio automático. Exércitos sem ativos não recebem prêmios; situações especiais com prisioneiros devem ser decididas pela mesa.
+No controle oficial, o formulário aceita `professor`, `mesa` e `publico`. As contas existem no Firebase Authentication. Senhas distintas foram entregues em PDF privado, fora do repositório.
 
-## Sigilo e saldo final
+- Professor: administração, elenco, perguntas, configuração, conciliação e recuperação.
+- Mesa: operação de lances, recursos, cronômetro e apresentação; leitura dos dados reservados. Não altera cadastros protegidos.
+- Público: somente leitura. O telão também funciona sem login.
 
-- `jg/estado`: placar público, lances, nomes de guerra, revelações e pódio.
-- `jg/segredo`: identidade real e função de cada aluno. Só as contas autorizadas devem ler/escrever.
-- Login sozinho não libera a mesa: a leitura autorizada do elenco precisa funcionar. As regras do Firebase são a proteção efetiva.
-- Registrar baixa não publica identidade ou patente. **Revelar identidade e função** publica explicitamente em `rv`; **Ocultar publicação** retira esse registro público. Não desfaz divulgações já vistas ou copiadas.
-- No fechamento, comandante preso ainda oculto exige confirmação para publicar **apenas a patente**, necessária ao saldo de 10 pontos. O nome real não é publicado por essa ação. O próprio valor do saldo pode permitir inferir a patente.
-- O modo literal subtrai 5 pontos (10 para CO) da origem, além de contar apenas vivos. A opção alternativa evita a subtração adicional; partidas antigas preservam a configuração. O manual não resolve claramente a interpretação de SUB: inicialmente vale como combatente comum; decisão diferente requer ajuste justificado.
+`database.rules.json` contém as regras publicadas para este projeto, com UIDs das contas e preservação do editor anterior autorizado. Em outro projeto, substitua os identificadores e publique suas regras. Não coloque senhas ou credenciais administrativas no HTML.
 
-## Sincronização e limitações
+## Perguntas
 
-O estado usa transação e revisão. Se outro pontuador salvar primeiro, a operação conflitante é recusada e o estado é atualizado: confira e repita a ação. O site não mistura silenciosamente decisões conflitantes. Todos os aparelhos devem usar esta versão; um editor com versão antiga ainda pode sobrescrever dados. O elenco secreto é salvo por campo.
+Professor cadastra título, enunciado, resposta esperada, fonte, exército, fase, categoria e aprovação. Arsenal normal: quatro por fase e vinte por exército. Há importação/exportação JSON por grupo, feita pela equipe responsável; não há portal de alunos ou conta independente por grupo. Importados ficam pendentes de aprovação.
 
-A correção de respostas, rodízio de alvos, escolha de participantes, sorteio geral de ataques, origem de cada carta, transferência após aniquilação, confisco de arsenal, tribunal e avaliação pedagógica continuam sob decisão do professor. O site registra resultados; não é um árbitro automático completo. O cronômetro não aparece sincronizado no telão. O relatório detalha as recomendações restantes.
+Enunciado é publicado pela mesa. Depois da resposta, um botão explícito revela a resposta esperada. Marcar resposta concluída sozinho não pontua. Resultados são julgados pelo professor e registrados na mesa ou pelo painel guiado experimental. Perguntas usadas têm edição bloqueada.
 
-O backup exporta somente o estado público (incluindo revelações explícitas); recuperação deve ser feita pelo responsável no console, após conferir a estrutura. Não há importador automático de backup nem backup do elenco secreto.
+## Regras e conferência
 
-## Desenvolvimento e verificação
+- Participação individual, mantendo seis exércitos e cinco fases.
+- Ás de Espadas: jogador escolhe companheiro elegível, conforme interpretação autorizada da recomendação encaminhada.
+- Pelotão: até três vivos sorteados; rival escolhe até dois em sequência. Com menos de três, entram os disponíveis.
+- Total 20; parcial 10/10 com captura; falha com morte sem pontos antes da roleta.
+- Quatro ataques normais por exército/fase; rodízio após defesa total; duas coletivas. Blitzkrieg separada de coletiva.
+- Cronômetro compartilhado de 30/90/45/60 segundos, sem julgamento automático. No fluxo guiado, começar até 30 s e concluir até 90 s da publicação.
+- Situação e captor são conferidos nos lances. Desfazer respeita dependências e devolve recursos associados.
+- Classificação apresenta composição do saldo; empate ou divergências impedem pódio automático.
+- Conciliação explícita preserva histórico e pontos, acrescentando ajustes das contagens conferidas pela mesa.
 
-Abra `index.html` no navegador, ou sirva a pasta com qualquer servidor estático. Para exercitar a mesa sem banco real, use `?demo=1&controle=1`. O Firebase é carregado por scripts compat 10.12.2.
+O jogo existente foi preservado. Há contagens antigas sem correspondência completa com o elenco; confira pessoas e registros reais antes de conciliar. Não invente a identidade de baixas antigas.
 
-Teste automatizado sem dependências: `node tests/regras.cjs`. Verificação manual: registrar captura, libertação, morte, vida extra, cartas e pelotão; conferir placar, Memorial, classificação e visualização pública. Os testes simulados não comprovam autorização ou sincronização do banco real.
+Tribunal, qualidade da resposta, cadeia de cartas/cápsulas, confisco de arsenal e transferência após aniquilação não têm automação completa. A libertação comum é bloqueada quando a origem não tem ativos, evitando voltar automaticamente à bandeira errada. Essa exceção deve ser resolvida pelo professor. Cápsulas/cartas continuam físicas; não foi inventada distribuição de probabilidades. SUB, efeitos coletivos e desconto na origem precisam de interpretação formal do professor.
 
-## Publicação
+## Dados e sigilo
 
-GitHub Pages: Settings → Pages → Deploy from a branch → `main` → `/ (root)` → Save. O arquivo `.nojekyll` permite servir diretamente o projeto estático. O site usa o Firebase existente; mudar a hospedagem não muda os dados.
+- `jg/estado`: estado público, nomes de guerra, lances, cronômetro e revelações explícitas.
+- `jg/segredo`: identidades reais e funções; `arsenal` contém perguntas e gabaritos reservados.
+- Público não lê o segredo nem escreve. Professor escreve nos dois caminhos; Mesa lê o segredo e atualiza somente campos operacionais do estado.
+- Registrar baixa não revela identidade/patente. Revelação publica intencionalmente. No fechamento, CO preso pode exigir confirmação da publicação somente da patente para calcular o saldo.
+- Retirar publicação não desfaz cópias já vistas. Backup público pode conter revelações explícitas.
 
-Não envie senhas, exportações do banco ou identidades reais ao repositório. A configuração Firebase no HTML é pública por natureza; não equivale a credencial administrativa.
+Admin usa transação; Mesa usa atualização atômica apenas dos campos permitidos, com revisão incremental validada no servidor. Revisão desatualizada é recusada; confira o estado recarregado antes de repetir. Todos os operadores devem recarregar a versão atual. Não há gravação offline.
+
+## Backup e recuperação
+
+Backup público e restauração validada ficam em Partida e apresentação. Somente Professor restaura ou zera. Backup público não inclui todo o elenco secreto/arsenal; exportações do arsenal e backup completo do laboratório contêm gabaritos e devem ficar privados. O laboratório tem importador do pacote completo local.
+
+## Verificação e publicação
+
+Execute `node tests/regras.cjs`: 46 testes passaram na entrega. Foram verificados autenticação dos três perfis, leitura pública do placar, bloqueio do segredo público, bloqueio de cadastros para Mesa e conflito de revisão no Firebase. Ensaios do fluxo guiado foram feitos no navegador; faça também um ensaio com a equipe e os aparelhos da aula.
+
+GitHub Pages serve a branch `main`, raiz `/`. Nenhum build necessário. Abra `index.html` ou use servidor estático para desenvolvimento. Não envie senhas, backups reais ou identidades ao GitHub. `output/privado/` e `tmp/` estão ignorados.

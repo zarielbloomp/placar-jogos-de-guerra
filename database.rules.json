@@ -5,12 +5,45 @@
     "jg": {
       "estado": {
         ".read": true,
-        ".write": "auth != null && (auth.uid == 'UID_EDITOR_1' || auth.uid == 'UID_EDITOR_2')",
-        ".validate": "newData.hasChildren(['nm', 'fase', 'revision']) && newData.child('nm').numChildren() == 6 && newData.child('fase').isNumber() && newData.child('fase').val() >= 1 && newData.child('fase').val() <= 6 && newData.child('revision').isNumber()"
+        ".write": "auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')",
+        ".validate": "newData.hasChildren(['nm','fase','revision']) && newData.child('nm').hasChildren(['0','1','2','3','4','5']) && newData.child('fase').isNumber() && newData.child('fase').val() >= 1 && newData.child('fase').val() <= 6 && newData.child('revision').isNumber() && newData.child('revision').val() == (data.child('revision').isNumber() ? data.child('revision').val() + 1 : 1)",
+        "E": {
+          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
+        },
+        "res": {
+          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
+        },
+        "fase": {
+          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
+        },
+        "clock": {
+          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
+        },
+        "presentation": {
+          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
+        },
+        "pel": {
+          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
+        },
+        "turn": {
+          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
+        },
+        "battle": {
+          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
+        },
+        "pod": {
+          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
+        },
+        "closedRevision": {
+          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
+        },
+        "revision": {
+          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
+        }
       },
       "segredo": {
-        ".read": "auth != null && (auth.uid == 'UID_EDITOR_1' || auth.uid == 'UID_EDITOR_2')",
-        ".write": "auth != null && (auth.uid == 'UID_EDITOR_1' || auth.uid == 'UID_EDITOR_2')"
+        ".read": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')",
+        ".write": "auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')"
       }
     }
   }
