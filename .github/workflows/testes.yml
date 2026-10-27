@@ -52,3 +52,6 @@ jobs:
         run: node tests/autenticacao.cjs
       - name: Partidas oficiais e combinações do Conselho
         run: node tests/simulacao-v3.cjs
+
+      - name: Entradas diretas, apresentação pública e tela cheia
+        run: node tests/ux-telao.cjs

@@ -1,0 +1,1475 @@
+{
+  "checks": [
+    {
+      "round": 1,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 320,
+      "client": 301,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 301,
+      "secretVisible": false
+    },
+    {
+      "round": 1,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 390,
+      "client": 371,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 371,
+      "secretVisible": false
+    },
+    {
+      "round": 1,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 768,
+      "client": 748,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 748,
+      "secretVisible": false
+    },
+    {
+      "round": 1,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 1280,
+      "client": 1261,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1261,
+      "secretVisible": false
+    },
+    {
+      "round": 1,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 1366,
+      "client": 1347,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1347,
+      "secretVisible": false
+    },
+    {
+      "round": 1,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 1600,
+      "client": 1581,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1581,
+      "secretVisible": false
+    },
+    {
+      "round": 1,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 1920,
+      "client": 1901,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1901,
+      "secretVisible": false
+    },
+    {
+      "round": 1,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 320,
+      "client": 301,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 301,
+      "secretVisible": false
+    },
+    {
+      "round": 1,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 390,
+      "client": 371,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 371,
+      "secretVisible": false
+    },
+    {
+      "round": 1,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 768,
+      "client": 748,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 748,
+      "secretVisible": false
+    },
+    {
+      "round": 1,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 1280,
+      "client": 1261,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1261,
+      "secretVisible": false
+    },
+    {
+      "round": 1,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 1366,
+      "client": 1347,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1347,
+      "secretVisible": false
+    },
+    {
+      "round": 1,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 1600,
+      "client": 1581,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1581,
+      "secretVisible": false
+    },
+    {
+      "round": 1,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 1920,
+      "client": 1901,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1901,
+      "secretVisible": false
+    },
+    {
+      "round": 1,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 320,
+      "client": 301,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 301,
+      "secretVisible": false
+    },
+    {
+      "round": 1,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 390,
+      "client": 371,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 371,
+      "secretVisible": false
+    },
+    {
+      "round": 1,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 768,
+      "client": 748,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 748,
+      "secretVisible": false
+    },
+    {
+      "round": 1,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 1280,
+      "client": 1261,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1261,
+      "secretVisible": false
+    },
+    {
+      "round": 1,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 1366,
+      "client": 1347,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1347,
+      "secretVisible": false
+    },
+    {
+      "round": 1,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 1600,
+      "client": 1581,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1581,
+      "secretVisible": false
+    },
+    {
+      "round": 1,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 1920,
+      "client": 1901,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1901,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 320,
+      "client": 301,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 301,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 390,
+      "client": 371,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 371,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 768,
+      "client": 748,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 748,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 1280,
+      "client": 1261,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1261,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 1366,
+      "client": 1347,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1347,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 1600,
+      "client": 1581,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1581,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 1920,
+      "client": 1901,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1901,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 320,
+      "client": 301,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 301,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 390,
+      "client": 371,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 371,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 768,
+      "client": 748,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 748,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 1280,
+      "client": 1261,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1261,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 1366,
+      "client": 1347,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1347,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 1600,
+      "client": 1581,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1581,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 1920,
+      "client": 1901,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1901,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 320,
+      "client": 301,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 301,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 390,
+      "client": 371,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 371,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 768,
+      "client": 748,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 748,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 1280,
+      "client": 1261,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1261,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 1366,
+      "client": 1347,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1347,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 1600,
+      "client": 1581,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1581,
+      "secretVisible": false
+    },
+    {
+      "round": 2,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 1920,
+      "client": 1901,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1901,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 320,
+      "client": 301,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 301,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 390,
+      "client": 371,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 371,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 768,
+      "client": 748,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 748,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 1280,
+      "client": 1261,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1261,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 1366,
+      "client": 1347,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1347,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 1600,
+      "client": 1581,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1581,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 1920,
+      "client": 1901,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1901,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 320,
+      "client": 301,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 301,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 390,
+      "client": 371,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 371,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 768,
+      "client": 748,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 748,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 1280,
+      "client": 1261,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1261,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 1366,
+      "client": 1347,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1347,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 1600,
+      "client": 1581,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1581,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 1920,
+      "client": 1901,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1901,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 320,
+      "client": 301,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 301,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 390,
+      "client": 371,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 371,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 768,
+      "client": 748,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 748,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 1280,
+      "client": 1261,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1261,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 1366,
+      "client": 1347,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1347,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 1600,
+      "client": 1581,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1581,
+      "secretVisible": false
+    },
+    {
+      "round": 3,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 1920,
+      "client": 1901,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1901,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 320,
+      "client": 301,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 301,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 390,
+      "client": 371,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 371,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 768,
+      "client": 748,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 748,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 1280,
+      "client": 1261,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1261,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 1366,
+      "client": 1347,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1347,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 1600,
+      "client": 1581,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1581,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 1920,
+      "client": 1901,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1901,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 320,
+      "client": 301,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 301,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 390,
+      "client": 371,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 371,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 768,
+      "client": 748,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 748,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 1280,
+      "client": 1261,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1261,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 1366,
+      "client": 1347,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1347,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 1600,
+      "client": 1581,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1581,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 1920,
+      "client": 1901,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1901,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 320,
+      "client": 301,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 301,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 390,
+      "client": 371,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 371,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 768,
+      "client": 748,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 748,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 1280,
+      "client": 1261,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1261,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 1366,
+      "client": 1347,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1347,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 1600,
+      "client": 1581,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1581,
+      "secretVisible": false
+    },
+    {
+      "round": 4,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 1920,
+      "client": 1901,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1901,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 320,
+      "client": 301,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 301,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 390,
+      "client": 371,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 371,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 768,
+      "client": 748,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 748,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 1280,
+      "client": 1261,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1261,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 1366,
+      "client": 1347,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1347,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 1600,
+      "client": 1581,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1581,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "100",
+        "contrast": "standard",
+        "wide": false
+      },
+      "width": 1920,
+      "client": 1901,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1901,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 320,
+      "client": 301,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 301,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 390,
+      "client": 371,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 371,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 768,
+      "client": 748,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 748,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 1280,
+      "client": 1261,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1261,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 1366,
+      "client": 1347,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1347,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 1600,
+      "client": 1581,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1581,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "200",
+        "contrast": "dark",
+        "wide": true
+      },
+      "width": 1920,
+      "client": 1901,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1901,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 320,
+      "client": 301,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 301,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 390,
+      "client": 371,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 371,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 768,
+      "client": 748,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 748,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 1280,
+      "client": 1261,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1261,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 1366,
+      "client": 1347,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1347,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 1600,
+      "client": 1581,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1581,
+      "secretVisible": false
+    },
+    {
+      "round": 5,
+      "mode": {
+        "text": "200",
+        "contrast": "light",
+        "wide": true
+      },
+      "width": 1920,
+      "client": 1901,
+      "historyVisible": true,
+      "rankVisible": true,
+      "scroll": 1901,
+      "secretVisible": false
+    }
+  ],
+  "failures": 0
+}
