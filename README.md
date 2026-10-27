@@ -46,7 +46,7 @@ A interface inclui navegação por teclado, atalho para o conteúdo, confirmaç�
 
 A engrenagem Acessibilidade aparece no login e no cabeçalho. Texto100-200%, contraste claro/escuro, espaçamento, redução de movimento e alvos maiores ficam no navegador, por perfil. Não são enviados ao Firebase e não mudam o telão em outro aparelho. Preferências do visitante são usadas no primeiro acesso de um perfil sem configuração própria; Restaurar padrão afeta somente o perfil atual. A preferência do sistema por reduzir movimento continua valendo. O cronômetro adapta sua apresentação ao espaço para ficar inteiro.
 
-Créditos em destaque: Miguel Conholato Nicoli (IMI4) e Murilo Carreiro (EMI4), com Professor principal José Pontes Schayder, conforme nomes informados pelo responsável.
+Créditos em destaque: Miguel Conholato Nicoli (IMI4) e Murilo Carreiro (EMI4), junto do Professor José Pontes Schayder, conforme nomes informados pelo responsável.
 
 O acesso ao painel exige Firebase Auth e conta correspondente ao assento. Cada conselheiro registra seu voto próprio. Mesa/Professor compartilham a partida e os dados operacionais autorizados; o Público usa uma conta compartilhada. A projeção `jg/estado` é pública por desenho; o segredo exige conta autorizada. As preferências não são uma barreira de autenticação.
 
@@ -57,8 +57,19 @@ Para repetir toda a cobertura automatizada pelo menos cinco vezes: `node tests/s
 
 Os links `?telao=1`, `?controle=1` e `?professor=1` selecionam o formulário correto; todos continuam exigindo a senha da conta correspondente. O Professor também tem botão próprio na entrada. O caminho anterior pela Mesa/assento7 continua disponível.
 
-No computador, a visão pública organiza classificação/cronômetro à esquerda, pergunta/Conselho no centro e acontecimentos à direita. Recursos ficam abaixo; combatentes podem ser consultados. O cabeçalho preserva os créditos e o Professor principal. O histórico aceita teclado e mantém foco/rolagem em atualizações. Texto ampliado e telas estreitas reorganizam a composição sem esconder enunciados.
+No computador, a visão pública organiza classificação/cronômetro à esquerda, pergunta/Conselho no centro e acontecimentos à direita. Recursos ficam abaixo; combatentes podem ser consultados. O cabeçalho preserva os créditos e o Professor. O histórico aceita teclado e mantém foco/rolagem em atualizações. Texto ampliado e telas estreitas reorganizam a composição sem esconder enunciados.
 
 O botão **Tela cheia** usa a função do navegador apenas neste aparelho. Se o navegador recusar, o site orienta usar **F11** no computador. Isso não altera jogo, permissões ou preferências de outros dispositivos.
 
 A suíte `node tests/ux-telao.cjs` cobre entrada direta sem autenticação automática, Professor, fluxo público, transição para pelotão, cronômetro ocioso, sigilo e tela cheia/falha. Integra o CI e o comando de cinco rodadas. A nova organização foi conferida em ensaio com ataque, seis votos, empate, desempate do Professor, anúncio e histórico por teclado. Conferências de largura: `output/simulacoes/ux-telao-reflow.json` e `ux-login-reflow.json`.
+
+
+### Relógio e votação ao vivo
+
+O cronômetro do telão funciona mesmo sem uma pergunta aberta. A Mesa mantém 30/45/60/90 segundos e pode escolher **Tempo personalizado**, informar minutos e segundos e tocar **Iniciar** ou **Reiniciar**. Iniciar com uma duração nova aplica esse valor; pausar e retomar o mesmo prazo preserva o saldo. Prazo total deve ser inteiro e positivo. A conversão de relógio do servidor continua compensando diferenças entre aparelhos.
+
+O Público acompanha as categorias dos votos 1–6 conforme chegam e a contagem por categoria. O sétimo voto não é publicado, inclusive após a apuração; somente a indicação de recebimento e o resultado final são mostrados. Empate da validação da resposta gera aviso para chamar o Professor na conta dele, sem trocar de fase. Não confundir com eventual desempate final do placar.
+
+Créditos atuais: **Equipe de produção** com Miguel Conholato Nicoli (IMI4), Murilo Carreiro (EMI4) e José Pontes Schayder (Professor).
+
+Exemplos solicitados para teste são identificados por EXEMPLO. Cadastros ainda não usados podem ser excluídos normalmente. Se já participaram de resultados, o Professor precisa desfazer/reiniciar os testes antes da exclusão, preservando a proteção de histórico. Backups privados ficam fora do Git. Não remover proteções de histórico para excluir exemplos.

@@ -1,0 +1,236 @@
+{
+  "checks": [
+    {
+      "scroll": 301,
+      "secret": false,
+      "votes": "3\nTotalmente certa\n3\nMeio certa\n0\nTotalmente errada",
+      "width": 301
+    },
+    {
+      "scroll": 371,
+      "secret": false,
+      "votes": "3\nTotalmente certa\n3\nMeio certa\n0\nTotalmente errada",
+      "width": 371
+    },
+    {
+      "scroll": 748,
+      "secret": false,
+      "votes": "3\nTotalmente certa\n3\nMeio certa\n0\nTotalmente errada",
+      "width": 748
+    },
+    {
+      "scroll": 1347,
+      "secret": false,
+      "votes": "3\nTotalmente certa\n3\nMeio certa\n0\nTotalmente errada",
+      "width": 1347
+    },
+    {
+      "scroll": 1901,
+      "secret": false,
+      "votes": "3\nTotalmente certa\n3\nMeio certa\n0\nTotalmente errada",
+      "width": 1901
+    },
+    {
+      "mode": "200%-escuro-espaçado",
+      "scroll": 301,
+      "secret": false,
+      "width": 301
+    },
+    {
+      "mode": "200%-escuro-espaçado",
+      "scroll": 371,
+      "secret": false,
+      "width": 371
+    },
+    {
+      "mode": "200%-escuro-espaçado",
+      "scroll": 748,
+      "secret": false,
+      "width": 748
+    },
+    {
+      "mode": "200%-escuro-espaçado",
+      "scroll": 1347,
+      "secret": false,
+      "width": 1347
+    },
+    {
+      "mode": "200%-escuro-espaçado",
+      "scroll": 1901,
+      "secret": false,
+      "width": 1901
+    },
+    {
+      "fields": [
+        {
+          "height": 48.4765625,
+          "name": "minutes",
+          "width": 242.7734375
+        },
+        {
+          "height": 48.4765625,
+          "name": "customSeconds",
+          "width": 242.7734375
+        }
+      ],
+      "mode": "Mesa-personalizado",
+      "scroll": 301,
+      "width": 301
+    },
+    {
+      "fields": [
+        {
+          "height": 48.4765625,
+          "name": "minutes",
+          "width": 312.7734375
+        },
+        {
+          "height": 48.4765625,
+          "name": "customSeconds",
+          "width": 312.7734375
+        }
+      ],
+      "mode": "Mesa-personalizado",
+      "scroll": 371,
+      "width": 371
+    },
+    {
+      "fields": [
+        {
+          "height": 48.4765625,
+          "name": "minutes",
+          "width": 318.1640625
+        },
+        {
+          "height": 48.4765625,
+          "name": "customSeconds",
+          "width": 318.1640625
+        }
+      ],
+      "mode": "Mesa-personalizado",
+      "scroll": 748,
+      "width": 748
+    },
+    {
+      "fields": [
+        {
+          "height": 48.4765625,
+          "name": "minutes",
+          "width": 287.65625
+        },
+        {
+          "height": 48.4765625,
+          "name": "customSeconds",
+          "width": 287.65625
+        }
+      ],
+      "mode": "Mesa-personalizado",
+      "scroll": 1347,
+      "width": 1347
+    },
+    {
+      "fields": [
+        {
+          "height": 48.4765625,
+          "name": "minutes",
+          "width": 320.78125
+        },
+        {
+          "height": 48.4765625,
+          "name": "customSeconds",
+          "width": 320.78125
+        }
+      ],
+      "mode": "Mesa-personalizado",
+      "scroll": 1901,
+      "width": 1901
+    },
+    {
+      "fields": [
+        {
+          "height": 82.0703125,
+          "name": "minutes",
+          "width": 242.7734375
+        },
+        {
+          "height": 82.0703125,
+          "name": "customSeconds",
+          "width": 242.7734375
+        }
+      ],
+      "mode": "Mesa-personalizado-200%-claro-espaçado",
+      "scroll": 301,
+      "width": 301
+    },
+    {
+      "fields": [
+        {
+          "height": 82.0703125,
+          "name": "minutes",
+          "width": 312.7734375
+        },
+        {
+          "height": 82.0703125,
+          "name": "customSeconds",
+          "width": 312.7734375
+        }
+      ],
+      "mode": "Mesa-personalizado-200%-claro-espaçado",
+      "scroll": 371,
+      "width": 371
+    },
+    {
+      "fields": [
+        {
+          "height": 82.0703125,
+          "name": "minutes",
+          "width": 318.1640625
+        },
+        {
+          "height": 82.0703125,
+          "name": "customSeconds",
+          "width": 318.1640625
+        }
+      ],
+      "mode": "Mesa-personalizado-200%-claro-espaçado",
+      "scroll": 748,
+      "width": 748
+    },
+    {
+      "fields": [
+        {
+          "height": 82.0703125,
+          "name": "minutes",
+          "width": 287.65625
+        },
+        {
+          "height": 82.0703125,
+          "name": "customSeconds",
+          "width": 287.65625
+        }
+      ],
+      "mode": "Mesa-personalizado-200%-claro-espaçado",
+      "scroll": 1347,
+      "width": 1347
+    },
+    {
+      "fields": [
+        {
+          "height": 82.0703125,
+          "name": "minutes",
+          "width": 320.78125
+        },
+        {
+          "height": 82.0703125,
+          "name": "customSeconds",
+          "width": 320.78125
+        }
+      ],
+      "mode": "Mesa-personalizado-200%-claro-espaçado",
+      "scroll": 1901,
+      "width": 1901
+    }
+  ],
+  "keyboard": "Tab de Minutos para Segundos confirmado",
+  "tieAlert": "Empate na validação da resposta\n\nChame o Professor José Pontes Schayder para desempatar.\n\nO Professor entra na conta dele e escolhe entre as opções empatadas. A fase não muda.\n\nAbrir acesso do Professor"
+}

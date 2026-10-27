@@ -1,10 +1,10 @@
 {
-  "started": "2026-10-27T16:07:59.773Z",
-  "finished": "2026-10-27T16:14:33.809Z",
-  "htmlSha256": "a8b35f09bfab6666860f6d6fb53da0bfd9f022b4cf77f16219e1395ea87333b3",
+  "started": "2026-10-27T19:43:38.417Z",
+  "finished": "2026-10-27T19:50:25.976Z",
+  "htmlSha256": "6da9009080875b2568c363d0f2aa280a295c0ee078e420f3d4baf6d94eda65aa",
   "repetitions": 5,
-  "suites": 12,
-  "executions": 60,
+  "suites": 14,
+  "executions": 70,
   "failures": 0,
   "totals": {
     "partidas": 250,
@@ -25,7 +25,7 @@
       "suite": "regras",
       "success": true,
       "exitCode": 0,
-      "durationMs": 194,
+      "durationMs": 203,
       "scenarioLines": [
         "PASS 26 índices originais preservados",
         "PASS não publica identidade ao registrar baixa",
@@ -90,7 +90,7 @@
       "suite": "apresentacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 171,
+      "durationMs": 180,
       "scenarioLines": [
         "PASS publicação recusada mantém aviso de falha",
         "PASS conclusão recusada mantém pergunta pendente",
@@ -108,7 +108,7 @@
       "suite": "partida-completa",
       "success": true,
       "exitCode": 0,
-      "durationMs": 75180,
+      "durationMs": 75059,
       "scenarioLines": [
         "PASS partidas completas: {\"sementeInicial\":1,\"sementeFinal\":40,\"partidas\":40,\"fases\":200,\"batalhas\":4800,\"conferencias\":5693,\"desfazerRefazer\":561,\"vidasExtras\":292}"
       ],
@@ -130,7 +130,7 @@
       "suite": "mecanismo",
       "success": true,
       "exitCode": 0,
-      "durationMs": 209,
+      "durationMs": 230,
       "scenarioLines": [
         "PASS início vazio mantém índices históricos",
         "PASS seis votos imutáveis, empate e professor restrito",
@@ -141,7 +141,7 @@
         "PASS reapuração coletiva não duplica munição, pontos ou cotas",
         "PASS falha na reapuração preserva integralmente o estado anterior",
         "PASS motor não troca S ou CP do chamador mesmo quando validação falha",
-        "PASS empate triplo exige professor e esconde escolhas enquanto aberto",
+        "PASS empate triplo exige professor e publica só os seis votos dos mesários",
         "PASS pelotão rejeita parcial ambíguo sem converter em execução",
         "PASS resposta precede abertura explícita do Conselho",
         "PASS pergunta do pelotão passa por seis votos e parcial exige decisão justificada",
@@ -160,7 +160,7 @@
       "suite": "controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 171,
+      "durationMs": 358,
       "scenarioLines": [
         "PASS hidratação não modifica snapshot da fonte",
         "PASS sexto voto resolve e publica sem clique extra",
@@ -177,7 +177,7 @@
       "suite": "fases-placar",
       "success": true,
       "exitCode": 0,
-      "durationMs": 181,
+      "durationMs": 233,
       "scenarioLines": [
         "PASS visibilidade explícita sobrepõe fechamento e fallback preserva partida anterior",
         "PASS mostrar placar não revela gabarito, identidade ou detalhes de recursos privados",
@@ -200,7 +200,7 @@
       "suite": "fases-controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 205,
+      "durationMs": 237,
       "scenarioLines": [
         "PASS view vazio e placar privado completo funcionam sem batalha",
         "PASS Mesa seleciona fase3 no setup pelo handler real da interface",
@@ -219,7 +219,7 @@
       "suite": "exclusao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 147,
+      "durationMs": 167,
       "scenarioLines": [
         "PASS exclui soldado intermediário antes do jogo e alinha dados privados e revelados",
         "PASS exclusão do primeiro soldado cancela apenas ataque ainda não respondido",
@@ -236,13 +236,14 @@
       "suite": "acessibilidade",
       "success": true,
       "exitCode": 0,
-      "durationMs": 99,
+      "durationMs": 109,
       "scenarioLines": [
         "PASS Tab e Shift+Tab permanecem na confirmação e recuperam foco externo",
         "PASS confirmação sem controles recebe foco no próprio diálogo",
         "PASS restauração encontra o botão correto após recriar a interface, inclusive exército e índice",
         "PASS leitor de tela recebe avisos e contagem de votos uma vez por mudança, sem gabarito",
-        "PASS confirmação tem título e descrição associados para leitor de tela"
+        "PASS confirmação tem título e descrição associados para leitor de tela",
+        "PASS histórico com identificação estável preserva foco após recriar o painel"
       ],
       "metrics": []
     },
@@ -251,7 +252,7 @@
       "suite": "preferencias",
       "success": true,
       "exitCode": 0,
-      "durationMs": 129,
+      "durationMs": 149,
       "scenarioLines": [
         "PASS somente opções permitidas e texto100-200% entram nas preferências",
         "PASS cada assento, professor, público, visitante e ensaio tem chave própria",
@@ -274,7 +275,7 @@
       "suite": "autenticacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 111,
+      "durationMs": 116,
       "scenarioLines": [
         "PASS oito contas entram somente quando UID corresponde ao perfil escolhido",
         "PASS senha incorreta não libera perfil nem inicia leitura privada",
@@ -290,7 +291,7 @@
       "suite": "simulacao-v3",
       "success": true,
       "exitCode": 0,
-      "durationMs": 5281,
+      "durationMs": 5088,
       "scenarioLines": [
         "PASS simulação oficial: {\"combinacoesVotos\":729,\"empates\":150,\"partidas\":10,\"batalhas\":400,\"revisoes\":40,\"projecoesConferidas\":1200,\"sementeInicial\":1,\"sementeFinal\":10}"
       ],
@@ -308,11 +309,47 @@
       ]
     },
     {
+      "round": 1,
+      "suite": "ux-telao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 117,
+      "scenarioLines": [
+        "PASS links abrem apenas formulário correspondente e não autenticam",
+        "PASS Professor tem entrada explícita com assento7; demais perfis preservam credenciais próprias",
+        "PASS fluxo público distingue espera, resposta, votação, empate, resultado e pelotão",
+        "PASS pelotão novo prevalece sobre Conselho anterior e atividade retirada volta à espera",
+        "PASS cronômetro sem ataque mostra espera e não prazo expirado",
+        "PASS apresentação mantém classificação, conselho, recursos e histórico sem gabarito ou identidade secreta",
+        "PASS tela cheia abre e fecha localmente; falha é tratada sem modificar partida"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 1,
+      "suite": "cronometro-votacao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 174,
+      "scenarioLines": [
+        "PASS relógio chega à projeção mesmo sem pergunta e aceita tempo personalizado",
+        "PASS trocar preset aplica novo tempo em vez de retomar saldo antigo",
+        "PASS tempo inválido é rejeitado sem mudar fonte",
+        "PASS seis escolhas são publicadas durante votação, sem categoria do Professor antes ou depois",
+        "PASS view pública mostra cada voto dos seis na hora e nunca o sétimo",
+        "PASS telão tem relógio utilizável sem ataque e segundos diminuem",
+        "PASS cronômetro avulso continua visível ao pausar em zero",
+        "PASS Mesa recebe aviso de empate e Público vê votos ao vivo com Professor reservado",
+        "PASS equipe de produção inclui o único Professor sem principal ou apoio"
+      ],
+      "metrics": []
+    },
+    {
       "round": 2,
       "suite": "regras",
       "success": true,
       "exitCode": 0,
-      "durationMs": 230,
+      "durationMs": 207,
       "scenarioLines": [
         "PASS 26 índices originais preservados",
         "PASS não publica identidade ao registrar baixa",
@@ -377,7 +414,7 @@
       "suite": "apresentacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 162,
+      "durationMs": 175,
       "scenarioLines": [
         "PASS publicação recusada mantém aviso de falha",
         "PASS conclusão recusada mantém pergunta pendente",
@@ -395,7 +432,7 @@
       "suite": "partida-completa",
       "success": true,
       "exitCode": 0,
-      "durationMs": 80978,
+      "durationMs": 82353,
       "scenarioLines": [
         "PASS partidas completas: {\"sementeInicial\":41,\"sementeFinal\":80,\"partidas\":40,\"fases\":200,\"batalhas\":4800,\"conferencias\":5742,\"desfazerRefazer\":580,\"vidasExtras\":322}"
       ],
@@ -417,7 +454,7 @@
       "suite": "mecanismo",
       "success": true,
       "exitCode": 0,
-      "durationMs": 216,
+      "durationMs": 210,
       "scenarioLines": [
         "PASS início vazio mantém índices históricos",
         "PASS seis votos imutáveis, empate e professor restrito",
@@ -428,7 +465,7 @@
         "PASS reapuração coletiva não duplica munição, pontos ou cotas",
         "PASS falha na reapuração preserva integralmente o estado anterior",
         "PASS motor não troca S ou CP do chamador mesmo quando validação falha",
-        "PASS empate triplo exige professor e esconde escolhas enquanto aberto",
+        "PASS empate triplo exige professor e publica só os seis votos dos mesários",
         "PASS pelotão rejeita parcial ambíguo sem converter em execução",
         "PASS resposta precede abertura explícita do Conselho",
         "PASS pergunta do pelotão passa por seis votos e parcial exige decisão justificada",
@@ -447,7 +484,7 @@
       "suite": "controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 182,
+      "durationMs": 181,
       "scenarioLines": [
         "PASS hidratação não modifica snapshot da fonte",
         "PASS sexto voto resolve e publica sem clique extra",
@@ -464,7 +501,7 @@
       "suite": "fases-placar",
       "success": true,
       "exitCode": 0,
-      "durationMs": 191,
+      "durationMs": 219,
       "scenarioLines": [
         "PASS visibilidade explícita sobrepõe fechamento e fallback preserva partida anterior",
         "PASS mostrar placar não revela gabarito, identidade ou detalhes de recursos privados",
@@ -487,7 +524,7 @@
       "suite": "fases-controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 239,
+      "durationMs": 217,
       "scenarioLines": [
         "PASS view vazio e placar privado completo funcionam sem batalha",
         "PASS Mesa seleciona fase3 no setup pelo handler real da interface",
@@ -506,7 +543,7 @@
       "suite": "exclusao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 172,
+      "durationMs": 159,
       "scenarioLines": [
         "PASS exclui soldado intermediário antes do jogo e alinha dados privados e revelados",
         "PASS exclusão do primeiro soldado cancela apenas ataque ainda não respondido",
@@ -523,13 +560,14 @@
       "suite": "acessibilidade",
       "success": true,
       "exitCode": 0,
-      "durationMs": 112,
+      "durationMs": 109,
       "scenarioLines": [
         "PASS Tab e Shift+Tab permanecem na confirmação e recuperam foco externo",
         "PASS confirmação sem controles recebe foco no próprio diálogo",
         "PASS restauração encontra o botão correto após recriar a interface, inclusive exército e índice",
         "PASS leitor de tela recebe avisos e contagem de votos uma vez por mudança, sem gabarito",
-        "PASS confirmação tem título e descrição associados para leitor de tela"
+        "PASS confirmação tem título e descrição associados para leitor de tela",
+        "PASS histórico com identificação estável preserva foco após recriar o painel"
       ],
       "metrics": []
     },
@@ -538,7 +576,7 @@
       "suite": "preferencias",
       "success": true,
       "exitCode": 0,
-      "durationMs": 140,
+      "durationMs": 139,
       "scenarioLines": [
         "PASS somente opções permitidas e texto100-200% entram nas preferências",
         "PASS cada assento, professor, público, visitante e ensaio tem chave própria",
@@ -561,7 +599,7 @@
       "suite": "autenticacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 115,
+      "durationMs": 116,
       "scenarioLines": [
         "PASS oito contas entram somente quando UID corresponde ao perfil escolhido",
         "PASS senha incorreta não libera perfil nem inicia leitura privada",
@@ -577,7 +615,7 @@
       "suite": "simulacao-v3",
       "success": true,
       "exitCode": 0,
-      "durationMs": 4935,
+      "durationMs": 5047,
       "scenarioLines": [
         "PASS simulação oficial: {\"combinacoesVotos\":729,\"empates\":150,\"partidas\":10,\"batalhas\":400,\"revisoes\":40,\"projecoesConferidas\":1200,\"sementeInicial\":41,\"sementeFinal\":50}"
       ],
@@ -595,11 +633,47 @@
       ]
     },
     {
+      "round": 2,
+      "suite": "ux-telao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 111,
+      "scenarioLines": [
+        "PASS links abrem apenas formulário correspondente e não autenticam",
+        "PASS Professor tem entrada explícita com assento7; demais perfis preservam credenciais próprias",
+        "PASS fluxo público distingue espera, resposta, votação, empate, resultado e pelotão",
+        "PASS pelotão novo prevalece sobre Conselho anterior e atividade retirada volta à espera",
+        "PASS cronômetro sem ataque mostra espera e não prazo expirado",
+        "PASS apresentação mantém classificação, conselho, recursos e histórico sem gabarito ou identidade secreta",
+        "PASS tela cheia abre e fecha localmente; falha é tratada sem modificar partida"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 2,
+      "suite": "cronometro-votacao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 170,
+      "scenarioLines": [
+        "PASS relógio chega à projeção mesmo sem pergunta e aceita tempo personalizado",
+        "PASS trocar preset aplica novo tempo em vez de retomar saldo antigo",
+        "PASS tempo inválido é rejeitado sem mudar fonte",
+        "PASS seis escolhas são publicadas durante votação, sem categoria do Professor antes ou depois",
+        "PASS view pública mostra cada voto dos seis na hora e nunca o sétimo",
+        "PASS telão tem relógio utilizável sem ataque e segundos diminuem",
+        "PASS cronômetro avulso continua visível ao pausar em zero",
+        "PASS Mesa recebe aviso de empate e Público vê votos ao vivo com Professor reservado",
+        "PASS equipe de produção inclui o único Professor sem principal ou apoio"
+      ],
+      "metrics": []
+    },
+    {
       "round": 3,
       "suite": "regras",
       "success": true,
       "exitCode": 0,
-      "durationMs": 199,
+      "durationMs": 334,
       "scenarioLines": [
         "PASS 26 índices originais preservados",
         "PASS não publica identidade ao registrar baixa",
@@ -664,7 +738,7 @@
       "suite": "apresentacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 161,
+      "durationMs": 205,
       "scenarioLines": [
         "PASS publicação recusada mantém aviso de falha",
         "PASS conclusão recusada mantém pergunta pendente",
@@ -682,7 +756,7 @@
       "suite": "partida-completa",
       "success": true,
       "exitCode": 0,
-      "durationMs": 69785,
+      "durationMs": 72480,
       "scenarioLines": [
         "PASS partidas completas: {\"sementeInicial\":81,\"sementeFinal\":120,\"partidas\":40,\"fases\":200,\"batalhas\":4800,\"conferencias\":5660,\"desfazerRefazer\":514,\"vidasExtras\":306}"
       ],
@@ -704,7 +778,7 @@
       "suite": "mecanismo",
       "success": true,
       "exitCode": 0,
-      "durationMs": 198,
+      "durationMs": 200,
       "scenarioLines": [
         "PASS início vazio mantém índices históricos",
         "PASS seis votos imutáveis, empate e professor restrito",
@@ -715,7 +789,7 @@
         "PASS reapuração coletiva não duplica munição, pontos ou cotas",
         "PASS falha na reapuração preserva integralmente o estado anterior",
         "PASS motor não troca S ou CP do chamador mesmo quando validação falha",
-        "PASS empate triplo exige professor e esconde escolhas enquanto aberto",
+        "PASS empate triplo exige professor e publica só os seis votos dos mesários",
         "PASS pelotão rejeita parcial ambíguo sem converter em execução",
         "PASS resposta precede abertura explícita do Conselho",
         "PASS pergunta do pelotão passa por seis votos e parcial exige decisão justificada",
@@ -734,7 +808,7 @@
       "suite": "controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 167,
+      "durationMs": 177,
       "scenarioLines": [
         "PASS hidratação não modifica snapshot da fonte",
         "PASS sexto voto resolve e publica sem clique extra",
@@ -751,7 +825,7 @@
       "suite": "fases-placar",
       "success": true,
       "exitCode": 0,
-      "durationMs": 167,
+      "durationMs": 185,
       "scenarioLines": [
         "PASS visibilidade explícita sobrepõe fechamento e fallback preserva partida anterior",
         "PASS mostrar placar não revela gabarito, identidade ou detalhes de recursos privados",
@@ -774,7 +848,7 @@
       "suite": "fases-controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 196,
+      "durationMs": 245,
       "scenarioLines": [
         "PASS view vazio e placar privado completo funcionam sem batalha",
         "PASS Mesa seleciona fase3 no setup pelo handler real da interface",
@@ -793,7 +867,7 @@
       "suite": "exclusao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 147,
+      "durationMs": 179,
       "scenarioLines": [
         "PASS exclui soldado intermediário antes do jogo e alinha dados privados e revelados",
         "PASS exclusão do primeiro soldado cancela apenas ataque ainda não respondido",
@@ -810,13 +884,14 @@
       "suite": "acessibilidade",
       "success": true,
       "exitCode": 0,
-      "durationMs": 96,
+      "durationMs": 105,
       "scenarioLines": [
         "PASS Tab e Shift+Tab permanecem na confirmação e recuperam foco externo",
         "PASS confirmação sem controles recebe foco no próprio diálogo",
         "PASS restauração encontra o botão correto após recriar a interface, inclusive exército e índice",
         "PASS leitor de tela recebe avisos e contagem de votos uma vez por mudança, sem gabarito",
-        "PASS confirmação tem título e descrição associados para leitor de tela"
+        "PASS confirmação tem título e descrição associados para leitor de tela",
+        "PASS histórico com identificação estável preserva foco após recriar o painel"
       ],
       "metrics": []
     },
@@ -825,7 +900,7 @@
       "suite": "preferencias",
       "success": true,
       "exitCode": 0,
-      "durationMs": 133,
+      "durationMs": 143,
       "scenarioLines": [
         "PASS somente opções permitidas e texto100-200% entram nas preferências",
         "PASS cada assento, professor, público, visitante e ensaio tem chave própria",
@@ -848,7 +923,7 @@
       "suite": "autenticacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 108,
+      "durationMs": 116,
       "scenarioLines": [
         "PASS oito contas entram somente quando UID corresponde ao perfil escolhido",
         "PASS senha incorreta não libera perfil nem inicia leitura privada",
@@ -864,7 +939,7 @@
       "suite": "simulacao-v3",
       "success": true,
       "exitCode": 0,
-      "durationMs": 4920,
+      "durationMs": 5137,
       "scenarioLines": [
         "PASS simulação oficial: {\"combinacoesVotos\":729,\"empates\":150,\"partidas\":10,\"batalhas\":400,\"revisoes\":40,\"projecoesConferidas\":1200,\"sementeInicial\":81,\"sementeFinal\":90}"
       ],
@@ -882,11 +957,47 @@
       ]
     },
     {
+      "round": 3,
+      "suite": "ux-telao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 179,
+      "scenarioLines": [
+        "PASS links abrem apenas formulário correspondente e não autenticam",
+        "PASS Professor tem entrada explícita com assento7; demais perfis preservam credenciais próprias",
+        "PASS fluxo público distingue espera, resposta, votação, empate, resultado e pelotão",
+        "PASS pelotão novo prevalece sobre Conselho anterior e atividade retirada volta à espera",
+        "PASS cronômetro sem ataque mostra espera e não prazo expirado",
+        "PASS apresentação mantém classificação, conselho, recursos e histórico sem gabarito ou identidade secreta",
+        "PASS tela cheia abre e fecha localmente; falha é tratada sem modificar partida"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 3,
+      "suite": "cronometro-votacao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 364,
+      "scenarioLines": [
+        "PASS relógio chega à projeção mesmo sem pergunta e aceita tempo personalizado",
+        "PASS trocar preset aplica novo tempo em vez de retomar saldo antigo",
+        "PASS tempo inválido é rejeitado sem mudar fonte",
+        "PASS seis escolhas são publicadas durante votação, sem categoria do Professor antes ou depois",
+        "PASS view pública mostra cada voto dos seis na hora e nunca o sétimo",
+        "PASS telão tem relógio utilizável sem ataque e segundos diminuem",
+        "PASS cronômetro avulso continua visível ao pausar em zero",
+        "PASS Mesa recebe aviso de empate e Público vê votos ao vivo com Professor reservado",
+        "PASS equipe de produção inclui o único Professor sem principal ou apoio"
+      ],
+      "metrics": []
+    },
+    {
       "round": 4,
       "suite": "regras",
       "success": true,
       "exitCode": 0,
-      "durationMs": 197,
+      "durationMs": 214,
       "scenarioLines": [
         "PASS 26 índices originais preservados",
         "PASS não publica identidade ao registrar baixa",
@@ -951,7 +1062,7 @@
       "suite": "apresentacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 171,
+      "durationMs": 175,
       "scenarioLines": [
         "PASS publicação recusada mantém aviso de falha",
         "PASS conclusão recusada mantém pergunta pendente",
@@ -969,7 +1080,7 @@
       "suite": "partida-completa",
       "success": true,
       "exitCode": 0,
-      "durationMs": 68995,
+      "durationMs": 71848,
       "scenarioLines": [
         "PASS partidas completas: {\"sementeInicial\":121,\"sementeFinal\":160,\"partidas\":40,\"fases\":200,\"batalhas\":4800,\"conferencias\":5659,\"desfazerRefazer\":529,\"vidasExtras\":290}"
       ],
@@ -991,7 +1102,7 @@
       "suite": "mecanismo",
       "success": true,
       "exitCode": 0,
-      "durationMs": 224,
+      "durationMs": 251,
       "scenarioLines": [
         "PASS início vazio mantém índices históricos",
         "PASS seis votos imutáveis, empate e professor restrito",
@@ -1002,7 +1113,7 @@
         "PASS reapuração coletiva não duplica munição, pontos ou cotas",
         "PASS falha na reapuração preserva integralmente o estado anterior",
         "PASS motor não troca S ou CP do chamador mesmo quando validação falha",
-        "PASS empate triplo exige professor e esconde escolhas enquanto aberto",
+        "PASS empate triplo exige professor e publica só os seis votos dos mesários",
         "PASS pelotão rejeita parcial ambíguo sem converter em execução",
         "PASS resposta precede abertura explícita do Conselho",
         "PASS pergunta do pelotão passa por seis votos e parcial exige decisão justificada",
@@ -1021,7 +1132,7 @@
       "suite": "controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 171,
+      "durationMs": 187,
       "scenarioLines": [
         "PASS hidratação não modifica snapshot da fonte",
         "PASS sexto voto resolve e publica sem clique extra",
@@ -1038,7 +1149,7 @@
       "suite": "fases-placar",
       "success": true,
       "exitCode": 0,
-      "durationMs": 165,
+      "durationMs": 185,
       "scenarioLines": [
         "PASS visibilidade explícita sobrepõe fechamento e fallback preserva partida anterior",
         "PASS mostrar placar não revela gabarito, identidade ou detalhes de recursos privados",
@@ -1061,7 +1172,7 @@
       "suite": "fases-controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 199,
+      "durationMs": 205,
       "scenarioLines": [
         "PASS view vazio e placar privado completo funcionam sem batalha",
         "PASS Mesa seleciona fase3 no setup pelo handler real da interface",
@@ -1080,7 +1191,7 @@
       "suite": "exclusao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 149,
+      "durationMs": 160,
       "scenarioLines": [
         "PASS exclui soldado intermediário antes do jogo e alinha dados privados e revelados",
         "PASS exclusão do primeiro soldado cancela apenas ataque ainda não respondido",
@@ -1097,13 +1208,14 @@
       "suite": "acessibilidade",
       "success": true,
       "exitCode": 0,
-      "durationMs": 101,
+      "durationMs": 105,
       "scenarioLines": [
         "PASS Tab e Shift+Tab permanecem na confirmação e recuperam foco externo",
         "PASS confirmação sem controles recebe foco no próprio diálogo",
         "PASS restauração encontra o botão correto após recriar a interface, inclusive exército e índice",
         "PASS leitor de tela recebe avisos e contagem de votos uma vez por mudança, sem gabarito",
-        "PASS confirmação tem título e descrição associados para leitor de tela"
+        "PASS confirmação tem título e descrição associados para leitor de tela",
+        "PASS histórico com identificação estável preserva foco após recriar o painel"
       ],
       "metrics": []
     },
@@ -1112,7 +1224,7 @@
       "suite": "preferencias",
       "success": true,
       "exitCode": 0,
-      "durationMs": 131,
+      "durationMs": 145,
       "scenarioLines": [
         "PASS somente opções permitidas e texto100-200% entram nas preferências",
         "PASS cada assento, professor, público, visitante e ensaio tem chave própria",
@@ -1135,7 +1247,7 @@
       "suite": "autenticacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 109,
+      "durationMs": 116,
       "scenarioLines": [
         "PASS oito contas entram somente quando UID corresponde ao perfil escolhido",
         "PASS senha incorreta não libera perfil nem inicia leitura privada",
@@ -1151,7 +1263,7 @@
       "suite": "simulacao-v3",
       "success": true,
       "exitCode": 0,
-      "durationMs": 5012,
+      "durationMs": 5037,
       "scenarioLines": [
         "PASS simulação oficial: {\"combinacoesVotos\":729,\"empates\":150,\"partidas\":10,\"batalhas\":400,\"revisoes\":40,\"projecoesConferidas\":1200,\"sementeInicial\":121,\"sementeFinal\":130}"
       ],
@@ -1169,11 +1281,47 @@
       ]
     },
     {
+      "round": 4,
+      "suite": "ux-telao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 138,
+      "scenarioLines": [
+        "PASS links abrem apenas formulário correspondente e não autenticam",
+        "PASS Professor tem entrada explícita com assento7; demais perfis preservam credenciais próprias",
+        "PASS fluxo público distingue espera, resposta, votação, empate, resultado e pelotão",
+        "PASS pelotão novo prevalece sobre Conselho anterior e atividade retirada volta à espera",
+        "PASS cronômetro sem ataque mostra espera e não prazo expirado",
+        "PASS apresentação mantém classificação, conselho, recursos e histórico sem gabarito ou identidade secreta",
+        "PASS tela cheia abre e fecha localmente; falha é tratada sem modificar partida"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 4,
+      "suite": "cronometro-votacao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 320,
+      "scenarioLines": [
+        "PASS relógio chega à projeção mesmo sem pergunta e aceita tempo personalizado",
+        "PASS trocar preset aplica novo tempo em vez de retomar saldo antigo",
+        "PASS tempo inválido é rejeitado sem mudar fonte",
+        "PASS seis escolhas são publicadas durante votação, sem categoria do Professor antes ou depois",
+        "PASS view pública mostra cada voto dos seis na hora e nunca o sétimo",
+        "PASS telão tem relógio utilizável sem ataque e segundos diminuem",
+        "PASS cronômetro avulso continua visível ao pausar em zero",
+        "PASS Mesa recebe aviso de empate e Público vê votos ao vivo com Professor reservado",
+        "PASS equipe de produção inclui o único Professor sem principal ou apoio"
+      ],
+      "metrics": []
+    },
+    {
       "round": 5,
       "suite": "regras",
       "success": true,
       "exitCode": 0,
-      "durationMs": 187,
+      "durationMs": 259,
       "scenarioLines": [
         "PASS 26 índices originais preservados",
         "PASS não publica identidade ao registrar baixa",
@@ -1238,7 +1386,7 @@
       "suite": "apresentacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 163,
+      "durationMs": 176,
       "scenarioLines": [
         "PASS publicação recusada mantém aviso de falha",
         "PASS conclusão recusada mantém pergunta pendente",
@@ -1256,7 +1404,7 @@
       "suite": "partida-completa",
       "success": true,
       "exitCode": 0,
-      "durationMs": 65807,
+      "durationMs": 68770,
       "scenarioLines": [
         "PASS partidas completas: {\"sementeInicial\":161,\"sementeFinal\":200,\"partidas\":40,\"fases\":200,\"batalhas\":4800,\"conferencias\":5644,\"desfazerRefazer\":504,\"vidasExtras\":300}"
       ],
@@ -1278,7 +1426,7 @@
       "suite": "mecanismo",
       "success": true,
       "exitCode": 0,
-      "durationMs": 208,
+      "durationMs": 215,
       "scenarioLines": [
         "PASS início vazio mantém índices históricos",
         "PASS seis votos imutáveis, empate e professor restrito",
@@ -1289,7 +1437,7 @@
         "PASS reapuração coletiva não duplica munição, pontos ou cotas",
         "PASS falha na reapuração preserva integralmente o estado anterior",
         "PASS motor não troca S ou CP do chamador mesmo quando validação falha",
-        "PASS empate triplo exige professor e esconde escolhas enquanto aberto",
+        "PASS empate triplo exige professor e publica só os seis votos dos mesários",
         "PASS pelotão rejeita parcial ambíguo sem converter em execução",
         "PASS resposta precede abertura explícita do Conselho",
         "PASS pergunta do pelotão passa por seis votos e parcial exige decisão justificada",
@@ -1308,7 +1456,7 @@
       "suite": "controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 170,
+      "durationMs": 195,
       "scenarioLines": [
         "PASS hidratação não modifica snapshot da fonte",
         "PASS sexto voto resolve e publica sem clique extra",
@@ -1325,7 +1473,7 @@
       "suite": "fases-placar",
       "success": true,
       "exitCode": 0,
-      "durationMs": 203,
+      "durationMs": 214,
       "scenarioLines": [
         "PASS visibilidade explícita sobrepõe fechamento e fallback preserva partida anterior",
         "PASS mostrar placar não revela gabarito, identidade ou detalhes de recursos privados",
@@ -1348,7 +1496,7 @@
       "suite": "fases-controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 202,
+      "durationMs": 211,
       "scenarioLines": [
         "PASS view vazio e placar privado completo funcionam sem batalha",
         "PASS Mesa seleciona fase3 no setup pelo handler real da interface",
@@ -1367,7 +1515,7 @@
       "suite": "exclusao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 150,
+      "durationMs": 161,
       "scenarioLines": [
         "PASS exclui soldado intermediário antes do jogo e alinha dados privados e revelados",
         "PASS exclusão do primeiro soldado cancela apenas ataque ainda não respondido",
@@ -1384,13 +1532,14 @@
       "suite": "acessibilidade",
       "success": true,
       "exitCode": 0,
-      "durationMs": 97,
+      "durationMs": 112,
       "scenarioLines": [
         "PASS Tab e Shift+Tab permanecem na confirmação e recuperam foco externo",
         "PASS confirmação sem controles recebe foco no próprio diálogo",
         "PASS restauração encontra o botão correto após recriar a interface, inclusive exército e índice",
         "PASS leitor de tela recebe avisos e contagem de votos uma vez por mudança, sem gabarito",
-        "PASS confirmação tem título e descrição associados para leitor de tela"
+        "PASS confirmação tem título e descrição associados para leitor de tela",
+        "PASS histórico com identificação estável preserva foco após recriar o painel"
       ],
       "metrics": []
     },
@@ -1399,7 +1548,7 @@
       "suite": "preferencias",
       "success": true,
       "exitCode": 0,
-      "durationMs": 128,
+      "durationMs": 370,
       "scenarioLines": [
         "PASS somente opções permitidas e texto100-200% entram nas preferências",
         "PASS cada assento, professor, público, visitante e ensaio tem chave própria",
@@ -1422,7 +1571,7 @@
       "suite": "autenticacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 111,
+      "durationMs": 126,
       "scenarioLines": [
         "PASS oito contas entram somente quando UID corresponde ao perfil escolhido",
         "PASS senha incorreta não libera perfil nem inicia leitura privada",
@@ -1438,7 +1587,7 @@
       "suite": "simulacao-v3",
       "success": true,
       "exitCode": 0,
-      "durationMs": 4937,
+      "durationMs": 5467,
       "scenarioLines": [
         "PASS simulação oficial: {\"combinacoesVotos\":729,\"empates\":150,\"partidas\":10,\"batalhas\":400,\"revisoes\":40,\"projecoesConferidas\":1200,\"sementeInicial\":161,\"sementeFinal\":170}"
       ],
@@ -1454,6 +1603,42 @@
           "sementeFinal": 170
         }
       ]
+    },
+    {
+      "round": 5,
+      "suite": "ux-telao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 114,
+      "scenarioLines": [
+        "PASS links abrem apenas formulário correspondente e não autenticam",
+        "PASS Professor tem entrada explícita com assento7; demais perfis preservam credenciais próprias",
+        "PASS fluxo público distingue espera, resposta, votação, empate, resultado e pelotão",
+        "PASS pelotão novo prevalece sobre Conselho anterior e atividade retirada volta à espera",
+        "PASS cronômetro sem ataque mostra espera e não prazo expirado",
+        "PASS apresentação mantém classificação, conselho, recursos e histórico sem gabarito ou identidade secreta",
+        "PASS tela cheia abre e fecha localmente; falha é tratada sem modificar partida"
+      ],
+      "metrics": []
+    },
+    {
+      "round": 5,
+      "suite": "cronometro-votacao",
+      "success": true,
+      "exitCode": 0,
+      "durationMs": 175,
+      "scenarioLines": [
+        "PASS relógio chega à projeção mesmo sem pergunta e aceita tempo personalizado",
+        "PASS trocar preset aplica novo tempo em vez de retomar saldo antigo",
+        "PASS tempo inválido é rejeitado sem mudar fonte",
+        "PASS seis escolhas são publicadas durante votação, sem categoria do Professor antes ou depois",
+        "PASS view pública mostra cada voto dos seis na hora e nunca o sétimo",
+        "PASS telão tem relógio utilizável sem ataque e segundos diminuem",
+        "PASS cronômetro avulso continua visível ao pausar em zero",
+        "PASS Mesa recebe aviso de empate e Público vê votos ao vivo com Professor reservado",
+        "PASS equipe de produção inclui o único Professor sem principal ou apoio"
+      ],
+      "metrics": []
     }
   ]
 }
