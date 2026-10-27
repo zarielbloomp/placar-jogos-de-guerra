@@ -1,0 +1,514 @@
+{
+  "checks": [
+    {
+      "privateVisible": false,
+      "review": true,
+      "scenario": "Revisão-publico-padrao",
+      "scroll": 301,
+      "width": 301
+    },
+    {
+      "privateVisible": false,
+      "review": true,
+      "scenario": "Revisão-publico-padrao",
+      "scroll": 371,
+      "width": 371
+    },
+    {
+      "privateVisible": false,
+      "review": true,
+      "scenario": "Revisão-publico-padrao",
+      "scroll": 748,
+      "width": 748
+    },
+    {
+      "privateVisible": false,
+      "review": true,
+      "scenario": "Revisão-publico-padrao",
+      "scroll": 1347,
+      "width": 1347
+    },
+    {
+      "privateVisible": false,
+      "review": true,
+      "scenario": "Revisão-publico-padrao",
+      "scroll": 1901,
+      "width": 1901
+    },
+    {
+      "privateVisible": false,
+      "review": true,
+      "scenario": "Revisão-publico-200-escuro",
+      "scroll": 301,
+      "width": 301
+    },
+    {
+      "privateVisible": false,
+      "review": true,
+      "scenario": "Revisão-publico-200-escuro",
+      "scroll": 371,
+      "width": 371
+    },
+    {
+      "privateVisible": false,
+      "review": true,
+      "scenario": "Revisão-publico-200-escuro",
+      "scroll": 748,
+      "width": 748
+    },
+    {
+      "privateVisible": false,
+      "review": true,
+      "scenario": "Revisão-publico-200-escuro",
+      "scroll": 1347,
+      "width": 1347
+    },
+    {
+      "privateVisible": false,
+      "review": true,
+      "scenario": "Revisão-publico-200-escuro",
+      "scroll": 1901,
+      "width": 1901
+    },
+    {
+      "buttons": [
+        {
+          "choice": "total",
+          "height": 66.484375,
+          "width": 242.7734375
+        },
+        {
+          "choice": "parcial",
+          "height": 66.484375,
+          "width": 242.7734375
+        },
+        {
+          "choice": "falhou",
+          "height": 66.484375,
+          "width": 242.7734375
+        }
+      ],
+      "scenario": "Votacao-mesa-padrao",
+      "scroll": 301,
+      "width": 301
+    },
+    {
+      "buttons": [
+        {
+          "choice": "total",
+          "height": 66.484375,
+          "width": 312.7734375
+        },
+        {
+          "choice": "parcial",
+          "height": 66.484375,
+          "width": 312.7734375
+        },
+        {
+          "choice": "falhou",
+          "height": 66.484375,
+          "width": 312.7734375
+        }
+      ],
+      "scenario": "Votacao-mesa-padrao",
+      "scroll": 371,
+      "width": 371
+    },
+    {
+      "buttons": [
+        {
+          "choice": "total",
+          "height": 87.0703125,
+          "width": 208.76953125
+        },
+        {
+          "choice": "parcial",
+          "height": 87.0703125,
+          "width": 208.76953125
+        },
+        {
+          "choice": "falhou",
+          "height": 87.0703125,
+          "width": 208.76953125
+        }
+      ],
+      "scenario": "Votacao-mesa-padrao",
+      "scroll": 748,
+      "width": 748
+    },
+    {
+      "buttons": [
+        {
+          "choice": "total",
+          "height": 81.9921875,
+          "width": 408.359375
+        },
+        {
+          "choice": "parcial",
+          "height": 81.9921875,
+          "width": 408.359375
+        },
+        {
+          "choice": "falhou",
+          "height": 81.9921875,
+          "width": 408.359375
+        }
+      ],
+      "scenario": "Votacao-mesa-padrao",
+      "scroll": 1347,
+      "width": 1347
+    },
+    {
+      "buttons": [
+        {
+          "choice": "total",
+          "height": 81.9921875,
+          "width": 452.51953125
+        },
+        {
+          "choice": "parcial",
+          "height": 81.9921875,
+          "width": 452.51953125
+        },
+        {
+          "choice": "falhou",
+          "height": 81.9921875,
+          "width": 452.5390625
+        }
+      ],
+      "scenario": "Votacao-mesa-padrao",
+      "scroll": 1901,
+      "width": 1901
+    },
+    {
+      "buttons": [
+        {
+          "background": "rgb(16, 23, 18)",
+          "choice": "total",
+          "color": "rgb(255, 255, 255)",
+          "height": 232.83203125,
+          "width": 242.7734375
+        },
+        {
+          "background": "rgb(16, 23, 18)",
+          "choice": "parcial",
+          "color": "rgb(255, 255, 255)",
+          "height": 168.046875,
+          "width": 242.7734375
+        },
+        {
+          "background": "rgb(16, 23, 18)",
+          "choice": "falhou",
+          "color": "rgb(255, 255, 255)",
+          "height": 232.83203125,
+          "width": 242.7734375
+        }
+      ],
+      "scenario": "Votacao-mesa-200-escuro",
+      "scroll": 301,
+      "width": 301
+    },
+    {
+      "buttons": [
+        {
+          "background": "rgb(16, 23, 18)",
+          "choice": "total",
+          "color": "rgb(255, 255, 255)",
+          "height": 168.046875,
+          "width": 312.7734375
+        },
+        {
+          "background": "rgb(16, 23, 18)",
+          "choice": "parcial",
+          "color": "rgb(255, 255, 255)",
+          "height": 103.26171875,
+          "width": 312.7734375
+        },
+        {
+          "background": "rgb(16, 23, 18)",
+          "choice": "falhou",
+          "color": "rgb(255, 255, 255)",
+          "height": 168.046875,
+          "width": 312.7734375
+        }
+      ],
+      "scenario": "Votacao-mesa-200-escuro",
+      "scroll": 371,
+      "width": 371
+    },
+    {
+      "buttons": [
+        {
+          "background": "rgb(16, 23, 18)",
+          "choice": "total",
+          "color": "rgb(255, 255, 255)",
+          "height": 232.83203125,
+          "width": 208.76953125
+        },
+        {
+          "background": "rgb(16, 23, 18)",
+          "choice": "parcial",
+          "color": "rgb(255, 255, 255)",
+          "height": 232.83203125,
+          "width": 208.76953125
+        },
+        {
+          "background": "rgb(16, 23, 18)",
+          "choice": "falhou",
+          "color": "rgb(255, 255, 255)",
+          "height": 232.83203125,
+          "width": 208.76953125
+        }
+      ],
+      "scenario": "Votacao-mesa-200-escuro",
+      "scroll": 748,
+      "width": 748
+    },
+    {
+      "buttons": [
+        {
+          "background": "rgb(16, 23, 18)",
+          "choice": "total",
+          "color": "rgb(255, 255, 255)",
+          "height": 168.046875,
+          "width": 408.359375
+        },
+        {
+          "background": "rgb(16, 23, 18)",
+          "choice": "parcial",
+          "color": "rgb(255, 255, 255)",
+          "height": 168.046875,
+          "width": 408.359375
+        },
+        {
+          "background": "rgb(16, 23, 18)",
+          "choice": "falhou",
+          "color": "rgb(255, 255, 255)",
+          "height": 168.046875,
+          "width": 408.359375
+        }
+      ],
+      "scenario": "Votacao-mesa-200-escuro",
+      "scroll": 1347,
+      "width": 1347
+    },
+    {
+      "buttons": [
+        {
+          "background": "rgb(16, 23, 18)",
+          "choice": "total",
+          "color": "rgb(255, 255, 255)",
+          "height": 103.26171875,
+          "width": 452.51953125
+        },
+        {
+          "background": "rgb(16, 23, 18)",
+          "choice": "parcial",
+          "color": "rgb(255, 255, 255)",
+          "height": 103.26171875,
+          "width": 452.51953125
+        },
+        {
+          "background": "rgb(16, 23, 18)",
+          "choice": "falhou",
+          "color": "rgb(255, 255, 255)",
+          "height": 103.26171875,
+          "width": 452.5390625
+        }
+      ],
+      "scenario": "Votacao-mesa-200-escuro",
+      "scroll": 1901,
+      "width": 1901
+    },
+    {
+      "buttons": [
+        {
+          "background": "rgb(8, 46, 34)",
+          "choice": "total",
+          "color": "rgb(214, 255, 232)",
+          "height": 232.83203125,
+          "width": 242.7734375
+        },
+        {
+          "background": "rgb(53, 41, 8)",
+          "choice": "parcial",
+          "color": "rgb(255, 243, 190)",
+          "height": 168.046875,
+          "width": 242.7734375
+        },
+        {
+          "background": "rgb(59, 16, 24)",
+          "choice": "falhou",
+          "color": "rgb(255, 227, 229)",
+          "height": 232.83203125,
+          "width": 242.7734375
+        }
+      ],
+      "clock": {
+        "background": "rgb(8, 46, 34)",
+        "ink": "rgb(214, 255, 232)"
+      },
+      "scenario": "Votacao-mesa-200-escuro-corrigido",
+      "scroll": 301,
+      "width": 301
+    },
+    {
+      "buttons": [
+        {
+          "background": "rgb(8, 46, 34)",
+          "choice": "total",
+          "color": "rgb(214, 255, 232)",
+          "height": 168.046875,
+          "width": 312.7734375
+        },
+        {
+          "background": "rgb(53, 41, 8)",
+          "choice": "parcial",
+          "color": "rgb(255, 243, 190)",
+          "height": 103.26171875,
+          "width": 312.7734375
+        },
+        {
+          "background": "rgb(59, 16, 24)",
+          "choice": "falhou",
+          "color": "rgb(255, 227, 229)",
+          "height": 168.046875,
+          "width": 312.7734375
+        }
+      ],
+      "clock": {
+        "background": "rgb(8, 46, 34)",
+        "ink": "rgb(214, 255, 232)"
+      },
+      "scenario": "Votacao-mesa-200-escuro-corrigido",
+      "scroll": 371,
+      "width": 371
+    },
+    {
+      "buttons": [
+        {
+          "background": "rgb(8, 46, 34)",
+          "choice": "total",
+          "color": "rgb(214, 255, 232)",
+          "height": 232.83203125,
+          "width": 208.76953125
+        },
+        {
+          "background": "rgb(53, 41, 8)",
+          "choice": "parcial",
+          "color": "rgb(255, 243, 190)",
+          "height": 232.83203125,
+          "width": 208.76953125
+        },
+        {
+          "background": "rgb(59, 16, 24)",
+          "choice": "falhou",
+          "color": "rgb(255, 227, 229)",
+          "height": 232.83203125,
+          "width": 208.76953125
+        }
+      ],
+      "clock": {
+        "background": "rgb(8, 46, 34)",
+        "ink": "rgb(214, 255, 232)"
+      },
+      "scenario": "Votacao-mesa-200-escuro-corrigido",
+      "scroll": 748,
+      "width": 748
+    },
+    {
+      "buttons": [
+        {
+          "background": "rgb(8, 46, 34)",
+          "choice": "total",
+          "color": "rgb(214, 255, 232)",
+          "height": 168.046875,
+          "width": 408.359375
+        },
+        {
+          "background": "rgb(53, 41, 8)",
+          "choice": "parcial",
+          "color": "rgb(255, 243, 190)",
+          "height": 168.046875,
+          "width": 408.359375
+        },
+        {
+          "background": "rgb(59, 16, 24)",
+          "choice": "falhou",
+          "color": "rgb(255, 227, 229)",
+          "height": 168.046875,
+          "width": 408.359375
+        }
+      ],
+      "clock": {
+        "background": "rgb(8, 46, 34)",
+        "ink": "rgb(214, 255, 232)"
+      },
+      "scenario": "Votacao-mesa-200-escuro-corrigido",
+      "scroll": 1347,
+      "width": 1347
+    },
+    {
+      "buttons": [
+        {
+          "background": "rgb(8, 46, 34)",
+          "choice": "total",
+          "color": "rgb(214, 255, 232)",
+          "height": 103.26171875,
+          "width": 452.51953125
+        },
+        {
+          "background": "rgb(53, 41, 8)",
+          "choice": "parcial",
+          "color": "rgb(255, 243, 190)",
+          "height": 103.26171875,
+          "width": 452.51953125
+        },
+        {
+          "background": "rgb(59, 16, 24)",
+          "choice": "falhou",
+          "color": "rgb(255, 227, 229)",
+          "height": 103.26171875,
+          "width": 452.5390625
+        }
+      ],
+      "clock": {
+        "background": "rgb(8, 46, 34)",
+        "ink": "rgb(214, 255, 232)"
+      },
+      "scenario": "Votacao-mesa-200-escuro-corrigido",
+      "scroll": 1901,
+      "width": 1901
+    },
+    {
+      "result": "RESULTADO APURADO\n≈\nMeio certa\n\nJulgamento concluído pelo Conselho · Resposta de Sentinela do Horizonte.",
+      "scenario": "Resultado-mesa-200-claro",
+      "scroll": 301,
+      "width": 301
+    },
+    {
+      "result": "RESULTADO APURADO\n≈\nMeio certa\n\nJulgamento concluído pelo Conselho · Resposta de Sentinela do Horizonte.",
+      "scenario": "Resultado-mesa-200-claro",
+      "scroll": 371,
+      "width": 371
+    },
+    {
+      "result": "RESULTADO APURADO\n≈\nMeio certa\n\nJulgamento concluído pelo Conselho · Resposta de Sentinela do Horizonte.",
+      "scenario": "Resultado-mesa-200-claro",
+      "scroll": 748,
+      "width": 748
+    },
+    {
+      "result": "RESULTADO APURADO\n≈\nMeio certa\n\nJulgamento concluído pelo Conselho · Resposta de Sentinela do Horizonte.",
+      "scenario": "Resultado-mesa-200-claro",
+      "scroll": 1347,
+      "width": 1347
+    },
+    {
+      "result": "RESULTADO APURADO\n≈\nMeio certa\n\nJulgamento concluído pelo Conselho · Resposta de Sentinela do Horizonte.",
+      "scenario": "Resultado-mesa-200-claro",
+      "scroll": 1901,
+      "width": 1901
+    }
+  ]
+}

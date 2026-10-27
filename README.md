@@ -26,7 +26,7 @@ Há backup integral privado anterior ao reinício. Credenciais, cópias reais e 
 
 ## Verificação
 
-Execute as doze suítes: `regras.cjs`, `apresentacao.cjs`, `partida-completa.cjs`, `mecanismo.cjs` `controller.cjs`, `fases-placar.cjs` `fases-controller.cjs` `exclusao.cjs` `acessibilidade.cjs`, `preferencias.cjs`, `autenticacao.cjs` e `simulacao-v3.cjs`, na pasta `tests` com Node. O workflow também executa essas suítes sem acessar contas reais. O ensaio `?ensaio=1` usa somente dados fictícios locais e não sincroniza entre aparelhos diferentes.
+Execute `node tests/simular-cenarios.cjs 5`: as 17 suítes rodam cinco vezes. O workflow também executa todas sem acessar contas reais. O ensaio `?ensaio=1` usa apenas dados locais e não sincroniza entre aparelhos diferentes.
 
 ## Links
 
@@ -73,3 +73,14 @@ O Público acompanha as categorias dos votos 1–6 conforme chegam e a contagem 
 Créditos atuais: **Equipe de produção** com Miguel Conholato Nicoli (IMI4), Murilo Carreiro (EMI4) e José Pontes Schayder (Professor).
 
 Exemplos solicitados para teste são identificados por EXEMPLO. Cadastros ainda não usados podem ser excluídos normalmente. Se já participaram de resultados, o Professor precisa desfazer/reiniciar os testes antes da exclusão, preservando a proteção de histórico. Backups privados ficam fora do Git. Não remover proteções de histórico para excluir exemplos.
+
+
+### Conselho em aparelhos diferentes
+
+Cada mesário deve escolher **seu próprio assento (Mesa 1 a Mesa 6)** e usar a senha correspondente. Assentos ocupados ficam cinza; a reserva é atômica. **Sair** libera o assento. Ao fechar o navegador ou perder conexão, a reserva expira em até 45 segundos sem renovação. Uma sessão antiga não pode continuar alterando o jogo depois de perder a reserva. Público continua compartilhado, sem bloqueio de assento. Todos precisam recarregar a versão publicada para usar esse controle.
+
+Os votos são recebidos por assento, sem gravar a partida inteira a cada voto parcial. A Mesa mostra confirmação e o telão atualiza os seis votos; a apuração final é registrada uma só vez. Verde/✓ indica totalmente certa, amarelo/≈ meio certa e vermelho/× totalmente errada. O voto individual do Professor continua reservado no Público.
+
+**Abrir revisão** já libera outra votação, com seis votos novos. O cronômetro fica como estava; não reinicia em 60 segundos. Uma revisão antiga que ficou fechada é reaberta ao conectar a versão nova, sem consumir outra cota. O aviso público identifica o exército solicitante e a rodada; a justificativa permanece privada. As duas revisões incluem revisão da revisão.
+
+No ataque há a seleção opcional **Quem faz a pergunta**: combatente vivo do atacante. O telão destaca os dois nomes de guerra. O resultado aparece em um bloco grande antes da pergunta; pontuação continua sob controle da Mesa. O relógio tem faixa de cor, texto e barra de tempo. Preferências locais e redução de movimento continuam respeitadas. Regras novas limitam a escrita de presença à conta do assento; permissões do segredo/estado anteriores permanecem intactas.
