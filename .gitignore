@@ -4,3 +4,5 @@ tmp/
 *backup*.json
 .env*
 output/privado/
+
+.codex-remote-attachments/
