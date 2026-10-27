@@ -42,3 +42,6 @@ jobs:
 
       - name: Exclusão de cadastro e proteção de histórico
         run: node tests/exclusao.cjs
+
+      - name: Teclado, foco e avisos acessíveis
+        run: node tests/acessibilidade.cjs

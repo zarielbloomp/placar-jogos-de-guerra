@@ -26,7 +26,7 @@ Há backup integral privado anterior ao reinício. Credenciais, cópias reais e 
 
 ## Verificação
 
-Execute as oito suítes: `regras.cjs`, `apresentacao.cjs`, `partida-completa.cjs`, `mecanismo.cjs` `controller.cjs`, `fases-placar.cjs` `fases-controller.cjs` e `exclusao.cjs`, na pasta `tests` com Node. O workflow também executa essas suítes sem acessar contas reais. O ensaio `?ensaio=1` usa somente dados fictícios locais e não sincroniza entre aparelhos diferentes.
+Execute as nove suítes: `regras.cjs`, `apresentacao.cjs`, `partida-completa.cjs`, `mecanismo.cjs` `controller.cjs`, `fases-placar.cjs` `fases-controller.cjs` `exclusao.cjs` e `acessibilidade.cjs`, na pasta `tests` com Node. O workflow também executa essas suítes sem acessar contas reais. O ensaio `?ensaio=1` usa somente dados fictícios locais e não sincroniza entre aparelhos diferentes.
 
 ## Links
 
@@ -37,3 +37,7 @@ Execute as oito suítes: `regras.cjs`, `apresentacao.cjs`, `partida-completa.cjs
 - [Comparação com o manual](output/pdf/analise-jogos-de-guerra.pdf)
 
 Um único index.html, sem build, com Firebase compat 10.12.2. Para detalhes das decisões de regras, consulte [o guia](docs/guia-mecanismo.md).
+
+## Acessibilidade e telas
+
+A interface inclui navegação por teclado, atalho para o conteúdo, confirmação com foco contido e retorno ao acionador, avisos persistentes para leitores de tela e redução de movimento. Campos móveis usam texto de16px e botões têm área mínima de44px. A validação de reflow cobre320 a1920px, com dados fictícios. Consulte [a revisão de acessibilidade](docs/acessibilidade.md) para escopo e limites; isso não substitui ensaio com usuários e tecnologias assistivas reais.
