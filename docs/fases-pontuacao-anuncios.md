@@ -4,9 +4,9 @@ Guia da atualização autorizada em 27/10/2026. A Mesa vê sempre os números co
 
 ## 1. Selecionar a fase
 
-Em Controle, localize a fase atual e escolha a etapa desejada e toque em Ir para esta fase. As cinco fases preservam os títulos históricos do manual; o desempate é uma opção própria. Os subtítulos e transições são apenas apresentação, sem alterar as regras.
+Em Controle, localize a fase atual e selecione a etapa desejada: a mudança é imediata, sem justificativa e sem botão extra. As cinco fases preservam os títulos históricos do manual; o desempate é uma opção própria. Os subtítulos e transições são apenas apresentação, sem alterar as regras.
 
-Durante a preparação inicial, a fase pode ser escolhida livremente. Com pergunta, Conselho ou revisão em andamento, termine a atividade antes de mudar. Para sair de uma fase ainda incompleta, o Professor deve confirmar e registrar uma justificativa. A mudança não fecha a fase automaticamente nem apaga lances, contagens ou rodízio. Ao retornar, o progresso daquela fase permanece.
+Durante a preparação inicial, a fase pode ser escolhida livremente. Com pergunta, Conselho ou revisão em andamento, termine a atividade antes de mudar. A Mesa pode mudar entre as cinco fases sem justificativa ou confirmação extra. A mudança não fecha a fase automaticamente nem apaga lances, contagens ou rodízio. Ao retornar, o progresso daquela fase permanece.
 
 O desempate do manual usa Batalha de Berlim, Hiroshima e Nagasaki após empate; não equivale a uma sexta fase normal de quatro mísseis.
 
@@ -30,6 +30,10 @@ Confira o resultado na Mesa e use Publicar resultado. O aviso público mostra so
 
 Nova pergunta, reapuração ou desfazer invalidam o anúncio anterior, para evitar apresentar uma decisão ultrapassada. Antes de publicar novamente, confira a versão atual do resultado. O histórico público não deve reproduzir totais que estejam ocultos.
 
-As apresentações de fase são curtas. Use Repetir apresentação da fase para exibi-las novamente; quem reconecta depois do prazo não deve receber uma transição antiga. A preferência do aparelho por reduzir movimentos deve ser respeitada.
+As apresentações de fase duram seis segundos, com duas paredes que se encontram, mostram o título e se abrem. Use Repetir apresentação da fase para exibi-las novamente; quem reconecta depois do prazo não deve receber uma transição antiga. A preferência do aparelho por reduzir movimentos deve ser respeitada.
 
 Fontes: manual original JG_MANUAL_DE_REGRAS.pdf, pp. 2-7; plano autorizado `docs/superpowers/plans/2026-10-27-fases-placar-anuncios.md`. Rótulos finais conferidos com a interface antes da geração dos PDFs.
+
+## Exclusão de cadastros
+
+Em Preparar, Excluir abre confirmação. Antes do primeiro resultado, qualquer soldado pode ser removido; os dados privados e revelações dos restantes são realinhados. Se houver somente um ataque preparado, sem início de resposta ou Conselho, a confirmação cancela esse ataque. Uma pergunta ainda não usada também pode ser removida dessa forma. Resposta iniciada, votação aberta, pergunta utilizada e elenco com resultados são preservados; o motivo aparece junto ao botão indisponível. Sucesso ou erro aparece em aviso visível.

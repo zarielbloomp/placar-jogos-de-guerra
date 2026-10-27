@@ -39,3 +39,6 @@ jobs:
         run: node tests/fases-placar.cjs
       - name: Controles de fase e pontuação
         run: node tests/fases-controller.cjs
+
+      - name: Exclusão de cadastro e proteção de histórico
+        run: node tests/exclusao.cjs
