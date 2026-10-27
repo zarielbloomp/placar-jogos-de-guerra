@@ -23,7 +23,7 @@ Motor existente reaproveitado para cálculo e validação de lances. Fonte priva
 - [x] Implementar painel móvel e telão em fluxo único, reaproveitando índices e validadores do jogo.
 - [x] Criar cinco contas adicionais, preparar permissões por assento e documento privado. Preparar backup integral antes de reiniciar.
 - [ ] Verificar fluxos, concorrência, seis votos, empate, recursos, sigilo, fim de fase e pelotão físico.
-- [ ] Publicar permissões após confirmação pontual exigida pelo navegador; reiniciar com cópia privada de recuperação e verificar acessos reais.
+- [x] Publicar permissões após confirmação pontual exigida pelo navegador; reiniciar com cópia privada de recuperação e verificar acessos reais.
 - [ ] Atualizar documentos para esta versão única e publicar no GitHub Pages; conferir produção.
 
 ## Registro da execução
@@ -31,6 +31,6 @@ Motor existente reaproveitado para cálculo e validação de lances. Fonte priva
 - Nome e ilustração fornecidos incorporados em login, cabeçalho e classificação; imagem preservada em dados embutidos no HTML.
 - Backup integral privado salvo antes de qualquer reinício; cinco novas contas criadas.
 - Motor, integração, documentos e ensaio local concluídos; produção não alterada.
-- Publicação das permissões aguardando a confirmação específica solicitada após bloqueio da revisão automática.
+- Confirmação específica recebida em 27/10/2026; permissões publicadas, oito contas autenticadas e partida reiniciada com backup privado. Publicação do código via PR #1 em andamento.
 - Decisão: arbitrar parcial de pelotão e Blitzkrieg com justificativa do Professor; não criar consequência automática sem definição no manual.
 - Decisão: em caso de menos de três vivos, pelotão recebe todos os elegíveis, mantendo até dois alvos.

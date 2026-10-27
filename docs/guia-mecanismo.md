@@ -2,7 +2,7 @@
 
 Guia da versão autorizada em 27/10/2026. O manual original continua sendo a base das regras; as alterações abaixo foram solicitadas para esta partida. Em dúvidas de interpretação, o Professor decide e registra o motivo.
 
-Situação: versão implementada e testada localmente. Permissões Firebase e liberação dos cinco novos assentos aguardam autorização explícita após bloqueio da revisão automática. Não representa publicação em produção.
+Ativação autorizada em 27/10/2026. Permissões Firebase publicadas e oito autenticações confirmadas. Partida reiniciada com backup integral privado, elenco e arsenal vazios. Nova versão preparada para publicação no PR #1; o resultado do deploy será registrado no PR, sem alegação de deploy concluído neste guia.
 
 ## Alterações autorizadas
 
@@ -30,7 +30,7 @@ No saldo final, cada vivo vale 5 pontos; cada prisioneiro comum soma 5 ao captor
 
 ## Decisões que exigem o Professor
 
-O pelotão no manual distingue defesa e falha, sem definir parcial. Também faltam detalhes para parcial em Blitzkrieg, homem-bomba e kamikaze. O resultado do Conselho não deve inventar automaticamente captura ou pontuação nessas exceções. Registre a decisão e sua justificativa antes de seguir.
+O pelotão no manual distingue defesa e falha, sem definir parcial. Também faltam detalhes para parcial em Blitzkrieg, homem-bomba e kamikaze. O resultado do Conselho não deve inventar automaticamente captura ou pontuação nessas exceções. Registre a decisão e sua justificativa antes de seguir. No Blitzkrieg parcial, a interface exige Arbitragem do Professor, com resultado definido e justificativa, antes de concluir.
 
 O manual não fixa uma cota explícita de Blitzkrieg. A redação de CO/SUB permite dúvida sobre como repartir as duas atuações de comando. Transferência de combatente libertado após a aniquilação da origem, confisco do arsenal e crimes de guerra também exigem arbitragem humana. Recursos ordinários não revogam a regra específica do tribunal de crimes de guerra, que veda apelação.
 
@@ -42,7 +42,7 @@ Use a conta individual recebida no documento privado de acessos. Professor, a Me
 
 No computador do telão, abra a visão pública. No celular ou computador de operação, abra a entrada da Mesa, selecione Mesa 1 a Mesa 6 ou Professor (assento 7) e informe sua senha. Público também informa a senha para abrir o telão. Não compartilhe a conta de um assento entre conselheiros. Saia da sessão antes de entregar o aparelho.
 
-Antes da aula, confira a conexão, os dois exércitos, nomes de guerra e recursos. Professor cadastra elenco e arsenal. Faça um ensaio separado da partida oficial; nunca use nomes reais ou senhas em capturas de divulgação. Durante a aula, acompanhe pergunta, relógio, votos, recursos, Memorial e histórico; publique a pontuação ao encerrar a fase.
+Antes da aula, confira a conexão, os dois exércitos, nomes de guerra e recursos. Professor cadastra elenco e arsenal. No arsenal, escolha categoria Normal (cota de quatro por fase) ou Especial (situações especiais, sob conferência do Professor). Faça um ensaio separado da partida oficial; nunca use nomes reais ou senhas em capturas de divulgação. Durante a aula, acompanhe pergunta, relógio, votos, recursos, Memorial e histórico; publique a pontuação ao encerrar a fase.
 
 ## Fontes
 

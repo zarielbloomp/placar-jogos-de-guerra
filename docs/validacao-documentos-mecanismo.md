@@ -13,6 +13,8 @@ As nove páginas foram renderizadas com Poppler e inspecionadas em folha de cont
 
 Os três PDFs públicos foram extraídos novamente com pypdf e comparados com os e-mails e senhas do JSON de acessos privado: nenhuma ocorrência desses valores nos PDFs públicos. O PDF privado lê as credenciais diretamente desse JSON. A inspeção confirma separação dos documentos; não constitui auditoria de segurança do backend.
 
-Conteúdo explícito: versão testada localmente; publicação de permissões Firebase pendente de autorização; cinco novos assentos criados e ainda sem liberação de permissões. Sem alegação de ativação em produção. O tutorial descreve Mesa 1-6, Professor 7, Público com senha, 30 segundos seguidos do botão de 90, revisão apenas da última batalha na fase atual e pontuação geral acumulada com saldos após fechar fase. Exceções de pelotão e ações especiais exigem o Professor.
+Conteúdo explícito atualizado após ativação autorizada em 27/10/2026: permissões Firebase publicadas, oito autenticações confirmadas, partida reiniciada com backup integral privado e cadastros vazios. Nova versão preparada para publicação no PR #1; deploy ainda será confirmado no PR pelo responsável. O tutorial descreve Mesa 1-6, Professor 7, Público com senha, 30 segundos seguidos do botão de 90, revisão apenas da última batalha na fase atual e pontuação geral acumulada com saldos após fechar fase. Exceções de pelotão e ações especiais exigem o Professor. Incluídos cadastro de categoria Normal/Especial e arbitragem explícita do Professor para Blitzkrieg parcial.
 
 Gerador: `tmp/v3-docs.py`. Não houve alteração de `index.html` por esta tarefa.
+
+Nova geração após autorização: quatro PDFs regenerados, nove páginas novamente renderizadas com Poppler e inspecionadas em `tmp/pdfs/release-docs-sheet.png`. Rastreio de e-mails e senhas do JSON privado repetido nos PDFs públicos: nenhuma ocorrência. A nova folha de contato também inclui o documento privado e não deve ser publicada.

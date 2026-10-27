@@ -1,6 +1,6 @@
 # Validação local — O Mecanismo da Guerra
 
-Situação: implementação e documentos preparados; permissões novas, reinício oficial e publicação aguardam confirmação específica. O console Firebase não foi alterado após a rejeição da revisão automática.
+Situação atualizada: ativação explicitamente autorizada pelo responsável em 27/10/2026. Novas regras publicadas no Firebase, oito contas autenticadas e fonte privada inicializada com a partida vazia. Backup integral salvo antes do reinício. A entrega segue pelo PR #1; o resultado do deploy e a conferência no endereço oficial serão registrados no PR.
 
 ## Evidências
 
@@ -19,11 +19,12 @@ O telão não mostrou identidades privadas, gabarito ou pontos durante esse flux
 
 As imagens de prévia mostram dados fictícios. O backup anterior ao reinício e as credenciais ficam somente em `output/privado/`.
 
-## Pendências de produção
+## Ativação e limites da conferência
 
-1. Receber a confirmação específica de aplicação das novas permissões solicitada ao responsável.
-2. Publicar as regras preparadas e conferir login, permissões individuais e recusas reais, incluindo tentativa de voto de outro assento e voto fora do empate.
-3. Salvar novo backup integral, criar a fonte privada vazia, limpar os dados anteriores conforme reinício autorizado e publicar a projeção inicial Preto/Amarelo.
-4. Atualizar a branch de publicação do GitHub Pages, conferir CI e repetir sincronização real entre dois clientes.
+As permissões foram publicadas pelo console autenticado. A API confirmou autenticação das oito contas e leitura permitida à Mesa/Professor. A leitura de `jg/segredo` foi negada ao Público e sem autenticação. Um teste de escrita com a conta do Público foi bloqueado pela revisão automática e foi retirado da verificação; a negativa de escrita foi conferida na regra preparada e na interface, sem alegar teste de mutação em produção.
 
-Não foi alegada conclusão dessas etapas. Os seis operadores têm acesso operacional à fonte privada; a aplicação pressupõe uma Mesa de confiança.
+O painel novo carregou a fonte oficial vazia usando a conta real do Professor. A inicialização foi concluída preservando a fonte já criada após a API recusar o cabeçalho ETag em uma chamada PATCH; a cópia integral anterior permanece privada.
+
+O CI inicial do PR passou: https://github.com/zarielbloomp/placar-jogos-de-guerra/actions/runs/40512181763. Alterações posteriores devem passar novamente antes do merge. O deploy final e a sincronização real entre dois clientes ficam registrados no PR.
+
+As seis contas da Mesa têm acesso operacional à fonte privada; a aplicação pressupõe uma Mesa de confiança. Voltar o código não restaura o Firebase; consultar `publicacao-e-reversao.md`.

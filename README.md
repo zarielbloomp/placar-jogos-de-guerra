@@ -1,4 +1,4 @@
-# O Mecanismo da Guerra — versão em validação
+# O Mecanismo da Guerra — versão autorizada
 
 Reformulação local: Mesa e Público, Preto e Amarelo, participação individual, Conselho com seis votos e Professor no desempate. O nome e a ilustração fornecidos pelo responsável estão incorporados ao site.
 
@@ -18,7 +18,7 @@ Situações especiais sem efeito definido no manual exigem decisão justificada 
 
 `jg/segredo/partida` guarda a fonte privada versionada; `jg/segredo/arsenal`, os gabaritos; `jg/segredo/votos/<rodada>/<assento>`, os votos individuais. `jg/estado` recebe somente a projeção pública. As contas da Mesa são operadores de confiança com acesso operacional à fonte privada.
 
-As novas permissões estão preparadas em `database.rules.json`, mas sua aplicação aguarda a confirmação específica solicitada ao responsável. Criar as novas contas não ativa automaticamente essas permissões. A nova versão ainda não deve substituir o site publicado antes dessa etapa e da preparação da partida vazia.
+As novas permissões foram publicadas no Firebase após autorização específica do responsável. As oito contas foram conferidas e a fonte privada vazia já está preparada. Esta entrega segue pelo [PR #1](https://github.com/zarielbloomp/placar-jogos-de-guerra/pull/1), com testes antes do merge e conferência do deploy. Consulte [publicação e reversão](docs/publicacao-e-reversao.md) para recuperar uma versão anterior.
 
 Há backup integral privado anterior ao reinício. Credenciais, cópias reais e anexos originais ficam fora do Git. A imagem foi incorporada ao HTML para manter a distribuição em um arquivo único, sem build.
 
