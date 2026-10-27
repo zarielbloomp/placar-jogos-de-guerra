@@ -22,13 +22,17 @@ O laboratório não chama o Firebase. Usa armazenamento local separado e sincron
 
 ## Acessos reais
 
-No controle oficial, o formulário aceita `professor`, `mesa` e `publico`. As contas existem no Firebase Authentication. Senhas distintas foram entregues em PDF privado, fora do repositório.
+A primeira tela do controle oficial é o login: escolha Professor, Mesa ou Público e digite a senha. Uma sessão lembrada exige Continuar ou Usar outra conta. Perfil e Sair ficam no cabeçalho. Outro acesso autorizado permanece disponível em uma opção avançada. As contas existem no Firebase Authentication. Senhas distintas foram entregues em PDF privado, fora do repositório.
 
 - Professor: administração, elenco, perguntas, configuração, conciliação e recuperação.
 - Mesa: operação de lances, recursos, cronômetro e apresentação; leitura dos dados reservados. Não altera cadastros protegidos.
 - Público: somente leitura. O telão também funciona sem login.
 
 `database.rules.json` contém as regras publicadas para este projeto, com UIDs das contas e preservação do editor anterior autorizado. Em outro projeto, substitua os identificadores e publique suas regras. Não coloque senhas ou credenciais administrativas no HTML.
+
+## Navegação por tarefas
+
+Professor e Mesa recebem painel inicial e menu: Operar partida, Perguntas, Placar ao vivo, Histórico, Ferramentas e Como usar. Participantes é exclusivo do Professor. Público recebe apenas Placar, Histórico e Ajuda. A apresentação tem link próprio sem login. O laboratório pede entrada explícita no ensaio e identifica os perfis simulados. Tipos de lance foram agrupados por situação, preservando todos os índices.
 
 ## Perguntas
 
@@ -68,6 +72,6 @@ Backup público e restauração validada ficam em Partida e apresentação. Some
 
 ## Verificação e publicação
 
-Execute `node tests/regras.cjs`: 46 testes passaram na entrega. Foram verificados autenticação dos três perfis, leitura pública do placar, bloqueio do segredo público, bloqueio de cadastros para Mesa e conflito de revisão no Firebase. Ensaios do fluxo guiado foram feitos no navegador; faça também um ensaio com a equipe e os aparelhos da aula.
+Execute `node tests/regras.cjs`: 55 testes passaram na entrega. Foram verificados autenticação dos três perfis, leitura pública do placar, bloqueio do segredo público, bloqueio de cadastros para Mesa e conflito de revisão no Firebase. Ensaios do fluxo guiado foram feitos no navegador; faça também um ensaio com a equipe e os aparelhos da aula.
 
 GitHub Pages serve a branch `main`, raiz `/`. Nenhum build necessário. Abra `index.html` ou use servidor estático para desenvolvimento. Não envie senhas, backups reais ou identidades ao GitHub. `output/privado/` e `tmp/` estão ignorados.
