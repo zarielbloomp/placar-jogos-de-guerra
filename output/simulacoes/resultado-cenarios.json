@@ -1,7 +1,7 @@
 {
-  "started": "2026-10-27T15:52:08.125Z",
-  "finished": "2026-10-27T15:58:32.952Z",
-  "htmlSha256": "ca90823d9a9c520bb6a16351b623c75145b175985b4fde2ba37a6aa0637d29c9",
+  "started": "2026-10-27T16:07:59.773Z",
+  "finished": "2026-10-27T16:14:33.809Z",
+  "htmlSha256": "a8b35f09bfab6666860f6d6fb53da0bfd9f022b4cf77f16219e1395ea87333b3",
   "repetitions": 5,
   "suites": 12,
   "executions": 60,
@@ -25,7 +25,7 @@
       "suite": "regras",
       "success": true,
       "exitCode": 0,
-      "durationMs": 197,
+      "durationMs": 194,
       "scenarioLines": [
         "PASS 26 índices originais preservados",
         "PASS não publica identidade ao registrar baixa",
@@ -90,7 +90,7 @@
       "suite": "apresentacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 166,
+      "durationMs": 171,
       "scenarioLines": [
         "PASS publicação recusada mantém aviso de falha",
         "PASS conclusão recusada mantém pergunta pendente",
@@ -108,7 +108,7 @@
       "suite": "partida-completa",
       "success": true,
       "exitCode": 0,
-      "durationMs": 70215,
+      "durationMs": 75180,
       "scenarioLines": [
         "PASS partidas completas: {\"sementeInicial\":1,\"sementeFinal\":40,\"partidas\":40,\"fases\":200,\"batalhas\":4800,\"conferencias\":5693,\"desfazerRefazer\":561,\"vidasExtras\":292}"
       ],
@@ -130,7 +130,7 @@
       "suite": "mecanismo",
       "success": true,
       "exitCode": 0,
-      "durationMs": 199,
+      "durationMs": 209,
       "scenarioLines": [
         "PASS início vazio mantém índices históricos",
         "PASS seis votos imutáveis, empate e professor restrito",
@@ -160,7 +160,7 @@
       "suite": "controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 205,
+      "durationMs": 171,
       "scenarioLines": [
         "PASS hidratação não modifica snapshot da fonte",
         "PASS sexto voto resolve e publica sem clique extra",
@@ -177,7 +177,7 @@
       "suite": "fases-placar",
       "success": true,
       "exitCode": 0,
-      "durationMs": 173,
+      "durationMs": 181,
       "scenarioLines": [
         "PASS visibilidade explícita sobrepõe fechamento e fallback preserva partida anterior",
         "PASS mostrar placar não revela gabarito, identidade ou detalhes de recursos privados",
@@ -200,7 +200,7 @@
       "suite": "fases-controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 207,
+      "durationMs": 205,
       "scenarioLines": [
         "PASS view vazio e placar privado completo funcionam sem batalha",
         "PASS Mesa seleciona fase3 no setup pelo handler real da interface",
@@ -219,7 +219,7 @@
       "suite": "exclusao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 154,
+      "durationMs": 147,
       "scenarioLines": [
         "PASS exclui soldado intermediário antes do jogo e alinha dados privados e revelados",
         "PASS exclusão do primeiro soldado cancela apenas ataque ainda não respondido",
@@ -236,7 +236,7 @@
       "suite": "acessibilidade",
       "success": true,
       "exitCode": 0,
-      "durationMs": 110,
+      "durationMs": 99,
       "scenarioLines": [
         "PASS Tab e Shift+Tab permanecem na confirmação e recuperam foco externo",
         "PASS confirmação sem controles recebe foco no próprio diálogo",
@@ -251,12 +251,13 @@
       "suite": "preferencias",
       "success": true,
       "exitCode": 0,
-      "durationMs": 170,
+      "durationMs": 129,
       "scenarioLines": [
         "PASS somente opções permitidas e texto100-200% entram nas preferências",
         "PASS cada assento, professor, público, visitante e ensaio tem chave própria",
         "PASS preferências persistem por perfil sem mudar partida ou chamar Firebase",
         "PASS cadastro novo herda só visitante e não outro assento; restaurar padrão é local",
+        "PASS primeiro acesso fixa a herança e mudanças posteriores do visitante não afetam o perfil",
         "PASS JSON inválido e armazenamento bloqueado não impedem abrir ou usar o site",
         "PASS créditos exibem autores, turmas e apoio informados e painel é nomeado",
         "PASS matriz de preferências: {\"combinacoesPreferencias\":1200}",
@@ -273,7 +274,7 @@
       "suite": "autenticacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 177,
+      "durationMs": 111,
       "scenarioLines": [
         "PASS oito contas entram somente quando UID corresponde ao perfil escolhido",
         "PASS senha incorreta não libera perfil nem inicia leitura privada",
@@ -289,7 +290,7 @@
       "suite": "simulacao-v3",
       "success": true,
       "exitCode": 0,
-      "durationMs": 5287,
+      "durationMs": 5281,
       "scenarioLines": [
         "PASS simulação oficial: {\"combinacoesVotos\":729,\"empates\":150,\"partidas\":10,\"batalhas\":400,\"revisoes\":40,\"projecoesConferidas\":1200,\"sementeInicial\":1,\"sementeFinal\":10}"
       ],
@@ -311,7 +312,7 @@
       "suite": "regras",
       "success": true,
       "exitCode": 0,
-      "durationMs": 196,
+      "durationMs": 230,
       "scenarioLines": [
         "PASS 26 índices originais preservados",
         "PASS não publica identidade ao registrar baixa",
@@ -394,7 +395,7 @@
       "suite": "partida-completa",
       "success": true,
       "exitCode": 0,
-      "durationMs": 76642,
+      "durationMs": 80978,
       "scenarioLines": [
         "PASS partidas completas: {\"sementeInicial\":41,\"sementeFinal\":80,\"partidas\":40,\"fases\":200,\"batalhas\":4800,\"conferencias\":5742,\"desfazerRefazer\":580,\"vidasExtras\":322}"
       ],
@@ -416,7 +417,7 @@
       "suite": "mecanismo",
       "success": true,
       "exitCode": 0,
-      "durationMs": 197,
+      "durationMs": 216,
       "scenarioLines": [
         "PASS início vazio mantém índices históricos",
         "PASS seis votos imutáveis, empate e professor restrito",
@@ -446,7 +447,7 @@
       "suite": "controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 162,
+      "durationMs": 182,
       "scenarioLines": [
         "PASS hidratação não modifica snapshot da fonte",
         "PASS sexto voto resolve e publica sem clique extra",
@@ -463,7 +464,7 @@
       "suite": "fases-placar",
       "success": true,
       "exitCode": 0,
-      "durationMs": 168,
+      "durationMs": 191,
       "scenarioLines": [
         "PASS visibilidade explícita sobrepõe fechamento e fallback preserva partida anterior",
         "PASS mostrar placar não revela gabarito, identidade ou detalhes de recursos privados",
@@ -486,7 +487,7 @@
       "suite": "fases-controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 196,
+      "durationMs": 239,
       "scenarioLines": [
         "PASS view vazio e placar privado completo funcionam sem batalha",
         "PASS Mesa seleciona fase3 no setup pelo handler real da interface",
@@ -505,7 +506,7 @@
       "suite": "exclusao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 147,
+      "durationMs": 172,
       "scenarioLines": [
         "PASS exclui soldado intermediário antes do jogo e alinha dados privados e revelados",
         "PASS exclusão do primeiro soldado cancela apenas ataque ainda não respondido",
@@ -522,7 +523,7 @@
       "suite": "acessibilidade",
       "success": true,
       "exitCode": 0,
-      "durationMs": 96,
+      "durationMs": 112,
       "scenarioLines": [
         "PASS Tab e Shift+Tab permanecem na confirmação e recuperam foco externo",
         "PASS confirmação sem controles recebe foco no próprio diálogo",
@@ -537,12 +538,13 @@
       "suite": "preferencias",
       "success": true,
       "exitCode": 0,
-      "durationMs": 131,
+      "durationMs": 140,
       "scenarioLines": [
         "PASS somente opções permitidas e texto100-200% entram nas preferências",
         "PASS cada assento, professor, público, visitante e ensaio tem chave própria",
         "PASS preferências persistem por perfil sem mudar partida ou chamar Firebase",
         "PASS cadastro novo herda só visitante e não outro assento; restaurar padrão é local",
+        "PASS primeiro acesso fixa a herança e mudanças posteriores do visitante não afetam o perfil",
         "PASS JSON inválido e armazenamento bloqueado não impedem abrir ou usar o site",
         "PASS créditos exibem autores, turmas e apoio informados e painel é nomeado",
         "PASS matriz de preferências: {\"combinacoesPreferencias\":1200}",
@@ -559,7 +561,7 @@
       "suite": "autenticacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 106,
+      "durationMs": 115,
       "scenarioLines": [
         "PASS oito contas entram somente quando UID corresponde ao perfil escolhido",
         "PASS senha incorreta não libera perfil nem inicia leitura privada",
@@ -575,7 +577,7 @@
       "suite": "simulacao-v3",
       "success": true,
       "exitCode": 0,
-      "durationMs": 4881,
+      "durationMs": 4935,
       "scenarioLines": [
         "PASS simulação oficial: {\"combinacoesVotos\":729,\"empates\":150,\"partidas\":10,\"batalhas\":400,\"revisoes\":40,\"projecoesConferidas\":1200,\"sementeInicial\":41,\"sementeFinal\":50}"
       ],
@@ -662,7 +664,7 @@
       "suite": "apresentacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 167,
+      "durationMs": 161,
       "scenarioLines": [
         "PASS publicação recusada mantém aviso de falha",
         "PASS conclusão recusada mantém pergunta pendente",
@@ -680,7 +682,7 @@
       "suite": "partida-completa",
       "success": true,
       "exitCode": 0,
-      "durationMs": 69210,
+      "durationMs": 69785,
       "scenarioLines": [
         "PASS partidas completas: {\"sementeInicial\":81,\"sementeFinal\":120,\"partidas\":40,\"fases\":200,\"batalhas\":4800,\"conferencias\":5660,\"desfazerRefazer\":514,\"vidasExtras\":306}"
       ],
@@ -702,7 +704,7 @@
       "suite": "mecanismo",
       "success": true,
       "exitCode": 0,
-      "durationMs": 192,
+      "durationMs": 198,
       "scenarioLines": [
         "PASS início vazio mantém índices históricos",
         "PASS seis votos imutáveis, empate e professor restrito",
@@ -732,7 +734,7 @@
       "suite": "controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 164,
+      "durationMs": 167,
       "scenarioLines": [
         "PASS hidratação não modifica snapshot da fonte",
         "PASS sexto voto resolve e publica sem clique extra",
@@ -749,7 +751,7 @@
       "suite": "fases-placar",
       "success": true,
       "exitCode": 0,
-      "durationMs": 174,
+      "durationMs": 167,
       "scenarioLines": [
         "PASS visibilidade explícita sobrepõe fechamento e fallback preserva partida anterior",
         "PASS mostrar placar não revela gabarito, identidade ou detalhes de recursos privados",
@@ -791,7 +793,7 @@
       "suite": "exclusao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 146,
+      "durationMs": 147,
       "scenarioLines": [
         "PASS exclui soldado intermediário antes do jogo e alinha dados privados e revelados",
         "PASS exclusão do primeiro soldado cancela apenas ataque ainda não respondido",
@@ -808,7 +810,7 @@
       "suite": "acessibilidade",
       "success": true,
       "exitCode": 0,
-      "durationMs": 119,
+      "durationMs": 96,
       "scenarioLines": [
         "PASS Tab e Shift+Tab permanecem na confirmação e recuperam foco externo",
         "PASS confirmação sem controles recebe foco no próprio diálogo",
@@ -823,12 +825,13 @@
       "suite": "preferencias",
       "success": true,
       "exitCode": 0,
-      "durationMs": 141,
+      "durationMs": 133,
       "scenarioLines": [
         "PASS somente opções permitidas e texto100-200% entram nas preferências",
         "PASS cada assento, professor, público, visitante e ensaio tem chave própria",
         "PASS preferências persistem por perfil sem mudar partida ou chamar Firebase",
         "PASS cadastro novo herda só visitante e não outro assento; restaurar padrão é local",
+        "PASS primeiro acesso fixa a herança e mudanças posteriores do visitante não afetam o perfil",
         "PASS JSON inválido e armazenamento bloqueado não impedem abrir ou usar o site",
         "PASS créditos exibem autores, turmas e apoio informados e painel é nomeado",
         "PASS matriz de preferências: {\"combinacoesPreferencias\":1200}",
@@ -845,7 +848,7 @@
       "suite": "autenticacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 110,
+      "durationMs": 108,
       "scenarioLines": [
         "PASS oito contas entram somente quando UID corresponde ao perfil escolhido",
         "PASS senha incorreta não libera perfil nem inicia leitura privada",
@@ -861,7 +864,7 @@
       "suite": "simulacao-v3",
       "success": true,
       "exitCode": 0,
-      "durationMs": 4964,
+      "durationMs": 4920,
       "scenarioLines": [
         "PASS simulação oficial: {\"combinacoesVotos\":729,\"empates\":150,\"partidas\":10,\"batalhas\":400,\"revisoes\":40,\"projecoesConferidas\":1200,\"sementeInicial\":81,\"sementeFinal\":90}"
       ],
@@ -883,7 +886,7 @@
       "suite": "regras",
       "success": true,
       "exitCode": 0,
-      "durationMs": 191,
+      "durationMs": 197,
       "scenarioLines": [
         "PASS 26 índices originais preservados",
         "PASS não publica identidade ao registrar baixa",
@@ -948,7 +951,7 @@
       "suite": "apresentacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 165,
+      "durationMs": 171,
       "scenarioLines": [
         "PASS publicação recusada mantém aviso de falha",
         "PASS conclusão recusada mantém pergunta pendente",
@@ -966,7 +969,7 @@
       "suite": "partida-completa",
       "success": true,
       "exitCode": 0,
-      "durationMs": 68993,
+      "durationMs": 68995,
       "scenarioLines": [
         "PASS partidas completas: {\"sementeInicial\":121,\"sementeFinal\":160,\"partidas\":40,\"fases\":200,\"batalhas\":4800,\"conferencias\":5659,\"desfazerRefazer\":529,\"vidasExtras\":290}"
       ],
@@ -988,7 +991,7 @@
       "suite": "mecanismo",
       "success": true,
       "exitCode": 0,
-      "durationMs": 213,
+      "durationMs": 224,
       "scenarioLines": [
         "PASS início vazio mantém índices históricos",
         "PASS seis votos imutáveis, empate e professor restrito",
@@ -1018,7 +1021,7 @@
       "suite": "controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 213,
+      "durationMs": 171,
       "scenarioLines": [
         "PASS hidratação não modifica snapshot da fonte",
         "PASS sexto voto resolve e publica sem clique extra",
@@ -1035,7 +1038,7 @@
       "suite": "fases-placar",
       "success": true,
       "exitCode": 0,
-      "durationMs": 207,
+      "durationMs": 165,
       "scenarioLines": [
         "PASS visibilidade explícita sobrepõe fechamento e fallback preserva partida anterior",
         "PASS mostrar placar não revela gabarito, identidade ou detalhes de recursos privados",
@@ -1058,7 +1061,7 @@
       "suite": "fases-controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 209,
+      "durationMs": 199,
       "scenarioLines": [
         "PASS view vazio e placar privado completo funcionam sem batalha",
         "PASS Mesa seleciona fase3 no setup pelo handler real da interface",
@@ -1077,7 +1080,7 @@
       "suite": "exclusao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 147,
+      "durationMs": 149,
       "scenarioLines": [
         "PASS exclui soldado intermediário antes do jogo e alinha dados privados e revelados",
         "PASS exclusão do primeiro soldado cancela apenas ataque ainda não respondido",
@@ -1094,7 +1097,7 @@
       "suite": "acessibilidade",
       "success": true,
       "exitCode": 0,
-      "durationMs": 100,
+      "durationMs": 101,
       "scenarioLines": [
         "PASS Tab e Shift+Tab permanecem na confirmação e recuperam foco externo",
         "PASS confirmação sem controles recebe foco no próprio diálogo",
@@ -1109,12 +1112,13 @@
       "suite": "preferencias",
       "success": true,
       "exitCode": 0,
-      "durationMs": 129,
+      "durationMs": 131,
       "scenarioLines": [
         "PASS somente opções permitidas e texto100-200% entram nas preferências",
         "PASS cada assento, professor, público, visitante e ensaio tem chave própria",
         "PASS preferências persistem por perfil sem mudar partida ou chamar Firebase",
         "PASS cadastro novo herda só visitante e não outro assento; restaurar padrão é local",
+        "PASS primeiro acesso fixa a herança e mudanças posteriores do visitante não afetam o perfil",
         "PASS JSON inválido e armazenamento bloqueado não impedem abrir ou usar o site",
         "PASS créditos exibem autores, turmas e apoio informados e painel é nomeado",
         "PASS matriz de preferências: {\"combinacoesPreferencias\":1200}",
@@ -1131,7 +1135,7 @@
       "suite": "autenticacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 105,
+      "durationMs": 109,
       "scenarioLines": [
         "PASS oito contas entram somente quando UID corresponde ao perfil escolhido",
         "PASS senha incorreta não libera perfil nem inicia leitura privada",
@@ -1147,7 +1151,7 @@
       "suite": "simulacao-v3",
       "success": true,
       "exitCode": 0,
-      "durationMs": 4939,
+      "durationMs": 5012,
       "scenarioLines": [
         "PASS simulação oficial: {\"combinacoesVotos\":729,\"empates\":150,\"partidas\":10,\"batalhas\":400,\"revisoes\":40,\"projecoesConferidas\":1200,\"sementeInicial\":121,\"sementeFinal\":130}"
       ],
@@ -1169,7 +1173,7 @@
       "suite": "regras",
       "success": true,
       "exitCode": 0,
-      "durationMs": 195,
+      "durationMs": 187,
       "scenarioLines": [
         "PASS 26 índices originais preservados",
         "PASS não publica identidade ao registrar baixa",
@@ -1234,7 +1238,7 @@
       "suite": "apresentacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 158,
+      "durationMs": 163,
       "scenarioLines": [
         "PASS publicação recusada mantém aviso de falha",
         "PASS conclusão recusada mantém pergunta pendente",
@@ -1252,7 +1256,7 @@
       "suite": "partida-completa",
       "success": true,
       "exitCode": 0,
-      "durationMs": 66550,
+      "durationMs": 65807,
       "scenarioLines": [
         "PASS partidas completas: {\"sementeInicial\":161,\"sementeFinal\":200,\"partidas\":40,\"fases\":200,\"batalhas\":4800,\"conferencias\":5644,\"desfazerRefazer\":504,\"vidasExtras\":300}"
       ],
@@ -1274,7 +1278,7 @@
       "suite": "mecanismo",
       "success": true,
       "exitCode": 0,
-      "durationMs": 194,
+      "durationMs": 208,
       "scenarioLines": [
         "PASS início vazio mantém índices históricos",
         "PASS seis votos imutáveis, empate e professor restrito",
@@ -1304,7 +1308,7 @@
       "suite": "controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 167,
+      "durationMs": 170,
       "scenarioLines": [
         "PASS hidratação não modifica snapshot da fonte",
         "PASS sexto voto resolve e publica sem clique extra",
@@ -1321,7 +1325,7 @@
       "suite": "fases-placar",
       "success": true,
       "exitCode": 0,
-      "durationMs": 169,
+      "durationMs": 203,
       "scenarioLines": [
         "PASS visibilidade explícita sobrepõe fechamento e fallback preserva partida anterior",
         "PASS mostrar placar não revela gabarito, identidade ou detalhes de recursos privados",
@@ -1344,7 +1348,7 @@
       "suite": "fases-controller",
       "success": true,
       "exitCode": 0,
-      "durationMs": 192,
+      "durationMs": 202,
       "scenarioLines": [
         "PASS view vazio e placar privado completo funcionam sem batalha",
         "PASS Mesa seleciona fase3 no setup pelo handler real da interface",
@@ -1380,7 +1384,7 @@
       "suite": "acessibilidade",
       "success": true,
       "exitCode": 0,
-      "durationMs": 98,
+      "durationMs": 97,
       "scenarioLines": [
         "PASS Tab e Shift+Tab permanecem na confirmação e recuperam foco externo",
         "PASS confirmação sem controles recebe foco no próprio diálogo",
@@ -1395,12 +1399,13 @@
       "suite": "preferencias",
       "success": true,
       "exitCode": 0,
-      "durationMs": 130,
+      "durationMs": 128,
       "scenarioLines": [
         "PASS somente opções permitidas e texto100-200% entram nas preferências",
         "PASS cada assento, professor, público, visitante e ensaio tem chave própria",
         "PASS preferências persistem por perfil sem mudar partida ou chamar Firebase",
         "PASS cadastro novo herda só visitante e não outro assento; restaurar padrão é local",
+        "PASS primeiro acesso fixa a herança e mudanças posteriores do visitante não afetam o perfil",
         "PASS JSON inválido e armazenamento bloqueado não impedem abrir ou usar o site",
         "PASS créditos exibem autores, turmas e apoio informados e painel é nomeado",
         "PASS matriz de preferências: {\"combinacoesPreferencias\":1200}",
@@ -1417,7 +1422,7 @@
       "suite": "autenticacao",
       "success": true,
       "exitCode": 0,
-      "durationMs": 107,
+      "durationMs": 111,
       "scenarioLines": [
         "PASS oito contas entram somente quando UID corresponde ao perfil escolhido",
         "PASS senha incorreta não libera perfil nem inicia leitura privada",
@@ -1433,7 +1438,7 @@
       "suite": "simulacao-v3",
       "success": true,
       "exitCode": 0,
-      "durationMs": 4954,
+      "durationMs": 4937,
       "scenarioLines": [
         "PASS simulação oficial: {\"combinacoesVotos\":729,\"empates\":150,\"partidas\":10,\"batalhas\":400,\"revisoes\":40,\"projecoesConferidas\":1200,\"sementeInicial\":161,\"sementeFinal\":170}"
       ],
