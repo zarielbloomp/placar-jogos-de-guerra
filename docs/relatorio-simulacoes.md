@@ -6,9 +6,9 @@ Validação em 27/10/2026 das preferências, créditos, apresentação, cronôme
 
 | Item | Conferência |
 |---|---:|
-| Suítes automatizadas | 14 |
+| Suítes automatizadas | 17 |
 | Repetições de cada suíte | 5 |
-| Execuções de suítes | 70 |
+| Execuções de suítes | 85 |
 | Falhas | 0 |
 | Partidas simuladas | 250 |
 | Batalhas simuladas | 26000 |
@@ -55,10 +55,24 @@ Votação e campos personalizados foram conferidos em 320, 390, 768, 1366 e 1920
 
 A revisão independente identificou a orientação antiga de voto reservado e o desaparecimento do relógio pausado em zero. Os dois casos receberam regressões que falharam antes da correção e passaram depois. O relógio inicial ainda apresenta espera. José Pontes Schayder agora integra a Equipe de produção como Professor, junto de Miguel e Murilo.
 
+## Conselho multicelular, revisão e reservas
+
+Foram executadas cinco rodadas das 17 suítes: 85 execuções, nenhuma falha. A suíte multicelular usa seis controllers reais em contextos independentes compartilhando um backend Firebase simulado. Inclui 25 rodadas de seis votos simultâneos ao longo das repetições; mais cinco empates3/3 com Professor, duas revisões sucessivas por rodada, apuração única, preservação do relógio/cotas, projeção sem regressão e gravação antiga após troca de sessão. A revisão legada fechada é reaberta sem nova cota.
+
+A revisão independente encontrou logout bloqueado por falha de liberação de assento e aparelho antigo gravando após perder sua reserva. Os dois foram reproduzidos antes da correção e receberam regressões. A nova revisão aprovou os ajustes. O código rejeita voto/gravação sem reserva vigente, e logout limpa a sessão local independentemente da liberação remota.
+
+Cinco rodadas no Firebase REAL passaram: 181 conferências de reserva por conta, recusa de duplicidade e de outro assento/Público, expiração/recuperação, saída e sigilo do segredo. O teste escreveu somente jg/presencas/1–6, liberou suas reservas e não gravou partida, votos ou arsenal. Evidência: `output/simulacoes/presenca-firebase-real.json`. As regras de estado/segredo foram comparadas ao Console e preservadas. O ramo novo expõe apenas sessão aleatória/expiração para indicar ocupação no login.
+
+No navegador, seis trocas de assento funcionaram; os três tipos de voto chegaram ao telão com cores distintas. Uma nova revisão manteve02:05 e liberou os botões; seis novos votos empataram3/3 e o Professor concluiu sem revelar sua categoria individual no Público. Os dois nomes de guerra foram conferidos. Justificativa/gabarito ficaram privados. Tab foi de Totalmente certa para Meio certa, com foco visível; Space confirmou um voto.
+
+Reflow: 30 medições em320/390/768/1366/1920, revisão/votação/resultado, tamanho padrão e200%, contrastes claro/escuro e espaçamento, sem excesso horizontal. Foi encontrado e corrigido o apagamento das cores dos botões pelo alto contraste; a medição final confirmou tons semânticos claros no modo escuro e áreas maiores que44px. Evidência: `output/simulacoes/reflow-conselho-visual.json`. O cronômetro foi observado mudando de faixa: verde30s/60s, amarelo13s, vermelho1s e expirado0; em `output/simulacoes/cronometro-cores-navegador.json`.
+
+Isso não é uma certificação de acessibilidade nem um percentual estatístico de ausência de erros. Não houve ensaio físico em seis modelos de telefone ou com toda tecnologia assistiva. O modo local não testa a rede real entre aparelhos; os testes separados do Firebase validam as permissões/reservas reais. A conferência da versão publicada está descrita no PR.
+
 ## Como reproduzir e limites
 
-Execute `node tests/simular-cenarios.cjs 5`. As 14 suítes executam cinco vezes. Casos gerados têm sementes diferentes. O comando não usa rede nem Firebase. Resultados: `output/simulacoes/resultado-cenarios.json`; autenticação somente-leitura: `output/simulacoes/autenticacao-leitura.json`; reflow: `output/simulacoes/reflow-preferencias.json`.
+Execute `node tests/simular-cenarios.cjs 5`. As 17 suítes executam cinco vezes. Casos gerados têm sementes diferentes. O comando não usa rede nem Firebase. Resultados: `output/simulacoes/resultado-cenarios.json`; autenticação somente-leitura: `output/simulacoes/autenticacao-leitura.json`; reflow: `output/simulacoes/reflow-preferencias.json`.
 
 Isso cobre todos os cenários automatizados definidos, não toda sequência possível de um jogo, de cartas físicas, de arbitragem humana ou de falha de rede. O sorteio físico e as decisões ambíguas do manual ainda exigem Professor/Mesa. Os testes automatizados acima são simulações. Login/leitura e a validação oficial descrita no PR usam o serviço real. Não foram apagados cadastros reais nem reiniciada a partida.
 
-SHA256 do HTML validado: `6da9009080875b2568c363d0f2aa280a295c0ee078e420f3d4baf6d94eda65aa`.
+SHA256 do HTML validado: `85ca840a705c9bf2741f8f86690a8971f46906d6b94f91a670a7e6664518e8d6`.

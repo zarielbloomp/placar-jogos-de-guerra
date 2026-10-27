@@ -21,3 +21,5 @@ Fonte real: revisão pendente, council.open=false, status waiting, nenhum voto d
 
 ## Registro
 Reproduções RED/GREEN: view sem voto recebido, gravação por parcial, revisão fechada/cronômetro alterado, gravação de sessão anterior substituindo nova, logout bloqueado por falha de release, voto após perda de reserva. Migração da revisão antiga também reproduzida. Revisão independente aprovada após corrigir os dois casos de lease. Browser: troca pelos seis assentos, três cores reais, revisão 02:05→02:05, seis votos novos, empate3/3 e Professor reservado; teclado Tab/Space. Reflow e alto contraste em conferência; neutralização das cores no modo escuro corrigida e medida novamente.
+
+Validação final: 17suítes×5=85 execuções sem falhas, HTML85ca840. Firebase real:5rodadas/181conferências somente de presenças, nenhuma falha; regras publicadas após PR11 e CI17 aprovado, sem mudar permissões do estado/segredo. Publicação do código e conferência final serão registradas no PR.
