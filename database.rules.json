@@ -1,0 +1,17 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "jg": {
+      "estado": {
+        ".read": true,
+        ".write": "auth != null && (auth.uid == 'UID_EDITOR_1' || auth.uid == 'UID_EDITOR_2')",
+        ".validate": "newData.hasChildren(['nm', 'fase', 'revision']) && newData.child('nm').numChildren() == 6 && newData.child('fase').isNumber() && newData.child('fase').val() >= 1 && newData.child('fase').val() <= 6 && newData.child('revision').isNumber()"
+      },
+      "segredo": {
+        ".read": "auth != null && (auth.uid == 'UID_EDITOR_1' || auth.uid == 'UID_EDITOR_2')",
+        ".write": "auth != null && (auth.uid == 'UID_EDITOR_1' || auth.uid == 'UID_EDITOR_2')"
+      }
+    }
+  }
+}
