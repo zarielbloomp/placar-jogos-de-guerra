@@ -1,0 +1,33 @@
+name: Testes do jogo
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: testes-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - name: Regras e perfis
+        run: node tests/regras.cjs
+      - name: Apresentação e falhas de gravação
+        run: node tests/apresentacao.cjs
+      - name: Partidas completas e recuperação
+        run: node tests/partida-completa.cjs

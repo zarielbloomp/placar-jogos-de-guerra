@@ -72,6 +72,10 @@ Backup público e restauração validada ficam em Partida e apresentação. Some
 
 ## Verificação e publicação
 
-Execute `node tests/regras.cjs`: 55 testes passaram na entrega. Foram verificados autenticação dos três perfis, leitura pública do placar, bloqueio do segredo público, bloqueio de cadastros para Mesa e conflito de revisão no Firebase. Ensaios do fluxo guiado foram feitos no navegador; faça também um ensaio com a equipe e os aparelhos da aula.
+Execute `node tests/regras.cjs` (55 verificações), `node tests/apresentacao.cjs` (oito verificações de divulgação e falhas de gravação) e `node tests/partida-completa.cjs` (40 partidas, 4.800 batalhas, recuperação e conferências de consistência). Todos passaram. Os ensaios não acessam dados reais. O [registro de validação](docs/validacao-2026-10-27.md) descreve o teste dos três logins, permissões e sincronização real do cronômetro com restauração do estado anterior.
+
+Backup com fase inexistente ou cronômetro ilegível é recusado. Mensagens de sucesso de apresentação e condução dependem da confirmação da gravação. Faça também um ensaio com a equipe e os aparelhos da aula.
+
+O workflow **Testes do jogo** executa as três suítes a cada atualização de `main` ou pull request. Não usa senhas, não instala dependências do app e não acessa o Firebase. Também pode ser iniciado manualmente em Actions.
 
 GitHub Pages serve a branch `main`, raiz `/`. Nenhum build necessário. Abra `index.html` ou use servidor estático para desenvolvimento. Não envie senhas, backups reais ou identidades ao GitHub. `output/privado/` e `tmp/` estão ignorados.
