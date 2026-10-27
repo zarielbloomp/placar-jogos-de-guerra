@@ -8,3 +8,4 @@
 - Novos tipos de lance entram no FIM do array `P` (os lances salvos guardam o índice do tipo).
 - Nunca exponha dados de `jg/segredo` (identidade real, CO/SUB) na visão pública sem ação explícita do editor.
 - Teste: abra o `index.html` no navegador, registre lances em modo editor e confira placar, Memorial e classificação.
+- Toda alteração deve passar por um PR bem descrito antes de entrar no site oficial, conforme pedido do responsável. Registre o comportamento, os testes, a ativação de dados/permissões e como reverter. Preserve backups privados fora do Git; reverter código não restaura dados Firebase.

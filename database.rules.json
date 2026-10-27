@@ -5,45 +5,74 @@
     "jg": {
       "estado": {
         ".read": true,
-        ".write": "auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')",
-        ".validate": "newData.hasChildren(['nm','fase','revision']) && newData.child('nm').hasChildren(['0','1','2','3','4','5']) && newData.child('fase').isNumber() && newData.child('fase').val() >= 1 && newData.child('fase').val() <= 6 && newData.child('revision').isNumber() && newData.child('revision').val() == (data.child('revision').isNumber() ? data.child('revision').val() + 1 : 1)",
-        "E": {
-          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
-        },
-        "res": {
-          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
-        },
-        "fase": {
-          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
-        },
-        "clock": {
-          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
-        },
-        "presentation": {
-          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
-        },
-        "pel": {
-          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
-        },
-        "turn": {
-          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
-        },
-        "battle": {
-          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
-        },
-        "pod": {
-          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
-        },
-        "closedRevision": {
-          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
-        },
-        "revision": {
-          ".write": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')"
-        }
+        ".write": "auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2' || auth.uid == 'CcPHhBUkWJgjXJmGGrhLPid3Zp13' || auth.uid == 'pMV9ue8NNRfl4RD59VlrxO5UzOo2' || auth.uid == 'PEVJqLGj4WcrsbWZmQwoRbUw9Et1' || auth.uid == 'oKKPn9s1x6Z9HCCfRBIkb4K3FOE2' || auth.uid == 'Z3LGUbT2Fcb5nlKKjSjeUrq5d5P2' || auth.token.email == 'murilocarreiro24@gmail.com')",
+        ".validate": "newData.hasChildren(['nm','fase','revision']) && newData.child('nm').hasChildren(['0','1','2','3','4','5']) && newData.child('fase').isNumber() && newData.child('fase').val() >= 1 && newData.child('fase').val() <= 6 && newData.child('revision').isNumber() && newData.child('revision').val() == (data.child('revision').isNumber() ? data.child('revision').val() + 1 : 1) && (!data.child('sourceRevision').exists() || newData.child('sourceRevision').val() >= data.child('sourceRevision').val())"
       },
       "segredo": {
-        ".read": "(auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')) || (auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2')",
-        ".write": "auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')"
+        ".read": "auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2' || auth.uid == 'CcPHhBUkWJgjXJmGGrhLPid3Zp13' || auth.uid == 'pMV9ue8NNRfl4RD59VlrxO5UzOo2' || auth.uid == 'PEVJqLGj4WcrsbWZmQwoRbUw9Et1' || auth.uid == 'oKKPn9s1x6Z9HCCfRBIkb4K3FOE2' || auth.uid == 'Z3LGUbT2Fcb5nlKKjSjeUrq5d5P2' || auth.token.email == 'murilocarreiro24@gmail.com')",
+        "partida": {
+          ".write": "auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2' || auth.uid == 'CcPHhBUkWJgjXJmGGrhLPid3Zp13' || auth.uid == 'pMV9ue8NNRfl4RD59VlrxO5UzOo2' || auth.uid == 'PEVJqLGj4WcrsbWZmQwoRbUw9Et1' || auth.uid == 'oKKPn9s1x6Z9HCCfRBIkb4K3FOE2' || auth.uid == 'Z3LGUbT2Fcb5nlKKjSjeUrq5d5P2' || auth.token.email == 'murilocarreiro24@gmail.com')",
+          ".validate": "newData.hasChildren(['nm','fase','revision','schemaVersion']) && newData.child('schemaVersion').val() == 3 && newData.child('revision').isNumber() && newData.child('revision').val() == (data.child('revision').isNumber() ? data.child('revision').val() + 1 : 1)"
+        },
+        "arsenal": {
+          ".write": "auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2' || auth.uid == 'CcPHhBUkWJgjXJmGGrhLPid3Zp13' || auth.uid == 'pMV9ue8NNRfl4RD59VlrxO5UzOo2' || auth.uid == 'PEVJqLGj4WcrsbWZmQwoRbUw9Et1' || auth.uid == 'oKKPn9s1x6Z9HCCfRBIkb4K3FOE2' || auth.uid == 'Z3LGUbT2Fcb5nlKKjSjeUrq5d5P2' || auth.token.email == 'murilocarreiro24@gmail.com')"
+        },
+        "elenco": {
+          ".write": "auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2' || auth.uid == 'CcPHhBUkWJgjXJmGGrhLPid3Zp13' || auth.uid == 'pMV9ue8NNRfl4RD59VlrxO5UzOo2' || auth.uid == 'PEVJqLGj4WcrsbWZmQwoRbUw9Et1' || auth.uid == 'oKKPn9s1x6Z9HCCfRBIkb4K3FOE2' || auth.uid == 'Z3LGUbT2Fcb5nlKKjSjeUrq5d5P2' || auth.token.email == 'murilocarreiro24@gmail.com')"
+        },
+        "votos": {
+          "$round": {
+            "1": {
+              ".write": "auth != null && auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2' && !data.exists() && newData.exists() && root.child('jg/segredo/partida').child('battle/pending').val() == true && root.child('jg/segredo/partida').child('battle/council/round').val() == $round && root.child('jg/segredo/partida/battle/council/open').val() == true",
+              ".validate": "newData.isString() && (newData.val() == 'total' || newData.val() == 'parcial' || newData.val() == 'falhou')"
+            },
+            "2": {
+              ".write": "auth != null && auth.uid == 'CcPHhBUkWJgjXJmGGrhLPid3Zp13' && !data.exists() && newData.exists() && root.child('jg/segredo/partida').child('battle/pending').val() == true && root.child('jg/segredo/partida').child('battle/council/round').val() == $round && root.child('jg/segredo/partida/battle/council/open').val() == true",
+              ".validate": "newData.isString() && (newData.val() == 'total' || newData.val() == 'parcial' || newData.val() == 'falhou')"
+            },
+            "3": {
+              ".write": "auth != null && auth.uid == 'pMV9ue8NNRfl4RD59VlrxO5UzOo2' && !data.exists() && newData.exists() && root.child('jg/segredo/partida').child('battle/pending').val() == true && root.child('jg/segredo/partida').child('battle/council/round').val() == $round && root.child('jg/segredo/partida/battle/council/open').val() == true",
+              ".validate": "newData.isString() && (newData.val() == 'total' || newData.val() == 'parcial' || newData.val() == 'falhou')"
+            },
+            "4": {
+              ".write": "auth != null && auth.uid == 'PEVJqLGj4WcrsbWZmQwoRbUw9Et1' && !data.exists() && newData.exists() && root.child('jg/segredo/partida').child('battle/pending').val() == true && root.child('jg/segredo/partida').child('battle/council/round').val() == $round && root.child('jg/segredo/partida/battle/council/open').val() == true",
+              ".validate": "newData.isString() && (newData.val() == 'total' || newData.val() == 'parcial' || newData.val() == 'falhou')"
+            },
+            "5": {
+              ".write": "auth != null && auth.uid == 'oKKPn9s1x6Z9HCCfRBIkb4K3FOE2' && !data.exists() && newData.exists() && root.child('jg/segredo/partida').child('battle/pending').val() == true && root.child('jg/segredo/partida').child('battle/council/round').val() == $round && root.child('jg/segredo/partida/battle/council/open').val() == true",
+              ".validate": "newData.isString() && (newData.val() == 'total' || newData.val() == 'parcial' || newData.val() == 'falhou')"
+            },
+            "6": {
+              ".write": "auth != null && auth.uid == 'Z3LGUbT2Fcb5nlKKjSjeUrq5d5P2' && !data.exists() && newData.exists() && root.child('jg/segredo/partida').child('battle/pending').val() == true && root.child('jg/segredo/partida').child('battle/council/round').val() == $round && root.child('jg/segredo/partida/battle/council/open').val() == true",
+              ".validate": "newData.isString() && (newData.val() == 'total' || newData.val() == 'parcial' || newData.val() == 'falhou')"
+            },
+            "7": {
+              ".write": "auth != null && auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' && !data.exists() && newData.exists() && root.child('jg/segredo/partida').child('battle/pending').val() == true && root.child('jg/segredo/partida').child('battle/council/round').val() == $round && root.child('jg/segredo/partida/battle/council/open').val() == true && root.child('jg/segredo/partida').child('battle/council/status').val() == 'tie'",
+              ".validate": "newData.isString() && (newData.val() == 'total' || newData.val() == 'parcial' || newData.val() == 'falhou') && ((newData.val() == 'total' && ((root.child('jg/segredo/votos').child($round).child('1').val() == 'total' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('2').val() == 'total' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('3').val() == 'total' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('4').val() == 'total' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('5').val() == 'total' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('6').val() == 'total' ? 1 : 0)) >= ((root.child('jg/segredo/votos').child($round).child('1').val() == 'parcial' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('2').val() == 'parcial' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('3').val() == 'parcial' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('4').val() == 'parcial' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('5').val() == 'parcial' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('6').val() == 'parcial' ? 1 : 0)) && ((root.child('jg/segredo/votos').child($round).child('1').val() == 'total' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('2').val() == 'total' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('3').val() == 'total' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('4').val() == 'total' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('5').val() == 'total' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('6').val() == 'total' ? 1 : 0)) >= ((root.child('jg/segredo/votos').child($round).child('1').val() == 'falhou' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('2').val() == 'falhou' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('3').val() == 'falhou' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('4').val() == 'falhou' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('5').val() == 'falhou' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('6').val() == 'falhou' ? 1 : 0))) || (newData.val() == 'parcial' && ((root.child('jg/segredo/votos').child($round).child('1').val() == 'parcial' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('2').val() == 'parcial' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('3').val() == 'parcial' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('4').val() == 'parcial' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('5').val() == 'parcial' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('6').val() == 'parcial' ? 1 : 0)) >= ((root.child('jg/segredo/votos').child($round).child('1').val() == 'total' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('2').val() == 'total' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('3').val() == 'total' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('4').val() == 'total' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('5').val() == 'total' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('6').val() == 'total' ? 1 : 0)) && ((root.child('jg/segredo/votos').child($round).child('1').val() == 'parcial' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('2').val() == 'parcial' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('3').val() == 'parcial' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('4').val() == 'parcial' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('5').val() == 'parcial' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('6').val() == 'parcial' ? 1 : 0)) >= ((root.child('jg/segredo/votos').child($round).child('1').val() == 'falhou' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('2').val() == 'falhou' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('3').val() == 'falhou' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('4').val() == 'falhou' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('5').val() == 'falhou' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('6').val() == 'falhou' ? 1 : 0))) || (newData.val() == 'falhou' && ((root.child('jg/segredo/votos').child($round).child('1').val() == 'falhou' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('2').val() == 'falhou' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('3').val() == 'falhou' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('4').val() == 'falhou' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('5').val() == 'falhou' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('6').val() == 'falhou' ? 1 : 0)) >= ((root.child('jg/segredo/votos').child($round).child('1').val() == 'total' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('2').val() == 'total' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('3').val() == 'total' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('4').val() == 'total' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('5').val() == 'total' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('6').val() == 'total' ? 1 : 0)) && ((root.child('jg/segredo/votos').child($round).child('1').val() == 'falhou' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('2').val() == 'falhou' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('3').val() == 'falhou' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('4').val() == 'falhou' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('5').val() == 'falhou' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('6').val() == 'falhou' ? 1 : 0)) >= ((root.child('jg/segredo/votos').child($round).child('1').val() == 'parcial' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('2').val() == 'parcial' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('3').val() == 'parcial' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('4').val() == 'parcial' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('5').val() == 'parcial' ? 1 : 0) + (root.child('jg/segredo/votos').child($round).child('6').val() == 'parcial' ? 1 : 0))))"
+            },
+            "$other": {
+              ".validate": false
+            }
+          }
+        },
+        "0": {
+          ".write": "auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')"
+        },
+        "1": {
+          ".write": "auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')"
+        },
+        "2": {
+          ".write": "auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')"
+        },
+        "3": {
+          ".write": "auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')"
+        },
+        "4": {
+          ".write": "auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')"
+        },
+        "5": {
+          ".write": "auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.token.email == 'murilocarreiro24@gmail.com')"
+        }
       }
     }
   }

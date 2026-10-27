@@ -31,3 +31,7 @@ jobs:
         run: node tests/apresentacao.cjs
       - name: Partidas completas e recuperação
         run: node tests/partida-completa.cjs
+      - name: Conselho, sigilo e reapuração
+        run: node tests/mecanismo.cjs
+      - name: Integração, conflitos e votos individuais
+        run: node tests/controller.cjs
