@@ -46,7 +46,7 @@ A interface inclui navegação por teclado, atalho para o conteúdo, confirmaç�
 
 A engrenagem Acessibilidade aparece no login e no cabeçalho. Texto100-200%, contraste claro/escuro, espaçamento, redução de movimento e alvos maiores ficam no navegador, por perfil. Não são enviados ao Firebase e não mudam o telão em outro aparelho. Preferências do visitante são usadas no primeiro acesso de um perfil sem configuração própria; Restaurar padrão afeta somente o perfil atual. A preferência do sistema por reduzir movimento continua valendo. O cronômetro adapta sua apresentação ao espaço para ficar inteiro.
 
-Créditos em destaque: Miguel Conholato Nicoli (IMI4) e Murilo Carreiro (EMI4), com Professor principal José Pontes, conforme nomes informados pelo responsável.
+Créditos em destaque: Miguel Conholato Nicoli (IMI4) e Murilo Carreiro (EMI4), com Professor principal José Pontes Schayder, conforme nomes informados pelo responsável.
 
 O acesso ao painel exige Firebase Auth e conta correspondente ao assento. Cada conselheiro registra seu voto próprio. Mesa/Professor compartilham a partida e os dados operacionais autorizados; o Público usa uma conta compartilhada. A projeção `jg/estado` é pública por desenho; o segredo exige conta autorizada. As preferências não são uma barreira de autenticação.
 
