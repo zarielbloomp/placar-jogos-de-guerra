@@ -1,0 +1,281 @@
+{
+  "mode": "Somente autentica\u00e7\u00e3o e leitura; sem grava\u00e7\u00f5es no jogo",
+  "rounds": [
+    {
+      "round": 1,
+      "accounts": [
+        {
+          "profile": "professor",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa2",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa3",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa4",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa5",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa6",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "publico",
+          "authentication": true,
+          "privateReadCode": 401,
+          "success": true
+        }
+      ],
+      "unauthenticatedPrivateDenied": true,
+      "publicProjectionReadable": true
+    },
+    {
+      "round": 2,
+      "accounts": [
+        {
+          "profile": "professor",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa2",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa3",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa4",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa5",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa6",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "publico",
+          "authentication": true,
+          "privateReadCode": 401,
+          "success": true
+        }
+      ],
+      "unauthenticatedPrivateDenied": true,
+      "publicProjectionReadable": true
+    },
+    {
+      "round": 3,
+      "accounts": [
+        {
+          "profile": "professor",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa2",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa3",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa4",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa5",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa6",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "publico",
+          "authentication": true,
+          "privateReadCode": 401,
+          "success": true
+        }
+      ],
+      "unauthenticatedPrivateDenied": true,
+      "publicProjectionReadable": true
+    },
+    {
+      "round": 4,
+      "accounts": [
+        {
+          "profile": "professor",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa2",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa3",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa4",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa5",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa6",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "publico",
+          "authentication": true,
+          "privateReadCode": 401,
+          "success": true
+        }
+      ],
+      "unauthenticatedPrivateDenied": true,
+      "publicProjectionReadable": true
+    },
+    {
+      "round": 5,
+      "accounts": [
+        {
+          "profile": "professor",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa2",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa3",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa4",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa5",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "mesa6",
+          "authentication": true,
+          "privateReadCode": 200,
+          "success": true
+        },
+        {
+          "profile": "publico",
+          "authentication": true,
+          "privateReadCode": 401,
+          "success": true
+        }
+      ],
+      "unauthenticatedPrivateDenied": true,
+      "publicProjectionReadable": true
+    }
+  ],
+  "failures": 0
+}

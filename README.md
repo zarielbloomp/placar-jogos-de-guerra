@@ -26,7 +26,7 @@ Há backup integral privado anterior ao reinício. Credenciais, cópias reais e 
 
 ## Verificação
 
-Execute as nove suítes: `regras.cjs`, `apresentacao.cjs`, `partida-completa.cjs`, `mecanismo.cjs` `controller.cjs`, `fases-placar.cjs` `fases-controller.cjs` `exclusao.cjs` e `acessibilidade.cjs`, na pasta `tests` com Node. O workflow também executa essas suítes sem acessar contas reais. O ensaio `?ensaio=1` usa somente dados fictícios locais e não sincroniza entre aparelhos diferentes.
+Execute as doze suítes: `regras.cjs`, `apresentacao.cjs`, `partida-completa.cjs`, `mecanismo.cjs` `controller.cjs`, `fases-placar.cjs` `fases-controller.cjs` `exclusao.cjs` `acessibilidade.cjs`, `preferencias.cjs`, `autenticacao.cjs` e `simulacao-v3.cjs`, na pasta `tests` com Node. O workflow também executa essas suítes sem acessar contas reais. O ensaio `?ensaio=1` usa somente dados fictícios locais e não sincroniza entre aparelhos diferentes.
 
 ## Links
 
@@ -41,3 +41,13 @@ Um único index.html, sem build, com Firebase compat 10.12.2. Para detalhes das 
 ## Acessibilidade e telas
 
 A interface inclui navegação por teclado, atalho para o conteúdo, confirmação com foco contido e retorno ao acionador, avisos persistentes para leitores de tela e redução de movimento. Campos móveis usam texto de16px e botões têm área mínima de44px. A validação de reflow cobre320 a1920px, com dados fictícios. Consulte [a revisão de acessibilidade](docs/acessibilidade.md) para escopo e limites; isso não substitui ensaio com usuários e tecnologias assistivas reais.
+
+## Preferências e autoria
+
+A engrenagem Acessibilidade aparece no login e no cabeçalho. Texto100-200%, contraste claro/escuro, espaçamento, redução de movimento e alvos maiores ficam no navegador, por perfil. Não são enviados ao Firebase e não mudam o telão em outro aparelho. Preferências do visitante são usadas no primeiro acesso de um perfil sem configuração própria; Restaurar padrão afeta somente o perfil atual. A preferência do sistema por reduzir movimento continua valendo. O cronômetro adapta sua apresentação ao espaço para ficar inteiro.
+
+Créditos em destaque: Miguel Conholato Nicoli (IMI4) e Murilo Carreiro (EMI4), com apoio do Professor José Ponyes Schayder, conforme nomes informados pelo responsável.
+
+O acesso ao painel exige Firebase Auth e conta correspondente ao assento. Cada conselheiro registra seu voto próprio. Mesa/Professor compartilham a partida e os dados operacionais autorizados; o Público usa uma conta compartilhada. A projeção `jg/estado` é pública por desenho; o segredo exige conta autorizada. As preferências não são uma barreira de autenticação.
+
+Para repetir toda a cobertura automatizada pelo menos cinco vezes: `node tests/simular-cenarios.cjs 5`. O resultado fica em `output/simulacoes/resultado-cenarios.json`; logs de ensaio em `tmp/simulacoes/`. O comando usa apenas dados fictícios. A simulação oficial cobre Preto/Amarelo e Conselho; a simulação legada verifica compatibilidade. Consulte [o relatório de simulações](docs/relatorio-simulacoes.md).

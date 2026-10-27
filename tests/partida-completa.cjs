@@ -2,7 +2,7 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const script=fs.readFileSync('index.html','utf8').match(/<script>([\s\S]*?)<\/script>/)[1].split('// INICIALIZACAO')[0];
 const elements=new Map();const el=id=>{if(!elements.has(id))elements.set(id,{value:'',textContent:'',innerHTML:'',style:{},classList:{toggle(){}},appendChild(){}});return elements.get(id)};
-const ctx=vm.createContext({document:{getElementById:el,body:{classList:{toggle(){}}},createElement:()=>el('tmp')},console,setTimeout:()=>0,clearTimeout(){},setInterval:()=>0,clearInterval(){},URLSearchParams,location:{search:'',href:'http://localhost/index.html',origin:'http://localhost',pathname:'/index.html'},localStorage:{getItem:()=>null,setItem(){}},sessionStorage:{getItem:()=>null,setItem(){}},navigator:{},crypto:require('node:crypto').webcrypto,Date,confirm:()=>true});
+const ctx=vm.createContext({document:{getElementById:el,body:{classList:{toggle(){}}},createElement:()=>el('tmp')},console,setTimeout:()=>0,clearTimeout(){},setInterval:()=>0,clearInterval(){},URLSearchParams,location:{search:'',href:'http://localhost/index.html',origin:'http://localhost',pathname:'/index.html'},localStorage:{getItem:()=>null,setItem(){}},sessionStorage:{getItem:()=>null,setItem(){}},navigator:{},simulationSeedStart:Number(process.env.MG_SIM_SEED_START)||1,crypto:require('node:crypto').webcrypto,Date,confirm:()=>true});
 vm.runInContext(script,ctx);
 assert.throws(()=>vm.runInContext('var invalidPhase=def();invalidPhase.fase=99;validateBackup(invalidPhase)',ctx),/fase/i,'Backup com fase inexistente deve ser recusado');
 assert.throws(()=>vm.runInContext("var invalidClock=def();invalidClock.clock={running:true,deadline:'inválido',remaining:90,preset:90};validateBackup(invalidClock)",ctx),/cronômetro/i,'Backup com cronômetro ilegível deve ser recusado');
@@ -13,7 +13,7 @@ assert.throws(()=>vm.runInContext("S=def();S.roster=ROS.map(a=>a.slice());S.rost
 const result=vm.runInContext(`(()=>{
  let battles=0,checkpoints=0,undos=0,resurrections=0;
  const ensure=(condition,message)=>{if(!condition)throw Error(message)};
- for(let seed=1;seed<=40;seed++){
+ for(let seed=simulationSeedStart;seed<simulationSeedStart+40;seed++){
   let randomState=seed;const random=()=>{randomState^=randomState<<13;randomState^=randomState>>>17;randomState^=randomState<<5;return randomState>>>0};
   S=def();S.roster=Array.from({length:6},(_,a)=>Array.from({length:30},(_,k)=>'EXEMPLO '+a+'/'+k));SG=defSG();Q={};
   for(let a=0;a<6;a++)for(let phase=1;phase<=5;phase++)for(let n=0;n<4;n++){const id='seed-'+seed+'-'+a+'-'+phase+'-'+n;Q[id]=questionObject({id,army:a,phase,title:'Questão de ensaio '+id,text:'Relacionar processos históricos.',expected:'GABARITO_RESERVADO_'+id,approved:true})}
@@ -38,6 +38,6 @@ const result=vm.runInContext(`(()=>{
   const before=JSON.stringify(S.E);try{applyEvent(S,makeEvent(2,0,1,stat()[1].findIndex(q=>q==='v'),5));throw Error('Quinto míssil aceito')}catch(error){ensure(/quatro/.test(error.message),'Falha inesperada no quinto míssil: '+error.message)}ensure(JSON.stringify(S.E)===before,'Rejeição alterou histórico');
   resetMatch(S);ensure(S.E.length===0&&!S.presentation&&!S.battle&&!S.turn&&!S.clock,'Reinício deixou efeitos anteriores');ensure(names(0).length===30&&Object.keys(Q).length===120,'Reinício apagou cadastro ou arsenal');check();
  }
- return {partidas:40,fases:200,batalhas:battles,conferencias:checkpoints,desfazerRefazer:undos,vidasExtras:resurrections};
-})()`,ctx,{timeout:120000});
+ return {sementeInicial:simulationSeedStart,sementeFinal:simulationSeedStart+39,partidas:40,fases:200,batalhas:battles,conferencias:checkpoints,desfazerRefazer:undos,vidasExtras:resurrections};
+})()`,ctx,{timeout:Number(process.env.MG_SIM_TIMEOUT_MS)||120000});
 assert.equal(result.batalhas,4800);assert(result.desfazerRefazer>0);assert(result.vidasExtras>0);console.log('PASS partidas completas:',JSON.stringify(result));
