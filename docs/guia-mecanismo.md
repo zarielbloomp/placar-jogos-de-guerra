@@ -15,7 +15,7 @@ Atualização autorizada em 27/10/2026: seleção de fases, placar completo da M
 - No Ás de Espadas, o jogador escolhe um companheiro elegível.
 - A Mesa vê sempre o placar completo, com pontos de respostas, saldos e total. O telão mantém a classificação, mas só mostra os números gerais por ação explícita Mostrar pontuação. Ocultar pontuação remove os números mesmo após fechar a fase. Fechar fase preserva a visibilidade escolhida; selecionar outra fase oculta os números públicos.
 - Publicar resultado divulga somente o ganho calculado da resposta confirmada, independentemente dos totais gerais. Não há valor livre de pontos. Retirar anúncio remove a apresentação sem desfazer o lance. Nova pergunta, revisão ou desfazer invalidam o anúncio anterior.
-- A fase pode ser selecionada. Pergunta, Conselho ou revisão em andamento bloqueiam a troca; sair de fase incompleta exige confirmação e justificativa do Professor. A configuração inicial permite escolha livre. Contagens e rodízio são preservados ao retornar.
+- A fase pode ser selecionada. A Mesa escolhe as fases 1-5 diretamente no seletor, sem justificativa ou confirmação. Pergunta, Conselho, revisão ou pelotão em andamento bloqueiam a troca. Contagens e rodízio são preservados ao retornar.
 - Respostas esperadas permanecem privadas. Nome real e patente não são publicados automaticamente: exigem ação explícita de revelação.
 
 ## O que permanece do manual

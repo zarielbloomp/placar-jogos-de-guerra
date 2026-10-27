@@ -26,7 +26,7 @@ Há backup integral privado anterior ao reinício. Credenciais, cópias reais e 
 
 ## Verificação
 
-Execute as sete suítes: `regras.cjs`, `apresentacao.cjs`, `partida-completa.cjs`, `mecanismo.cjs` `controller.cjs`, `fases-placar.cjs` e `fases-controller.cjs`, na pasta `tests` com Node. O workflow também executa essas suítes sem acessar contas reais. O ensaio `?ensaio=1` usa somente dados fictícios locais e não sincroniza entre aparelhos diferentes.
+Execute as oito suítes: `regras.cjs`, `apresentacao.cjs`, `partida-completa.cjs`, `mecanismo.cjs` `controller.cjs`, `fases-placar.cjs` `fases-controller.cjs` e `exclusao.cjs`, na pasta `tests` com Node. O workflow também executa essas suítes sem acessar contas reais. O ensaio `?ensaio=1` usa somente dados fictícios locais e não sincroniza entre aparelhos diferentes.
 
 ## Links
 
