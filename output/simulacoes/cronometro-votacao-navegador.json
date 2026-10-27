@@ -1,0 +1,27 @@
+{
+  "initial": {
+    "mesa": "01:59",
+    "publico": "01:59"
+  },
+  "after": {
+    "mesa": "01:46",
+    "publico": "01:46"
+  },
+  "paused": {
+    "mesa": "01:45",
+    "publico": "01:45"
+  },
+  "reset": {
+    "mesa": "02:05",
+    "publico": "02:05"
+  },
+  "preset90": {
+    "mesa": "01:30",
+    "publico": "01:30"
+  },
+  "finalVote": {
+    "professorPublic": "Voto reservado",
+    "publicTotals": "3\nTotalmente certa\n3\nMeio certa\n0\nTotalmente errada",
+    "secretVisible": false
+  }
+}

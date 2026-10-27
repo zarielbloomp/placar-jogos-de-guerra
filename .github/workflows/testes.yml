@@ -55,3 +55,6 @@ jobs:
 
       - name: Entradas diretas, apresentação pública e tela cheia
         run: node tests/ux-telao.cjs
+
+      - name: Cronômetro sincronizado e votação ao vivo
+        run: node tests/cronometro-votacao.cjs
