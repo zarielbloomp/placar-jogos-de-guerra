@@ -75,4 +75,8 @@ Execute `node tests/simular-cenarios.cjs 5`. As 17 suítes executam cinco vezes.
 
 Isso cobre todos os cenários automatizados definidos, não toda sequência possível de um jogo, de cartas físicas, de arbitragem humana ou de falha de rede. O sorteio físico e as decisões ambíguas do manual ainda exigem Professor/Mesa. Os testes automatizados acima são simulações. Login/leitura e a validação oficial descrita no PR usam o serviço real. Não foram apagados cadastros reais nem reiniciada a partida.
 
-SHA256 do HTML validado: `85ca840a705c9bf2741f8f86690a8971f46906d6b94f91a670a7e6664518e8d6`.
+Últimas regressões: erro de rede e callback de inscrição de uma sessão encerrada não alteram a sessão seguinte; cadastro privado pendente não repõe o cache após sair. Os três testes falharam antes da correção e passaram depois. A revisão independente final não encontrou bloqueadores.
+
+Integração adicional no Firebase real: seis logins independentes e assento ocupado desabilitado. No exemplo de revisão já existente, o voto1 foi enviado pela interface e os votos2–6 concorrentemente via REST com as respectivas contas. A Mesa mostrou6/6 e empate3/3; Professor votou pela interface e o Público recebeu Meio certa com o sétimo voto reservado. Não houve reset; a revisão antiga foi reaberta e o resultado do único lance foi substituído. O cronômetro permaneceu28s na reabertura/votação; na conclusão passou a zero conforme o encerramento normal. Os cliques simultâneos da automação do navegador foram inconclusivos por timeouts e não são contados como aprovação; não foi feito teste físico em seis celulares. Evidência: `output/simulacoes/votos-firebase-integrado.json`.
+
+SHA256 do HTML validado: `86371bad4edf24139ce95713219f3cf4b3213206bcaa742b77412ffeebc6547a`.

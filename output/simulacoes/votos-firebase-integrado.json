@@ -1,0 +1,48 @@
+{
+  "scenario": "Revisão de pergunta EXEMPLO; voto1 pela interface e votos2..6 concorrentes via REST nas respectivas contas",
+  "votes": [
+    {
+      "seat": 2,
+      "choice": "total",
+      "passed": true
+    },
+    {
+      "seat": 3,
+      "choice": "total",
+      "passed": true
+    },
+    {
+      "seat": 4,
+      "choice": "parcial",
+      "passed": true
+    },
+    {
+      "seat": 5,
+      "choice": "parcial",
+      "passed": true
+    },
+    {
+      "seat": 6,
+      "choice": "parcial",
+      "passed": true
+    }
+  ],
+  "browserSimultaneousClicks": "inconclusivo por timeout da automação; não contado como sucesso",
+  "expected": "empate3/3; Professor desempata pela interface",
+  "dataReset": false,
+  "uiVerification": {
+    "sixSeatsLoggedIn": true,
+    "occupiedSeatDisabled": true,
+    "realVotes": "1 pela interface; 2..6 REST concorrentes com contas prÃ³prias",
+    "tieWarningObserved": true,
+    "professorVotedViaUI": true,
+    "resultVisible": true,
+    "professorReserved": true,
+    "scoresHidden": true,
+    "browserConcurrentClicks": "inconclusivo por timeout da automaÃ§Ã£o",
+    "reset": false,
+    "timerDuringReviewSeconds": 28,
+    "timerAfterConclusionSeconds": 0
+  },
+  "result": "Meio certa; sétimo voto reservado; resultado substituído no único lance"
+}
