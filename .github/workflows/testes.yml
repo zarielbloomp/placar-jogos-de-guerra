@@ -71,3 +71,6 @@ jobs:
 
       - name: Final Preto x Amarelo (nomes, telão, imagem, revelação)
         run: node tests/final-preto-amarelo.cjs
+
+      - name: Plateia anônima, reações e medidor no telão
+        run: node tests/plateia.cjs
