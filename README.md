@@ -4,7 +4,7 @@ Reformulação local: Alto Comando e Público, Preto e Amarelo, participação i
 
 ## Uso e regras
 
-O login é a primeira tela. No Alto Comando, escolha seu assento de 1 a 6; o Senhor da Guerra usa o assento 7. No computador do projetor, escolha Público. Cada pessoa utiliza sua senha do documento privado.
+O login é a primeira tela. No Alto Comando, escolha seu assento de 1 a 6; o Senhor da Guerra usa o assento 7. No computador do projetor, escolha Público. Cada assento do Alto Comando e o Senhor da Guerra usam sua senha do documento privado; o Público (telão) abre sem senha.
 
 O painel reúne Controle, Analisar pergunta, Preparar e Histórico / Recursos. Cadastre os combatentes e as perguntas antes do primeiro lance. Em Controle, publique a pergunta, conduza o tempo da resposta e abra o Conselho. Seis votos são obrigatórios; empate exige o Senhor da Guerra entre as categorias empatadas.
 
@@ -48,14 +48,14 @@ A engrenagem Acessibilidade aparece no login e no cabeçalho. Texto100-200%, con
 
 Créditos em destaque: Miguel Conholato Nicoli (IMI4) e Murilo Carreiro (EMI4), junto do Senhor da Guerra José Pontes Schayder, conforme nomes informados pelo responsável.
 
-O acesso ao painel exige Firebase Auth e conta correspondente ao assento. Cada conselheiro registra seu voto próprio. Alto Comando/Senhor da Guerra compartilham a partida e os dados operacionais autorizados; o Público usa uma conta compartilhada. A projeção `jg/estado` é pública por desenho; o segredo exige conta autorizada. As preferências não são uma barreira de autenticação.
+O acesso ao painel exige Firebase Auth e conta correspondente ao assento. Cada conselheiro registra seu voto próprio. Alto Comando/Senhor da Guerra compartilham a partida e os dados operacionais autorizados; o Público não usa senha nem conta e apenas lê `jg/estado` (sem registrar presença). A projeção `jg/estado` é pública por desenho; o segredo exige conta autorizada. As preferências não são uma barreira de autenticação.
 
 Para repetir toda a cobertura automatizada pelo menos cinco vezes: `node tests/simular-cenarios.cjs 5`. O resultado fica em `output/simulacoes/resultado-cenarios.json`; logs de ensaio em `tmp/simulacoes/`. O comando usa apenas dados fictícios. A simulação oficial cobre Preto/Amarelo e Conselho; a simulação legada verifica compatibilidade. Consulte [o relatório de simulações](docs/relatorio-simulacoes.md).
 
 
 ### Computador e telão
 
-Os links `?telao=1`, `?controle=1` e `?professor=1` selecionam o formulário correto; todos continuam exigindo a senha da conta correspondente. O Senhor da Guerra também tem botão próprio na entrada. O caminho anterior pelo Alto Comando/assento7 continua disponível.
+Os links `?telao=1`, `?controle=1` e `?professor=1` selecionam o formulário correto; `?controle=1` e `?professor=1` continuam exigindo a senha da conta correspondente; `?telao=1` abre o telão direto, sem senha. O Senhor da Guerra também tem botão próprio na entrada. O caminho anterior pelo Alto Comando/assento7 continua disponível.
 
 No computador, a visão pública organiza classificação/cronômetro à esquerda, pergunta/Conselho no centro e acontecimentos à direita. Recursos ficam abaixo; combatentes podem ser consultados. O cabeçalho preserva os créditos e o Senhor da Guerra. O histórico aceita teclado e mantém foco/rolagem em atualizações. Texto ampliado e telas estreitas reorganizam a composição sem esconder enunciados.
 
