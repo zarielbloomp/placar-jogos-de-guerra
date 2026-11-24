@@ -68,3 +68,6 @@ jobs:
 
       - name: Professor, perguntas e combatentes por exército
         run: node tests/professor-paineis.cjs
+
+      - name: Final Preto x Amarelo (nomes, telão, imagem, revelação)
+        run: node tests/final-preto-amarelo.cjs
