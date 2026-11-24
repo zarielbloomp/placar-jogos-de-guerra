@@ -145,7 +145,7 @@ function iniciarTelao(demo,db){if(ouvindo)return ouvindo;montarCamada();const do
  const rT=db.ref('jg/plateia/torcida'),fT=s=>{if(tem(LADOS,s.val()))torcida.set(s.key,s.val());else torcida.delete(s.key);agendar()},fX=s=>{torcida.delete(s.key);agendar()};
  rT.on('child_added',fT);rT.on('child_changed',fT);rT.on('child_removed',fX);parar.push(()=>{rT.off('child_added',fT);rT.off('child_changed',fT);rT.off('child_removed',fX)});return ouvindo}
 function pararTelao(){if(!ouvindo)return;for(const f of ouvindo.parar)try{f()}catch{}ouvindo.barra.barra.remove();ouvindo.barra.ajuda.remove();document.body.classList.remove('jgp-com-barra');ouvindo=null}
-function garantirEntrada(demo){const doc=document,lista=doc.querySelector&&doc.querySelector('#mgApp .mg-entry-choices');if(!lista||doc.getElementById('jgpEntrada'))return;lista.append(el(doc,'a',{id:'jgpEntrada',classe:'jgp-entrada',href:demo?'?ensaio=1&plateia=1':'?plateia=1'},el(doc,'b',{texto:'Sou da plateia'}),el(doc,'small',{texto:'Torcer e reagir pelo celular'})))}
+function garantirEntrada(demo){const doc=document,lista=doc.querySelector&&doc.querySelector('#mgApp .mg-entry-choices');if(!lista||doc.getElementById('jgpEntrada'))return;injetarEstilo(doc);lista.append(el(doc,'a',{id:'jgpEntrada',classe:'jgp-entrada',href:demo?'?ensaio=1&plateia=1':'?plateia=1'},el(doc,'b',{texto:'Sou da plateia'}),el(doc,'small',{texto:'Torcer e reagir pelo celular'})))}
 /* Gancho chamado depois de cada mgRenderUI (ver o fim do script principal). */
 function telao(view){view=view||{};const demo=view.demo!=null?!!view.demo:typeof MG_DEMO!=='undefined'&&!!MG_DEMO;if(view.role==='public'){let db=null;if(!demo){try{db=typeof firebase!=='undefined'&&firebase.apps&&firebase.apps.length?firebase.database():null}catch{db=null}}iniciarTelao(demo,db)}else pararTelao();
  if(!view.role){garantirEntrada(demo);const app=document.getElementById('mgApp');if(app&&!observador&&typeof MutationObserver==='function'){observador=new MutationObserver(()=>{if(app.dataset.mgView==='login')garantirEntrada(demo)});observador.observe(app,{childList:true})}}}
@@ -159,7 +159,9 @@ body.jgp-modo-plateia{margin:0;background:#14170f}
 #jgpPlateia .jgp-conteudo{max-width:760px;margin:0 auto;display:grid;gap:16px}
 #jgpPlateia h1{font-size:1.6rem;line-height:1.2;margin:4px 0}#jgpPlateia h2{font-size:1.2rem;margin:0 0 10px}#jgpPlateia p{margin:0}
 #jgpPlateia .jgp-kicker{color:#e0b400;font-weight:800;letter-spacing:.08em;font-size:1rem}
-#jgpPlateia .jgp-sub{color:#d6d1bd}#jgpPlateia footer{display:grid;gap:8px}#jgpPlateia a{color:#ffd84d;min-height:44px;display:inline-flex;align-items:center}
+#jgpPlateia :is(header,footer,section,main){margin:0;border:0;box-shadow:none;text-align:left;font-size:1rem;letter-spacing:normal;text-transform:none}
+#jgpPlateia :is(header,footer){background:none;padding:0;color:inherit}
+#jgpPlateia .jgp-sub{color:#d6d1bd}#jgpPlateia footer{display:grid;gap:8px;color:#d6d1bd}#jgpPlateia a{color:#ffd84d;min-height:44px;display:inline-flex;align-items:center}
 #jgpPlateia .jgp-ensaio{background:#3d3410;border:2px solid #e0b400;border-radius:10px;padding:10px 12px;font-weight:700}
 #jgpPlateia .jgp-status{border-radius:10px;padding:10px 12px;background:#2a2f22;font-weight:700}
 #jgpPlateia .jgp-status[data-estado=ok]{background:#1d3a24}#jgpPlateia .jgp-status[data-estado=off]{background:#5a221b}
@@ -199,7 +201,7 @@ body.jgp-modo-plateia{margin:0;background:#14170f}
 .jgp-medidor{display:flex;align-items:center;gap:8px;flex:1 1 260px;min-width:0}
 .jgp-trilho{flex:1;display:flex;height:22px;border-radius:11px;overflow:hidden;border:2px solid #fff;background:#555}
 .jgp-trilho .jgp-p{background:#0b0b0b;width:50%;transition:width .6s}.jgp-trilho .jgp-a{background:#e0b400;width:50%;transition:width .6s}
-body.jgp-com-barra{padding-bottom:96px}
+body.jgp-com-barra{padding-bottom:96px}@media(max-width:700px){body.jgp-com-barra{padding-bottom:170px}}
 .jgp-ajuda{position:fixed;inset:0;z-index:2147483002;display:grid;place-items:center;background:rgba(0,0,0,.65);padding:16px}
 .jgp-ajuda-caixa{background:#fff;color:#111;border-radius:14px;padding:20px;max-width:520px;width:100%;max-height:90vh;overflow:auto;font:16px/1.45 system-ui,sans-serif}
 .jgp-ajuda-caixa button{min-height:44px;padding:8px 16px;font:inherit;border-radius:10px}
