@@ -1,0 +1,8 @@
+const fs=require('node:fs'),os=require('node:os'),path=require('node:path'),assert=require('node:assert/strict'),{spawnSync}=require('node:child_process');
+const sample=JSON.parse(fs.readFileSync('tests/fixtures/exercitos-exemplo.json','utf8'));
+const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'jg-elenco-'));
+function invoke(data,mode='--validar'){const input=path.join(tmp,'input.json'),output=path.join(tmp,'output.json');fs.writeFileSync(input,JSON.stringify(data));return spawnSync(process.execPath,['tools/carregar-elenco.mjs',input,mode,...(mode==='--saida'?[output]:[])],{encoding:'utf8'})}
+let r=invoke(sample,'--saida');assert.equal(r.status,0,r.stderr);const out=JSON.parse(fs.readFileSync(path.join(tmp,'output.json'),'utf8'));assert.equal(out.partida.schemaVersion,3);assert.equal(out.partida.revision,0);assert.equal(out.partida.roster[0].length,12);assert.equal(out.partida.roster[5].length,12);assert.equal(out.elenco[0][4].f,'CO');assert.equal(out.elenco[5][1].f,'SUB');assert.deepEqual(out.partida.people,out.elenco);assert.match(r.stdout,/homem-bomba/);
+for(const mutate of [x=>x.exercitos.pop(),x=>x.exercitos[0].soldados.pop(),x=>x.exercitos[0].soldados[0].co=true,x=>x.exercitos[0].soldados[4].sub=true,x=>x.exercitos[0].soldados[0].codinome=' ',x=>x.exercitos[0].soldados[0].codinome=x.exercitos[0].soldados[1].codinome,x=>x.exercitos[0].soldados[6].hb=false,x=>x.exercitos[1].soldados[0].codinome=x.exercitos[0].soldados[0].codinome]){const data=structuredClone(sample);mutate(data);r=invoke(data);assert.notEqual(r.status,0)}
+r=invoke(sample,'--saida');assert.notEqual(r.status,0,'não sobrescreve arquivo');
+fs.rmSync(tmp,{recursive:true,force:true});console.log('PASS validação e conversão do elenco fictício');
