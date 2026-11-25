@@ -196,6 +196,42 @@
         "$other": {
           ".validate": false
         }
+      },
+      "plateia": {
+        ".read": true,
+        "aberta": {
+          ".write": "auth != null && (auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' || auth.uid == 'Y9KTjENNq5e9A08YduXFyb74TRU2' || auth.uid == 'CcPHhBUkWJgjXJmGGrhLPid3Zp13' || auth.uid == 'pMV9ue8NNRfl4RD59VlrxO5UzOo2' || auth.uid == 'PEVJqLGj4WcrsbWZmQwoRbUw9Et1' || auth.uid == 'oKKPn9s1x6Z9HCCfRBIkb4K3FOE2' || auth.uid == 'Z3LGUbT2Fcb5nlKKjSjeUrq5d5P2' || auth.uid == 'Qxt0Rq37L8P1gM0xAQBH9GYjQ4I2' || auth.uid == 'xoBxWb9eYfdIcUQ3OFE7RYPo45H3')",
+          ".validate": "newData.isBoolean()"
+        },
+        "reacoes": {
+          ".indexOn": [
+            "t"
+          ],
+          ".write": "auth != null && auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' && !newData.exists()",
+          "$uid": {
+            ".write": "auth != null && auth.uid == $uid && $uid.length <= 128 && newData.exists() && root.child('jg/plateia/aberta').val() == true",
+            ".validate": "newData.hasChildren(['e','t']) && newData.child('t').val() == now && (!data.exists() || !data.child('t').isNumber() || now - data.child('t').val() >= 1500)",
+            "e": {
+              ".validate": "newData.isString() && newData.val().matches(/^(fogo|palmas|coracao|choque|bomba|caveira|bandeira|susto|riso|medalha)$/)"
+            },
+            "t": {
+              ".validate": "newData.isNumber()"
+            },
+            "$other": {
+              ".validate": false
+            }
+          }
+        },
+        "torcida": {
+          ".write": "auth != null && auth.uid == 'bpVlrSQvw4dYQTR9q6eADMtLGp62' && !newData.exists()",
+          "$uid": {
+            ".write": "auth != null && auth.uid == $uid && $uid.length <= 128 && newData.exists() && root.child('jg/plateia/aberta').val() == true",
+            ".validate": "newData.isString() && newData.val().matches(/^(preto|amarelo)$/)"
+          }
+        },
+        "$resto": {
+          ".validate": false
+        }
       }
     }
   }
