@@ -88,3 +88,12 @@ jobs:
 
       - name: Pesquisa privada e verifica??o manual
         run: node tests/pesquisa.cjs
+
+      - name: Cenários da matriz
+        run: node tests/cenarios-matriz.cjs
+
+      - name: Carga local do elenco
+        run: node tests/carregar-elenco.cjs
+
+      - name: Carga local do arsenal
+        run: node tests/carregar-arsenal.cjs

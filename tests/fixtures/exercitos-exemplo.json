@@ -1,0 +1,184 @@
+{
+ "exercitos": [
+  {
+   "cor": "preto",
+   "nome": "EXEMPLO-PRETO",
+   "soldados": [
+    {
+     "codinome": "Codinome preto 01",
+     "real": "Pessoa Exemplo preto 01",
+     "co": false,
+     "sub": false,
+     "hb": false
+    },
+    {
+     "codinome": "Codinome preto 02",
+     "real": "Pessoa Exemplo preto 02",
+     "co": false,
+     "sub": true,
+     "hb": false
+    },
+    {
+     "codinome": "Codinome preto 03",
+     "real": "Pessoa Exemplo preto 03",
+     "co": false,
+     "sub": false,
+     "hb": false
+    },
+    {
+     "codinome": "Codinome preto 04",
+     "real": "Pessoa Exemplo preto 04",
+     "co": false,
+     "sub": false,
+     "hb": false
+    },
+    {
+     "codinome": "Codinome preto 05",
+     "real": "Pessoa Exemplo preto 05",
+     "co": true,
+     "sub": false,
+     "hb": false
+    },
+    {
+     "codinome": "Codinome preto 06",
+     "real": "Pessoa Exemplo preto 06",
+     "co": false,
+     "sub": false,
+     "hb": false
+    },
+    {
+     "codinome": "Codinome preto 07",
+     "real": "Pessoa Exemplo preto 07",
+     "co": false,
+     "sub": false,
+     "hb": true
+    },
+    {
+     "codinome": "Codinome preto 08",
+     "real": "Pessoa Exemplo preto 08",
+     "co": false,
+     "sub": false,
+     "hb": false
+    },
+    {
+     "codinome": "Codinome preto 09",
+     "real": "Pessoa Exemplo preto 09",
+     "co": false,
+     "sub": false,
+     "hb": false
+    },
+    {
+     "codinome": "Codinome preto 10",
+     "real": "Pessoa Exemplo preto 10",
+     "co": false,
+     "sub": false,
+     "hb": false
+    },
+    {
+     "codinome": "Codinome preto 11",
+     "real": "Pessoa Exemplo preto 11",
+     "co": false,
+     "sub": false,
+     "hb": false
+    },
+    {
+     "codinome": "Codinome preto 12",
+     "real": "Pessoa Exemplo preto 12",
+     "co": false,
+     "sub": false,
+     "hb": false
+    }
+   ]
+  },
+  {
+   "cor": "amarelo",
+   "nome": "EXEMPLO-AMARELO",
+   "soldados": [
+    {
+     "codinome": "Codinome amarelo 01",
+     "real": "Pessoa Exemplo amarelo 01",
+     "co": false,
+     "sub": false,
+     "hb": false
+    },
+    {
+     "codinome": "Codinome amarelo 02",
+     "real": "Pessoa Exemplo amarelo 02",
+     "co": false,
+     "sub": true,
+     "hb": false
+    },
+    {
+     "codinome": "Codinome amarelo 03",
+     "real": "Pessoa Exemplo amarelo 03",
+     "co": false,
+     "sub": false,
+     "hb": false
+    },
+    {
+     "codinome": "Codinome amarelo 04",
+     "real": "Pessoa Exemplo amarelo 04",
+     "co": false,
+     "sub": false,
+     "hb": false
+    },
+    {
+     "codinome": "Codinome amarelo 05",
+     "real": "Pessoa Exemplo amarelo 05",
+     "co": true,
+     "sub": false,
+     "hb": false
+    },
+    {
+     "codinome": "Codinome amarelo 06",
+     "real": "Pessoa Exemplo amarelo 06",
+     "co": false,
+     "sub": false,
+     "hb": false
+    },
+    {
+     "codinome": "Codinome amarelo 07",
+     "real": "Pessoa Exemplo amarelo 07",
+     "co": false,
+     "sub": false,
+     "hb": true
+    },
+    {
+     "codinome": "Codinome amarelo 08",
+     "real": "Pessoa Exemplo amarelo 08",
+     "co": false,
+     "sub": false,
+     "hb": false
+    },
+    {
+     "codinome": "Codinome amarelo 09",
+     "real": "Pessoa Exemplo amarelo 09",
+     "co": false,
+     "sub": false,
+     "hb": false
+    },
+    {
+     "codinome": "Codinome amarelo 10",
+     "real": "Pessoa Exemplo amarelo 10",
+     "co": false,
+     "sub": false,
+     "hb": false
+    },
+    {
+     "codinome": "Codinome amarelo 11",
+     "real": "Pessoa Exemplo amarelo 11",
+     "co": false,
+     "sub": false,
+     "hb": false
+    },
+    {
+     "codinome": "Codinome amarelo 12",
+     "real": "Pessoa Exemplo amarelo 12",
+     "co": false,
+     "sub": false,
+     "hb": false
+    }
+   ]
+  }
+ ]
+}

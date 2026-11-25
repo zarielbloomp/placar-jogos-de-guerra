@@ -1,0 +1,518 @@
+{
+ "preto": [
+  {
+   "cor": "preto",
+   "n": 1,
+   "fase": "1/Construção da Guerra",
+   "pergunta": "Pergunta de exemplo preto 1",
+   "padrao": "Padrão de resposta de exemplo 1",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 2,
+   "fase": "1/Construção da Guerra",
+   "pergunta": "Pergunta de exemplo preto 2",
+   "padrao": "Padrão de resposta de exemplo 2",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 3,
+   "fase": "1/Construção da Guerra",
+   "pergunta": "Pergunta de exemplo preto 3",
+   "padrao": "Padrão de resposta de exemplo 3",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 4,
+   "fase": "1/Construção da Guerra",
+   "pergunta": "Pergunta de exemplo preto 4",
+   "padrao": "Padrão de resposta de exemplo 4",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 5,
+   "fase": "1/Construção da Guerra",
+   "pergunta": "Pergunta de exemplo preto 5",
+   "padrao": "Padrão de resposta de exemplo 5",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 6,
+   "fase": "1/Construção da Guerra",
+   "pergunta": "Pergunta de exemplo preto 6",
+   "padrao": "Padrão de resposta de exemplo 6",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 7,
+   "fase": "2/Avanço do Eixo",
+   "pergunta": "Pergunta de exemplo preto 7",
+   "padrao": "Padrão de resposta de exemplo 7",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 8,
+   "fase": "2/Avanço do Eixo",
+   "pergunta": "Pergunta de exemplo preto 8",
+   "padrao": "Padrão de resposta de exemplo 8",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 9,
+   "fase": "2/Avanço do Eixo",
+   "pergunta": "Pergunta de exemplo preto 9",
+   "padrao": "Padrão de resposta de exemplo 9",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 10,
+   "fase": "2/Avanço do Eixo",
+   "pergunta": "Pergunta de exemplo preto 10",
+   "padrao": "Padrão de resposta de exemplo 10",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 11,
+   "fase": "2/Avanço do Eixo",
+   "pergunta": "Pergunta de exemplo preto 11",
+   "padrao": "Padrão de resposta de exemplo 11",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 12,
+   "fase": "2/Avanço do Eixo",
+   "pergunta": "Pergunta de exemplo preto 12",
+   "padrao": "Padrão de resposta de exemplo 12",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 13,
+   "fase": "3/Refluxo",
+   "pergunta": "Pergunta de exemplo preto 13",
+   "padrao": "Padrão de resposta de exemplo 13",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 14,
+   "fase": "3/Refluxo",
+   "pergunta": "Pergunta de exemplo preto 14",
+   "padrao": "Padrão de resposta de exemplo 14",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 15,
+   "fase": "3/Refluxo",
+   "pergunta": "Pergunta de exemplo preto 15",
+   "padrao": "Padrão de resposta de exemplo 15",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 16,
+   "fase": "3/Refluxo",
+   "pergunta": "Pergunta de exemplo preto 16",
+   "padrao": "Padrão de resposta de exemplo 16",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 17,
+   "fase": "3/Refluxo",
+   "pergunta": "Pergunta de exemplo preto 17",
+   "padrao": "Padrão de resposta de exemplo 17",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 18,
+   "fase": "3/Refluxo",
+   "pergunta": "Pergunta de exemplo preto 18",
+   "padrao": "Padrão de resposta de exemplo 18",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 19,
+   "fase": "4/Avanço aliado",
+   "pergunta": "Pergunta de exemplo preto 19",
+   "padrao": "Padrão de resposta de exemplo 19",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 20,
+   "fase": "4/Avanço aliado",
+   "pergunta": "Pergunta de exemplo preto 20",
+   "padrao": "Padrão de resposta de exemplo 20",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 21,
+   "fase": "4/Avanço aliado",
+   "pergunta": "Pergunta de exemplo preto 21",
+   "padrao": "Padrão de resposta de exemplo 21",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 22,
+   "fase": "4/Avanço aliado",
+   "pergunta": "Pergunta de exemplo preto 22",
+   "padrao": "Padrão de resposta de exemplo 22",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 23,
+   "fase": "4/Avanço aliado",
+   "pergunta": "Pergunta de exemplo preto 23",
+   "padrao": "Padrão de resposta de exemplo 23",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 24,
+   "fase": "4/Avanço aliado",
+   "pergunta": "Pergunta de exemplo preto 24",
+   "padrao": "Padrão de resposta de exemplo 24",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 25,
+   "fase": "5/Saldos/Pós-guerra",
+   "pergunta": "Pergunta de exemplo preto 25",
+   "padrao": "Padrão de resposta de exemplo 25",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 26,
+   "fase": "5/Saldos/Pós-guerra",
+   "pergunta": "Pergunta de exemplo preto 26",
+   "padrao": "Padrão de resposta de exemplo 26",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 27,
+   "fase": "5/Saldos/Pós-guerra",
+   "pergunta": "Pergunta de exemplo preto 27",
+   "padrao": "Padrão de resposta de exemplo 27",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 28,
+   "fase": "5/Saldos/Pós-guerra",
+   "pergunta": "Pergunta de exemplo preto 28",
+   "padrao": "Padrão de resposta de exemplo 28",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 29,
+   "fase": "5/Saldos/Pós-guerra",
+   "pergunta": "Pergunta de exemplo preto 29",
+   "padrao": "Padrão de resposta de exemplo 29",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 30,
+   "fase": "5/Saldos/Pós-guerra",
+   "pergunta": "Pergunta de exemplo preto 30",
+   "padrao": "Padrão de resposta de exemplo 30",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "preto",
+   "n": 31,
+   "fase": "Blitzkrieg",
+   "pergunta": "OPERAÇÃO BLITZKRIEG exemplo preto",
+   "padrao": "Padrão de exemplo",
+   "fonte": "DOC_1"
+  },
+  {
+   "cor": "preto",
+   "n": 32,
+   "fase": "Homem Bomba",
+   "pergunta": "HOMEM-BOMBA exemplo preto",
+   "padrao": "Padrão de exemplo",
+   "fonte": "DOC_1"
+  }
+ ],
+ "amarelo": [
+  {
+   "cor": "amarelo",
+   "n": 33,
+   "fase": "1/Construção da Guerra",
+   "pergunta": "Pergunta de exemplo amarelo 33",
+   "padrao": "Padrão de resposta de exemplo 33",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 34,
+   "fase": "1/Construção da Guerra",
+   "pergunta": "Pergunta de exemplo amarelo 34",
+   "padrao": "Padrão de resposta de exemplo 34",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 35,
+   "fase": "1/Construção da Guerra",
+   "pergunta": "Pergunta de exemplo amarelo 35",
+   "padrao": "Padrão de resposta de exemplo 35",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 36,
+   "fase": "1/Construção da Guerra",
+   "pergunta": "Pergunta de exemplo amarelo 36",
+   "padrao": "Padrão de resposta de exemplo 36",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 37,
+   "fase": "1/Construção da Guerra",
+   "pergunta": "Pergunta de exemplo amarelo 37",
+   "padrao": "Padrão de resposta de exemplo 37",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 38,
+   "fase": "1/Construção da Guerra",
+   "pergunta": "Pergunta de exemplo amarelo 38",
+   "padrao": "Padrão de resposta de exemplo 38",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 39,
+   "fase": "2/Avanço do Eixo",
+   "pergunta": "Pergunta de exemplo amarelo 39",
+   "padrao": "Padrão de resposta de exemplo 39",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 40,
+   "fase": "2/Avanço do Eixo",
+   "pergunta": "Pergunta de exemplo amarelo 40",
+   "padrao": "Padrão de resposta de exemplo 40",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 41,
+   "fase": "2/Avanço do Eixo",
+   "pergunta": "Pergunta de exemplo amarelo 41",
+   "padrao": "Padrão de resposta de exemplo 41",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 42,
+   "fase": "2/Avanço do Eixo",
+   "pergunta": "Pergunta de exemplo amarelo 42",
+   "padrao": "Padrão de resposta de exemplo 42",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 43,
+   "fase": "2/Avanço do Eixo",
+   "pergunta": "Pergunta de exemplo amarelo 43",
+   "padrao": "Padrão de resposta de exemplo 43",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 44,
+   "fase": "2/Avanço do Eixo",
+   "pergunta": "Pergunta de exemplo amarelo 44",
+   "padrao": "Padrão de resposta de exemplo 44",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 45,
+   "fase": "3/Refluxo",
+   "pergunta": "Pergunta de exemplo amarelo 45",
+   "padrao": "Padrão de resposta de exemplo 45",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 46,
+   "fase": "3/Refluxo",
+   "pergunta": "Pergunta de exemplo amarelo 46",
+   "padrao": "Padrão de resposta de exemplo 46",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 47,
+   "fase": "3/Refluxo",
+   "pergunta": "Pergunta de exemplo amarelo 47",
+   "padrao": "Padrão de resposta de exemplo 47",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 48,
+   "fase": "3/Refluxo",
+   "pergunta": "Pergunta de exemplo amarelo 48",
+   "padrao": "Padrão de resposta de exemplo 48",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 49,
+   "fase": "3/Refluxo",
+   "pergunta": "Pergunta de exemplo amarelo 49",
+   "padrao": "Padrão de resposta de exemplo 49",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 50,
+   "fase": "3/Refluxo",
+   "pergunta": "Pergunta de exemplo amarelo 50",
+   "padrao": "Padrão de resposta de exemplo 50",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 51,
+   "fase": "4/Avanço aliado",
+   "pergunta": "Pergunta de exemplo amarelo 51",
+   "padrao": "Padrão de resposta de exemplo 51",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 52,
+   "fase": "4/Avanço aliado",
+   "pergunta": "Pergunta de exemplo amarelo 52",
+   "padrao": "Padrão de resposta de exemplo 52",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 53,
+   "fase": "4/Avanço aliado",
+   "pergunta": "Pergunta de exemplo amarelo 53",
+   "padrao": "Padrão de resposta de exemplo 53",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 54,
+   "fase": "4/Avanço aliado",
+   "pergunta": "Pergunta de exemplo amarelo 54",
+   "padrao": "Padrão de resposta de exemplo 54",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 55,
+   "fase": "4/Avanço aliado",
+   "pergunta": "Pergunta de exemplo amarelo 55",
+   "padrao": "Padrão de resposta de exemplo 55",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 56,
+   "fase": "4/Avanço aliado",
+   "pergunta": "Pergunta de exemplo amarelo 56",
+   "padrao": "Padrão de resposta de exemplo 56",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 57,
+   "fase": "5/Saldos/Pós-guerra",
+   "pergunta": "Pergunta de exemplo amarelo 57",
+   "padrao": "Padrão de resposta de exemplo 57",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 58,
+   "fase": "5/Saldos/Pós-guerra",
+   "pergunta": "Pergunta de exemplo amarelo 58",
+   "padrao": "Padrão de resposta de exemplo 58",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 59,
+   "fase": "5/Saldos/Pós-guerra",
+   "pergunta": "Pergunta de exemplo amarelo 59",
+   "padrao": "Padrão de resposta de exemplo 59",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 60,
+   "fase": "5/Saldos/Pós-guerra",
+   "pergunta": "Pergunta de exemplo amarelo 60",
+   "padrao": "Padrão de resposta de exemplo 60",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 61,
+   "fase": "5/Saldos/Pós-guerra",
+   "pergunta": "Pergunta de exemplo amarelo 61",
+   "padrao": "Padrão de resposta de exemplo 61",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 62,
+   "fase": "5/Saldos/Pós-guerra",
+   "pergunta": "Pergunta de exemplo amarelo 62",
+   "padrao": "Padrão de resposta de exemplo 62",
+   "fonte": "DOC_1_Pág. 1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 63,
+   "fase": "Blitzkrieg",
+   "pergunta": "OPERAÇÃO BLITZKRIEG exemplo amarelo",
+   "padrao": "Padrão de exemplo",
+   "fonte": "DOC_1"
+  },
+  {
+   "cor": "amarelo",
+   "n": 64,
+   "fase": "Homem Bomba",
+   "pergunta": "HOMEM-BOMBA exemplo amarelo",
+   "padrao": "Padrão de exemplo",
+   "fonte": "DOC_1"
+  }
+ ]
+}
