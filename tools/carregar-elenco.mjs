@@ -6,7 +6,7 @@ function gerar(data) {
     const found = data.exercitos.filter(e => e?.cor === cor);
     if (found.length !== 1) throw Error('Informe exatamente Preto e Amarelo.');
     const e = found[0];
-    if (typeof e.nome !== 'string' || !e.nome.trim() || !Array.isArray(e.soldados) || e.soldados.length !== 12) throw Error(`${cor}: informe nome e 12 soldados.`);
+    if (typeof e.nome !== 'string' || !e.nome.trim() || e.nome.trim().length > 100 || !Array.isArray(e.soldados) || e.soldados.length !== 12) throw Error(`${cor}: informe nome e 12 soldados.`);
     for (const key of ['co','sub','hb']) {
       if (e.soldados.some(s => typeof s?.[key] !== 'boolean') || e.soldados.filter(s => s[key]).length !== 1) throw Error(`${cor}: deve haver exatamente um ${key.toUpperCase()}.`);
     }
