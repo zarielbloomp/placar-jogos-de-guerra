@@ -80,6 +80,9 @@ jobs:
       - name: Imersão do telão (bloco isolado, fx=0, sem HTML do banco)
         run: node tests/imersao.cjs
 
+      - name: Sigilo do elenco (codinome só após ataque)
+        run: node tests/sigilo-elenco.cjs
+
       - name: Sigilo do Conselho e tela do Alto Comando
         run: node tests/conselho-sigilo.cjs
 
