@@ -91,5 +91,17 @@ await test('tela da plateia: sem SDK, polling do placar, cooldown visual e aviso
  rede.negar=true;rede.aberta=false;await new Promise(r=>setTimeout(r,1600));await p.reagir('riso');await new Promise(r=>setImmediate(r));assert.equal(p.ui.status._texto,'A plateia está fechada no momento.');
  for(const b of Object.values(p.ui.botoes))assert.ok(b.attrs.type==='button'&&b.filhos[0].attrs['aria-hidden']==='true');p.parar()});
 
+
+await test('plateia acompanha fechamento e reabertura pelo polling sem recarregar',async()=>{
+ const {api,dom,timers}=carregar({busca:'?plateia=1'}),rede=criarFetch();rede.aberta=false;
+ const p=await api.iniciar({document:dom.document,fonte:api._teste.fonteRest({fetch:rede.f,armazenamento:armazenamento()})});
+ await new Promise(r=>setImmediate(r));assert.equal(p.estado().fechada,true);
+ rede.aberta=true;await timers.filter(x=>x.ms===4000).at(-1).f();
+ assert.equal(p.estado().fechada,false);assert.equal(p.ui.botoes.fogo.getAttribute('aria-disabled'),'false');
+ await p.reagir('fogo');assert.equal(rede.chamadas.filter(c=>c.metodo==='PUT').length,1);
+ rede.aberta=false;await timers.filter(x=>x.ms===4000).at(-1).f();
+ assert.equal(p.estado().fechada,true);p.parar();
+});
+
 if(failed)process.exitCode=1;
 })();

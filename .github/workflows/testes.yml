@@ -79,3 +79,6 @@ jobs:
 
       - name: Sigilo do Conselho e tela do Alto Comando
         run: node tests/conselho-sigilo.cjs
+
+      - name: Pesquisa privada e verifica??o manual
+        run: node tests/pesquisa.cjs
