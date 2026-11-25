@@ -51,7 +51,7 @@ await test('telão: listener único, ignora antigo/inválido, medidor com deboun
 
 await test('pooling: no máximo 60 elementos, reaproveitados ao fim da animação',()=>{const {t,dom}=carregar();const T=t.montarCamada();for(let i=0;i<100;i++)T.chuva.enfileirar('palmas');for(let i=0;i<20;i++)T.chuva.escoar(8);let info=T.chuva.info();assert.equal(info.total,60);assert.equal(info.ativos,60);assert.equal(info.descartadas,40);const gotas=dom.todos().filter(n=>n.className==='jgp-gota');assert.equal(gotas.length,60);gotas.slice(0,5).forEach(g=>g.disparar('animationend'));assert.equal(T.chuva.info().livres,5);T.chuva.enfileirar('fogo');T.chuva.escoar();info=T.chuva.info();assert.equal(info.total,60,'não cria elemento novo');assert.equal(gotas[4]._texto,'🔥')});
 
-await test('modo reduzido (sistema ou ?fx=0) vira contador discreto sem criar gotas',()=>{for(const cfg of [{reduzido:true},{busca:'?telao=1&fx=0'}]){const {api,t,dom}=carregar(cfg);for(let i=0;i<3;i++)api.onReacao({e:'fogo'});api.onReacao({e:'riso'});const T=t.estado().T;assert.equal(T.chuva.info().total,0);assert.equal(T.contador.hidden,false);assert.equal(T.contador._texto,'🔥 3   😂 1');assert.equal(dom.todos().filter(n=>n.className==='jgp-gota').length,0)}});
+await test('modo reduzido (sistema ou ?fx=0) vira contador discreto sem criar gotas',()=>{for(const cfg of [{reduzido:true},{busca:'?telao=1&fx=0'}]){const {api,t,dom}=carregar(cfg);for(let i=0;i<3;i++)api.onReacao({e:'fogo'});api.onReacao({e:'riso'});const T=t.estado().T;assert.equal(T.chuva.info().total,0);assert.equal(T.contador.hidden,false);assert.equal(T.contador._texto,'🔥 3   😄 1');assert.equal(dom.todos().filter(n=>n.className==='jgp-gota').length,0)}});
 
 await test('combo: 5 iguais em 4 s mostram letreiro uma vez, sem repetir na pausa',()=>{const {t}=carregar();let agora=0;const c=t.criarCombo({agora:()=>agora});const r=[];for(let i=0;i<5;i++){r.push(c.registrar('fogo'));agora+=500}assert.deepEqual(r.slice(0,4),[null,null,null,null]);assert.equal(r[4],'ONDA DE FOGO!');for(let i=0;i<5;i++){assert.equal(c.registrar('fogo'),null);agora+=500}agora+=10000;for(let i=0;i<4;i++)c.registrar('fogo');assert.equal(c.registrar('fogo'),'ONDA DE FOGO!')});
 
@@ -84,7 +84,7 @@ await test('REST: grava só reacoes/<uid> e torcida/<uid> com timestamp do servi
 
 await test('tela da plateia: sem SDK, polling do placar, cooldown visual e aviso de plateia fechada',async()=>{let sdk=0;const firebase=new Proxy({},{get(){sdk++;return()=>{throw Error('SDK proibido')}}});const {api,dom,timers}=carregar({busca:'?plateia=1',firebase});const rede=criarFetch();
  const p=await api.iniciar({document:dom.document,window:{location:{search:'?plateia=1'}},fonte:api._teste.fonteRest({fetch:rede.f,armazenamento:armazenamento()})});
- assert.equal(sdk,0,'não toca no SDK');assert.equal(p.ui.status._texto,'Ao vivo. Toque para torcer e reagir.');assert.equal(p.ui.cards[0].pts._texto,'Pontos ocultos');assert.ok(timers.some(x=>x.ms===4000),'polling a cada 4 s');
+ assert.equal(sdk,0,'não toca no SDK');assert.equal(p.ui.status._texto,'Ao vivo. Toque para torcer e reagir.');assert.equal(p.ui.cards[0].pts._texto,'Pontos ocultos');assert.ok(timers.some(x=>x.ms===15000),'polling a cada 15 s');
  assert.equal(p.ui.botoes.fogo.getAttribute('aria-disabled'),'false');await p.reagir('fogo');assert.equal(p.ui.botoes.palmas.getAttribute('aria-disabled'),'true','cooldown bloqueia todos');assert.ok(p.ui.botoes.fogo.classList.contains('jgp-carregando'));assert.equal(p.ui.retorno._texto,'Fogo enviado!');
  await p.reagir('palmas');assert.equal(rede.chamadas.filter(c=>c.metodo==='PUT').length,1,'segundo toque no cooldown não envia');
  await p.escolher('preto');assert.equal(p.ui.torc.preto.getAttribute('aria-pressed'),'true');
@@ -96,12 +96,35 @@ await test('plateia acompanha fechamento e reabertura pelo polling sem recarrega
  const {api,dom,timers}=carregar({busca:'?plateia=1'}),rede=criarFetch();rede.aberta=false;
  const p=await api.iniciar({document:dom.document,fonte:api._teste.fonteRest({fetch:rede.f,armazenamento:armazenamento()})});
  await new Promise(r=>setImmediate(r));assert.equal(p.estado().fechada,true);
- rede.aberta=true;await timers.filter(x=>x.ms===4000).at(-1).f();
+ rede.aberta=true;await timers.filter(x=>x.ms===15000).at(-1).f();
  assert.equal(p.estado().fechada,false);assert.equal(p.ui.botoes.fogo.getAttribute('aria-disabled'),'false');
  await p.reagir('fogo');assert.equal(rede.chamadas.filter(c=>c.metodo==='PUT').length,1);
- rede.aberta=false;await timers.filter(x=>x.ms===4000).at(-1).f();
+ rede.aberta=false;await timers.filter(x=>x.ms===15000).at(-1).f();
  assert.equal(p.estado().fechada,true);p.parar();
 });
+
+await test('REST com ETag: 1ª leitura pede ETag, as seguintes mandam If-None-Match e 304 reaproveita sem corpo',async()=>{const {t}=carregar();const pedidos=[];let corpos=0;const f=async(url,op={})=>{pedidos.push({url,h:{...(op.headers||{})}});const cond=op.headers&&op.headers['If-None-Match']==='"e1"';return{ok:!cond,status:cond?304:200,headers:{get:k=>k==='ETag'?'"e1"':null},json:async()=>{corpos++;return{fase:3}}}};
+ const fonte=t.fonteRest({fetch:f,armazenamento:armazenamento()});assert.deepEqual({...await fonte.lerEstado()},{fase:3});assert.deepEqual({...await fonte.lerEstado()},{fase:3});
+ assert.equal(pedidos[0].h['X-Firebase-ETag'],'true');assert.equal(pedidos[0].h['If-None-Match'],undefined);assert.equal(pedidos[1].h['If-None-Match'],'"e1"');assert.equal(corpos,1,'304 não lê corpo');assert.equal(t.CFG.pollMs,15000);assert.equal(t.CFG.pollOcultoMs,30000)});
+
+await test('aba oculta continua o polling a cada 30 s',async()=>{const {api,dom,timers}=carregar({busca:'?plateia=1'}),rede=criarFetch();dom.document.hidden=true;const p=await api.iniciar({document:dom.document,fonte:api._teste.fonteRest({fetch:rede.f,armazenamento:armazenamento()})});assert.ok(timers.some(x=>x.ms===30000));assert.ok(!timers.some(x=>x.ms===15000));p.parar()});
+
+await test('telão: plateia fechada para a chuva na hora e ignora novas reações da plateia',()=>{const refs={};const db={ref(p){return refs[p]??={ev:{},on(t,f){(this.ev[t]??=[]).push(f)},off(){},orderByChild(){return this},limitToLast(){return this}}}};const {t}=carregar();t.iniciarTelao(false,db);const T=t.estado().T,snap=(key,v)=>({key,val:()=>v});
+ for(let i=0;i<5;i++)refs['jg/plateia/reacoes'].ev.child_added[0](snap('u'+i,{e:'fogo',t:Date.now()}));T.chuva.escoar(8);assert.ok(T.chuva.info().ativos>0);
+ refs['jg/plateia/aberta'].ev.value[0](snap('aberta',false));let i=T.chuva.info();assert.equal(i.ativos,0);assert.equal(i.fila,0);
+ refs['jg/plateia/reacoes'].ev.child_changed[0](snap('u9',{e:'riso',t:Date.now()}));assert.equal(T.chuva.info().fila,0);assert.equal(t.estado().ouvindo.barra.barra.filhos.at(-1).hidden,false,'aviso PLATEIA PAUSADA');
+ refs['jg/plateia/aberta'].ev.value[0](snap('aberta',true));refs['jg/plateia/reacoes'].ev.child_changed[0](snap('u9',{e:'riso',t:Date.now()+1}));assert.equal(T.chuva.info().fila,1);t.pararTelao()});
+
+await test('moderação só para assentos 7, 8 e 9; pausar pede confirmação e grava jg/plateia/aberta',async()=>{const gravados=[];let ouvinte;const db={ref(p){assert.equal(p,'jg/plateia/aberta');return{on(t,f){ouvinte=f},off(){},set:async v=>{gravados.push(v)}}}};const firebase={apps:[1],database:()=>db};const {api,t,dom,window}=carregar({firebase});
+ for(const v of [{role:'mesa',seat:3},{role:'public'},{role:'professor',seat:6},null])assert.equal(t.podeModerar(v),false);for(const s of [7,8,9])assert.equal(t.podeModerar({role:'professor',seat:s}),true);
+ const sessao=dom.document.createElement('div');dom.document.body.append(sessao);dom.document.querySelector=s=>s==='#mgApp .mg-session'?sessao:null;
+ api.telao({role:'professor',seat:8,demo:false});ouvinte({val:()=>true});const n=dom.document.getElementById('jgpModeracao');assert.equal(n.filhos[0]._texto,'A PLATEIA ESTÁ ABERTA');assert.equal(n.getAttribute('data-aberta'),'true');
+ let perguntas=0;window.confirm=()=>{perguntas++;return false};await t.alternarPlateia();assert.equal(perguntas,1);assert.deepEqual(gravados,[]);
+ window.confirm=()=>true;await t.alternarPlateia();assert.deepEqual(gravados,[false]);assert.equal(n.filhos[0]._texto,'PLATEIA PAUSADA');assert.equal(n.getAttribute('data-aberta'),'false');
+ await t.alternarPlateia();assert.deepEqual(gravados,[false,true],'reabrir não pede confirmação');
+ api.telao({role:'mesa',seat:2,demo:false});assert.equal(dom.document.getElementById('jgpModeracao'),null)});
+
+await test('teclas do operador não duplicam: fx marca preventDefault no dado e não dispara reação quando a plateia existe',()=>{const fx=html.match(/<script id="fx-telao">([\s\S]*?)<\/script>/)[1];assert.match(fx,/esperaDado=0;e\.preventDefault\(\);dado\(Number\(dig\)\)/);assert.match(fx,/if\(dig!=null\)\{if\(!window\.JGPlateia\|\|!window\.JGPlateia\.telao\)window\.jgReacao/);assert.match(codigo,/e\.defaultPrevented\)return/);assert.match(fx,/riso:'😄'/);assert.equal(carregar().t.MAPA.riso.emoji,'😄')});
 
 if(failed)process.exitCode=1;
 })();
