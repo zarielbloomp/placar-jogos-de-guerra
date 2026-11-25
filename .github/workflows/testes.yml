@@ -74,3 +74,5 @@ jobs:
 
       - name: Camada de apresentação do telão
         run: node tests/telao-fx.cjs
+      - name: Plateia anônima, reações e medidor no telão
+        run: node tests/plateia.cjs

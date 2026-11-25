@@ -11,6 +11,210 @@ body.access-screen{background:#edf1eb}.access-gate{min-height:100vh;display:grid
 @media(max-width:720px){.access-gate{padding:20px 16px}.access-brand{position:relative;padding-left:56px;margin-bottom:20px;min-height:44px}.access-brand .brand-mark{position:absolute;left:0;top:0;margin:0}.access-brand .eyebrow{font-size:9px;margin-bottom:5px;letter-spacing:.09em}.access-brand h1{font-size:27px;margin:0}.access-brand>p{display:none}.access-card>p{font-size:13px}.access-roles{margin-top:18px}.access-hint{min-height:34px}}
 </style>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<script id="jgPlateiaModulo">
+/* ==== PLATEIA ==== */
+/* Plateia anônima (?plateia=1) e efeitos da plateia no telão. Bloco isolado.
+ * Plateia: só REST (fetch), sem SDK e sem conexão persistente (plano Spark: 100 conexões).
+ *   Grava apenas jg/plateia/reacoes/<uid> e jg/plateia/torcida/<uid>; lê jg/estado.json (público).
+ * Telão: um listener do SDK já aberto pelo mgInit, em jg/plateia (leitura pública).
+ * Nunca lê jg/segredo. Nunca usa innerHTML: texto entra por textContent e emoji só do mapa fixo. */
+(function(){
+'use strict';
+const LISTA=[['fogo','🔥','Fogo','ONDA DE FOGO!'],['palmas','👏','Palmas','CHUVA DE PALMAS!'],['coracao','❤️','Coração','ONDA DE AMOR!'],['choque','⚡','Choque','DESCARGA ELÉTRICA!'],['bomba','💣','Bomba','BOMBARDEIO!'],['caveira','💀','Caveira','ONDA MORTAL!'],['bandeira','🚩','Bandeira','BANDEIRAS AO ALTO!'],['susto','😱','Susto','ONDA DE SUSTO!'],['riso','😂','Riso','ONDA DE RISADAS!'],['medalha','🏅','Medalha','CHUVA DE MEDALHAS!']];
+const MAPA=Object.freeze(Object.fromEntries(LISTA.map(([c,emoji,rotulo,combo])=>[c,Object.freeze({emoji,rotulo,combo})])));
+const CODIGOS=Object.freeze(LISTA.map(x=>x[0]));
+const CFG=Object.freeze({cooldown:1500,idadeMax:15000,maxGotas:60,limiteNegacoes:3,pausaNegacoes:10000,torcidaMs:1000,comboN:5,comboJanela:4000,comboPausa:6000,pollMs:4000,prazoMs:8000});
+const LADOS=Object.freeze({preto:'Preto',amarelo:'Amarelo'});
+/* Identificador público do projeto web (o mesmo do mgInit); não é credencial. */
+const API_KEY='AIzaSyClGxcN2p8r6qjLk6RsCaglfLQ_DSYASCY';
+const URL_DB='https://jogos-de-guerra-default-rtdb.firebaseio.com',URL_AUTH='https://identitytoolkit.googleapis.com/v1',URL_TOKEN='https://securetoken.googleapis.com/v1/token';
+const CHAVE_SESSAO='jg-plateia-sessao-v1',CHAVE_ENSAIO='jg-plateia-ensaio-torcida';
+const tem=(o,k)=>Object.prototype.hasOwnProperty.call(o,k);
+const codigoValido=c=>typeof c==='string'&&tem(MAPA,c);
+const negado=e=>!!e&&/permission[_-]denied/i.test(String(e.code||''));
+const erro=code=>Object.assign(new Error(code),{code});
+const ehRota=s=>/[?&]plateia=1(?:&|$)/.test(String(s||''));
+function el(doc,tag,props,...filhos){const n=doc.createElement(tag);for(const [k,v] of Object.entries(props||{})){if(k==='texto')n.textContent=v;else if(k==='classe')n.className=v;else if(k==='hidden')n.hidden=!!v;else n.setAttribute(k,String(v))}for(const f of filhos)if(f)n.append(f);return n}
+function comPrazo(p,ms){let t;return Promise.race([p,new Promise((_,rej)=>{t=setTimeout(()=>rej(erro('PRAZO')),ms)})]).finally(()=>clearTimeout(t))}
+
+/* ---------- regras puras (testadas em tests/plateia.cjs) ---------- */
+function reacaoRecente(v,agoraServidor){if(!v||typeof v!=='object'||!codigoValido(v.e))return false;const t=Number(v.t);if(!Number.isFinite(t))return false;const idade=agoraServidor-t;return idade<=CFG.idadeMax&&idade>=-5000}
+function contarTorcida(fonte){const valores=fonte&&typeof fonte.values==='function'&&typeof fonte.get==='function'?Array.from(fonte.values()):Object.values(fonte||{});let preto=0,amarelo=0;for(const v of valores){if(v==='preto')preto++;else if(v==='amarelo')amarelo++}const total=preto+amarelo;return{preto,amarelo,total,pctPreto:total?Math.round(preto*100/total):50}}
+function placarPublico(e,fases){e=e&&typeof e==='object'?e:{};const visivel=(typeof e.scoreVisible==='boolean'?e.scoreVisible:e.phaseClosed!=null&&e.phaseClosed===e.fase)&&!!e.points&&typeof e.points==='object';const nomes=Array.isArray(e.nm)?e.nm:[],pos=e.rankPositions&&typeof e.rankPositions==='object'?e.rankPositions:{};const ordem=Array.isArray(e.rank)?e.rank.filter(i=>i===0||i===5):[];const ids=ordem.length===2?ordem:[0,5];const fase=Number(e.fase)||0;const info=fase&&Array.isArray(fases)?fases.find(f=>f&&f.id===fase):null;return{fase:fase?'Fase '+fase+(info&&info.title?' · '+info.title:''):'Aguardando a partida',pontosVisiveis:visivel,exercitos:ids.map((id,i)=>{const p=visivel?Number(e.points[id]):NaN;return{id,lado:id===0?'preto':'amarelo',nome:String(nomes[id]||(id===0?'Preto':'Amarelo')).slice(0,40),posicao:Number(pos[id])||i+1,pontos:Number.isFinite(p)?p:null}})}}
+/* Um envio por vez, cooldown de 1,5 s, nenhuma repetição automática; 3 negações seguidas pausam 10 s. */
+function criarEnvio({enviar,agora=()=>Date.now(),aoMudar=()=>{}}){const s={ocupado:false,ate:0,pausaAte:0,negacoes:0,ultimo:null};const estado=()=>{const t=agora();return{...s,emEspera:t<s.ate,pausado:t<s.pausaAte}};async function tentar(codigo){if(!codigoValido(codigo))return 'invalido';const t=agora();if(s.ocupado)return 'ocupado';if(t<s.pausaAte)return 'pausado';if(t<s.ate)return 'espera';s.ocupado=true;s.ultimo=codigo;aoMudar(estado());let r;try{await enviar(codigo);s.negacoes=0;r='enviado'}catch(e){if(negado(e)){s.negacoes++;if(s.negacoes>=CFG.limiteNegacoes){s.negacoes=0;s.pausaAte=agora()+CFG.pausaNegacoes}r='negado'}else r='erro'}s.ocupado=false;s.ate=agora()+CFG.cooldown;aoMudar(estado());return r}return{tentar,estado}}
+function criarCombo({agora=()=>Date.now()}={}){const hist=Object.create(null),ultimo=Object.create(null);return{registrar(c){if(!codigoValido(c))return null;const t=agora();const h=(hist[c]||[]).filter(x=>t-x<=CFG.comboJanela);h.push(t);hist[c]=h;if(h.length>=CFG.comboN&&!(t-(ultimo[c]??-Infinity)<CFG.comboPausa)){ultimo[c]=t;hist[c]=[];return MAPA[c].combo}return null}}}
+/* Chuva com pooling: no máximo 60 elementos, reaproveitados; modo reduzido vira contador. */
+function criarChuva({doc,camada,contador,reduzido,aleatorio=Math.random,agendar=setTimeout}){const pool=[],livres=[],fila=[],contagem=Object.create(null);let ativos=0,descartadas=0;
+ function soltar(g){if(!g.jgpAtiva)return;g.jgpAtiva=false;g.hidden=true;g.classList.remove('jgp-caindo');livres.push(g);ativos--}
+ function nova(){const g=el(doc,'span',{classe:'jgp-gota','aria-hidden':'true',hidden:true});g.addEventListener('animationend',()=>soltar(g));camada.append(g);pool.push(g);return g}
+ function cair(c){const g=livres.pop()||(pool.length<CFG.maxGotas?nova():null);if(!g)return false;const dur=3+aleatorio()*1.6,vez=(g.jgpVez||0)+1;g.jgpVez=vez;g.textContent=MAPA[c].emoji;g.style.left=(2+aleatorio()*92).toFixed(1)+'%';g.style.animationDuration=dur.toFixed(2)+'s';g.style.setProperty('--jgp-giro',Math.round(aleatorio()*80-40)+'deg');g.style.setProperty('--jgp-deriva',Math.round(aleatorio()*16-8)+'vw');g.classList.remove('jgp-caindo');void g.offsetWidth;g.hidden=false;g.classList.add('jgp-caindo');g.jgpAtiva=true;ativos++;agendar(()=>{if(g.jgpVez===vez)soltar(g)},dur*1000+600);return true}
+ function enfileirar(c){if(!codigoValido(c))return false;if(reduzido()){contagem[c]=(contagem[c]||0)+1;contador.textContent=CODIGOS.filter(k=>contagem[k]).map(k=>MAPA[k].emoji+' '+contagem[k]).join('   ');contador.hidden=false;return true}fila.push(c);if(fila.length>120)fila.splice(0,fila.length-120);return true}
+ function escoar(max=8){for(let n=0;fila.length&&n<max;n++)if(!cair(fila.shift()))descartadas++}
+ return{enfileirar,escoar,info:()=>({total:pool.length,livres:livres.length,ativos,fila:fila.length,descartadas,contagem:{...contagem}})}}
+
+/* ---------- fontes de dados da plateia ---------- */
+/* REST: login anônimo uma vez (sessão no localStorage), renovação por refresh token, PUT e polling. */
+function fonteRest({fetch:f,armazenamento:ls,agora=()=>Date.now()}){let sessao=ler(),garantindo=null;
+ function ler(){try{const s=JSON.parse(ls.getItem(CHAVE_SESSAO)||'null');return s&&typeof s.uid==='string'&&s.uid&&s.uid.length<=128&&typeof s.refreshToken==='string'?s:null}catch{return null}}
+ function salvar(s){sessao=s;try{ls.setItem(CHAVE_SESSAO,JSON.stringify(s))}catch{}}
+ const corpo=async r=>{try{return await r.json()}catch{return null}};
+ async function criarConta(){const r=await f(URL_AUTH+'/accounts:signUp?key='+API_KEY,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({returnSecureToken:true})});const d=r.ok?await corpo(r):null;if(!d||typeof d.localId!=='string'||!d.idToken)throw erro('LOGIN');salvar({uid:d.localId,idToken:d.idToken,refreshToken:d.refreshToken,expiraEm:agora()+Number(d.expiresIn||3600)*1000})}
+ async function renovar(){const r=await f(URL_TOKEN+'?key='+API_KEY,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'grant_type=refresh_token&refresh_token='+encodeURIComponent(sessao.refreshToken)});const d=await corpo(r);if(r.status===400&&/TOKEN_EXPIRED|INVALID_REFRESH_TOKEN|USER_NOT_FOUND|USER_DISABLED/.test(String(d&&d.error&&d.error.message||''))){sessao=null;return false}if(!r.ok||!d||!d.id_token)throw erro('REDE');salvar({uid:String(d.user_id||sessao.uid),idToken:d.id_token,refreshToken:d.refresh_token||sessao.refreshToken,expiraEm:agora()+Number(d.expires_in||3600)*1000});return true}
+ function garantir(){return garantindo||(garantindo=(async()=>{if(sessao&&sessao.idToken&&Number(sessao.expiraEm)-agora()>300000)return sessao.uid;if(sessao&&await renovar())return sessao.uid;await criarConta();return sessao.uid})().finally(()=>{garantindo=null}))}
+ async function ler_(caminho){const r=await f(URL_DB+'/'+caminho+'.json',{cache:'no-store'});if(!r.ok)throw erro('REDE');return corpo(r)}
+ async function gravar(caminho,valor){await garantir();const r=await f(URL_DB+'/'+caminho+'/'+encodeURIComponent(sessao.uid)+'.json?auth='+encodeURIComponent(sessao.idToken),{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(valor)});if(r.status===401||r.status===403)throw erro('PERMISSION_DENIED');if(!r.ok)throw erro('REDE');return true}
+ return{garantir,uid:()=>sessao&&sessao.uid,lerEstado:()=>ler_('jg/estado'),aberta:async()=>(await ler_('jg/plateia/aberta'))===true,minhaTorcida:async()=>{const v=await ler_('jg/plateia/torcida/'+encodeURIComponent(sessao.uid));return tem(LADOS,v)?v:null},enviarReacao:c=>gravar('jg/plateia/reacoes',{e:c,t:{'.sv':'timestamp'}}),salvarTorcida:l=>gravar('jg/plateia/torcida',l)}}
+/* Ensaio (?ensaio=1): nada sai do navegador; telão em outra aba recebe por BroadcastChannel. */
+function fonteEnsaio(){const canal=typeof BroadcastChannel==='function'?new BroadcastChannel('jg-plateia-ensaio'):null,id='ensaio-'+Math.random().toString(36).slice(2,10);const torcidas=()=>{try{return JSON.parse(localStorage.getItem(CHAVE_ENSAIO)||'{}')||{}}catch{return{}}};
+ return{garantir:async()=>id,uid:()=>id,aberta:async()=>true,minhaTorcida:async()=>null,lerEstado:async()=>{try{const d=JSON.parse(localStorage.getItem('mecanismo-ensaio-v3')||'null');return typeof mgProject==='function'&&typeof mgNormalize==='function'?mgProject(mgNormalize(d&&d.partida||null)):null}catch{return null}},enviarReacao:async c=>{if(canal)canal.postMessage({tipo:'reacao',e:c,uid:id})},salvarTorcida:async l=>{const m=torcidas();m[id]=l;try{localStorage.setItem(CHAVE_ENSAIO,JSON.stringify(m))}catch{}if(canal)canal.postMessage({tipo:'torcida'})}}}
+
+/* ---------- tela da plateia ---------- */
+function montarPlateia(doc,demo){
+ const status=el(doc,'p',{classe:'jgp-status',role:'status','data-estado':'espera',texto:'Conectando…'}),retorno=el(doc,'p',{classe:'jgp-retorno','aria-live':'polite'});
+ const fase=el(doc,'p',{classe:'jgp-sub',texto:'Aguardando a partida'}),nota=el(doc,'p',{classe:'jgp-sub'});
+ const cards=[0,1].map(()=>{const pos=el(doc,'span',{classe:'jgp-pos'}),nome=el(doc,'b'),pts=el(doc,'span',{classe:'jgp-pts'});return{card:el(doc,'li',{classe:'jgp-exercito'},pos,nome,pts),pos,nome,pts}});
+ const torc={},gTorc=el(doc,'div',{classe:'jgp-torcida',role:'group','aria-labelledby':'jgpTitTorcida'});
+ for(const l of Object.keys(LADOS)){torc[l]=el(doc,'button',{type:'button','data-lado':l,'aria-pressed':'false','aria-disabled':'true',texto:LADOS[l]});gTorc.append(torc[l])}
+ const botoes={},grade=el(doc,'div',{classe:'jgp-reacoes',role:'group','aria-labelledby':'jgpTitReacoes'});
+ for(const c of CODIGOS){botoes[c]=el(doc,'button',{type:'button','data-codigo':c,'aria-disabled':'true'},el(doc,'span',{classe:'jgp-emoji','aria-hidden':'true',texto:MAPA[c].emoji}),el(doc,'span',{texto:MAPA[c].rotulo}));grade.append(botoes[c])}
+ const main=el(doc,'main',{id:'jgpMain',classe:'jgp-conteudo',tabindex:'-1'},
+  el(doc,'header',{},el(doc,'p',{classe:'jgp-kicker',texto:'FINAL · PRETO x AMARELO'}),el(doc,'h1',{texto:'Jogos de Guerra · Plateia'}),el(doc,'p',{classe:'jgp-sub',texto:'Torça e reaja ao vivo no telão. Você é anônimo: sem nome e sem senha.'})),
+  demo?el(doc,'p',{classe:'jgp-ensaio',texto:'ENSAIO · dados locais deste navegador. Nada é enviado à partida real.'}):null,
+  status,
+  el(doc,'section',{'aria-labelledby':'jgpTitPlacar'},el(doc,'h2',{id:'jgpTitPlacar',texto:'Placar ao vivo'}),fase,el(doc,'ul',{classe:'jgp-placar'},...cards.map(c=>c.card)),nota),
+  el(doc,'section',{'aria-labelledby':'jgpTitTorcida'},el(doc,'h2',{id:'jgpTitTorcida',texto:'Para quem você torce?'}),gTorc,el(doc,'p',{classe:'jgp-sub',texto:'Toque para escolher. Pode trocar quando quiser.'})),
+  el(doc,'section',{'aria-labelledby':'jgpTitReacoes'},el(doc,'h2',{id:'jgpTitReacoes',texto:'Reaja no telão'}),grade,retorno,el(doc,'p',{classe:'jgp-sub',texto:'Uma reação por vez: espere a barrinha encher para mandar outra.'})),
+  el(doc,'footer',{classe:'jgp-sub'},el(doc,'p',{texto:'Nenhum dado pessoal é coletado. Sua reação aparece no telão por alguns segundos.'}),el(doc,'a',{href:demo?'?ensaio=1':'./',texto:'Voltar à entrada'})));
+ return{raiz:el(doc,'div',{id:'jgpPlateia'},main),status,retorno,fase,nota,cards,torc,botoes}}
+async function iniciar(opcoes={}){
+ const doc=opcoes.document||document,win=opcoes.window||window,demo=/[?&]ensaio=1(?:&|$)/.test(win.location&&win.location.search||'');
+ injetarEstilo(doc);doc.body.classList.add('jgp-modo-plateia');doc.title='Plateia · Jogos de Guerra';
+ const ui=montarPlateia(doc,demo);doc.body.append(ui.raiz);
+ const fonte=opcoes.fonte||(demo?fonteEnsaio():fonteRest({fetch:win.fetch.bind(win),armazenamento:win.localStorage}));
+ const st={uid:null,online:false,falha:false,fechada:false,torcida:null,salvando:false};let tAtualizar=null,tRetorno=null,tPoll=null,tLogin=null,espera=2000;
+ const pronto=()=>!!st.uid&&st.online&&!st.fechada;
+ const envio=criarEnvio({enviar:c=>comPrazo(fonte.enviarReacao(c),CFG.prazoMs),aoMudar:()=>atualizar()});
+ function dizer(t){ui.retorno.textContent=t;clearTimeout(tRetorno);tRetorno=setTimeout(()=>{ui.retorno.textContent=''},2500)}
+ function atualizar(){const e=envio.estado(),ok=pronto();const txt=st.fechada?'A plateia está fechada no momento.':ok?'Ao vivo. Toque para torcer e reagir.':st.falha?'Sem conexão. Tentando de novo sozinho…':'Conectando…';if(ui.status.textContent!==txt)ui.status.textContent=txt;ui.status.setAttribute('data-estado',ok?'ok':st.falha||st.fechada?'off':'espera');
+  const bloqueado=!ok||e.ocupado||e.emEspera||e.pausado;for(const c of CODIGOS){ui.botoes[c].setAttribute('aria-disabled',String(bloqueado));if(!e.emEspera||c!==e.ultimo)ui.botoes[c].classList.remove('jgp-carregando')}
+  for(const l of Object.keys(LADOS)){ui.torc[l].setAttribute('aria-pressed',String(st.torcida===l));ui.torc[l].setAttribute('aria-disabled',String(!ok||st.salvando))}
+  clearTimeout(tAtualizar);const fim=Math.max(e.ate,e.pausaAte)-Date.now();if(fim>0)tAtualizar=setTimeout(atualizar,fim+20)}
+ async function conferirFechada(){try{st.fechada=!(await fonte.aberta())}catch{}if(st.fechada)dizer('A plateia está fechada no momento.');atualizar()}
+ async function reagir(c){if(!pronto())return;const r=await envio.tentar(c);const b=ui.botoes[c];if(r==='enviado'||r==='negado'){b.classList.remove('jgp-carregando');void b.offsetWidth;b.classList.add('jgp-carregando')}if(r==='enviado'){st.fechada=false;dizer(MAPA[c].rotulo+' enviado!')}else if(r==='negado'){if(envio.estado().pausado)dizer('Aguarde alguns segundos para reagir de novo.');void conferirFechada()}else if(r==='erro')dizer('Não foi possível enviar agora. Tente de novo em instantes.');atualizar()}
+ async function escolher(l){if(!pronto()||st.salvando||st.torcida===l)return;const antes=st.torcida;st.torcida=l;st.salvando=true;atualizar();try{await comPrazo(fonte.salvarTorcida(l),CFG.prazoMs);dizer('Você torce pelo '+LADOS[l]+'.')}catch(e){st.torcida=antes;if(negado(e))void conferirFechada();else dizer('Não foi possível salvar sua torcida. Tente de novo.')}st.salvando=false;atualizar()}
+ for(const c of CODIGOS)ui.botoes[c].addEventListener('click',()=>void reagir(c));
+ for(const l of Object.keys(LADOS))ui.torc[l].addEventListener('click',()=>void escolher(l));
+ function placar(e){const m=placarPublico(e,typeof MG_PHASES!=='undefined'?MG_PHASES:null);ui.fase.textContent=m.fase;m.exercitos.forEach((x,i)=>{const c=ui.cards[i];c.card.setAttribute('data-lado',x.lado);c.pos.textContent=x.posicao+'º lugar';c.nome.textContent=x.nome;c.pts.textContent=x.pontos==null?'Pontos ocultos':x.pontos+' pontos'});ui.nota.textContent=m.pontosVisiveis?'':'O Alto Comando está ocultando os pontos neste momento.'}
+ async function ciclo(){tPoll=null;if(doc.hidden)return;try{placar(await comPrazo(fonte.lerEstado(),CFG.prazoMs));st.online=true}catch{st.online=false}if(st.uid)st.falha=!st.online;atualizar();if(!doc.hidden)tPoll=setTimeout(ciclo,CFG.pollMs)}
+ doc.addEventListener('visibilitychange',()=>{if(!doc.hidden&&!tPoll)void ciclo()});
+ async function entrar(){try{st.uid=await fonte.garantir();st.falha=false;espera=2000;atualizar();try{st.torcida=await fonte.minhaTorcida()}catch{}void conferirFechada()}catch{st.falha=true;atualizar();tLogin=setTimeout(entrar,espera);espera=Math.min(espera*2,30000)}}
+ placar(null);atualizar();await Promise.all([entrar(),ciclo()]);
+ return{ui,estado:()=>({...st,envio:envio.estado()}),reagir,escolher,parar(){[tAtualizar,tRetorno,tPoll,tLogin].forEach(clearTimeout)}}}
+
+/* ---------- telão: chuva, combos, medidor, atalhos ---------- */
+let T=null,ouvindo=null,observador=null;
+function reduzido(){const w=window;return /[?&]fx=0(?:&|$)/.test(w.location&&w.location.search||'')||document.documentElement&&document.documentElement.dataset&&document.documentElement.dataset.mgMotion==='reduce'||!!(w.matchMedia&&w.matchMedia('(prefers-reduced-motion: reduce)').matches)}
+function montarCamada(){if(T)return T;const doc=document;injetarEstilo(doc);const letreiro=el(doc,'div',{classe:'jgp-letreiro',hidden:true}),contador=el(doc,'div',{classe:'jgp-contador',hidden:true});const camada=el(doc,'div',{id:'jgpChuva',classe:'jgp-chuva','aria-hidden':'true'},letreiro,contador);doc.body.append(camada);
+ T={camada,letreiro,contador,chuva:criarChuva({doc,camada,contador,reduzido}),combo:criarCombo(),som:false,audio:null,tLetreiro:null,tOnda:setInterval(()=>T&&T.chuva.escoar(),250)};return T}
+function mostrarCombo(texto){const t=T;t.letreiro.textContent=texto;t.letreiro.hidden=false;t.letreiro.classList.remove('jgp-mostra');void t.letreiro.offsetWidth;t.letreiro.classList.add('jgp-mostra');clearTimeout(t.tLetreiro);t.tLetreiro=setTimeout(()=>{t.letreiro.hidden=true},2700)}
+function tocarSom(){const a=T&&T.som&&T.audio;if(!a)return;try{const t0=a.currentTime;[523.25,659.25,783.99].forEach((f,i)=>{const o=a.createOscillator(),g=a.createGain(),s=t0+i*.09;o.type='triangle';o.frequency.value=f;g.gain.setValueAtTime(.0001,s);g.gain.exponentialRampToValueAtTime(.18,s+.02);g.gain.exponentialRampToValueAtTime(.0001,s+.22);o.connect(g);g.connect(a.destination);o.start(s);o.stop(s+.25)})}catch{}}
+/* API pública do telão: aceita {e:código}; qualquer outro valor é ignorado. Nada é escrito no Firebase. */
+function onReacao(r){if(!r||typeof r!=='object'||!codigoValido(r.e))return false;const t=montarCamada();t.chuva.enfileirar(r.e);const combo=t.combo.registrar(r.e);if(combo){mostrarCombo(combo);tocarSom()}return true}
+function montarBarra(doc){const pessoas=el(doc,'span',{texto:'Ao vivo: 0 pessoas'}),pP=el(doc,'span',{classe:'jgp-p'}),pA=el(doc,'span',{classe:'jgp-a'}),pct=el(doc,'span',{classe:'jgp-pct',texto:'Torcida: aguardando'});const trilho=el(doc,'div',{classe:'jgp-trilho',role:'img','aria-label':'Torcida: aguardando votos'},pP,pA);
+ const som=el(doc,'button',{type:'button','aria-pressed':'false',texto:'Ativar som'}),ajudaBt=el(doc,'button',{type:'button','aria-haspopup':'dialog',texto:'Atalhos (?)'});
+ const barra=el(doc,'div',{id:'jgpBarra',classe:'jgp-barra',role:'region','aria-label':'Plateia ao vivo'},el(doc,'span',{classe:'jgp-ao-vivo'},el(doc,'span',{classe:'jgp-ponto','aria-hidden':'true'}),pessoas),el(doc,'div',{classe:'jgp-medidor'},el(doc,'span',{texto:'Preto'}),trilho,el(doc,'span',{texto:'Amarelo'})),pct,som,ajudaBt);
+ const fechar=el(doc,'button',{type:'button',texto:'Fechar'});const itens=CODIGOS.map((c,i)=>el(doc,'li',{texto:((i+1)%10)+' · '+MAPA[c].emoji+' '+MAPA[c].rotulo}));
+ const ajuda=el(doc,'div',{id:'jgpAjuda',classe:'jgp-ajuda',hidden:true},el(doc,'div',{classe:'jgp-ajuda-caixa',role:'dialog','aria-modal':'true','aria-labelledby':'jgpAjudaTitulo'},el(doc,'h2',{id:'jgpAjudaTitulo',texto:'Atalhos do operador'}),el(doc,'p',{texto:'Plano B: as teclas disparam a animação só neste telão, sem enviar nada ao Firebase.'}),el(doc,'ul',{},...itens,el(doc,'li',{texto:'? ou H · abre e fecha esta ajuda · Esc fecha'})),fechar));
+ som.addEventListener('click',()=>{const t=montarCamada();if(!t.som){const A=window.AudioContext||window.webkitAudioContext;if(!A)return;try{t.audio=t.audio||new A();if(t.audio.resume)t.audio.resume()}catch{return}}t.som=!t.som;som.setAttribute('aria-pressed',String(t.som))});
+ ajudaBt.addEventListener('click',()=>abrirAjuda(true));fechar.addEventListener('click',()=>abrirAjuda(false));
+ doc.body.append(barra,ajuda);doc.body.classList.add('jgp-com-barra');return{barra,ajuda,fechar,pessoas,pP,pA,pct,trilho,som}}
+function abrirAjuda(abrir){const b=ouvindo&&ouvindo.barra;if(!b)return;if(abrir){b.volta=document.activeElement;b.ajuda.hidden=false;b.fechar.focus()}else if(!b.ajuda.hidden){b.ajuda.hidden=true;if(b.volta&&b.volta.focus)b.volta.focus()}}
+function teclas(e){if(!ouvindo||e.ctrlKey||e.altKey||e.metaKey||e.defaultPrevented)return;const a=e.target;if(a&&(/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName||'')||a.isContentEditable))return;const b=ouvindo.barra;
+ if(!b.ajuda.hidden){if(e.key==='Escape'||e.key==='?'||e.key==='h'||e.key==='H'){e.preventDefault();abrirAjuda(false)}else if(e.key==='Tab'){e.preventDefault();b.fechar.focus()}return}
+ if(document.querySelector&&document.querySelector('.mg-confirm'))return;const i='1234567890'.indexOf(e.key);if(i>=0&&!e.shiftKey){e.preventDefault();onReacao({e:CODIGOS[i]});return}if(e.key==='?'||e.key==='h'||e.key==='H'){e.preventDefault();abrirAjuda(true)}}
+function iniciarTelao(demo,db){if(ouvindo)return ouvindo;montarCamada();const doc=document,barra=montarBarra(doc),torcida=new Map(),pessoas=new Set(),parar=[];let tMedidor=null;ouvindo={barra,torcida,pessoas,parar};
+ function desenhar(){tMedidor=null;const c=contarTorcida(torcida),n=new Set([...torcida.keys(),...pessoas]).size;barra.pP.style.width=c.pctPreto+'%';barra.pA.style.width=(100-c.pctPreto)+'%';const txt=c.total?'Preto '+c.pctPreto+'% · Amarelo '+(100-c.pctPreto)+'%':'Torcida: aguardando';barra.pct.textContent=txt;barra.trilho.setAttribute('aria-label',c.total?'Torcida: '+txt:'Torcida: aguardando votos');barra.pessoas.textContent='Ao vivo: '+n+(n===1?' pessoa':' pessoas')}
+ const agendar=()=>{if(!tMedidor)tMedidor=setTimeout(desenhar,CFG.torcidaMs)};ouvindo.desenhar=desenhar;desenhar();parar.push(()=>clearTimeout(tMedidor));
+ doc.addEventListener('keydown',teclas);parar.push(()=>doc.removeEventListener('keydown',teclas));
+ if(demo){const canal=typeof BroadcastChannel==='function'?new BroadcastChannel('jg-plateia-ensaio'):null;const lerT=()=>{torcida.clear();try{for(const [k,v] of Object.entries(JSON.parse(localStorage.getItem(CHAVE_ENSAIO)||'{}')||{}))if(tem(LADOS,v))torcida.set(k,v)}catch{}agendar()};lerT();if(canal){canal.onmessage=m=>{const d=m.data||{};if(d.tipo==='reacao'&&onReacao({e:d.e})&&typeof d.uid==='string'&&d.uid.length<=128){pessoas.add(d.uid);agendar()}else if(d.tipo==='torcida')lerT()};parar.push(()=>canal.close())}return ouvindo}
+ if(!db)return ouvindo;let offset=0;const rOff=db.ref('.info/serverTimeOffset'),fOff=s=>{offset=Number(s.val())||0};rOff.on('value',fOff);parar.push(()=>rOff.off('value',fOff));
+ const vistos=new Map(),q=db.ref('jg/plateia/reacoes').orderByChild('t').limitToLast(40);
+ const fR=s=>{const v=s.val(),t=Number(v&&v.t);if(vistos.get(s.key)===t)return;vistos.set(s.key,t);if(!reacaoRecente(v,Date.now()+offset))return;if(onReacao({e:v.e})){pessoas.add(s.key);agendar()}};
+ q.on('child_added',fR);q.on('child_changed',fR);parar.push(()=>{q.off('child_added',fR);q.off('child_changed',fR)});
+ const rT=db.ref('jg/plateia/torcida'),fT=s=>{if(tem(LADOS,s.val()))torcida.set(s.key,s.val());else torcida.delete(s.key);agendar()},fX=s=>{torcida.delete(s.key);agendar()};
+ rT.on('child_added',fT);rT.on('child_changed',fT);rT.on('child_removed',fX);parar.push(()=>{rT.off('child_added',fT);rT.off('child_changed',fT);rT.off('child_removed',fX)});return ouvindo}
+function pararTelao(){if(!ouvindo)return;for(const f of ouvindo.parar)try{f()}catch{}ouvindo.barra.barra.remove();ouvindo.barra.ajuda.remove();document.body.classList.remove('jgp-com-barra');ouvindo=null}
+function garantirEntrada(demo){const doc=document,lista=doc.querySelector&&doc.querySelector('#mgApp .mg-entry-choices');if(!lista||doc.getElementById('jgpEntrada'))return;injetarEstilo(doc);lista.append(el(doc,'a',{id:'jgpEntrada',classe:'jgp-entrada',href:demo?'?ensaio=1&plateia=1':'?plateia=1'},el(doc,'b',{texto:'Sou da plateia'}),el(doc,'small',{texto:'Torcer e reagir pelo celular'})))}
+/* Gancho chamado depois de cada mgRenderUI (ver o fim do script principal). */
+function telao(view){view=view||{};const demo=view.demo!=null?!!view.demo:typeof MG_DEMO!=='undefined'&&!!MG_DEMO;if(view.role==='public'){let db=null;if(!demo){try{db=typeof firebase!=='undefined'&&firebase.apps&&firebase.apps.length?firebase.database():null}catch{db=null}}iniciarTelao(demo,db)}else pararTelao();
+ if(!view.role){garantirEntrada(demo);const app=document.getElementById('mgApp');if(app&&!observador&&typeof MutationObserver==='function'){observador=new MutationObserver(()=>{if(app.dataset.mgView==='login')garantirEntrada(demo)});observador.observe(app,{childList:true})}}}
+
+let estiloPronto=false;
+function injetarEstilo(doc){if(estiloPronto||doc.getElementById('jgpEstilos'))return;estiloPronto=true;doc.head.append(el(doc,'style',{id:'jgpEstilos',texto:CSS}))}
+const CSS=`
+body.jgp-modo-plateia{margin:0;background:#14170f}
+#jgpPlateia{min-height:100vh;background:#14170f;color:#f4f1e6;font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:16px 16px 32px;box-sizing:border-box}
+#jgpPlateia *{box-sizing:border-box}
+#jgpPlateia .jgp-conteudo{max-width:760px;margin:0 auto;display:grid;gap:16px}
+#jgpPlateia h1{font-size:1.6rem;line-height:1.2;margin:4px 0}#jgpPlateia h2{font-size:1.2rem;margin:0 0 10px}#jgpPlateia p{margin:0}
+#jgpPlateia .jgp-kicker{color:#e0b400;font-weight:800;letter-spacing:.08em;font-size:1rem}
+#jgpPlateia :is(header,footer,section,main){margin:0;border:0;box-shadow:none;text-align:left;font-size:1rem;letter-spacing:normal;text-transform:none}
+#jgpPlateia :is(header,footer){background:none;padding:0;color:inherit}
+#jgpPlateia .jgp-sub{color:#d6d1bd}#jgpPlateia footer{display:grid;gap:8px;color:#d6d1bd}#jgpPlateia a{color:#ffd84d;min-height:44px;display:inline-flex;align-items:center}
+#jgpPlateia .jgp-ensaio{background:#3d3410;border:2px solid #e0b400;border-radius:10px;padding:10px 12px;font-weight:700}
+#jgpPlateia .jgp-status{border-radius:10px;padding:10px 12px;background:#2a2f22;font-weight:700}
+#jgpPlateia .jgp-status[data-estado=ok]{background:#1d3a24}#jgpPlateia .jgp-status[data-estado=off]{background:#5a221b}
+#jgpPlateia section{background:#1f2419;border-radius:14px;padding:16px;min-width:0}
+#jgpPlateia .jgp-placar{list-style:none;margin:10px 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#jgpPlateia .jgp-exercito{border-radius:12px;padding:12px;border:2px solid #8a8a8a;background:#0b0b0b;color:#fff;display:grid;gap:2px;min-width:0}
+#jgpPlateia .jgp-exercito[data-lado=amarelo]{background:#e0b400;color:#111;border-color:#ffe680}
+#jgpPlateia .jgp-exercito b{font-size:1.25rem;overflow-wrap:anywhere}
+#jgpPlateia button{font:inherit;color:inherit;cursor:pointer;min-height:44px;border-radius:14px;touch-action:manipulation}
+#jgpPlateia .jgp-torcida{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:8px}
+#jgpPlateia .jgp-torcida button{min-height:72px;font-size:1.25rem;font-weight:800;border:3px solid #777;background:#0b0b0b;color:#fff}
+#jgpPlateia .jgp-torcida button[data-lado=amarelo]{background:#e0b400;color:#111;border-color:#e0b400}
+#jgpPlateia .jgp-torcida button[aria-pressed=true]{border-color:#fff;box-shadow:0 0 0 3px #14170f,0 0 0 6px #fff}
+#jgpPlateia .jgp-torcida button[aria-pressed=true]::before{content:"✓ "}
+#jgpPlateia .jgp-reacoes{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:8px;margin-bottom:8px}
+#jgpPlateia .jgp-reacoes button{position:relative;overflow:hidden;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:#2d3424;border:2px solid #59614c;font-size:1rem;font-weight:700}
+#jgpPlateia .jgp-emoji{font-size:2rem;line-height:1.1}
+#jgpPlateia button[aria-disabled=true]{opacity:.55;cursor:not-allowed}
+#jgpPlateia .jgp-reacoes button.jgp-carregando{opacity:1}
+#jgpPlateia .jgp-reacoes button.jgp-carregando::after{content:"";position:absolute;left:0;bottom:0;height:6px;width:100%;background:#e0b400;transform-origin:left;animation:jgp-recarga 1.5s linear forwards}
+@keyframes jgp-recarga{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+#jgpPlateia .jgp-retorno{min-height:1.5em;font-weight:700;color:#ffd84d}
+#jgpPlateia :focus-visible,#jgpBarra :focus-visible,#jgpAjuda :focus-visible,#mgApp a.jgp-entrada:focus-visible{outline:3px solid #ffd84d;outline-offset:3px}
+@media(min-width:900px){#jgpPlateia h1{font-size:2rem}#jgpPlateia .jgp-reacoes{grid-template-columns:repeat(5,minmax(0,1fr))}}
+.jgp-chuva{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:2147483000}
+.jgp-gota{position:absolute;top:0;left:50%;font-size:clamp(32px,4vw,72px);line-height:1;will-change:transform;transform:translate3d(0,-15vh,0)}
+.jgp-gota.jgp-caindo{animation:jgp-cair 4s linear forwards}
+@keyframes jgp-cair{to{transform:translate3d(var(--jgp-deriva,0),115vh,0) rotate(var(--jgp-giro,0deg))}}
+.jgp-letreiro{position:absolute;left:50%;top:32%;transform:translate(-50%,-50%);max-width:94vw;text-align:center;font:900 clamp(40px,7vw,120px)/1.05 Impact,"Arial Black",system-ui,sans-serif;color:#ffd84d;letter-spacing:.04em;text-shadow:0 4px 0 #000,0 0 18px rgba(0,0,0,.7)}
+.jgp-letreiro.jgp-mostra{animation:jgp-letreiro 2.6s ease-out forwards}
+@keyframes jgp-letreiro{0%{opacity:0;transform:translate(-50%,-50%) scale(.7)}15%{opacity:1;transform:translate(-50%,-50%) scale(1.05)}25%{transform:translate(-50%,-50%) scale(1)}80%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1)}}
+.jgp-contador{position:absolute;top:12px;right:12px;max-width:90vw;background:rgba(0,0,0,.75);color:#fff;border-radius:10px;padding:8px 12px;font:600 20px/1.3 system-ui,sans-serif}
+.jgp-barra{position:fixed;left:0;right:0;bottom:0;z-index:2147483001;display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;padding:8px 16px;background:rgba(12,14,10,.95);color:#fff;font:600 16px/1.3 system-ui,sans-serif;border-top:3px solid #e0b400}
+.jgp-barra button{font:inherit;min-height:44px;padding:8px 14px;border-radius:10px;border:2px solid #fff;background:#222;color:#fff;cursor:pointer}
+.jgp-barra button[aria-pressed=true]{background:#e0b400;color:#111;border-color:#e0b400}
+.jgp-ao-vivo{display:inline-flex;align-items:center;gap:8px}.jgp-ponto{width:12px;height:12px;border-radius:50%;background:#e74c3c}
+.jgp-medidor{display:flex;align-items:center;gap:8px;flex:1 1 260px;min-width:0}
+.jgp-trilho{flex:1;display:flex;height:22px;border-radius:11px;overflow:hidden;border:2px solid #fff;background:#555}
+.jgp-trilho .jgp-p{background:#0b0b0b;width:50%;transition:width .6s}.jgp-trilho .jgp-a{background:#e0b400;width:50%;transition:width .6s}
+body.jgp-com-barra{padding-bottom:96px}@media(max-width:700px){body.jgp-com-barra{padding-bottom:170px}}
+.jgp-ajuda{position:fixed;inset:0;z-index:2147483002;display:grid;place-items:center;background:rgba(0,0,0,.65);padding:16px}
+.jgp-ajuda-caixa{background:#fff;color:#111;border-radius:14px;padding:20px;max-width:520px;width:100%;max-height:90vh;overflow:auto;font:16px/1.45 system-ui,sans-serif}
+.jgp-ajuda-caixa button{min-height:44px;padding:8px 16px;font:inherit;border-radius:10px}
+#mgApp a.jgp-entrada{display:flex;flex-direction:column;justify-content:center;gap:4px;min-height:72px;padding:14px;border:2px dashed #b38f00;border-radius:12px;background:#fff8d6;color:#1b1b1b;text-decoration:none}
+#mgApp a.jgp-entrada small{font-size:14px}
+.jgp-chuva [hidden],.jgp-gota[hidden],#jgpPlateia [hidden],.jgp-ajuda[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){.jgp-gota{display:none!important}.jgp-letreiro.jgp-mostra,#jgpPlateia .jgp-reacoes button.jgp-carregando::after{animation:none}.jgp-trilho span{transition:none!important}}
+html[data-mg-motion=reduce] .jgp-gota{display:none!important}html[data-mg-motion=reduce] .jgp-letreiro.jgp-mostra{animation:none}
+`;
+window.JGPlateia=Object.freeze({ehRota,iniciar,telao,onReacao,_teste:Object.freeze({MAPA,CODIGOS,CFG,codigoValido,reacaoRecente,contarTorcida,placarPublico,criarEnvio,criarCombo,criarChuva,fonteRest,iniciarTelao,pararTelao,montarCamada,estado:()=>({T,ouvindo})})});
+})();
+/* ==== /PLATEIA ==== */
+</script>
 </head><body><div id="legacyWorkspace" hidden>
 <div id="accessGate" class="access-gate"><div class="access-brand"><div class="brand-mark" aria-hidden="true">JG</div><div class="eyebrow">HISTÓRIA · PARTICIPAÇÃO INDIVIDUAL</div><h1>Jogos de Guerra</h1><p>Controle, perguntas e placar ao vivo para a sua aula.</p><ul class="access-benefits"><li>Senhor da Guerra prepara a turma e acompanha o jogo.</li><li>Alto Comando registra os lances e apresenta as perguntas.</li><li>Público acompanha o placar em tempo real.</li></ul></div><div class="access-card"><p id="gateMode" class="eyebrow" style="color:var(--ac)">Acesso à partida oficial</p><h2>Bem-vindo. Vamos entrar?</h2><p id="gateDescription">Escolha seu perfil e informe a senha recebida do responsável pelo jogo.</p><div id="gateSession" class="session-box" hidden><span class="mu">Este navegador guardou uma sessão</span><strong id="sessionName"></strong><p>Confirme para abrir o painel ou escolha outra conta.</p><button class="pri" id="continueBtn" onclick="continueSession()">Continuar</button><button onclick="useOtherAccount()">Usar outra conta</button></div><form id="lgf" class="login" onsubmit="event.preventDefault();lgin()"><div class="access-roles" role="group" aria-label="Escolha seu perfil"><button type="button" data-access="professor" aria-pressed="true" onclick="selectAccess('professor')">Senhor da Guerra<small>Administrar</small></button><button type="button" data-access="mesa" aria-pressed="false" onclick="selectAccess('mesa')">Alto Comando<small>Operar o jogo</small></button><button type="button" data-access="publico" aria-pressed="false" onclick="selectAccess('publico')">Público<small>Acompanhar</small></button></div><p id="accessHint" class="access-hint"></p><input id="em" type="hidden" value="professor"><details id="otherLoginDetails"><summary>Usar outro acesso autorizado</summary><label>Usuário ou e-mail autorizado<input id="otherLogin" type="text" autocomplete="username" placeholder="Somente se você usa outro acesso"></label></details><label id="gatePassword">Senha do perfil escolhido<input id="pw" type="password" autocomplete="current-password" required placeholder="Digite a senha recebida"></label><button class="pri" type="submit" id="loginBtn">Entrar no meu painel</button><button class="pri" type="button" id="prototypeEnter" hidden onclick="enterPrototype()">Entrar no ensaio</button></form><p id="lgm" class="gate-error" role="alert" aria-live="polite"></p><p id="accessModeNote" hidden>Ensaio sem login real. Os perfis são simulados e os dados ficam neste navegador. Nada será alterado na partida oficial.</p><p class="gate-note">Vai apresentar para a turma? <a href="?telao=1" id="gateScreenLink">Abrir somente o telão →</a><br/>Precisa de ajuda? Peça a senha do seu perfil ao responsável pelo jogo.</p></div></div><div id="appShell" hidden>
 <header><div class="eyebrow">EXPERIMENTO DIDÁTICO · HISTÓRIA · 2026</div><div class="header-row"><div><h1>Jogos de Guerra</h1><p class="subtitle">XI edição · Brothers in Arms · Participação individual</p></div><div class="session-tools"><span class="session-chip" id="sessionRole">Senhor da Guerra</span><a class="button" id="openScreen" href="?telao=1" target="_blank" rel="noopener">Abrir telão ↗</a><button id="lgl" onclick="lg()">Sair</button></div></div><div class="live" id="lv" role="status"><span class="dot"></span>Conectando ao placar…</div></header>
@@ -832,6 +1036,9 @@ async function mgInit(){mgMountUI();if(MG_DEMO){try{const saved=JSON.parse(local
   `;
 })();
 
+/* ==== PLATEIA ==== rota ?plateia=1 e gancho do telão; o módulo fica no <head> */
+if(window.JGPlateia){if(window.JGPlateia.ehRota(window.location?.search||''))mgInit=window.JGPlateia.iniciar;else{const mgRenderUIBase=window.mgRenderUI;window.mgRenderUI=function(view){mgRenderUIBase(view);try{window.JGPlateia.telao(view)}catch{}}}}
+/* ==== /PLATEIA ==== */
 mgInit().catch(error=>{MG.error="Não foi possível iniciar o site. Recarregue a página e confira a conexão.";mgPaint()});
 </script>
 
