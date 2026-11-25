@@ -80,3 +80,6 @@ jobs:
 
       - name: Carga local do elenco
         run: node tests/carregar-elenco.cjs
+
+      - name: Carga local do arsenal
+        run: node tests/carregar-arsenal.cjs
