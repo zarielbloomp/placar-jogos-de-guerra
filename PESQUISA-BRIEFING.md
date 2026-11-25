@@ -20,3 +20,5 @@ Validação local (sem Firebase):
 - Revisão independente: ações Editar/Excluir e preservação de foco corrigidas; segunda revisão sem impedimentos, nota 9,1/10.
 - Suíte completa deve rodar numa cópia temporária com `index.html`, `database.rules.json` e `tests/`; o arquivo de regras é necessário para os testes offline de permissões. Nenhum output é commitado.
 - Risco de integração: reconciliar apenas os dois pontos de contato acima com a branch que enxuga o Conselho. Permissões reais e sessões Firebase não foram exercitadas.
+
+Resultado final: `node tests/simular-cenarios.cjs 5` concluiu 105 execu??es, zero falhas (21 su?tes, cinco rodadas), com 250 partidas e 26.000 batalhas simuladas. Relat?rio em `Orquestrador-IA/saidas/jogos-de-guerra/capturas/pesquisa/resultado-cenarios.json`.
