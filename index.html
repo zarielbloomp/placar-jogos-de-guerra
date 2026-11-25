@@ -840,4 +840,264 @@ mgInit().catch(error=>{MG.error="Não foi possível iniciar o site. Recarregue a
 
 
 
+<style id="fx-telao">
+/* Camada de apresentação do telão (Público). Só lê a projeção pública; não grava nada. Desliga com ?fx=0. */
+:root{--fx-preto:#111111;--fx-preto-borda:#f5f5f5;--fx-amarelo:#f5c400;--fx-branco:#f2f2f2;--fx-vermelho:#d55e00;--fx-verde:#009e73;--fx-azul:#56b4e9;--fx-marca:#ffc21a;--fx-tinta:#0b0b0b;--fx-texto:#f5f5f5}
+#fxLayer{position:fixed;inset:0;z-index:9000;pointer-events:none;overflow:hidden;font-family:Impact,"Arial Narrow Bold","Arial Narrow",system-ui,sans-serif;color:var(--fx-texto)}
+#fxLayer *{box-sizing:border-box}
+.fx-stage{position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(ellipse at center,#000000b0 0,#000000e6 70%);animation:fxFade .25s ease-out both}
+.fx-stage.fx-out{animation:fxFadeOut .35s ease-in both}
+.fx-card{position:relative;text-align:center;padding:4vh 5vw;max-width:92vw}
+.fx-kicker{font-size:clamp(20px,2.2vw,40px);letter-spacing:.18em;color:var(--fx-marca)}
+.fx-big{font-size:clamp(44px,7vw,150px);line-height:.95;letter-spacing:.02em;text-transform:uppercase;text-shadow:0 6px 0 #000}
+.fx-mid{font-size:clamp(26px,3.2vw,64px);line-height:1.1;margin-top:1.5vh}
+.fx-small{font-family:system-ui,sans-serif;font-size:clamp(18px,1.6vw,30px);margin-top:1.4vh;color:#e9e9e9}
+.fx-army-0{color:#fff;-webkit-text-stroke:2px #000;text-shadow:0 0 0 #000,0 6px 0 #000}
+.fx-army-5{color:var(--fx-amarelo)}
+.fx-tape{position:absolute;left:-10vw;right:-10vw;height:12vh;top:12vh;transform:rotate(-6deg);background:repeating-linear-gradient(45deg,var(--fx-amarelo) 0 40px,#111 40px 80px);opacity:.92;animation:fxTape 0.8s ease-out both}
+.fx-tape.bottom{top:auto;bottom:12vh;transform:rotate(-6deg);animation-delay:.1s}
+.fx-spot{position:absolute;top:-30vh;width:60vw;height:160vh;left:-60vw;background:radial-gradient(ellipse at top,#fff5c255 0,#fff5c200 60%);transform-origin:top center;animation:fxSweep 2.2s ease-in-out both}
+.fx-lock{display:inline-block;margin-top:2vh;padding:.6vh 2vw;border:6px solid #ff3b30;color:#ff3b30;font-size:clamp(30px,4vw,80px);letter-spacing:.12em;animation:fxLock .6s cubic-bezier(.2,1.6,.4,1) .5s both;background:#000000a0}
+.fx-target{display:inline-block;position:relative;padding:0 3vw}
+.fx-target::before,.fx-target::after{content:"";position:absolute;top:50%;width:2.4vw;height:6px;background:#ff3b30}
+.fx-target::before{left:0}.fx-target::after{right:0}
+.fx-stamp{display:inline-block;padding:1vh 3vw;border:10px double currentColor;font-size:clamp(44px,6.5vw,140px);letter-spacing:.06em;transform:rotate(-8deg);animation:fxStamp .5s cubic-bezier(.2,1.8,.4,1) both;background:#0000008c}
+.fx-stamp.green{color:#3ddc84}.fx-stamp.amber{color:#ffb020}.fx-stamp.red{color:#ff4d3d}.fx-stamp.gold{color:var(--fx-marca)}
+.fx-medal{font-size:clamp(70px,10vw,200px);display:block;animation:fxMedal 1s cubic-bezier(.2,1.6,.4,1) both}
+.fx-tag{display:inline-block;margin-top:2vh;padding:1.2vh 2.4vw;border-radius:14px;background:linear-gradient(#cfd4d6,#8f979b);color:#111;font-family:"Courier New",monospace;font-weight:700;font-size:clamp(22px,2.4vw,46px);box-shadow:0 6px 0 #333;animation:fxDrop 1.4s cubic-bezier(.5,0,.75,0) 1.4s both}
+.fx-plaque{display:inline-block;margin-top:2vh;padding:1vh 2vw;background:#1d1d1d;border:4px solid var(--fx-amarelo);font-size:clamp(22px,2.4vw,46px);animation:fxSwing 1.6s ease-in-out .4s both;transform-origin:top center}
+.fx-bars{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 7%,#000000c0 7% 9%);animation:fxBars .9s ease-out .3s both}
+.fx-spark{position:absolute;left:50%;top:50%;width:10px;height:10px;border-radius:50%;background:var(--fx-marca);box-shadow:0 0 12px #ffd34d;animation:fxSpark 1.1s ease-out both}
+.fx-telegram{font-family:"Courier New",monospace;text-align:left;background:#efe6c8;color:#2a2416;padding:4vh 4vw;max-width:70vw;box-shadow:0 20px 60px #000;border-top:14px solid #8b2b1e;animation:fxFade .3s both}
+.fx-telegram .fx-kicker{color:#8b2b1e;font-family:Impact,system-ui,sans-serif}
+.fx-type{font-size:clamp(24px,2.8vw,56px);line-height:1.3;white-space:pre-wrap;min-height:2.6em}
+.fx-chip-row{display:flex;gap:1.4vw;justify-content:center;margin-top:3vh}
+.fx-chip{width:clamp(56px,6vw,110px);height:clamp(56px,6vw,110px);border-radius:50%;border:6px dashed #777;display:grid;place-items:center;font-size:clamp(22px,2.4vw,44px);color:#777;background:#111}
+.fx-chip.on{border:6px solid var(--fx-marca);color:#111;background:var(--fx-marca)}
+.fx-chip.new{animation:fxChip .6s cubic-bezier(.2,1.6,.4,1) both}
+.fx-bolt{position:absolute;inset:0;background:linear-gradient(115deg,transparent 46%,var(--fx-amarelo) 46.5%,#fff7b0 49%,var(--fx-amarelo) 51%,transparent 51.5%);clip-path:polygon(0 0,100% 0,100% 100%,0 100%);animation:fxCut .6s ease-out both}
+.fx-drum{width:clamp(160px,18vw,320px);height:clamp(160px,18vw,320px);margin:3vh auto 0;border-radius:50%;background:radial-gradient(circle,#555 0 12%,#2b2b2b 13% 100%);position:relative;border:8px solid #888;animation:fxDrum 2.6s cubic-bezier(.12,.8,.18,1) both}
+.fx-drum i{position:absolute;width:26%;height:26%;border-radius:50%;background:#0c0c0c;border:4px solid #666;left:37%;top:37%}
+.fx-die{display:inline-block;font-size:clamp(120px,16vw,300px);line-height:1;color:#fff}
+.fx-flag{width:min(40vw,520px);height:min(26vw,340px);margin:0 auto;position:relative}
+.fx-flag .pole{position:absolute;left:0;bottom:0;width:10px;height:100%;background:#ccc}
+.fx-flag .cloth{position:absolute;left:10px;width:80%;height:55%;animation:fxRaise 2s ease-out both}
+.fx-podium{display:flex;align-items:flex-end;justify-content:center;gap:3vw;margin-top:3vh}
+.fx-podium div{width:clamp(140px,16vw,300px);display:flex;flex-direction:column;justify-content:flex-end;align-items:center;font-size:clamp(22px,2.2vw,42px);padding-bottom:1vh;animation:fxRise 1s ease-out both;border:4px solid #fff}
+.fx-confetti{position:absolute;top:-4vh;width:12px;height:22px;animation:fxFall 3.2s linear both}
+#fxFeed{position:fixed;right:1vw;bottom:2vh;z-index:8990;display:flex;flex-direction:column;gap:8px;pointer-events:none;width:min(21vw,420px)}
+#fxVotos{position:fixed;left:50%;bottom:2vh;transform:translateX(-50%);z-index:8992;pointer-events:none;background:#0b0b0bf0;border:3px solid var(--fx-marca);border-radius:16px;padding:10px 24px 14px;text-align:center;font-family:Impact,"Arial Narrow",system-ui,sans-serif;color:#fff}
+#fxVotos .fx-chip-row{margin-top:8px}
+.fx-kf{display:flex;gap:12px;align-items:center;background:#0b0b0bee;color:#fff;border-left:8px solid var(--fx-marca);padding:10px 16px;font:600 clamp(18px,1.2vw,24px)/1.25 system-ui,sans-serif;animation:fxKf .35s ease-out both,fxKfOut .5s ease-in 7.5s both}
+.fx-kf b{font-size:1.3em}
+#fxEmoji{position:fixed;right:0;bottom:0;width:32vw;height:70vh;z-index:8980;pointer-events:none;overflow:hidden}
+.fx-emo{position:absolute;bottom:-60px;font-size:clamp(36px,3.6vw,72px);animation:fxUp 3.2s ease-out both}
+#fxMeter{position:fixed;left:50%;top:0;transform:translateX(-50%);z-index:8985;width:min(50vw,760px);pointer-events:none;font:600 clamp(14px,1vw,20px)/1.2 system-ui,sans-serif;color:#fff;background:#0b0b0bdd;padding:6px 12px 8px;border-radius:0 0 12px 12px;text-align:center}
+#fxMeter .bar{display:flex;height:16px;border:2px solid #fff;margin-top:4px}
+#fxMeter .p{background:repeating-linear-gradient(45deg,#111 0 8px,#666 8px 16px);transition:flex-grow .6s}#fxMeter .a{background:var(--fx-amarelo);transition:flex-grow .6s}
+#fxPanel{position:fixed;left:12px;bottom:12px;z-index:8995;display:flex;gap:8px;opacity:.35;transition:opacity .2s}
+#fxPanel:hover,#fxPanel:focus-within{opacity:1}
+#fxPanel button{min-height:44px;min-width:44px;padding:8px 14px;border-radius:10px;border:2px solid var(--fx-marca);background:#0b0b0b;color:#fff;font:700 16px system-ui,sans-serif;cursor:pointer}
+#fxPanel button:focus-visible{outline:3px solid #fff;outline-offset:2px}
+html.fx-crit #mgApp .mg-clock-card{border:4px solid #ff3b30!important;animation:fxShake 1s ease-in-out infinite}
+html.fx-crit #mgApp .mg-clock{color:#ff3b30!important}
+@keyframes fxFade{from{opacity:0}}@keyframes fxFadeOut{to{opacity:0}}
+@keyframes fxTape{from{transform:translateX(-120vw) rotate(-6deg)}}
+@keyframes fxSweep{0%{transform:translateX(0) rotate(18deg)}60%{transform:translateX(140vw) rotate(-14deg)}100%{transform:translateX(110vw) rotate(-6deg)}}
+@keyframes fxLock{from{transform:scale(2.4);opacity:0}}
+@keyframes fxStamp{from{transform:rotate(-8deg) scale(3);opacity:0}}
+@keyframes fxMedal{from{transform:translateY(-40vh) rotate(-30deg)}}
+@keyframes fxDrop{to{transform:translateY(70vh) rotate(25deg);opacity:0}}
+@keyframes fxSwing{0%{transform:rotate(-14deg)}50%{transform:rotate(9deg)}100%{transform:rotate(0)}}
+@keyframes fxBars{from{transform:translateY(-100%)}}
+@keyframes fxSpark{to{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}
+@keyframes fxChip{from{transform:translateY(-50vh) rotate(-200deg)}}
+@keyframes fxCut{from{clip-path:polygon(0 0,0 0,0 100%,0 100%)}}
+@keyframes fxDrum{from{transform:rotate(0)}to{transform:rotate(1440deg)}}
+@keyframes fxRaise{from{bottom:0}to{bottom:45%}}
+@keyframes fxRise{from{transform:translateY(40vh)}}
+@keyframes fxFall{to{transform:translateY(110vh) rotate(720deg)}}
+@keyframes fxKf{from{transform:translateX(40px);opacity:0}}@keyframes fxKfOut{to{opacity:0}}
+@keyframes fxUp{to{transform:translateY(-75vh) rotate(18deg);opacity:0}}
+@keyframes fxShake{0%,100%{transform:scale(1)}15%{transform:scale(1.04) rotate(-.6deg)}30%{transform:scale(1) rotate(.6deg)}}
+/* Movimento reduzido: informação igual, sem deslocamento, giro, tremor ou partícula. */
+html[data-fx-reduce] #fxLayer *,html[data-fx-reduce] #fxFeed *,html[data-fx-reduce].fx-crit #mgApp .mg-clock-card{animation:none!important}
+html[data-fx-reduce] .fx-spot,html[data-fx-reduce] .fx-spark,html[data-fx-reduce] .fx-confetti,html[data-fx-reduce] .fx-tag{display:none}
+html[data-fx-reduce] .fx-stage{animation:fxFade .2s linear both!important}
+/* Tema do telão: preto e amarelo, só na visão pública com a camada ligada. */
+html.fx-telao body,html.fx-telao #mgApp{background:#0b0b0b!important}
+html.fx-telao #mgApp{--ink:#f5f5f5;--muted:#cfcfcf;--green:#1b1b1b;--line:#333;--gold:#ffc21a;color:#f5f5f5}
+html.fx-telao #mgApp .mg-header{background:#000!important;border-bottom:4px solid #ffc21a!important}
+html.fx-telao #mgApp section,html.fx-telao #mgApp aside,html.fx-telao #mgApp .mg-army-panel,html.fx-telao #mgApp .mg-rank{background:#151515!important;color:#f5f5f5!important;border-color:#333!important}
+html.fx-telao #mgApp .mg-army-panel.black{border-top:6px solid #f5f5f5!important}
+html.fx-telao #mgApp .mg-army-panel.yellow{border-top:6px solid #f5c400!important}
+html.fx-telao #mgApp h1,html.fx-telao #mgApp h2,html.fx-telao #mgApp h3,html.fx-telao #mgApp h4,html.fx-telao #mgApp b,html.fx-telao #mgApp strong{color:#fff}
+html.fx-telao #mgApp p,html.fx-telao #mgApp small,html.fx-telao #mgApp .mg-muted,html.fx-telao #mgApp li{color:#dcdcdc}
+html.fx-telao #mgApp .mg-kicker{color:#ffc21a!important}
+html.fx-telao #mgApp button{background:#111;color:#fff;border-color:#ffc21a}
+html.fx-telao #mgApp .mg-live-state{border-left:8px solid #ffc21a!important}
+html.fx-telao #mgApp .mg-army-dot.black{background:#111;box-shadow:0 0 0 3px #f5f5f5}
+html.fx-telao #mgApp .mg-army-dot.yellow{background:#f5c400}
+html.fx-telao #mgApp .mg-clock-idle{color:#ffc21a}
+html.fx-telao #mgApp .mg-result-banner,html.fx-telao #mgApp .mg-review-banner,html.fx-telao #mgApp .mg-award{border-width:3px!important}
+html.fx-telao #mgApp .mg-result-banner[data-outcome="total"]{border-left:12px solid #3ddc84!important}
+html.fx-telao #mgApp .mg-result-banner[data-outcome="parcial"]{border-left:12px solid #ffb020!important}
+html.fx-telao #mgApp .mg-result-banner[data-outcome="falhou"]{border-left:12px solid #ff4d3d!important}
+html.fx-telao #mgApp .mg-review-banner,html.fx-telao #mgApp .mg-award{border-left:12px solid #ffc21a!important}
+/* Telão sem rolagem em telas de computador/projetor (1200px ou mais). */
+@media (min-width:1200px) and (min-height:650px){
+html.fx-telao,html.fx-telao body{height:100%;overflow:hidden}
+html.fx-telao #mgApp{height:100vh;display:flex;flex-direction:column;overflow:hidden}
+html.fx-telao #mgApp .mg-demo-banner{padding:4px!important;font-size:14px}
+html.fx-telao #mgApp .mg-header{padding:6px 20px!important;min-height:0}
+html.fx-telao #mgApp .mg-header h1{font-size:24px!important}
+html.fx-telao #mgApp .mg-phase{padding-top:6px!important;padding-bottom:6px!important;font-size:clamp(18px,1.2vw,24px)}
+html.fx-telao #mgApp main.mg-public-layout{flex:1;min-height:0;display:grid!important;grid-template-columns:clamp(260px,16vw,320px) minmax(0,1fr) clamp(300px,20vw,400px)!important;grid-template-rows:minmax(0,1fr) auto;gap:14px!important;padding:10px 18px 14px!important;max-width:none!important;margin:0!important}
+html.fx-telao #mgApp .mg-public-sidebar{grid-column:1;grid-row:1/3;min-height:0;overflow:hidden;display:flex;flex-direction:column;gap:12px}
+html.fx-telao #mgApp .mg-public-main{grid-column:2;grid-row:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;gap:10px}
+html.fx-telao #mgApp .mg-public-main>*{margin:0!important}
+html.fx-telao #mgApp .mg-public-feed{grid-column:3;grid-row:1/3;min-height:0;max-height:none!important;overflow:hidden}
+html.fx-telao #mgApp .mg-public-resources{grid-column:2!important;grid-row:2;min-height:0;max-height:36vh;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+html.fx-telao #mgApp .mg-public-resources>*{margin:0!important;min-height:0;overflow:hidden}
+html.fx-telao #mgApp .mg-public-resources .mg-army-grid{grid-template-columns:1fr 1fr!important;gap:10px}
+html.fx-telao #mgApp .mg-public-resources .mg-muted,html.fx-telao #mgApp .mg-public-resources>section>p{display:none}
+html.fx-telao #mgApp .mg-public-resources ul{display:flex;flex-wrap:wrap;gap:4px 12px;margin:4px 0;padding:0;list-style:none}
+html.fx-telao #mgApp .mg-public-resources li{padding:0!important;border:0!important;font-size:17px}
+html.fx-telao #mgApp .mg-public-resources h2{font-size:20px!important;margin-bottom:6px!important}
+html.fx-telao #mgApp .mg-public-resources h3,html.fx-telao #mgApp .mg-public-resources h4{font-size:17px!important;margin:4px 0!important}
+html.fx-telao #mgApp .mg-army-panel{padding:10px 12px!important}
+html.fx-telao #mgApp .mg-card{padding:14px 18px!important}
+html.fx-telao #mgApp .mg-live-state{display:none!important}
+html.fx-telao #mgApp .mg-public-main .mg-question{font-size:clamp(26px,1.9vw,40px)!important;line-height:1.25}
+html.fx-telao #mgApp .mg-feed li{font-size:18px}
+html.fx-telao #mgApp .mg-clock-card .mg-clock{font-size:clamp(70px,5vw,110px)!important}
+html.fx-telao #mgApp .mg-rank b,html.fx-telao #mgApp .mg-rank strong{font-size:28px}
+}
+html.fx-telao #mgApp .mg-person{background:#1f1f1f!important;border:3px solid #555!important}
+html.fx-telao #mgApp .mg-person-answering{border-color:#f5c400!important;background:#2a2405!important}
+html.fx-telao #mgApp .mg-person small{color:#ffc21a!important}
+html.fx-telao #mgApp .mg-person strong{color:#fff!important;font-size:clamp(28px,2vw,44px)!important}
+html.fx-telao #mgApp .mg-clock-wrap{--clock-ink:#fff;--clock-bg:#111;--clock-accent:#ffc21a}
+html.fx-telao #mgApp .mg-clock-wrap[data-tone="warning"]{--clock-accent:#ffb020;--clock-ink:#ffd27a;--clock-bg:#2a1f05}
+html.fx-telao #mgApp .mg-clock-wrap[data-tone="danger"],html.fx-telao #mgApp .mg-clock-wrap[data-tone="expired"]{--clock-accent:#ff4d3d;--clock-ink:#ff7a6e;--clock-bg:#2a0d0b}
+@media (min-width:1200px) and (min-height:650px){
+html.fx-telao #mgApp .mg-public-resources{max-height:28vh}
+html.fx-telao #mgApp .mg-public-main .mg-card h2{font-size:22px!important;margin-bottom:4px!important}
+}
+html.fx-telao #mgApp .mg-seat:not([data-outcome]){background:#1f1f1f!important;color:#eee!important;border-color:#555!important}
+html.fx-telao #mgApp .mg-seat:not([data-outcome]) *{color:#eee!important}
+html.fx-telao #mgApp .mg-seat.received:not([data-outcome]){border-color:#ffc21a!important}
+html.fx-telao #mgApp .mg-chip{background:#ffc21a!important;color:#111!important}
+html.fx-telao #mgApp .mg-roster-group li,html.fx-telao #mgApp .mg-roster-group li *{background:transparent!important;color:#f5f5f5!important}
+html.fx-telao #mgApp .mg-roster-group[data-status="morto"] li strong{text-decoration:line-through;color:#bbb!important}
+html.fx-telao #mgApp .mg-roster-group h4{color:#ffc21a!important}
+html.fx-telao #mgApp .mg-roster-group{margin-top:6px!important;padding-top:6px!important}
+</style>
+<script id="fx-telao">
+(function(){
+  'use strict';
+  // Camada de apresentação: dispara sozinha a partir das mudanças da projeção pública (jg/estado).
+  // Não grava nada, não sorteia nada e respeita redução de movimento. ?fx=0 desliga tudo.
+  if(new URLSearchParams(location.search).get('fx')==='0'||typeof window.mgRenderUI!=='function')return;
+  const root=document.documentElement,REACOES={fogo:'🔥',palmas:'👏',coracao:'❤️',choque:'⚡',bomba:'💣',caveira:'💀',bandeira:'🚩',susto:'😱',riso:'😂',medalha:'🎖️'},TECLAS=['fogo','palmas','coracao','choque','bomba','caveira','bandeira','susto','riso','medalha'];
+  const reduce=()=>root.dataset.mgMotion==='reduce'||!!window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+  const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const el=(tag,id)=>{let n=document.getElementById(id);if(!n){n=document.createElement(tag);n.id=id;n.setAttribute('aria-hidden','true');document.body.append(n)}return n};
+  let ativo=false,prev=null,last=null;
+
+  // ---------- Som (Web Audio, desligado até o operador ativar) ----------
+  const SOM={ctx:null,on:false,
+    ligar(){try{this.ctx=this.ctx||new (window.AudioContext||window.webkitAudioContext)();void this.ctx.resume();this.on=true}catch{this.on=false}},
+    tom(f,ms,tipo='square',vol=.12,f2=null,atraso=0){if(!this.on||!this.ctx)return;const c=this.ctx,t=c.currentTime+atraso/1000,o=c.createOscillator(),g=c.createGain();o.type=tipo;o.frequency.setValueAtTime(f,t);if(f2)o.frequency.exponentialRampToValueAtTime(f2,t+ms/1000);g.gain.setValueAtTime(vol,t);g.gain.exponentialRampToValueAtTime(.0001,t+ms/1000);o.connect(g).connect(c.destination);o.start(t);o.stop(t+ms/1000+.02)},
+    ruido(ms,vol=.2,atraso=0,freq=800){if(!this.on||!this.ctx)return;const c=this.ctx,t=c.currentTime+atraso/1000,n=Math.max(1,c.sampleRate*ms/1000|0),b=c.createBuffer(1,n,c.sampleRate),d=b.getChannelData(0);for(let i=0;i<n;i++)d[i]=Math.random()*2-1;const s=c.createBufferSource(),f=c.createBiquadFilter(),g=c.createGain();f.type='lowpass';f.frequency.value=freq;s.buffer=b;g.gain.setValueAtTime(vol,t);g.gain.exponentialRampToValueAtTime(.0001,t+ms/1000);s.connect(f).connect(g).connect(c.destination);s.start(t)},
+    sirene(){for(let i=0;i<2;i++){this.tom(620,450,'sawtooth',.07,880,i*900);this.tom(880,450,'sawtooth',.07,620,i*900+450)}},
+    trava(){this.tom(220,120,'square',.1,880);this.tom(880,90,'square',.1,null,180);this.tom(880,90,'square',.1,null,320)},
+    tique(alto){this.tom(alto?1500:1100,35,'square',.08)},
+    gongo(){this.tom(110,1800,'sine',.35,90);this.tom(165,1400,'sine',.15)},
+    fanfarra(){[523,659,784,1046].forEach((f,i)=>this.tom(f,260,'triangle',.18,null,i*140))},
+    carimbo(){this.ruido(140,.35,0,300);this.tom(70,300,'sine',.4)},
+    bumbo(){this.tom(65,600,'sine',.5,40);this.ruido(200,.2,0,200)},
+    cela(){this.tom(180,200,'square',.12,120);this.ruido(120,.25,60,2500)},
+    ficha(){this.tom(520,50,'square',.1);this.ruido(40,.12,30,3000)},
+    datilo(){this.ruido(18,.12,0,4000)},
+    trovao(){this.ruido(900,.35,0,500);this.tom(110,500,'sawtooth',.12,60)},
+    tambor(){for(let i=0;i<12;i++)this.tom(900,25,'square',.08,null,Math.pow(i,1.7)*22)},
+    dado(){for(let i=0;i<8;i++)this.ruido(30,.15,i*90,2500);this.tom(60,200,'sine',.4,null,800)},
+    vitoria(){[392,523,659,784,659,784,1046].forEach((f,i)=>this.tom(f,300,'triangle',.18,null,i*170))}
+  };
+
+  // ---------- Fila de momentos de palco ----------
+  const FX={q:[],busy:false,push(fn,ms){if(this.q.length>2)this.q.splice(0,this.q.length-2);this.q.push([fn,ms]);this.next()},
+    next(){if(this.busy||!this.q.length)return;this.busy=true;const [fn,ms]=this.q.shift(),layer=el('div','fxLayer');layer.innerHTML='';const stage=document.createElement('div');stage.className='fx-stage';layer.append(stage);try{fn(stage)}catch(e){console.warn('fx',e)}const dur=reduce()?Math.min(ms,2600):ms;setTimeout(()=>{stage.classList.add('fx-out');setTimeout(()=>{stage.remove();this.busy=false;this.next()},350)},dur)}};
+  function faiscas(stage,cor){if(reduce())return;for(let i=0;i<36;i++){const s=document.createElement('i'),a=Math.random()*Math.PI*2,r=20+Math.random()*30;s.className='fx-spark';s.style.setProperty('--dx',Math.cos(a)*r+'vw');s.style.setProperty('--dy',Math.sin(a)*r+'vh');if(cor)s.style.background=cor;s.style.animationDelay=(Math.random()*.25)+'s';stage.append(s)}}
+  function confete(stage,cores){if(reduce())return;for(let i=0;i<90;i++){const c=document.createElement('i');c.className='fx-confetti';c.style.left=Math.random()*100+'vw';c.style.background=cores[i%cores.length];c.style.animationDelay=(Math.random()*1.6)+'s';stage.append(c)}}
+  function digitar(alvo,texto){if(reduce()){alvo.textContent=texto;return}let i=0;(function passo(){alvo.textContent=texto.slice(0,++i);if(i%2)SOM.datilo();if(i<texto.length)setTimeout(passo,55)})()}
+  const armyName=(g,id)=>(g?.armies||[]).find(a=>Number(a.id)===Number(id))?.name||(Number(id)===5?'Amarelo':'Preto');
+  const armyCls=id=>Number(id)===5?'fx-army-5':'fx-army-0';
+
+  // ---------- Momentos ----------
+  function ataque(g){const a=g.activity,kind=g.battle?.kind,col=a.target==='Resposta coletiva',swap=(g.history||[]).slice(-1)[0]?.text?.match(/(.+) responde no lugar de (.+?) \(/);
+    if(kind==='blitz')return FX.push(st=>{st.innerHTML=`<div class="fx-bolt"></div><div class="fx-card"><div class="fx-kicker">ATAQUE RELÂMPAGO · 45 SEGUNDOS</div><div class="fx-big">⚡ BLITZKRIEG</div><div class="fx-mid"><span class="${armyCls(a.attacker)}">${esc(armyName(g,a.attacker))}</span> ataca <span class="${armyCls(a.targetArmy)}">${esc(armyName(g,a.targetArmy))}</span></div></div>`;SOM.trovao()},3400);
+    FX.push(st=>{st.innerHTML=`<div class="fx-spot"></div><div class="fx-tape"></div><div class="fx-card"><div class="fx-kicker">${kind==='peloton'?'PELOTÃO DE FUZILAMENTO':col?'DEFESA COLETIVA':'ATAQUE EM CURSO'}</div><div class="fx-mid"><span class="${armyCls(a.attacker)}">${esc(armyName(g,a.attacker))}</span> ataca <span class="${armyCls(a.targetArmy)}">${esc(armyName(g,a.targetArmy))}</span></div><div class="fx-big"><span class="fx-target">${esc(col?armyName(g,a.targetArmy):a.target)}</span></div><div class="fx-lock">${col?'EXÉRCITO NA MIRA':'ALVO TRAVADO'}</div>${swap?`<div class="fx-small">Troca de comando: ${esc(swap[1])} responde no lugar de ${esc(swap[2])}</div>`:''}</div>`;SOM.sirene();setTimeout(()=>SOM.trava(),500)},3800)}
+  function veredito(g,mudancas){const r=g.council?.result,quem=g.activity?.target||'',morte=mudancas.find(m=>m.para==='morto'),preso=mudancas.find(m=>m.para==='preso');
+    if(r==='total')FX.push(st=>{st.innerHTML=`<div class="fx-card"><span class="fx-medal">🎖️</span><div class="fx-stamp green">DEFESA TOTAL</div><div class="fx-mid">${esc(quem)} segurou a linha</div></div>`;faiscas(st);SOM.fanfarra()},3600);
+    else if(r==='parcial'||preso)FX.push(st=>{st.innerHTML=`<div class="fx-bars"></div><div class="fx-card"><div class="fx-stamp amber">PRISIONEIRO DE GUERRA</div><div class="fx-plaque">⛓ ${esc(preso?.nome||quem)} · capturado</div><div class="fx-small">Resposta parcial: 10 pontos para cada exército</div></div>`;SOM.carimbo();setTimeout(()=>SOM.cela(),500)},3800);
+    else if(r==='falhou')FX.push(st=>{st.innerHTML=`<div class="fx-card"><div class="fx-stamp red">${morte?'K.I.A.':'FALHOU'}</div>${morte?`<div><span class="fx-tag">✝ ${esc(morte.nome)} · ${esc(armyName(g,morte.army))}</span></div><div class="fx-small">Caído em combate · segue para o Memorial</div>`:`<div class="fx-mid">${esc(quem)}</div>`}</div>`;SOM.carimbo();setTimeout(()=>SOM.bumbo(),400)},4000);
+    if(morte&&r==='falhou'&&g.battle?.kind==='normal')roleta()}
+  function situacao(m,g){const txt={morto:['K.I.A.','red','✝ caído em combate · Memorial'],preso:['PRISIONEIRO DE GUERRA','amber','⛓ capturado'],vivo:['DE VOLTA AO FRONT','green','★ retorna à batalha']}[m.para];if(!txt)return;FX.push(st=>{st.innerHTML=`${m.para==='preso'?'<div class="fx-bars"></div>':''}<div class="fx-card"><div class="fx-stamp ${txt[1]}">${txt[0]}</div><div><span class="${m.para==='morto'?'fx-tag':'fx-plaque'}">${esc(m.nome)} · ${esc(armyName(g,m.army))}</span></div><div class="fx-small">${txt[2]}</div></div>`;if(m.para==='vivo'){faiscas(st,'#3ddc84');SOM.fanfarra()}else if(m.para==='morto'){SOM.carimbo();SOM.bumbo()}else{SOM.carimbo();SOM.cela()}},3400)}
+  function roleta(){FX.push(st=>{st.innerHTML=`<div class="fx-card"><div class="fx-kicker">ROLETA RUSSA</div><div class="fx-big">O DADO DECIDE</div><div class="fx-drum">${[0,60,120,180,240,300].map(d=>`<i style="transform:rotate(${d}deg) translateY(-120%)"></i>`).join('')}</div><div class="fx-small">1, 3 ou 5: não joga · 2, 4 ou 6: abre a cápsula. O dado é físico.</div></div>`;SOM.tambor()},3600)}
+  function dado(n){FX.push(st=>{st.innerHTML=`<div class="fx-card"><div class="fx-kicker">DADO DA ROLETA</div><div class="fx-die">⚀</div><div class="fx-mid"></div></div>`;const d=st.querySelector('.fx-die'),fim=()=>{d.textContent='⚀⚁⚂⚃⚄⚅'[n-1];st.querySelector('.fx-mid').textContent=n%2?'NÃO JOGA':'JOGA · ABRE A CÁPSULA'};SOM.dado();if(reduce())return fim();let t=40;(function giro(){d.textContent='⚀⚁⚂⚃⚄⚅'[Math.random()*6|0];t*=1.2;if(t<420)setTimeout(giro,t);else fim()})()},4200)}
+  // Votos: faixa própria, fora da fila, para não atrasar os outros momentos.
+  function votos(g,novos){const box=el('div','fxVotos'),c=g.council;if(!c?.open||c.complete){box.hidden=true;return}const seats=(c.seats||[]).slice(0,6),n=seats.filter(s=>s.received).length;box.hidden=false;box.innerHTML=`<div class="fx-kicker">ALTO COMANDO EM DELIBERAÇÃO · ${n} DE 6</div><div class="fx-chip-row">${seats.map((s,i)=>`<span class="fx-chip ${s.received?'on':''} ${novos.includes(i)?'new':''}">${s.received?'✓':i+1}</span>`).join('')}</div>`;if(novos.length)SOM.ficha()}
+  function empate(){FX.push(st=>{st.innerHTML=`<div class="fx-card"><div class="fx-kicker">EMPATE NO ALTO COMANDO</div><div class="fx-big">⚖ O SENHOR DA GUERRA DECIDE</div></div>`;SOM.gongo()},3400)}
+  function recurso(g){const r=g.activity?.review;FX.push(st=>{st.innerHTML=`<div class="fx-tape"></div><div class="fx-tape bottom"></div><div class="fx-card"><div class="fx-big">RECURSO!</div><div class="fx-mid"><span class="${armyCls(r?.army)}">${esc(armyName(g,r?.army))}</span> pede revisão · novo julgamento</div></div>`;SOM.sirene()},3600)}
+  function revelacao(p,g){const funcao=p.role==='CO'?'Comandante ':p.role==='SUB'?'Subcomandante ':'';FX.push(st=>{st.innerHTML=`<div class="fx-telegram"><div class="fx-kicker">TELEGRAMA DE GUERRA · ${esc(armyName(g,p.army).toUpperCase())}</div><div class="fx-type"></div></div>`;digitar(st.querySelector('.fx-type'),`IDENTIDADE REVELADA. STOP.\n${(p.codename||'').toUpperCase()} É ${funcao.toUpperCase()}${(p.realname||'').toUpperCase()}. STOP.`)},5600)}
+  function pontos(g){const lines=g.award?.lines||[];if(!lines.length)return;FX.push(st=>{st.style.background='#000000a0';st.innerHTML=`<div class="fx-card">${lines.map(l=>`<div class="fx-big ${armyCls(l.army)}">${Number(l.points)>0?'+':''}${esc(l.points)} ${esc(armyName(g,l.army))}</div>`).join('')}</div>`;SOM.fanfarra()},2600)}
+  function vitoria(g){const arm=(g.armies||[]).slice().sort((a,b)=>(a.rank||9)-(b.rank||9)),v=arm[0];if(!v)return;const cor=Number(v.id)===5?'#f5c400':'#111111';FX.push(st=>{st.innerHTML=`<div class="fx-card"><div class="fx-flag"><span class="pole"></span><span class="cloth" style="background:${cor};border:4px solid #fff"></span></div><div class="fx-kicker">VITÓRIA</div><div class="fx-big ${armyCls(v.id)}">${esc(v.name)}</div><div class="fx-podium">${arm.map((a,i)=>`<div style="height:${i?14:24}vh;background:${Number(a.id)===5?'#f5c400':'#111'};color:${Number(a.id)===5?'#111':'#fff'}">${i+1}º ${esc(a.name)}${a.points!=null?`<small>${esc(a.points)} pts</small>`:''}</div>`).join('')}</div></div>`;confete(st,[cor,'#ffffff','#ffc21a']);SOM.vitoria()},9000)}
+  function killfeed(item){const box=el('div','fxFeed'),t=String(item.text||''),ic=/\b(morre|morreu|caiu|baixa|falhou)\b|totalmente errada/i.test(t)?'✝':/prision|preso|captur/i.test(t)?'⛓':/revis/i.test(t)?'⚖':/blitz/i.test(t)?'⚡':/ataca/i.test(t)?'🎯':/revelad/i.test(t)?'✉':/totalmente certa|defendeu/i.test(t)?'🛡':'•';const n=document.createElement('div');n.className='fx-kf';n.innerHTML=`<b>${ic}</b><span>${esc(t)}</span>`;box.prepend(n);while(box.children.length>4)box.lastChild.remove();setTimeout(()=>n.remove(),8200)}
+
+  // ---------- Reações (gancho da plateia e plano B por teclas, só local) ----------
+  const torcida=[];
+  function medidor(){const agora=Date.now();while(torcida.length&&agora-torcida[0].t>60000)torcida.shift();const p=torcida.filter(x=>x.lado==='preto').length,a=torcida.filter(x=>x.lado==='amarelo').length;const m=el('div','fxMeter');if(!p&&!a){m.hidden=true;return}m.hidden=false;m.innerHTML=`Moral da tropa · não vale ponto<div class="bar"><span class="p" style="flex-grow:${p||.001}"></span><span class="a" style="flex-grow:${a||.001}"></span></div>Preto ${p} · Amarelo ${a}`}
+  window.jgReacao=function(e,lado){if(!ativo)return false;const ch=REACOES[e];if(!ch)return false;const t=String(lado??'').toLowerCase(),side=t==='preto'||t==='0'?'preto':t==='amarelo'||t==='5'?'amarelo':'';if(side){torcida.push({lado:side,t:Date.now()});medidor()}if(reduce())return true;const box=el('div','fxEmoji');if(box.children.length>=30)return true;const s=document.createElement('span');s.className='fx-emo';s.textContent=ch;s.style.left=(Math.random()*85)+'%';box.append(s);s.addEventListener('animationend',()=>s.remove());setTimeout(()=>s.remove(),3600);return true};
+  window.JGPlateia=Object.assign(window.JGPlateia||{},{onReacao:(e,torcida)=>window.jgReacao(e,torcida)});
+  window.jgFx={estado:()=>({ativo,temPrev:!!prev,fila:FX.q.length,ocupado:FX.busy}),reacao:window.jgReacao,dado,roleta,vitoria:()=>last&&vitoria(last),som:()=>SOM};
+  let ladoTecla='',esperaDado=0;
+  document.addEventListener('keydown',e=>{if(!ativo||e.ctrlKey||e.metaKey||e.altKey||/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName||''))return;const k=e.key.toLowerCase(),dig=/^Digit(\d)$/.exec(e.code)?.[1];
+    if(esperaDado&&Date.now()-esperaDado<3000&&dig&&dig>='1'&&dig<='6'){esperaDado=0;dado(Number(dig));return}
+    if(dig!=null){window.jgReacao(TECLAS[(Number(dig)+9)%10],ladoTecla);return}
+    if(k==='p'||k==='a'){ladoTecla=ladoTecla===(k==='p'?'preto':'amarelo')?'':k==='p'?'preto':'amarelo';window.jgReacao('bandeira',ladoTecla);painel();return}
+    if(k==='d'){esperaDado=Date.now();return}if(k==='r'){roleta();return}if(k==='v'&&last){vitoria(last);return}if(k==='m'){alternarSom()}});
+  function alternarSom(){if(SOM.on)SOM.on=false;else{SOM.ligar();SOM.ficha()}painel()}
+  function painel(){const p=el('div','fxPanel');p.removeAttribute('aria-hidden');p.innerHTML=`<button type="button" data-fx="som" aria-pressed="${SOM.on}">${SOM.on?'🔊 Som ligado':'🔇 Ativar som'}</button>${ladoTecla?`<button type="button" data-fx="lado">Torcida: ${ladoTecla==='preto'?'Preto':'Amarelo'}</button>`:''}`;p.onclick=ev=>{const b=ev.target.closest('[data-fx]');if(!b)return;if(b.dataset.fx==='som')alternarSom();else{ladoTecla='';painel()}}}
+
+  // ---------- Detecção de acontecimentos (diferença entre projeções públicas) ----------
+  const statusMap=g=>Object.fromEntries((g?.participants||[]).map(p=>[p.army+':'+p.id,p]));
+  function diff(a,b){
+    const actA=a.activity,actB=b.activity,batA=a.battle||{},batB=b.battle||{};
+    if(actB&&batB.pending&&(actB.questionId||actB.id)!==(actA?.questionId||actA?.id)&&!actB.review)ataque(b);
+    if(actB?.review&&b.council?.round!==a.council?.round)recurso(b);
+    const sa=(a.council?.seats||[]).slice(0,6),sb=(b.council?.seats||[]).slice(0,6),novos=b.council?.round===a.council?.round?sb.map((s,i)=>s.received&&!sa[i]?.received?i:-1).filter(i=>i>=0):sb.map((s,i)=>s.received?i:-1).filter(i=>i>=0);
+    votos(b,novos);
+    if(b.council?.awaitingProfessor&&!a.council?.awaitingProfessor)empate();
+    const pa=statusMap(a),mud=[];if((a.participants||[]).length===(b.participants||[]).length)for(const p of b.participants||[]){const o=pa[p.army+':'+p.id];if(o&&o.status!==p.status)mud.push({army:p.army,nome:p.codename,de:o.status,para:p.status});if(o&&!o.revealed&&p.revealed&&p.realname)revelacao(p,b)}
+    const fim=b.council?.complete&&(!a.council?.complete||a.council?.round!==b.council?.round||batA.id!==batB.id);
+    if(fim)veredito(b,mud);else mud.forEach(m=>situacao(m,b));
+    if(b.award?.lines?.length&&JSON.stringify(b.award.lines)!==JSON.stringify(a.award?.lines||null))pontos(b);
+    const ids=new Set((a.history||[]).map(h=>h.id));(b.history||[]).filter(h=>!ids.has(h.id)).slice(-3).forEach(killfeed);
+    const venceu=g=>g.phaseClosed&&Number(g.phase)>=5&&g.scoresVisible;if(venceu(b)&&!venceu(a))vitoria(b)}
+
+  // ---------- Cronômetro tenso ----------
+  let ultimoSeg=null;
+  setInterval(()=>{if(!ativo||!last)return root.classList.remove('fx-crit');const c=last.clock;const rest=c?.running&&c.endsAt?Math.ceil((Number(c.endsAt)-Date.now())/1000):null;const crit=rest!=null&&rest<=10&&rest>0;root.classList.toggle('fx-crit',crit);if(rest!==ultimoSeg){if(crit)SOM.tique(rest<=5);if(rest===0&&ultimoSeg===1)FX.push(st=>{st.style.background='#000000a0';st.innerHTML='<div class="fx-card"><div class="fx-stamp red">TEMPO!</div></div>';SOM.gongo()},2200);ultimoSeg=rest}},250);
+
+  // ---------- Ligação com a interface existente (sem alterar o render original) ----------
+  const original=window.mgRenderUI;
+  window.mgRenderUI=function(view){original(view);const publico=view?.role==='public'&&!!view.game;
+    if(publico!==ativo){ativo=publico;root.classList.toggle('fx-telao',ativo);if(ativo)painel();else{['fxLayer','fxFeed','fxEmoji','fxMeter','fxPanel','fxVotos'].forEach(id=>document.getElementById(id)?.remove());prev=null}}
+    if(!ativo)return;if(reduce())root.setAttribute('data-fx-reduce','');else root.removeAttribute('data-fx-reduce');
+    const g=JSON.parse(JSON.stringify({...view.game,participants:view.participants||view.game.participants||[]}));last=g;if(prev)try{diff(prev,g)}catch(e){console.warn('fx',e)}prev=g};
+  try{if(typeof mgPaint==='function')mgPaint()}catch{}
+})();
+</script>
 </body></html>

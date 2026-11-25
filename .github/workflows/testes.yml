@@ -71,3 +71,6 @@ jobs:
 
       - name: Final Preto x Amarelo (nomes, telão, imagem, revelação)
         run: node tests/final-preto-amarelo.cjs
+
+      - name: Camada de apresentação do telão
+        run: node tests/telao-fx.cjs
