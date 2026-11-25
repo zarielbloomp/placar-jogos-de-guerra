@@ -83,6 +83,9 @@ jobs:
       - name: Sigilo do elenco (codinome só após ataque)
         run: node tests/sigilo-elenco.cjs
 
+      - name: Fim de jogo sem vencedor arbitrário e renovação de token da plateia
+        run: node tests/fim-e-token.cjs
+
       - name: Sigilo do Conselho e tela do Alto Comando
         run: node tests/conselho-sigilo.cjs
 
