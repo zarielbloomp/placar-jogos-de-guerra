@@ -68,3 +68,40 @@ jobs:
 
       - name: Professor, perguntas e combatentes por exército
         run: node tests/professor-paineis.cjs
+
+      - name: Final Preto x Amarelo (nomes, telão, imagem, revelação)
+        run: node tests/final-preto-amarelo.cjs
+
+      - name: Camada de apresentação do telão
+        run: node tests/telao-fx.cjs
+      - name: Plateia anônima, reações e medidor no telão
+        run: node tests/plateia.cjs
+
+      - name: Imersão do telão (bloco isolado, fx=0, sem HTML do banco)
+        run: node tests/imersao.cjs
+
+      - name: Sigilo do elenco (codinome só após ataque)
+        run: node tests/sigilo-elenco.cjs
+
+      - name: Fim de jogo sem vencedor arbitrário e renovação de token da plateia
+        run: node tests/fim-e-token.cjs
+
+      - name: Sigilo do Conselho e tela do Alto Comando
+        run: node tests/conselho-sigilo.cjs
+
+      - name: Pesquisa privada e verifica??o manual
+        run: node tests/pesquisa.cjs
+
+      - name: Cenários da matriz
+        run: node tests/cenarios-matriz.cjs
+
+      - name: Carga local do elenco
+        run: node tests/carregar-elenco.cjs
+
+      - name: Carga local do arsenal
+        run: node tests/carregar-arsenal.cjs
+      - name: Limites de coletiva e origem da roleta
+        run: node tests/limites-roleta.cjs
+
+      - name: Prazo original da Blitzkrieg e inicio idempotente
+        run: node tests/blitz-prazo.cjs
