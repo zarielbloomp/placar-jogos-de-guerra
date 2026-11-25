@@ -76,3 +76,6 @@ jobs:
         run: node tests/telao-fx.cjs
       - name: Plateia anônima, reações e medidor no telão
         run: node tests/plateia.cjs
+
+      - name: Sigilo do Conselho e tela do Alto Comando
+        run: node tests/conselho-sigilo.cjs
