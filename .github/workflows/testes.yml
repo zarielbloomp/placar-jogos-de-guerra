@@ -82,3 +82,6 @@ jobs:
 
       - name: Limites de coletiva e origem da roleta
         run: node tests/limites-roleta.cjs
+
+      - name: Prazo original da Blitzkrieg e inicio idempotente
+        run: node tests/blitz-prazo.cjs
