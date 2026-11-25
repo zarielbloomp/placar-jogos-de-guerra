@@ -1416,4 +1416,89 @@ html.fx-telao #mgApp .mg-vote-totals{display:grid;grid-template-columns:repeat(4
   try{if(typeof mgPaint==='function')mgPaint()}catch{}
 })();
 </script>
+<style id="fx-imersao">
+/* ==== IMERSÃO DO TELÃO ==== Só vale com html.fx-imersao, ligado pelo script abaixo no telão público; ?fx=0 nunca liga. */
+html.fx-imersao body{background:#0b0b0b}
+html.fx-imersao #mgApp{background:transparent!important;position:relative;z-index:1}
+#fxAtmos{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;opacity:.6}
+html.fx-imersao #mgApp main.mg-public-layout{grid-template-columns:clamp(300px,21vw,420px) minmax(0,1fr) clamp(280px,17vw,360px)!important}
+/* Cartão da pergunta: despacho de guerra, letras grandes para 10 m */
+html.fx-imersao #mgApp .mg-activity{position:relative;background:linear-gradient(180deg,#171612,#10100d)!important;border:2px solid #5a4b1c!important;border-top:8px solid #ffc21a!important;box-shadow:0 18px 50px rgba(0,0,0,.85),inset 0 0 0 1px rgba(255,194,26,.18)!important}
+html.fx-imersao #mgApp .mg-activity:not(.mg-activity-waiting)::before{content:"DESPACHO DE GUERRA · TRANSMISSÃO DO ALTO COMANDO";display:block;font:800 clamp(13px,.8vw,16px)/1.2 "Courier New",monospace;letter-spacing:.2em;color:#ffc21a;border-bottom:1px dashed #4d4220;padding-bottom:8px;margin-bottom:10px}
+html.fx-imersao #mgApp .mg-attack-line{background:#0b0b09!important;border:1px solid #3a331d!important;border-radius:8px;padding:8px 16px!important;font-size:clamp(20px,1.5vw,30px)!important}
+html.fx-imersao #mgApp .mg-person-answering{background:#231d07!important;border:3px solid #f5c400!important;border-left:12px solid #ff3b30!important}
+html.fx-imersao #mgApp .mg-person-answering small::before{content:"ALVO NA MIRA · ";color:#ff6b5e;font-weight:800}
+html.fx-imersao #mgApp .mg-public-main .mg-question{font-size:var(--fx-pergunta,clamp(32px,2.6vw,58px))!important;font-weight:750!important;line-height:1.28!important;color:#fffdf5!important;background:#0c0c0a!important;border-left:8px solid #ffc21a!important;padding:14px 22px!important;border-radius:6px;overflow-wrap:anywhere}
+html.fx-imersao #mgApp main.mg-public-layout:has(.mg-person) .mg-public-resources{display:none!important}
+html.fx-imersao #mgApp main.mg-public-layout:has(.mg-person) .mg-public-main{grid-row:1/3}
+html.fx-imersao #mgApp .mg-activity-waiting .mg-question{font-size:clamp(24px,1.8vw,36px)!important;color:#d8d8d8!important;font-weight:600!important}
+/* Classificação: quadro de operações */
+html.fx-imersao #mgApp .mg-ranking{background:linear-gradient(180deg,#12140f,#0b0c09)!important;border-top:6px solid #ffc21a!important}
+html.fx-imersao #mgApp .mg-ranking h2{font-size:clamp(24px,1.6vw,32px)!important;letter-spacing:.04em;text-transform:uppercase}
+html.fx-imersao #mgApp .mg-rank{position:relative;display:flex!important;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:14px 14px!important;margin:10px 0!important;border-radius:10px;background:#161616!important;border:0!important;border-left:12px solid #f5f5f5!important}
+html.fx-imersao #mgApp .mg-rank.yellow{border-left-color:#f5c400!important;background:#221d06!important}
+html.fx-imersao #mgApp .mg-rank>span{font:900 clamp(46px,3.3vw,68px)/1 Impact,"Arial Black",system-ui,sans-serif!important;color:#ffc21a!important}
+html.fx-imersao #mgApp .mg-rank b{font-size:clamp(32px,2.3vw,48px)!important;line-height:1.05}
+html.fx-imersao #mgApp .mg-rank small{font-size:clamp(15px,.9vw,18px)!important;color:#d6d6d6!important}
+html.fx-imersao #mgApp .mg-rank>strong{flex-basis:100%;font:900 clamp(40px,3vw,64px)/1 Impact,"Arial Black",system-ui,sans-serif!important;color:#ffc21a!important}
+html.fx-imersao #mgApp .mg-rank.fx-subiu{animation:fxSubiu 1s ease-out}
+@keyframes fxSubiu{from{transform:translateY(48px);box-shadow:0 0 0 4px #ffc21a}to{transform:none;box-shadow:0 0 0 0 transparent}}
+/* Cartela de fase: citação histórica sobre a apresentação já existente */
+.fx-citacao{max-width:min(80vw,1100px);margin:18px auto 0;font:italic 600 clamp(20px,1.6vw,34px)/1.35 Georgia,"Times New Roman",serif;color:#f3e7c2;text-align:center}
+.fx-citacao small{display:block;margin-top:8px;font:700 clamp(14px,.9vw,18px)/1.2 system-ui,sans-serif;letter-spacing:.12em;color:#ffc21a;font-style:normal}
+@media (prefers-reduced-motion:reduce){#fxAtmos{display:none}html.fx-imersao #mgApp .mg-rank.fx-subiu{animation:none}}
+html[data-mg-motion=reduce] #fxAtmos{display:none}html[data-mg-motion=reduce].fx-imersao #mgApp .mg-rank.fx-subiu{animation:none}
+/* ==== /IMERSÃO DO TELÃO ==== */
+</style>
+<script id="fx-imersao-js">
+/* ==== IMERSÃO DO TELÃO ==== Bloco isolado e desligável (?fx=0). Não grava nada, não lê o banco
+ * e não insere texto do banco: só reorganiza o que o telão já mostra e acrescenta textos fixos. */
+(function(){
+'use strict';
+if(new URLSearchParams(location.search).get('fx')==='0'||typeof window.mgRenderUI!=='function')return;
+const root=document.documentElement;
+const reduz=()=>root.dataset.mgMotion==='reduce'||!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+/* Frases fixas e verificáveis; nunca vêm do banco. */
+const CITACOES={1:['Isto não é uma paz. É um armistício de vinte anos.','Marechal Ferdinand Foch, 1919'],2:['Nunca, no campo dos conflitos humanos, tantos deveram tanto a tão poucos.','Winston Churchill, 1940'],3:['Para nós, não há terra além do Volga.','Vasily Zaitsev, Stalingrado, 1942'],4:['Os olhos do mundo estão sobre vocês.','Gen. Dwight D. Eisenhower, Dia D, 1944'],5:['Preservar as gerações vindouras do flagelo da guerra.','Carta das Nações Unidas, 1945']};
+let ativo=false;
+
+/* ---------- Atmosfera: canvas 640x360, 30 FPS, partículas pré-alocadas, sem objetos novos por quadro ---------- */
+const A={cv:null,cx:null,raf:0,quadro:0,p:[],proximoClarao:0,clarao:0};
+function atmosLigar(){if(A.cv||reduz())return;const cv=document.createElement('canvas');cv.id='fxAtmos';cv.width=640;cv.height=360;cv.setAttribute('aria-hidden','true');document.body.prepend(cv);A.cv=cv;A.cx=cv.getContext('2d');if(!A.cx){atmosDesligar();return}
+ if(!A.p.length)for(let i=0;i<36;i++)A.p.push({x:Math.random()*640,y:Math.random()*360,v:.15+Math.random()*.45,r:.6+Math.random()*1.6,a:.08+Math.random()*.25});
+ A.proximoClarao=performance.now()+9000+Math.random()*14000;A.raf=requestAnimationFrame(atmosPasso)}
+function atmosDesligar(){cancelAnimationFrame(A.raf);A.raf=0;if(A.cv)A.cv.remove();A.cv=null;A.cx=null}
+function atmosPasso(t){A.raf=requestAnimationFrame(atmosPasso);if((++A.quadro&1)||document.hidden)return;const c=A.cx;c.clearRect(0,0,640,360);
+ /* clarão distante âmbar, no máximo 1 a cada 9-23 s, opacidade <= 0,12: bem abaixo de 3 flashes/s */
+ if(t>A.proximoClarao){A.clarao=1;A.proximoClarao=t+9000+Math.random()*14000}
+ if(A.clarao>0){c.fillStyle='rgba(255,198,58,'+(0.12*A.clarao).toFixed(3)+')';c.fillRect(0,0,640,120);A.clarao=Math.max(0,A.clarao-0.04)}
+ for(const p of A.p){p.y-=p.v;p.x+=Math.sin((p.y+p.r*50)/40)*.15;if(p.y<-4){p.y=364;p.x=Math.random()*640}c.globalAlpha=p.a;c.fillStyle='#ffb347';c.fillRect(p.x,p.y,p.r,p.r)}c.globalAlpha=1}
+
+/* ---------- Trilha: drone grave só depois de 'Ativar som' (SOM do fx); nós criados uma única vez ---------- */
+const D={g:null};
+function trilha(){const s=window.jgFx&&window.jgFx.som&&window.jgFx.som(),ctx=s&&s.ctx;const quer=ativo&&!!s&&s.on&&!!ctx&&!reduz()&&!document.hidden;
+ if(quer&&!D.g){try{const g=ctx.createGain(),lp=ctx.createBiquadFilter(),o1=ctx.createOscillator(),o2=ctx.createOscillator(),lfo=ctx.createOscillator(),lg=ctx.createGain();g.gain.value=0.0001;lp.type='lowpass';lp.frequency.value=240;o1.type='sine';o1.frequency.value=55;o2.type='triangle';o2.frequency.value=82.41;lfo.frequency.value=0.07;lg.gain.value=0.012;lfo.connect(lg);lg.connect(g.gain);o1.connect(lp);o2.connect(lp);lp.connect(g);g.connect(ctx.destination);o1.start();o2.start();lfo.start();D.g=g;D.ctx=ctx}catch{D.g=null}}
+ if(D.g)D.g.gain.setTargetAtTime(quer?0.03:0.0001,D.ctx.currentTime,0.8)}
+setInterval(trilha,1000);
+
+/* ---------- Pergunta: maior fonte que cabe na coluna, sem cortar o enunciado ---------- */
+function ajustarPergunta(){const main=document.querySelector('#mgApp .mg-public-main'),q=main&&main.querySelector('.mg-activity:not(.mg-activity-waiting) .mg-question');if(!q)return;const max=Math.round(Math.min(60,Math.max(32,window.innerWidth*0.03)));let px=max;q.style.setProperty('--fx-pergunta',px+'px');const limite=()=>{const b=document.getElementById('jgpBarra'),m=main.getBoundingClientRect().bottom;return Math.min(m,b?b.getBoundingClientRect().top:m,window.innerHeight)-6};while(px>24&&q.getBoundingClientRect().bottom>limite()){px-=2;q.style.setProperty('--fx-pergunta',px+'px')}}
+
+/* ---------- Classificação: destaca quem assumiu a liderança (classe do exército, não texto do banco) ---------- */
+let lider=null;
+function quadro(){const primeiro=document.querySelector('#mgApp .mg-ranking .mg-rank');if(!primeiro)return;const atual=primeiro.classList.contains('yellow')?'amarelo':'preto';if(lider&&atual!==lider&&!reduz()){primeiro.classList.add('fx-subiu');setTimeout(()=>primeiro.classList.remove('fx-subiu'),1100)}lider=atual}
+
+/* ---------- Cartela de fase: acrescenta a citação fixa à apresentação de fase que o site já mostra ---------- */
+new MutationObserver(()=>{if(!ativo)return;const t=document.getElementById('mgPhaseTransition'),box=t&&t.querySelector('.mg-cinema-title');if(!box||box.querySelector('.fx-citacao'))return;const m=/FASE (\d)/.exec(box.textContent||''),c=m&&CITACOES[m[1]];if(!c)return;const p=document.createElement('p'),s=document.createElement('small');p.className='fx-citacao';p.textContent='“'+c[0]+'”';s.textContent=c[1];p.append(s);box.append(p)}).observe(document.body,{childList:true});
+
+const anterior=window.mgRenderUI;
+window.mgRenderUI=function(view){anterior(view);const liga=root.classList.contains('fx-telao');if(liga!==ativo){ativo=liga;root.classList.toggle('fx-imersao',ativo);if(!ativo){atmosDesligar();lider=null}}
+ if(!ativo)return;if(reduz())atmosDesligar();else atmosLigar();ajustarPergunta();quadro()};
+window.addEventListener('resize',()=>{if(ativo)ajustarPergunta()});
+let pedido=0;const reajustar=()=>{if(!ativo||pedido)return;pedido=requestAnimationFrame(()=>{pedido=0;ajustarPergunta();quadro()})};
+let obsApp=null;setInterval(()=>{const app=document.getElementById('mgApp');if(app&&!obsApp){obsApp=new MutationObserver(reajustar);obsApp.observe(app,{childList:true,subtree:true})}},1000);
+try{if(typeof mgPaint==='function')mgPaint()}catch{}
+})();
+/* ==== /IMERSÃO DO TELÃO ==== */
+</script>
 </body></html>

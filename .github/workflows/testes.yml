@@ -77,6 +77,9 @@ jobs:
       - name: Plateia anônima, reações e medidor no telão
         run: node tests/plateia.cjs
 
+      - name: Imersão do telão (bloco isolado, fx=0, sem HTML do banco)
+        run: node tests/imersao.cjs
+
       - name: Sigilo do Conselho e tela do Alto Comando
         run: node tests/conselho-sigilo.cjs
 
