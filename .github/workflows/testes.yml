@@ -79,3 +79,6 @@ jobs:
 
       - name: Sigilo do Conselho e tela do Alto Comando
         run: node tests/conselho-sigilo.cjs
+
+      - name: Limites de coletiva e origem da roleta
+        run: node tests/limites-roleta.cjs
